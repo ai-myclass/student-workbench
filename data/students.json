@@ -1,10 +1,10 @@
 {
- "updatedAt": "2026-09-04T08:30:51.759Z",
+ "updatedAt": "2026-09-04T12:15:43.977Z",
  "hashAlgo": "fnv1a64",
- "courseSource": "activeCourses(回退·含习题课)",
+ "courseSource": "statCourses(正课)",
  "courseCount": 1,
  "courses": [
-  "习题课 开班家长会"
+  "第1讲 第01讲·化妆舞会-造型切换"
  ],
  "students": [
   {
@@ -15,14 +15,25 @@
    "school": "",
    "phoneHash": "630ca1cf1e2edfed",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.64,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.64,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "蓝何家兴",
@@ -32,14 +43,25 @@
    "school": "",
    "phoneHash": "80bac0ca27f593dc",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.65,
+    "listen": 0,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 40.64,
+    "minutes": 24
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "已通过",
+     "progress": 40.64,
+     "minutes": 24,
+     "quizRight": 4,
+     "quizAnswer": 4
+    }
+   }
   },
   {
    "name": "廖其恩",
@@ -49,14 +71,25 @@
    "school": "",
    "phoneHash": "c02f201550993d9f",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.48,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.48,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "李承涛",
@@ -66,14 +99,25 @@
    "school": "",
    "phoneHash": "3e8d3b0f5b54b036",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.64,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.64,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "李卓远",
@@ -83,14 +127,25 @@
    "school": "",
    "phoneHash": "ed2b0899418d14e6",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9500000000000001,
+    "listen": 1,
+    "accuracy": 0.8333333333333334,
+    "homework": 1,
+    "progress": 93.29,
+    "minutes": 56
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 93.29,
+     "minutes": 56,
+     "quizRight": 5,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "马坚淇",
@@ -100,14 +155,25 @@
    "school": "",
    "phoneHash": "dc1b2ffddde45fd9",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.51,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.51,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "孙梦诺伊",
@@ -117,14 +183,25 @@
    "school": "",
    "phoneHash": "c78e6ac64ec1228c",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.48,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.48,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "杜老泽",
@@ -134,14 +211,25 @@
    "school": "",
    "phoneHash": "a031e9da5fd2319b",
    "stats": {
-    "score": null,
-    "listen": null,
+    "score": 0.5,
+    "listen": 0,
     "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "homework": 1,
+    "progress": 0,
+    "minutes": 0
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "已通过",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
   },
   {
    "name": "熊煜坤",
@@ -151,14 +239,25 @@
    "school": "",
    "phoneHash": "64f545a0481736a1",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.18,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.18,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "周奕凯",
@@ -168,14 +267,25 @@
    "school": "",
    "phoneHash": "d0776bcb2edd8958",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.4,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.4,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "罗梓月",
@@ -185,14 +295,25 @@
    "school": "",
    "phoneHash": "e284ab068cacfc25",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.45,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.45,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "范子宸",
@@ -202,14 +323,25 @@
    "school": "",
    "phoneHash": "e39e8734d29314be",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9571428571428572,
+    "listen": 1,
+    "accuracy": 0.8571428571428571,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "黄逸宸",
@@ -219,14 +351,25 @@
    "school": "",
    "phoneHash": "2123e2e10b3b19e7",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "苏馥茗",
@@ -236,14 +379,25 @@
    "school": "",
    "phoneHash": "c6772fe15f00b58d",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "李金承",
@@ -253,14 +407,25 @@
    "school": "",
    "phoneHash": "371554ac2fb2c5d1",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.51,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.51,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "夏嘉岳",
@@ -270,14 +435,25 @@
    "school": "",
    "phoneHash": "1c430feb0a597943",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "王冠森",
@@ -287,14 +463,25 @@
    "school": "",
    "phoneHash": "4857b5a9d62c6c7b",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 99.4,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.4,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "罗雅南",
@@ -304,14 +491,25 @@
    "school": "",
    "phoneHash": "98a3940362f0f461",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.925,
+    "listen": 1,
+    "accuracy": 0.75,
+    "homework": 1,
+    "progress": 99.45,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.45,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "钟金櫀",
@@ -321,14 +519,25 @@
    "school": "",
    "phoneHash": "58a72df2cbe81ff5",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.5900000000000001,
+    "listen": 0,
+    "accuracy": 0.8,
+    "homework": 1,
+    "progress": 69.49,
+    "minutes": 42
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "已通过",
+     "progress": 69.49,
+     "minutes": 42,
+     "quizRight": 4,
+     "quizAnswer": 5
+    }
+   }
   },
   {
    "name": "孙艺嘉",
@@ -338,14 +547,25 @@
    "school": "",
    "phoneHash": "31f80f7e3a36d7f1",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9571428571428572,
+    "listen": 1,
+    "accuracy": 0.8571428571428571,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "王博逸",
@@ -355,14 +575,25 @@
    "school": "",
    "phoneHash": "abcc1029e6eb68e4",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.51,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.51,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "任雪妍",
@@ -372,14 +603,25 @@
    "school": "",
    "phoneHash": "67981345b1dde2e1",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.45,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.45,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "余崇欣",
@@ -389,14 +631,25 @@
    "school": "",
    "phoneHash": "0eb33a23287c3057",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.51,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.51,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "李毅卓",
@@ -406,14 +659,25 @@
    "school": "",
    "phoneHash": "50adf383fe1b9901",
    "stats": {
-    "score": null,
-    "listen": null,
+    "score": 0.5,
+    "listen": 0,
     "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "homework": 1,
+    "progress": 0,
+    "minutes": 0
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "已通过",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
   },
   {
    "name": "张学瑞",
@@ -423,14 +687,25 @@
    "school": "",
    "phoneHash": "c84763a25a90893a",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.7857142857142857,
+    "listen": 1,
+    "accuracy": 0.2857142857142857,
+    "homework": 1,
+    "progress": 98.91,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 25,
+     "hwStatus": "已通过",
+     "progress": 98.91,
+     "minutes": 60,
+     "quizRight": 2,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "陈雨彤",
@@ -440,14 +715,25 @@
    "school": "",
    "phoneHash": "7fadb59b82872ac0",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.51,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.51,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "李卓阳",
@@ -457,31 +743,53 @@
    "school": "",
    "phoneHash": "350e3f45819e4392",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "杨浩炜/欣然",
    "id": "555009",
-   "grade": "",
+   "grade": "初三",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.07,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.07,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "马俊斌",
@@ -491,14 +799,25 @@
    "school": "",
    "phoneHash": "819c831b5adc77f4",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 94.35,
+    "minutes": 57
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 94.35,
+     "minutes": 57,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "林子铭",
@@ -508,14 +827,25 @@
    "school": "",
    "phoneHash": "c318082f0a572231",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.92,
+    "minutes": 61
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.92,
+     "minutes": 61,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "许致远",
@@ -525,14 +855,25 @@
    "school": "",
    "phoneHash": "59dfdc842614084b",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.1,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.1,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "李君诚",
@@ -542,14 +883,25 @@
    "school": "",
    "phoneHash": "03b7377a19a8b069",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.18,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.18,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "向瑞",
@@ -559,14 +911,25 @@
    "school": "",
    "phoneHash": "630a1765f6fd6bfb",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.65,
+    "listen": 0,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 74.12,
+    "minutes": 45
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 74.12,
+     "minutes": 45,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "黄林欣",
@@ -576,14 +939,25 @@
    "school": "",
    "phoneHash": "5a6446bc6471fe29",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.04,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.04,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "黄炜杰",
@@ -593,14 +967,25 @@
    "school": "",
    "phoneHash": "61f972b059a0c295",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9500000000000001,
+    "listen": 1,
+    "accuracy": 0.8333333333333334,
+    "homework": 1,
+    "progress": 86,
+    "minutes": 52
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 86,
+     "minutes": 52,
+     "quizRight": 5,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "陈俊宇",
@@ -610,14 +995,25 @@
    "school": "",
    "phoneHash": "dac73f924e4ff464",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.8,
+    "listen": 1,
+    "accuracy": 0.3333333333333333,
+    "homework": 1,
+    "progress": 98.77,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 25,
+     "hwStatus": "已通过",
+     "progress": 98.77,
+     "minutes": 60,
+     "quizRight": 2,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "钟欣浩",
@@ -627,14 +1023,25 @@
    "school": "",
    "phoneHash": "6965d7f5de495721",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9142857142857144,
+    "listen": 1,
+    "accuracy": 0.7142857142857143,
+    "homework": 1,
+    "progress": 99.02,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 99.02,
+     "minutes": 60,
+     "quizRight": 5,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "王浚嘉",
@@ -644,31 +1051,53 @@
    "school": "",
    "phoneHash": "929a00d325efbb57",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.73,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.73,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "杨欣豪",
    "id": "6165146012",
-   "grade": "",
+   "grade": "二年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.18,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.18,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "孙浩祺",
@@ -678,14 +1107,25 @@
    "school": "",
    "phoneHash": "1695cf262e967308",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.24,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.24,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "苟俊哲",
@@ -695,14 +1135,25 @@
    "school": "",
    "phoneHash": "333329f48518a3af",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 99.15,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.15,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "吴雪琛",
@@ -712,14 +1163,25 @@
    "school": "",
    "phoneHash": "96dbfd538bfc04ad",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.74,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.74,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "赖昕怡",
@@ -729,14 +1191,25 @@
    "school": "",
    "phoneHash": "bdaf6de28cb20644",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.07,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.07,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "董静林",
@@ -746,14 +1219,25 @@
    "school": "",
    "phoneHash": "d187f527591467f8",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.21,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.21,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "潘宇辰",
@@ -763,14 +1247,25 @@
    "school": "",
    "phoneHash": "3081145ac6f6ebec",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9571428571428572,
+    "listen": 1,
+    "accuracy": 0.8571428571428571,
+    "homework": 1,
+    "progress": 94.51,
+    "minutes": 57
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 94.51,
+     "minutes": 57,
+     "quizRight": 6,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "高梓嵩",
@@ -780,31 +1275,53 @@
    "school": "",
    "phoneHash": "b95a0e66eb3a378b",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 81.85,
+    "minutes": 49
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 81.85,
+     "minutes": 49,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "刘霖轩",
    "id": "6758820259",
-   "grade": "",
+   "grade": "四年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.96,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.96,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "黄一铭",
@@ -814,14 +1331,25 @@
    "school": "",
    "phoneHash": "c7a5408c8a489541",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.07,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.07,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "葛妙琪",
@@ -831,14 +1359,25 @@
    "school": "",
    "phoneHash": "ca0b22775f4d7434",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.07,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.07,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "辛俊佳",
@@ -848,14 +1387,25 @@
    "school": "",
    "phoneHash": "62c0c8e3da4d0541",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 95.58,
+    "minutes": 58
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 95.58,
+     "minutes": 58,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "魏鑫煜",
@@ -865,14 +1415,25 @@
    "school": "",
    "phoneHash": "f2bd05a7ec10ab29",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.18,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.18,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "刘奕扬",
@@ -882,14 +1443,25 @@
    "school": "",
    "phoneHash": "3ec9add9f5025bb2",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 98.01,
+    "minutes": 59
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 98.01,
+     "minutes": 59,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "尹焕鑫",
@@ -899,31 +1471,53 @@
    "school": "",
    "phoneHash": "8b581a3d65b0ebb4",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.18,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.18,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "陈博渊",
    "id": "7238676815",
-   "grade": "",
+   "grade": "三年级",
    "gender": "男",
    "school": "",
    "phoneHash": "239beaca04def776",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9500000000000001,
+    "listen": 1,
+    "accuracy": 0.8333333333333334,
+    "homework": 1,
+    "progress": 98.96,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 98.96,
+     "minutes": 60,
+     "quizRight": 5,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "费启仁",
@@ -933,14 +1527,25 @@
    "school": "",
    "phoneHash": "f9e99a5a9daf5e90",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "夏源博",
@@ -950,14 +1555,25 @@
    "school": "",
    "phoneHash": "ca78e7ed2c5a9845",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 98.63,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 98.63,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "毛宇康",
@@ -967,14 +1583,25 @@
    "school": "",
    "phoneHash": "a1784d7577ac971f",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 96.37,
+    "minutes": 58
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 96.37,
+     "minutes": 58,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "潘奕翀",
@@ -984,14 +1611,25 @@
    "school": "",
    "phoneHash": "8f653fee12fb00a8",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 99.18,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.18,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "孙一航",
@@ -1001,14 +1639,25 @@
    "school": "",
    "phoneHash": "f79bce881a5cbec2",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.02,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.02,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "黄敏琪",
@@ -1018,14 +1667,25 @@
    "school": "",
    "phoneHash": "bc3c1c747a098f7e",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.04,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.04,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "魏达雅",
@@ -1035,14 +1695,25 @@
    "school": "",
    "phoneHash": "4e82941fd84bc198",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.15,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "已通过",
+     "progress": 99.15,
+     "minutes": 60,
+     "quizRight": 4,
+     "quizAnswer": 4
+    }
+   }
   },
   {
    "name": "郑俊熙",
@@ -1052,14 +1723,25 @@
    "school": "",
    "phoneHash": "cba41b33ad0358bf",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9400000000000001,
+    "listen": 1,
+    "accuracy": 0.8,
+    "homework": 1,
+    "progress": 99.02,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "已通过",
+     "progress": 99.02,
+     "minutes": 60,
+     "quizRight": 4,
+     "quizAnswer": 5
+    }
+   }
   },
   {
    "name": "林思成",
@@ -1069,14 +1751,25 @@
    "school": "",
    "phoneHash": "cc7cae3e9ac8675b",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.1,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.1,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "周楒橦",
@@ -1086,14 +1779,25 @@
    "school": "",
    "phoneHash": "719b28b7ea815d60",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 99.13,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.13,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "汤谨诚",
@@ -1103,14 +1807,25 @@
    "school": "",
    "phoneHash": "ce557263d2661302",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.14,
+    "minutes": 59
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 98.14,
+     "minutes": 59,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "高恒",
@@ -1120,14 +1835,25 @@
    "school": "",
    "phoneHash": "4434d8c562593118",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.26,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.26,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "李悦悦",
@@ -1137,14 +1863,25 @@
    "school": "",
    "phoneHash": "b9e3b10dc72b495e",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9571428571428572,
+    "listen": 1,
+    "accuracy": 0.8571428571428571,
+    "homework": 1,
+    "progress": 99.1,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.1,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "侯姝玥",
@@ -1154,14 +1891,25 @@
    "school": "",
    "phoneHash": "9526a73541f7e377",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 93.09,
+    "minutes": 56
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 93.09,
+     "minutes": 56,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "沈芯羽",
@@ -1171,14 +1919,25 @@
    "school": "",
    "phoneHash": "0e98ec5afaf79e3b",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.15,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.15,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "廖庭可",
@@ -1188,14 +1947,25 @@
    "school": "",
    "phoneHash": "fddcfb5dd65d96e7",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 97.68,
+    "minutes": 59
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 97.68,
+     "minutes": 59,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "张浩天",
@@ -1205,14 +1975,25 @@
    "school": "",
    "phoneHash": "4162eb48acfb109c",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.55,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 98.55,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "欧阳佩琴",
@@ -1222,14 +2003,25 @@
    "school": "",
    "phoneHash": "83bd6648bf4a39d1",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.02,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.02,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "马铭泽",
@@ -1239,14 +2031,25 @@
    "school": "",
    "phoneHash": "136e201a2167f2bd",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "张煜彤",
@@ -1256,14 +2059,25 @@
    "school": "",
    "phoneHash": "277b00f9d0d93eb1",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.925,
+    "listen": 1,
+    "accuracy": 0.75,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 38,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 3,
+     "quizAnswer": 4
+    }
+   }
   },
   {
    "name": "宋昊宸",
@@ -1273,31 +2087,53 @@
    "school": "",
    "phoneHash": "3f43dc0d4e7f569f",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.7,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.7,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "邵轩",
    "id": "7115733125",
-   "grade": "",
+   "grade": "四年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 100,
+    "minutes": 61
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 100,
+     "minutes": 61,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "李沛荣",
@@ -1307,14 +2143,25 @@
    "school": "",
    "phoneHash": "9e5e1645a491541b",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "贺艺宸",
@@ -1324,14 +2171,25 @@
    "school": "",
    "phoneHash": "878af6037f6299fa",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "申瀚文",
@@ -1341,14 +2199,25 @@
    "school": "",
    "phoneHash": "8e5b520134e6f052",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "张嘉铭",
@@ -1358,14 +2227,25 @@
    "school": "",
    "phoneHash": "22f307d46dacdfb0",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.8500000000000001,
+    "listen": 1,
+    "accuracy": 0.5,
+    "homework": 1,
+    "progress": 100,
+    "minutes": 61
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 38,
+     "hwStatus": "已通过",
+     "progress": 100,
+     "minutes": 61,
+     "quizRight": 3,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "陈雨果",
@@ -1375,14 +2255,25 @@
    "school": "",
    "phoneHash": "98df1ebba0b6764a",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "段嘉铭",
@@ -1392,14 +2283,25 @@
    "school": "",
    "phoneHash": "f1cd9e28bc14219e",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.48,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.48,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "薛睿擎",
@@ -1409,14 +2311,25 @@
    "school": "",
    "phoneHash": "86166d9a286016df",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.84,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.84,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "刘禁毅",
@@ -1426,31 +2339,53 @@
    "school": "",
    "phoneHash": "a795eea925cbbbbe",
    "stats": {
-    "score": null,
-    "listen": null,
+    "score": 0.5,
+    "listen": 0,
     "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "homework": 1,
+    "progress": 0,
+    "minutes": 0
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "已通过",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
   },
   {
    "name": "仁杰",
    "id": "5938483604",
-   "grade": "",
+   "grade": "三年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.925,
+    "listen": 1,
+    "accuracy": 0.75,
+    "homework": 1,
+    "progress": 99.07,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "待订正",
+     "progress": 99.07,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "廖佳钰",
@@ -1460,14 +2395,25 @@
    "school": "",
    "phoneHash": "558b72ce99a4a135",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 100,
+    "minutes": 61
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 100,
+     "minutes": 61,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "罗予彤",
@@ -1477,14 +2423,25 @@
    "school": "",
    "phoneHash": "f4199a517ff769f1",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.8800000000000001,
+    "listen": 1,
+    "accuracy": 0.6,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 38,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 3,
+     "quizAnswer": 5
+    }
+   }
   },
   {
    "name": "余周安",
@@ -1494,31 +2451,53 @@
    "school": "",
    "phoneHash": "7e938aa15edeb03f",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.8714285714285714,
+    "listen": 1,
+    "accuracy": 0.5714285714285714,
+    "homework": 1,
+    "progress": 99.1,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "待订正",
+     "progress": 99.1,
+     "minutes": 60,
+     "quizRight": 4,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "林兴澄",
    "id": "6310365346",
-   "grade": "",
+   "grade": "三年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "胡耀京",
@@ -1528,14 +2507,25 @@
    "school": "",
    "phoneHash": "a05576837d21381e",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.18,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.18,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "刘朔越",
@@ -1545,14 +2535,25 @@
    "school": "",
    "phoneHash": "44a47ff3f3fec9ee",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 99.1,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.1,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "棚程",
@@ -1596,14 +2597,25 @@
    "school": "",
    "phoneHash": "eb9736b788d82222",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.15000000000000002,
+    "listen": 0,
+    "accuracy": 0.5,
+    "homework": 0,
+    "progress": 63.77,
+    "minutes": 38
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 13,
+     "hwStatus": "未提交",
+     "progress": 63.77,
+     "minutes": 38,
+     "quizRight": 1,
+     "quizAnswer": 2
+    }
+   }
   },
   {
    "name": "杨子轩",
@@ -1613,14 +2625,25 @@
    "school": "",
    "phoneHash": "73f7243098cd8307",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.59,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.59,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "尹佳禾",
@@ -1630,14 +2653,25 @@
    "school": "",
    "phoneHash": "9e114c4e72dd2d95",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.75,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.75,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "刘嘉辰",
@@ -1647,14 +2681,25 @@
    "school": "",
    "phoneHash": "e04af1b506777ef7",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9142857142857144,
+    "listen": 1,
+    "accuracy": 0.7142857142857143,
+    "homework": 1,
+    "progress": 98.06,
+    "minutes": 59
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 98.06,
+     "minutes": 59,
+     "quizRight": 5,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "孙甜懿",
@@ -1664,14 +2709,25 @@
    "school": "",
    "phoneHash": "793092c5074244ad",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.30000000000000004,
+    "listen": 0,
+    "accuracy": 1,
+    "homework": 0,
+    "progress": 48.95,
+    "minutes": 29
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "未提交",
+     "progress": 48.95,
+     "minutes": 29,
+     "quizRight": 5,
+     "quizAnswer": 5
+    }
+   }
   },
   {
    "name": "国子煜",
@@ -1681,14 +2737,25 @@
    "school": "",
    "phoneHash": "a7af888590a789ba",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.54,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.54,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "贾煜鑫",
@@ -1698,14 +2765,25 @@
    "school": "",
    "phoneHash": "78bd0541f62d85f2",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9625000000000001,
+    "listen": 1,
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 98.63,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 98.63,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "张栩荧",
@@ -1715,14 +2793,25 @@
    "school": "",
    "phoneHash": "3cef881e6aa50fb7",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9,
+    "listen": 1,
+    "accuracy": 0.6666666666666666,
+    "homework": 1,
+    "progress": 89.63,
+    "minutes": 54
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 25,
+     "hwStatus": "待订正",
+     "progress": 89.63,
+     "minutes": 54,
+     "quizRight": 2,
+     "quizAnswer": 3
+    }
+   }
   },
   {
    "name": "叶英莲/兴潮",
@@ -1766,14 +2855,25 @@
    "school": "",
    "phoneHash": "789b7d4a04a25e25",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.59,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.59,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "柳钧益",
@@ -1783,31 +2883,53 @@
    "school": "",
    "phoneHash": "37fadfe43b3fc4f6",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 91.84,
+    "minutes": 56
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 91.84,
+     "minutes": 56,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "希希",
    "id": "7450751103",
-   "grade": "",
+   "grade": "二年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.65,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 0,
+    "progress": 100,
+    "minutes": 61
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "未提交",
+     "progress": 100,
+     "minutes": 61,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "张小钰",
@@ -1817,31 +2939,53 @@
    "school": "",
    "phoneHash": "17709efec26676d5",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.45,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.45,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "邓志恒",
    "id": "6640369880",
-   "grade": "",
+   "grade": "二年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9500000000000001,
+    "listen": 1,
+    "accuracy": 0.8333333333333334,
+    "homework": 1,
+    "progress": 99.81,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 99.81,
+     "minutes": 60,
+     "quizRight": 5,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "徐若晏",
@@ -1851,14 +2995,25 @@
    "school": "",
    "phoneHash": "9abc012484b7f287",
    "stats": {
-    "score": null,
-    "listen": null,
+    "score": 0.5,
+    "listen": 0,
     "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "homework": 1,
+    "progress": 0,
+    "minutes": 0
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "已通过",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
   },
   {
    "name": "叶子晨",
@@ -1868,14 +3023,25 @@
    "school": "",
    "phoneHash": "2b0069f58f638bbe",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.37,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.37,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "黄靖淇",
@@ -1902,14 +3068,25 @@
    "school": "",
    "phoneHash": "e738cd5f957beab5",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 85.37,
+    "minutes": 52
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 85.37,
+     "minutes": 52,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "赵崇楦",
@@ -1919,14 +3096,25 @@
    "school": "",
    "phoneHash": "c7f567e56e44fa32",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.56,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.56,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "圳圳",
@@ -1953,14 +3141,25 @@
    "school": "",
    "phoneHash": "5265b2ec6cd62374",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 92.06,
+    "minutes": 56
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 13,
+     "hwStatus": "待订正",
+     "progress": 92.06,
+     "minutes": 56,
+     "quizRight": 1,
+     "quizAnswer": 1
+    }
+   }
   },
   {
    "name": "吴秉润",
@@ -1970,14 +3169,25 @@
    "school": "",
    "phoneHash": "c40e45dae85a459a",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.45,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.45,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "陈乾煜",
@@ -1987,14 +3197,25 @@
    "school": "",
    "phoneHash": "8d363d56b0a98413",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.59,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 99.59,
+     "minutes": 60,
+     "quizRight": 5,
+     "quizAnswer": 5
+    }
+   }
   },
   {
    "name": "贾若楠",
@@ -2004,14 +3225,25 @@
    "school": "",
    "phoneHash": "e27a0b4ae7dd831a",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.29,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.29,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "张悦",
@@ -2021,14 +3253,25 @@
    "school": "",
    "phoneHash": "9c3a2f1aa3db7ce3",
    "stats": {
-    "score": null,
-    "listen": null,
+    "score": 0.5,
+    "listen": 1,
     "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "homework": 0,
+    "progress": 99.56,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.56,
+     "minutes": 60,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
   },
   {
    "name": "黄润东",
@@ -2038,14 +3281,25 @@
    "school": "",
    "phoneHash": "f068660e8833c2a0",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.1,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.1,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "晓晓",
@@ -2089,14 +3343,25 @@
    "school": "",
    "phoneHash": "9d06129d44b9d173",
    "stats": {
-    "score": null,
-    "listen": null,
+    "score": 0.5,
+    "listen": 0,
     "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "homework": 1,
+    "progress": 0,
+    "minutes": 0
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "已通过",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
   },
   {
    "name": "傅瀛华",
@@ -2106,14 +3371,25 @@
    "school": "",
    "phoneHash": "f662794d82725a75",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.84,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.84,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "黄屹锦",
@@ -2123,14 +3399,25 @@
    "school": "",
    "phoneHash": "c66e86fc645b7e86",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.8500000000000001,
+    "listen": 1,
+    "accuracy": 0.5,
+    "homework": 1,
+    "progress": 99.04,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "已通过",
+     "progress": 99.04,
+     "minutes": 60,
+     "quizRight": 4,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "殷铭轩",
@@ -2140,14 +3427,25 @@
    "school": "",
    "phoneHash": "324db133172da455",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.30000000000000004,
+    "listen": 0,
+    "accuracy": 1,
+    "homework": 0,
+    "progress": 57.88,
+    "minutes": 35
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "未提交",
+     "progress": 57.88,
+     "minutes": 35,
+     "quizRight": 4,
+     "quizAnswer": 4
+    }
+   }
   },
   {
    "name": "郑语辰",
@@ -2157,14 +3455,25 @@
    "school": "",
    "phoneHash": "7afa87e925f11edd",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9571428571428572,
+    "listen": 1,
+    "accuracy": 0.8571428571428571,
+    "homework": 1,
+    "progress": 98.96,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 98.96,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "蓁蓁",
@@ -2191,14 +3500,25 @@
    "school": "",
    "phoneHash": "6d6d5ce57b083998",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.65,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 0,
+    "progress": 95.06,
+    "minutes": 58
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "未提交",
+     "progress": 95.06,
+     "minutes": 58,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "唐梓杰",
@@ -2208,14 +3528,25 @@
    "school": "",
    "phoneHash": "e3867a36c2333e5e",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 93.15,
+    "minutes": 56
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 93.15,
+     "minutes": 56,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "郭辰安",
@@ -2225,31 +3556,53 @@
    "school": "",
    "phoneHash": "3dfaaeca28eea534",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.56,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.56,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "壹壹",
    "id": "6621673660",
-   "grade": "",
+   "grade": "二年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.5000000000000001,
+    "listen": 1,
+    "accuracy": 0.5,
+    "homework": 0,
+    "progress": 100,
+    "minutes": 61
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 13,
+     "hwStatus": "未提交",
+     "progress": 100,
+     "minutes": 61,
+     "quizRight": 1,
+     "quizAnswer": 2
+    }
+   }
   },
   {
    "name": "张桾博",
@@ -2276,14 +3629,25 @@
    "school": "",
    "phoneHash": "749e96b585a342ce",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.9500000000000001,
+    "listen": 1,
+    "accuracy": 0.8333333333333334,
+    "homework": 1,
+    "progress": 99.84,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 99.84,
+     "minutes": 60,
+     "quizRight": 5,
+     "quizAnswer": 6
+    }
+   }
   },
   {
    "name": "鲁多倢",
@@ -2293,14 +3657,25 @@
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.65,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.65,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "熙哥",
@@ -2344,14 +3719,25 @@
    "school": "",
    "phoneHash": "170cfa0256cff0b7",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.29,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.29,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "吴晓乐",
@@ -2361,23 +3747,23 @@
    "school": "",
    "phoneHash": "b3371250071c7364",
    "stats": {
-    "score": 0.5,
+    "score": 0.9625000000000001,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 95.98,
-    "minutes": 40
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 99.02,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 95.98,
-     "minutes": 40,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.02,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
     }
    }
   },
@@ -2407,20 +3793,20 @@
    "phoneHash": "b41241f993d3a4ae",
    "stats": {
     "score": 0.5,
-    "listen": 1,
+    "listen": 0,
     "accuracy": null,
-    "homework": 0,
-    "progress": 99.56,
-    "minutes": 41
+    "homework": 1,
+    "progress": 0,
+    "minutes": 0
    },
    "lessons": {
-    "习题课 开班家长会": {
-     "effective": true,
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
      "attend": false,
      "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.56,
-     "minutes": 41,
+     "hwStatus": "已通过",
+     "progress": 0,
+     "minutes": 0,
      "quizRight": 0,
      "quizAnswer": 0
     }
@@ -2434,23 +3820,23 @@
    "school": "",
    "phoneHash": "33a83310ecf5cf5a",
    "stats": {
-    "score": 0.5,
+    "score": 0.9625000000000001,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 92.84,
-    "minutes": 38
+    "accuracy": 0.875,
+    "homework": 1,
+    "progress": 99.02,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 92.84,
-     "minutes": 38,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.02,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 8
     }
    }
   },
@@ -2462,23 +3848,23 @@
    "school": "",
    "phoneHash": "3979271663e7e77a",
    "stats": {
-    "score": 0.5,
+    "score": 0.9142857142857144,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 82.27,
-    "minutes": 34
+    "accuracy": 0.7142857142857143,
+    "homework": 1,
+    "progress": 94.95,
+    "minutes": 57
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 82.27,
-     "minutes": 34,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 94.95,
+     "minutes": 57,
+     "quizRight": 5,
+     "quizAnswer": 7
     }
    }
   },
@@ -2502,19 +3888,30 @@
   {
    "name": "甜甜",
    "id": "7404786649",
-   "grade": "",
+   "grade": "三年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.35000000000000003,
+    "listen": 1,
+    "accuracy": 0,
+    "homework": 0,
+    "progress": 100,
+    "minutes": 61
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 100,
+     "minutes": 61,
+     "quizRight": 0,
+     "quizAnswer": 1
+    }
+   }
   },
   {
    "name": "小桃",
@@ -2541,14 +3938,25 @@
    "school": "",
    "phoneHash": "3e0ba5caee410acf",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "韩俊豪",
@@ -2558,23 +3966,23 @@
    "school": "",
    "phoneHash": "052084e462e83b4a",
    "stats": {
-    "score": 0.5,
+    "score": 1,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 95.19,
-    "minutes": 39
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.97,
+    "minutes": 61
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 95.19,
-     "minutes": 39,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 99.97,
+     "minutes": 61,
+     "quizRight": 7,
+     "quizAnswer": 7
     }
    }
   },
@@ -2586,23 +3994,23 @@
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": 0.5,
+    "score": 0.925,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 99.64,
-    "minutes": 41
+    "accuracy": 0.75,
+    "homework": 1,
+    "progress": 99.13,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.64,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.13,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 8
     }
    }
   },
@@ -2614,31 +4022,53 @@
    "school": "",
    "phoneHash": "c488df0c3013bb40",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.30000000000000004,
+    "listen": 0,
+    "accuracy": 1,
+    "homework": 0,
+    "progress": 72.45,
+    "minutes": 44
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 50,
+     "hwStatus": "未提交",
+     "progress": 72.45,
+     "minutes": 44,
+     "quizRight": 4,
+     "quizAnswer": 4
+    }
+   }
   },
   {
    "name": "王紫彤",
    "id": "5974507725",
-   "grade": "",
+   "grade": "三年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.8500000000000001,
+    "listen": 1,
+    "accuracy": 0.5,
+    "homework": 1,
+    "progress": 91.48,
+    "minutes": 55
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 25,
+     "hwStatus": "已通过",
+     "progress": 91.48,
+     "minutes": 55,
+     "quizRight": 2,
+     "quizAnswer": 4
+    }
+   }
   },
   {
    "name": "林楚妍",
@@ -2648,23 +4078,23 @@
    "school": "",
    "phoneHash": "7beb6a7e7d39d8b3",
    "stats": {
-    "score": 0.5,
+    "score": 0.9142857142857144,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 99.44,
-    "minutes": 41
+    "accuracy": 0.7142857142857143,
+    "homework": 1,
+    "progress": 97.95,
+    "minutes": 59
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.44,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 63,
+     "hwStatus": "已通过",
+     "progress": 97.95,
+     "minutes": 59,
+     "quizRight": 5,
+     "quizAnswer": 7
     }
    }
   },
@@ -2676,23 +4106,23 @@
    "school": "",
    "phoneHash": "9a977df705c74ed9",
    "stats": {
-    "score": 0.5,
+    "score": 1,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 98.85,
-    "minutes": 41
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 98.85,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 88,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 7,
+     "quizAnswer": 7
     }
    }
   },
@@ -2704,23 +4134,23 @@
    "school": "",
    "phoneHash": "5037bf9cbfc22bfd",
    "stats": {
-    "score": 0.5,
+    "score": 0.5750000000000001,
     "listen": 1,
-    "accuracy": null,
+    "accuracy": 0.75,
     "homework": 0,
-    "progress": 99.56,
-    "minutes": 41
+    "progress": 99.02,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": 38,
      "hwStatus": "未提交",
-     "progress": 99.56,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "progress": 99.02,
+     "minutes": 60,
+     "quizRight": 3,
+     "quizAnswer": 4
     }
    }
   },
@@ -2749,23 +4179,23 @@
    "school": "",
    "phoneHash": "4a8725f874b59585",
    "stats": {
-    "score": 0.5,
+    "score": 0.8,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 99.56,
-    "minutes": 41
+    "accuracy": 0.3333333333333333,
+    "homework": 1,
+    "progress": 87.55,
+    "minutes": 53
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.56,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 13,
+     "hwStatus": "待订正",
+     "progress": 87.55,
+     "minutes": 53,
+     "quizRight": 1,
+     "quizAnswer": 3
     }
    }
   },
@@ -2777,23 +4207,23 @@
    "school": "",
    "phoneHash": "7ca6021f0a025133",
    "stats": {
-    "score": 0.5,
+    "score": 0.9571428571428572,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 99.56,
-    "minutes": 41
+    "accuracy": 0.8571428571428571,
+    "homework": 1,
+    "progress": 99.07,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.56,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 99.07,
+     "minutes": 60,
+     "quizRight": 6,
+     "quizAnswer": 7
     }
    }
   },
@@ -2805,23 +4235,23 @@
    "school": "",
    "phoneHash": "127b76c15540b17e",
    "stats": {
-    "score": 0.5,
+    "score": 0.9400000000000001,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 99.56,
-    "minutes": 41
+    "accuracy": 0.8,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.56,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 50,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 4,
+     "quizAnswer": 5
     }
    }
   },
@@ -2833,14 +4263,25 @@
    "school": "",
    "phoneHash": "3ba5801e652adb9c",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 99.04,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 99.04,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "🚀天天",
@@ -2867,14 +4308,25 @@
    "school": "",
    "phoneHash": "6bbae2ee2b6a54e0",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.65,
+    "listen": 0,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 57.79,
+    "minutes": 35
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 38,
+     "hwStatus": "已通过",
+     "progress": 57.79,
+     "minutes": 35,
+     "quizRight": 3,
+     "quizAnswer": 3
+    }
+   }
   },
   {
    "name": "秦鲁辰",
@@ -2884,31 +4336,53 @@
    "school": "",
    "phoneHash": "c41fff9c95a94dd1",
    "stats": {
-    "score": null,
-    "listen": null,
+    "score": 0.5,
+    "listen": 0,
     "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "homework": 1,
+    "progress": 0,
+    "minutes": 0
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "已通过",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
   },
   {
    "name": "唐糖",
    "id": "7272151280",
-   "grade": "",
+   "grade": "三年级",
    "gender": "",
    "school": "",
    "phoneHash": "",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 0.65,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 0,
+    "progress": 88.92,
+    "minutes": 54
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 88,
+     "hwStatus": "未提交",
+     "progress": 88.92,
+     "minutes": 54,
+     "quizRight": 7,
+     "quizAnswer": 7
+    }
+   }
   },
   {
    "name": "林玥彤",
@@ -2918,23 +4392,23 @@
    "school": "",
    "phoneHash": "f99e680299c05c51",
    "stats": {
-    "score": 0.5,
+    "score": 1,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 94.55,
-    "minutes": 39
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.94,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 94.55,
-     "minutes": 39,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.94,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
     }
    }
   },
@@ -2946,34 +4420,6 @@
    "school": "",
    "phoneHash": "c9c12e3211c05300",
    "stats": {
-    "score": 0.5,
-    "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 99.6,
-    "minutes": 41
-   },
-   "lessons": {
-    "习题课 开班家长会": {
-     "effective": true,
-     "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.6,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
-    }
-   }
-  },
-  {
-   "name": "邓程淦",
-   "id": "7320946781",
-   "grade": "四年级",
-   "gender": "男",
-   "school": "",
-   "phoneHash": "35eb69ab592ae189",
-   "stats": {
     "score": null,
     "listen": null,
     "accuracy": null,
@@ -2984,6 +4430,34 @@
    "lessons": {}
   },
   {
+   "name": "邓程淦",
+   "id": "7320946781",
+   "grade": "四年级",
+   "gender": "男",
+   "school": "",
+   "phoneHash": "35eb69ab592ae189",
+   "stats": {
+    "score": 0.9500000000000001,
+    "listen": 1,
+    "accuracy": 0.8333333333333334,
+    "homework": 1,
+    "progress": 99.07,
+    "minutes": 60
+   },
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 63,
+     "hwStatus": "待订正",
+     "progress": 99.07,
+     "minutes": 60,
+     "quizRight": 5,
+     "quizAnswer": 6
+    }
+   }
+  },
+  {
    "name": "张辰亮",
    "id": "7324000494",
    "grade": "三年级",
@@ -2991,23 +4465,23 @@
    "school": "",
    "phoneHash": "57b9abb1564b90ff",
    "stats": {
-    "score": 0.5,
+    "score": 0.925,
     "listen": 1,
-    "accuracy": null,
-    "homework": 0,
-    "progress": 99.05,
-    "minutes": 41
+    "accuracy": 0.75,
+    "homework": 1,
+    "progress": 100,
+    "minutes": 61
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
-     "hwStatus": "未提交",
-     "progress": 99.05,
-     "minutes": 41,
-     "quizRight": 0,
-     "quizAnswer": 0
+     "accuracy": 75,
+     "hwStatus": "已通过",
+     "progress": 100,
+     "minutes": 61,
+     "quizRight": 6,
+     "quizAnswer": 8
     }
    }
   },
@@ -3019,14 +4493,25 @@
    "school": "",
    "phoneHash": "7e5896e329002b9c",
    "stats": {
-    "score": null,
-    "listen": null,
-    "accuracy": null,
-    "homework": null,
-    "progress": null,
-    "minutes": null
+    "score": 1,
+    "listen": 1,
+    "accuracy": 1,
+    "homework": 1,
+    "progress": 98.99,
+    "minutes": 60
    },
-   "lessons": {}
+   "lessons": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 100,
+     "hwStatus": "已通过",
+     "progress": 98.99,
+     "minutes": 60,
+     "quizRight": 8,
+     "quizAnswer": 8
+    }
+   }
   },
   {
    "name": "王一航",
@@ -3040,17 +4525,17 @@
     "listen": 1,
     "accuracy": null,
     "homework": 0,
-    "progress": 88.75,
-    "minutes": 37
+    "progress": 99.18,
+    "minutes": 60
    },
    "lessons": {
-    "习题课 开班家长会": {
+    "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
      "accuracy": 0,
      "hwStatus": "未提交",
-     "progress": 88.75,
-     "minutes": 37,
+     "progress": 99.18,
+     "minutes": 60,
      "quizRight": 0,
      "quizAnswer": 0
     }
@@ -3077,6 +4562,6 @@
  "_meta": {
   "phoneFull": 139,
   "phoneMissing": 31,
-  "withData": 16
+  "withData": 151
  }
 }

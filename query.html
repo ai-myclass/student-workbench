@@ -141,6 +141,14 @@
   }
   .canvas-box canvas { width: 100%; height: auto; display: block; border-radius: 12px; }
 
+  .nodata {
+    text-align: center; padding: 48px 20px 40px;
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .nodata-emoji { font-size: 56px; animation: bob 3s ease-in-out infinite; }
+  .nodata-title { font-size: 19px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+  .nodata-sub { font-size: 13px; color: var(--muted); line-height: 1.7; max-width: 280px; }
+
   .tip {
     margin-top: 12px; font-size: 12px; color: var(--muted);
     text-align: center; line-height: 1.7;
@@ -194,8 +202,13 @@
     </div>
     <div class="canvas-box">
       <canvas id="shareCanvas"></canvas>
+      <div class="nodata" id="noData" style="display:none">
+        <div class="nodata-emoji">🌱</div>
+        <div class="nodata-title">暂无学习记录</div>
+        <div class="nodata-sub">孩子已报名在册，正课开始后学习数据会在这里更新～<br/>如有疑问请联系辅导老师</div>
+      </div>
     </div>
-    <div class="tip">长按图片即可保存到相册 · 数据由辅导老师定期更新</div>
+    <div class="tip" id="tipMsg">长按图片即可保存到相册 · 数据由辅导老师定期更新</div>
   </div>
 
   <div class="foot">
@@ -230,7 +243,9 @@ var dataHint   = document.getElementById('dataHint');
 var result     = document.getElementById('result');
 var resultTitle= document.getElementById('resultTitle');
 var saveBtn    = document.getElementById('saveBtn');
+var tipMsg     = document.getElementById('tipMsg');
 var canvas     = document.getElementById('shareCanvas');
+var noData     = document.getElementById('noData');
 
 var DATA = null;          // 服务端 JSON
 var loaded = false;
@@ -289,16 +304,35 @@ function doSearch() {
 }
 
 /* ═══════════════ 渲染结果 ═══════════════ */
+// 是否有真实学习记录：综合分 > 0 才视为已产生有效学习
+function hasRealData(s) {
+  return !!(s && s.stats && s.stats.score != null && s.stats.score > 0);
+}
+
 function showResult(s) {
   current = s;
-  var courses = DATA.courses || [];
-  // 与工作台导出口径一致：默认展示 有效听课率 / 答题正确率 / 练习完成率
-  SWBShare.draw(canvas, s, courses, {
-    metrics: { listen: true, accuracy: true, homework: true },
-    showChips: true,
-    footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
-  });
   resultTitle.textContent = '查询结果 · ' + (s.name || '学员');
+
+  if (!hasRealData(s)) {
+    // 查到学员，但暂无学习记录：隐藏分享图与保存按钮，显示提示卡片
+    canvas.style.display = 'none';
+    noData.style.display = 'flex';
+    saveBtn.style.display = 'none';
+    tipMsg.textContent = '孩子已报名在册，正课开始后学习数据会在这里更新 · 如有疑问请联系辅导老师';
+  } else {
+    noData.style.display = 'none';
+    canvas.style.display = 'block';
+    saveBtn.style.display = 'inline-block';
+    tipMsg.textContent = '长按图片即可保存到相册 · 数据由辅导老师定期更新';
+    var courses = DATA.courses || [];
+    // 与工作台导出口径一致：默认展示 有效听课率 / 答题正确率 / 练习完成率
+    SWBShare.draw(canvas, s, courses, {
+      metrics: { listen: true, accuracy: true, homework: true },
+      showChips: true,
+      footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
+    });
+  }
+
   result.classList.add('show');
   // 滚动到结果
   setTimeout(function () {

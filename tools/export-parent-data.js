@@ -105,47 +105,64 @@ if (!courses.length) {
 // 第二次 refresh：按最终确定的讲次口径重算统计，保证 stats 与导出的 courses 一致
 SWB.refresh(db, courses);
 
-let phoneFull = 0, phoneMissing = 0;
-const students = db.students.map((s) => {
-  // 仅导出查询与绘图所需的字段，去掉内部状态
-  const lessons = {};
-  courses.forEach((cn) => {
-    const l = s.lessons && s.lessons[cn];
-    if (!l) return;
-    lessons[cn] = {
-      effective: !!l.effective,
-      attend: !!l.attend,
-      accuracy: (l.accuracy == null ? null : l.accuracy),
-      hwStatus: l.hwStatus || '',
-      progress: l.progress || 0,
-      minutes: l.durationMin || 0,
-      quizRight: l.quizRight || 0,
-      quizAnswer: l.quizAnswer || 0
-    };
-  });
+// 建立学习数据索引：按 rosterKey 与姓名，便于把学习记录挂到学情表学员上
+const learnByKey = {};
+const learnByName = {};
+db.students.forEach((s) => {
+  if (s.rosterKey) learnByKey[s.rosterKey] = s;
+  if (s.name) learnByName[s.name] = s;
+});
 
-  const rp = resolvePhone(s);
-  if (rp.from !== 'incomplete') phoneFull++;
+// 以学情表（roster）全量为查询对象：在册学员家长都能凭手机号查到自己的孩子。
+// 有学习记录的显示报告；暂无记录的保持为 null，由查询页提示「暂无学习记录」。
+let phoneFull = 0, phoneMissing = 0, withData = 0;
+const rosterSource = (db.roster && db.roster.students) || [];
+const students = rosterSource.map((r) => {
+  const ph = normalizePhone(r.phone);
+  const hasPhone = ph.length >= 11;
+  if (hasPhone) phoneFull++;
   else phoneMissing++;
 
+  const learn = (r.key && learnByKey[r.key]) || (r.name && learnByName[r.name]) || null;
+  // 仅当产生了有效综合分（>0）才视为「有学习记录」，其余归为暂无记录
+  const hasReal = !!(learn && learn.stats && learn.stats.score > 0);
+  const lessons = {};
+  if (hasReal) {
+    courses.forEach((cn) => {
+      const l = learn.lessons && learn.lessons[cn];
+      if (!l) return;
+      lessons[cn] = {
+        effective: !!l.effective,
+        attend: !!l.attend,
+        accuracy: (l.accuracy == null ? null : l.accuracy),
+        hwStatus: l.hwStatus || '',
+        progress: l.progress || 0,
+        minutes: l.durationMin || 0,
+        quizRight: l.quizRight || 0,
+        quizAnswer: l.quizAnswer || 0
+      };
+    });
+  }
+  const st = hasReal ? learn.stats : null;
+  if (hasReal) withData++;
+
   return {
-    name: s.name || '',
-    id: s.id || '',
-    grade: s.grade || '',
-    gender: s.gender || '',
-    school: s.school || '',
-    phoneHash: rp.from === 'incomplete' ? '' : phoneHash(rp.phone),
-    stats: {
-      score: s.stats ? s.stats.score : null,
-      listen: s.stats ? s.stats.listen : null,
-      accuracy: s.stats ? s.stats.accuracy : null,
-      homework: s.stats ? s.stats.homework : null,
-      progress: s.stats ? s.stats.progress : null,
-      minutes: s.stats ? s.stats.minutes : null
+    name: r.name || '',
+    id: r.key || r.id || '',
+    grade: r.grade || (st ? (learn.grade || '') : ''),
+    gender: r.gender || '',
+    school: r.school || '',
+    phoneHash: hasPhone ? phoneHash(ph) : '',
+    stats: st ? {
+      score: st.score, listen: st.listen, accuracy: st.accuracy,
+      homework: st.homework, progress: st.progress, minutes: st.minutes
+    } : {
+      score: null, listen: null, accuracy: null,
+      homework: null, progress: null, minutes: null
     },
     lessons: lessons
   };
-}).filter((s) => Object.keys(s.lessons).length > 0);
+});
 
 const out = {
   updatedAt: new Date().toISOString(),
@@ -165,5 +182,6 @@ console.log('已生成 ' + outFile);
 console.log('  学习数据合并：新增 ' + merged.added + ' / 更新 ' + merged.updated + '，讲次 ' + merged.newCourses);
 console.log('  学情档案：' + rosterCount + ' 份，匹配 ' + (db.rosterMatched || 0) + ' 人');
 console.log('  参与统计的讲次：' + courses.length + ' 讲（来源 ' + courseSource + '）');
-console.log('  导出学员：' + students.length + ' 人（仅含 phoneHash，不含手机号明文）');
+console.log('  导出学员：' + students.length + ' 人（以学情表全量为准，仅含 phoneHash，不含手机号明文）');
 console.log('  可用手机查询：' + phoneFull + ' 人；号码不完整无法查询：' + phoneMissing + ' 人');
+console.log('  其中有学习报告：' + withData + ' 人；查到但暂无学习记录：' + (phoneFull - withData) + ' 人');

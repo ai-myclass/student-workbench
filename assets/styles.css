@@ -87,6 +87,13 @@ ul{margin:0;padding:0;list-style:none;}
 .btn-ghost:hover{color:var(--ink);box-shadow:inset 0 0 0 2px #E2D6EE;transform:translateY(-1px);}
 .btn-danger{background:#FFECEC;color:#D64545;box-shadow:inset 0 0 0 2px #FFD3D3;}
 .btn-danger:hover{background:#FFDDDD;}
+.btn-accent{background:var(--purple);color:#fff;box-shadow:0 4px 0 #9A5BE8;}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 6px 0 #9A5BE0;}
+.btn-accent:active{transform:translateY(2px);box-shadow:0 2px 0 #9A5BE0;}
+.btn-accent:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:0 4px 0 #9A5BE0;}
+.token-wrap{display:flex;gap:8px;align-items:center;min-width:260px;}
+#ghToken{width:220px;padding:8px 12px;border-radius:10px;border:2px solid var(--line);font-size:13px;font-family:inherit;color:var(--ink);outline:none;transition:border-color .15s;}
+#ghToken:focus{border-color:var(--purple);}
 
 /* ---------- Tab ---------- */
 .tabs{

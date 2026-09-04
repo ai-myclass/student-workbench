@@ -7,6 +7,13 @@
 
   var U = SWB.util;
   var LS_KEY = 'swb_student_workbench_v2';
+  // 家长查询页一键同步相关配置（GitHub 仓库与文件）
+  var GH_TOKEN_KEY = 'swb_gh_token';                 // 仅存本机浏览器
+  var GH_API_BASE = 'https://api.github.com';
+  var GH_REPO = 'ai-myclass/student-workbench';       // owner/repo
+  var GH_FILE = 'data/students.json';                 // 家长查询数据源
+  var GH_PAGES_URL = 'https://ai-myclass.github.io/student-workbench/query.html';
+  var ghTokenRaw = '';   // 真实令牌的内存镜像，避免界面遮罩后回存到错误值
   var PALETTE = ['#FF7A59', '#4DA3FF', '#3EC46D', '#FFC53D', '#B57BFF', '#FF8FB1', '#41C7C7', '#FF9F45'];
 
   /** 分享图可勾选的指标（key 对应lesson对象字段，color 为折线颜色，def 为默认勾选） */
@@ -1077,6 +1084,11 @@
     // 数据源
     renderSourceList('#rosterSourceList', (db.roster && db.roster.sources) || [], '还没有导入学情表');
     renderSourceList('#sourceList', db.sources || [], '还没有导入学习数据');
+
+    // 回填已保存的 GitHub 令牌（仅显示是否已设置，不回显明文全部，避免误读）
+    var tk = getToken();
+    ghTokenRaw = tk;
+    if (tk) $('#ghToken').value = tk.length > 11 ? (tk.slice(0, 6) + '••••••••' + tk.slice(-4)) : tk;
   }
 
   function renderSourceList(sel, list, emptyTxt) {
@@ -1251,6 +1263,91 @@
     toast('已导出完整数据（含手机号，请发管理员固化到家长查询页）');
   }
 
+  /* ---------------- 一键同步家长查询页 ---------------- */
+  function getToken() { return (localStorage.getItem(GH_TOKEN_KEY) || '').trim(); }
+
+  function saveToken() {
+    var v = ($('#ghToken').value || '').trim();
+    // 若界面显示的是遮罩串且用户未改动，使用内存镜像中的真实令牌
+    var real = (ghTokenRaw && /[•]/.test(v)) ? ghTokenRaw : v;
+    if (!real) { localStorage.removeItem(GH_TOKEN_KEY); ghTokenRaw = ''; toast('已清除 GitHub 令牌'); return; }
+    localStorage.setItem(GH_TOKEN_KEY, real);
+    ghTokenRaw = real;
+    toast('GitHub 令牌已保存（仅存本机）');
+  }
+
+  /** 把当前数据推送到 GitHub 仓库，触发 Pages 重建，家长立即可查 */
+  function syncParentData() {
+    var token = getToken();
+    if (!token) {
+      toast('请先在「数据管理」填写 GitHub 访问令牌');
+      // 跳到数据管理页，方便填写
+      $$('.tab').forEach(function (t) { t.classList.toggle('active', t.dataset.view === 'import'); });
+      $$('.view').forEach(function (v) { v.classList.toggle('active', v.id === 'view-import'); });
+      $('#ghToken').focus();
+      return;
+    }
+    if (!db.students.length && !hasRoster()) { toast('当前没有数据，无法同步'); return; }
+
+    var btn = $('#btnSync');
+    btn.disabled = true;
+    toast('正在生成家长查询数据…');
+
+    var payload, content;
+    try {
+      payload = SWBParent.build(db, SWB);
+      content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 1))));
+    } catch (e) {
+      btn.disabled = false;
+      toast('生成失败：' + e.message);
+      return;
+    }
+
+    var headers = {
+      Authorization: 'token ' + token,
+      Accept: 'application/vnd.github+json'
+    };
+    var url = GH_API_BASE + '/repos/' + GH_REPO + '/contents/' + GH_FILE;
+
+    // 先取 sha（文件已存在时更新需要）
+    fetch(url, { headers: headers })
+      .then(function (r) { return r.status === 200 ? r.json() : null; })
+      .then(function (meta) {
+        var body = {
+          message: 'sync: 更新家长查询数据 ' + new Date().toISOString(),
+          content: content
+        };
+        if (meta && meta.sha) body.sha = meta.sha;
+        return fetch(url, {
+          method: 'PUT',
+          headers: Object.assign({ 'Content-Type': 'application/json' }, headers),
+          body: JSON.stringify(body)
+        });
+      })
+      .then(function (r) {
+        if (!r.ok) return r.json().then(function (j) { throw new Error(j.message || ('HTTP ' + r.status)); });
+        return r.json();
+      })
+      .then(function (res) {
+        btn.disabled = false;
+        if (res && res.content && res.content.sha) {
+          var n = payload.students.length;
+          var q = payload._meta.phoneFull;
+          var rep = payload._meta.withData;
+          toast('已同步！' + n + ' 名学员（' + q + ' 人可查，' + rep + ' 人有报告）。家长稍后刷新即可查到');
+        } else {
+          toast('同步异常，请检查令牌权限后重试');
+        }
+      })
+      .catch(function (e) {
+        btn.disabled = false;
+        var msg = e && e.message ? e.message : String(e);
+        if (/401|403/.test(msg)) msg = '令牌无权限，请确认具有该仓库 repo 权限';
+        else if (/network|Failed to fetch|CORS/i.test(msg)) msg = '网络或跨域被拦截，请检查网络后重试';
+        toast('同步失败：' + msg);
+      });
+  }
+
   /* =========================================================
    * 事件绑定
    * ======================================================= */
@@ -1380,9 +1477,12 @@
       recompute(); save(); renderAll();
     });
 
-    // 导出 / 清空
+    // 导出 / 同步 / 清空
     $('#btnExport').addEventListener('click', exportCSV);
-    $('#btnExportRoster').addEventListener('click', exportRosterCSV);
+    $('#btnExportDB').addEventListener('click', exportDBJSON);
+    $('#btnSync').addEventListener('click', syncParentData);
+    $('#btnSaveToken').addEventListener('click', saveToken);
+    $('#ghToken').addEventListener('input', function () { ghTokenRaw = this.value; });
     $('#btnClear').addEventListener('click', function () {
       if (!db.students.length && !hasRoster()) { toast('当前没有数据'); return; }
       if (!confirm('确定清空全部数据吗？包含 ' + db.students.length + ' 名学员与 ' +

@@ -7,8 +7,9 @@
  * 说明：
  *  - 数据来源：assets/sample-data.js（学习数据）+ assets/roster-data.js（学情档案），
  *    与工作台首次启动时的合并流程一致（mergeInto → mergeRosterInto → applyRoster → refresh）。
- *  - 隐私：Pages 站点是公开的，因此**不输出家长手机号明文**，只输出 phoneHash
- *    （FNV-1a 64 位确定性哈希，与 query.html 中的实现完全一致），查询时比对哈希。
+ *  - 生成逻辑全部委托给 assets/parent-data.js（SWBParent.build），
+ *    与工作台「更新家长查询」按钮复用同一套代码，保证产物一致、不漂移。
+ *  - 隐私：Pages 站点是公开的，因此**不输出家长手机号明文**，只输出 phoneHash。
  */
 'use strict';
 
@@ -17,25 +18,6 @@ const path = require('path');
 const vm = require('vm');
 
 const ROOT = path.resolve(__dirname, '..');
-
-/* ---------- 与 query.html 保持一致的哈希实现 ---------- */
-function normalizePhone(v) {
-  return String(v == null ? '' : v).replace(/\D/g, '');
-}
-/** FNV-1a 64 位（用两个 32 位半字模拟），返回 16 进制串 */
-function phoneHash(phone) {
-  const s = normalizePhone(phone);
-  if (!s) return '';
-  let h1 = 0x811c9dc5, h2 = 0x01000193;
-  for (let i = 0; i < s.length; i++) {
-    const c = s.charCodeAt(i);
-    h1 ^= c; h1 = Math.imul(h1, 0x01000193) >>> 0;
-    h2 = (h2 ^ c) >>> 0; h2 = Math.imul(h2, 0x85ebca6b) >>> 0;
-    h2 ^= h2 >>> 13; h2 >>>= 0;
-  }
-  const hex = (n) => ('00000000' + (n >>> 0).toString(16)).slice(-8);
-  return hex(h1) + hex(h2);
-}
 
 /* ---------- 在沙箱里加载浏览器端脚本 ---------- */
 function loadBrowserScript(file) {
@@ -50,6 +32,9 @@ function loadBrowserScript(file) {
 const parserWin = loadBrowserScript('parser.js');
 const SWB = parserWin.SWB;
 if (!SWB) { console.error('parser.js 未导出 SWB'); process.exit(1); }
+
+// parent-data.js 在 Node 下通过 module.exports 暴露
+const SWBParent = require(path.join(ROOT, 'assets', 'parent-data.js'));
 
 const sampleWin = loadBrowserScript('sample-data.js');
 const rosterWin = loadBrowserScript('roster-data.js');
@@ -70,110 +55,10 @@ if (rosterWin.SWB_ROSTER && rosterWin.SWB_ROSTER.students) {
   SWB.applyRoster(db);
 }
 
-// 第一次 refresh：算出 activeCourses / statCourses，以便挑选口径
 SWB.refresh(db, null);
 
-/* ---------- 手机号解析 ---------- */
-/**
- * 平台导出的学习数据里手机号常被脱敏成「159****7600」，
- * 而 applyRoster 只在学员字段为空时才回填档案，所以完整号码仍留在学情表里。
- * 这里以学情表为准补全：优先用学员自带完整号，否则用其匹配到的档案号。
- */
-const rosterByKey = {};
-(db.roster.students || []).forEach((r) => { if (r && r.key) rosterByKey[r.key] = r; });
-
-function isFullPhone(v) { return normalizePhone(v).length >= 11; }
-
-function resolvePhone(s) {
-  if (isFullPhone(s.phone)) return { phone: normalizePhone(s.phone), from: 'student' };
-  const r = s.rosterKey ? rosterByKey[s.rosterKey] : null;
-  if (r && isFullPhone(r.phone)) return { phone: normalizePhone(r.phone), from: 'roster' };
-  return { phone: normalizePhone(s.phone), from: 'incomplete' };
-}
-
-/* ---------- 组装输出 ---------- */
-// 口径与工作台一致：优先用「正课」(statCourses，已剔除习题课)。
-// 但若正课尚无数据（例如课程只开了家长会、正式讲次还没开始），
-// 则回退到「有学员实际参与的讲次」(activeCourses)，避免家长看到空白页。
-let courses = (db.statCourses && db.statCourses.length) ? db.statCourses : [];
-let courseSource = 'statCourses(正课)';
-if (!courses.length) {
-  courses = (db.activeCourses && db.activeCourses.length) ? db.activeCourses : [];
-  courseSource = 'activeCourses(回退·含习题课)';
-}
-
-// 第二次 refresh：按最终确定的讲次口径重算统计，保证 stats 与导出的 courses 一致
-SWB.refresh(db, courses);
-
-// 建立学习数据索引：按 rosterKey 与姓名，便于把学习记录挂到学情表学员上
-const learnByKey = {};
-const learnByName = {};
-db.students.forEach((s) => {
-  if (s.rosterKey) learnByKey[s.rosterKey] = s;
-  if (s.name) learnByName[s.name] = s;
-});
-
-// 以学情表（roster）全量为查询对象：在册学员家长都能凭手机号查到自己的孩子。
-// 有学习记录的显示报告；暂无记录的保持为 null，由查询页提示「暂无学习记录」。
-let phoneFull = 0, phoneMissing = 0, withData = 0;
-const rosterSource = (db.roster && db.roster.students && db.roster.students.length)
-  ? db.roster.students
-  : (db.students || []);
-const students = rosterSource.map((r) => {
-  const ph = normalizePhone(r.phone);
-  const hasPhone = ph.length >= 11;
-  if (hasPhone) phoneFull++;
-  else phoneMissing++;
-
-  const learn = (r.key && learnByKey[r.key]) || (r.name && learnByName[r.name]) || null;
-  // 仅当产生了有效综合分（>0）才视为「有学习记录」，其余归为暂无记录
-  const hasReal = !!(learn && learn.stats && learn.stats.score > 0);
-  const lessons = {};
-  if (hasReal) {
-    courses.forEach((cn) => {
-      const l = learn.lessons && learn.lessons[cn];
-      if (!l) return;
-      lessons[cn] = {
-        effective: !!l.effective,
-        attend: !!l.attend,
-        accuracy: (l.accuracy == null ? null : l.accuracy),
-        hwStatus: l.hwStatus || '',
-        progress: l.progress || 0,
-        minutes: l.durationMin || 0,
-        quizRight: l.quizRight || 0,
-        quizAnswer: l.quizAnswer || 0
-      };
-    });
-  }
-  const st = hasReal ? learn.stats : null;
-  if (hasReal) withData++;
-
-  return {
-    name: r.name || '',
-    id: r.key || r.id || '',
-    grade: r.grade || (st ? (learn.grade || '') : ''),
-    gender: r.gender || '',
-    school: r.school || '',
-    phoneHash: hasPhone ? phoneHash(ph) : '',
-    stats: st ? {
-      score: st.score, listen: st.listen, accuracy: st.accuracy,
-      homework: st.homework, progress: st.progress, minutes: st.minutes
-    } : {
-      score: null, listen: null, accuracy: null,
-      homework: null, progress: null, minutes: null
-    },
-    lessons: lessons
-  };
-});
-
-const out = {
-  updatedAt: new Date().toISOString(),
-  hashAlgo: 'fnv1a64',
-  courseSource: courseSource,
-  courseCount: courses.length,
-  courses: courses,
-  students: students
-};
+/* ---------- 生成家长查询数据（共用模块） ---------- */
+const out = SWBParent.build(db, SWB);
 
 const outDir = path.join(ROOT, 'data');
 if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
@@ -183,7 +68,7 @@ fs.writeFileSync(outFile, JSON.stringify(out, null, 1), 'utf8');
 console.log('已生成 ' + outFile);
 console.log('  学习数据合并：新增 ' + merged.added + ' / 更新 ' + merged.updated + '，讲次 ' + merged.newCourses);
 console.log('  学情档案：' + rosterCount + ' 份，匹配 ' + (db.rosterMatched || 0) + ' 人');
-console.log('  参与统计的讲次：' + courses.length + ' 讲（来源 ' + courseSource + '）');
-console.log('  导出学员：' + students.length + ' 人（以学情表全量为准，仅含 phoneHash，不含手机号明文）');
-console.log('  可用手机查询：' + phoneFull + ' 人；号码不完整无法查询：' + phoneMissing + ' 人');
-console.log('  其中有学习报告：' + withData + ' 人；查到但暂无学习记录：' + (phoneFull - withData) + ' 人');
+console.log('  参与统计的讲次：' + out.courses.length + ' 讲（来源 ' + out.courseSource + '）');
+console.log('  导出学员：' + out.students.length + ' 人（以学情表全量为准，仅含 phoneHash，不含手机号明文）');
+console.log('  可用手机查询：' + out._meta.phoneFull + ' 人；号码不完整无法查询：' + out._meta.phoneMissing + ' 人');
+console.log('  其中有学习报告：' + out._meta.withData + ' 人；查到但暂无学习记录：' + (out._meta.phoneFull - out._meta.withData) + ' 人');

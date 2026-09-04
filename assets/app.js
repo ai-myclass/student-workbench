@@ -1281,10 +1281,55 @@
     if (!db.students.length && !hasRoster()) loadFromCloud(true);
   }
 
-  function ghHeaders(token) {
-    return { Authorization: 'token ' + token, Accept: 'application/vnd.github+json' };
+  /* 跨设备更新链接：把令牌做轻混淆后编入 URL，其他设备打开即自动绑定，无需手填令牌 */
+  function b64urlEncode(s){ return btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,''); }
+  function b64urlDecode(s){ s=s.replace(/-/g,'+').replace(/_/g,'/'); while(s.length%4) s+='='; return decodeURIComponent(escape(atob(s))); }
+  function xorCrypt(s, salt){ var o=''; for(var i=0;i<s.length;i++) o+=String.fromCharCode(s.charCodeAt(i)^salt.charCodeAt(i%s.length)); return o; }
+  function copyText(t){
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t);
+    return new Promise(function(res, rej){ try{ var ta=document.createElement('textarea'); ta.value=t; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); res(); }catch(e){ rej(e);} });
   }
-  /** 读取仓库文件（GitHub Contents API），不存在返回 null */
+  /** 常用设备：生成一条「更新链接」，自带访问凭证，发到其他设备打开即自动绑定令牌 */
+  function genSyncLink() {
+    var token = getToken();
+    if (!token) { toast('本设备尚未绑定令牌，无法生成更新链接'); return; }
+    var salt = Math.random().toString(36).slice(2, 10);
+    var enc = b64urlEncode(xorCrypt(token, salt));
+    var link = location.origin + location.pathname + '?sync=' + encodeURIComponent(salt + '.' + enc);
+    var out = $('#syncLinkOut');
+    if (out) out.value = link;
+    copyText(link).then(function () {
+      toast('更新链接已复制，发到其他设备打开即可（含访问凭证，请勿转发他人）');
+    }).catch(function () { toast('链接已生成，请手动复制下方文本框内容'); });
+  }
+  /** 其他设备：打开带 ?sync= 的链接时自动恢复令牌并拉取最新数据 */
+  function applySyncFromUrl() {
+    var m = location.search.match(/[?&]sync=([^&]+)/);
+    if (!m) return false;
+    try {
+      var raw = decodeURIComponent(m[1]);
+      var dot = raw.indexOf('.');
+      if (dot < 0) return false;
+      var salt = raw.slice(0, dot), enc = raw.slice(dot + 1);
+      var token = xorCrypt(b64urlDecode(enc), salt);
+      if (!/^(ghp_|github_pat_)/i.test(token)) return false;
+      localStorage.setItem(GH_TOKEN_KEY, token);
+      ghTokenRaw = token;
+      var inp = $('#ghToken');
+      if (inp) inp.value = token.length > 11 ? (token.slice(0, 6) + '••••••••' + token.slice(-4)) : token;
+      toast('已从更新链接自动绑定令牌，正在拉取最新数据…');
+      loadFromCloud(true);
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function ghHeaders(token) {
+    var h = { Accept: 'application/vnd.github+json' };
+    // 公开仓库文件可免令牌读取；仅写入（PUT）需要令牌
+    if (token) h.Authorization = 'token ' + token;
+    return h;
+  }
+  /** 读取仓库文件（GitHub Contents API），不存在返回 null。token 为空时以匿名身份读取公开文件 */
   function ghGetFile(path, token) {
     var url = GH_API_BASE + '/repos/' + GH_REPO + '/contents/' + path;
     return fetch(url, { headers: ghHeaders(token) }).then(function (r) {
@@ -1397,16 +1442,9 @@
     return m;
   }
 
-  /** 从云端拉取数据到本机（跨设备更新） */
+  /** 从云端拉取数据到本机（跨设备更新）。公开文件免令牌即可读取 */
   function loadFromCloud(silent) {
     var token = getToken();
-    if (!token) {
-      if (!silent) { toast('请先填写 GitHub 访问令牌'); }
-      $$('.tab').forEach(function (t) { t.classList.toggle('active', t.dataset.view === 'import'); });
-      $$('.view').forEach(function (v) { v.classList.toggle('active', v.id === 'view-import'); });
-      $('#ghToken').focus();
-      return;
-    }
     if (!silent) toast('正在从云端加载数据…');
     ghGetFile(GH_DB_FILE, token).then(function (meta) {
       if (!meta || !meta.content) {
@@ -1429,6 +1467,11 @@
       toast('已从云端加载（备份更新于 ' + when + '）');
       renderCloudStatus();
     }).catch(function (e) {
+      // 匿名读取被拒（极少见，公开仓库不会）且本机无令牌时，提示绑定
+      if (/401|403/.test((e && e.message) || '') && !token) {
+        if (!silent) toast('云端读取被拒，请先绑定令牌或打开更新链接');
+        return;
+      }
       if (!silent) toast('云端加载失败：' + errMsg({ reason: e }));
     });
   }
@@ -1436,7 +1479,6 @@
   function renderCloudStatus() {
     var el = $('#cloudStatus');
     if (!el) return;
-    if (!getToken()) { el.textContent = '未绑定令牌'; el.className = 'sync-status'; return; }
     ghGetFile(GH_DB_FILE, getToken()).then(function (meta) {
       if (!meta || !meta.content) { el.textContent = '云端暂无备份'; el.className = 'sync-status'; return; }
       var json;
@@ -1444,7 +1486,7 @@
       catch (e) { el.textContent = '云端备份（解析失败）'; return; }
       var when = json.updatedAt ? new Date(json.updatedAt).toLocaleString('zh-CN') : '';
       var cnt = (json.students ? json.students.length : 0) + (json.roster && json.roster.students ? json.roster.students.length : 0);
-      el.textContent = '云端备份：' + when + ' · ' + cnt + ' 条记录';
+      el.textContent = '云端备份：' + when + ' · ' + cnt + ' 条记录' + (getToken() ? '' : '（未绑定令牌，仅读取）');
       el.className = 'sync-status ok';
     }).catch(function () { el.textContent = '云端状态获取失败'; el.className = 'sync-status'; });
   }
@@ -1583,6 +1625,7 @@
     $('#btnExportDB').addEventListener('click', exportDBJSON);
     $('#btnSync').addEventListener('click', syncParentData);
     $('#btnLoadCloud').addEventListener('click', function () { loadFromCloud(false); });
+    $('#btnGenLink').addEventListener('click', genSyncLink);
     $('#btnSaveToken').addEventListener('click', saveToken);
     $('#ghToken').addEventListener('input', function () { ghTokenRaw = this.value; });
     $('#btnClear').addEventListener('click', function () {
@@ -1646,8 +1689,11 @@
   bind();
   renderAll();
 
-  // 首次打开且无任何数据：若已绑定令牌，优先从云端拉取（跨设备开用）；否则载入示例与飞书学情表
-  if (!db.roster.students.length && !db.students.length) {
+  // 若通过「更新链接」打开，先自动绑定令牌并从云端拉取最新数据（其他设备免手填令牌）
+  var fromSyncLink = applySyncFromUrl();
+
+  // 首次打开且无任何数据：若已绑定令牌（非链接场景），优先从云端拉取（跨设备开用）；否则载入示例与飞书学情表
+  if (!fromSyncLink && !db.roster.students.length && !db.students.length) {
     if (getToken()) {
       loadFromCloud(true);
     } else {

@@ -323,6 +323,20 @@
         <input type="text" id="syncLinkOut" readonly placeholder="点击「生成更新链接」后，这里会出现一条可分享的链接" data-page-node-id="syncLinkOut" />
         <span class="sync-link-hint">链接内含访问凭证，请只发给自己，勿转发他人；用完可在 GitHub 重置该令牌。</span>
       </div>
+      <div class="vault-block" data-page-node-id="vaultBlock">
+        <div class="vault-title" data-page-node-id="vaultTitle">加密云保险箱（令牌存云端，免传链接）</div>
+        <p class="sync-tip" style="margin:6px 0 12px;">
+          在<b>常用设备</b>设一个主口令，把令牌加密存进公开仓库的保险箱；<b>其他设备</b>只需输入同一主口令即可自动绑定令牌、拉取最新数据——<b>口令不传输、也不存云端</b>，比发链接更省事。
+        </p>
+        <div class="sync-actions" data-page-node-id="vaultActions">
+          <input type="password" id="vaultPass" class="vault-input" placeholder="主口令（4 位以上）" autocomplete="off" data-page-node-id="vaultPass" />
+          <input type="password" id="vaultPass2" class="vault-input" placeholder="确认主口令（仅保存时需要）" autocomplete="off" data-page-node-id="vaultPass2" />
+          <button class="btn btn-accent" id="btnSaveVault" data-page-node-id="vaultSave">保存令牌到云端保险箱</button>
+          <button class="btn btn-ghost" id="btnUnlockVault" data-page-node-id="vaultUnlock">从云端解锁</button>
+        </div>
+        <label class="vault-remember" data-page-node-id="vaultRememberWrap"><input type="checkbox" id="vaultRemember" /> 本机记住主口令（下次自动解锁，仅存本机）</label>
+        <span class="sync-status" id="vaultStatus" data-page-node-id="vaultStatus">云端保险箱：未创建</span>
+      </div>
     </div>
 
     <div class="card" data-page-node-id="hrHW6bfBp8gfZbHquAwya3">

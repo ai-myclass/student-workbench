@@ -13,6 +13,8 @@
   var GH_REPO = 'ai-myclass/student-workbench';       // owner/repo
   var GH_FILE = 'data/students.json';                 // 家长查询数据源
   var GH_DB_FILE = 'data/teacher-db.json';            // 跨设备同步的云端备份（脱敏：仅含 phoneHash，剔除家庭隐私）
+  var GH_VAULT_FILE = 'data/token-vault.json';        // 加密云保险箱：令牌经主口令加密后存放（公开但不可读）
+  var VAULT_PASS_KEY = 'swb_vault_pass';              // 本机记住的主口令（仅本机，用于自动解锁）
   var GH_PAGES_URL = 'https://ai-myclass.github.io/student-workbench/query.html';
   var GH_TOKEN_URL = 'https://github.com/settings/tokens/new'; // classic PAT，需 repo 权限
   var ghTokenRaw = '';   // 真实令牌的内存镜像，避免界面遮罩后回存到错误值
@@ -1323,6 +1325,66 @@
     } catch (e) { return false; }
   }
 
+  /* 加密云保险箱：令牌经主口令加密后存进公开仓库，其他设备输同一主口令即自动绑定（口令不落云端） */
+  function saveTokenVault() {
+    var token = getToken();
+    if (!token) { toast('请先在本设备绑定令牌，再保存到保险箱'); return; }
+    var p1 = ($('#vaultPass').value || '').trim();
+    var p2 = ($('#vaultPass2').value || '').trim();
+    if (p1.length < 4) { toast('主口令至少 4 位'); return; }
+    if (p1 !== p2) { toast('两次输入的口令不一致'); return; }
+    var salt = Math.random().toString(36).slice(2, 12);
+    var enc = b64urlEncode(xorCrypt(token, p1 + '|' + salt));
+    var payload = { v: 1, algo: 'xor+pass', salt: salt, enc: enc, updatedAt: new Date().toISOString() };
+    var content = btoa(unescape(encodeURIComponent(JSON.stringify(payload))));
+    toast('正在保存到云端保险箱…');
+    pushFile(GH_VAULT_FILE, content, 'vault: 更新加密令牌保险箱', token).then(function () {
+      if ($('#vaultRemember') && $('#vaultRemember').checked) localStorage.setItem(VAULT_PASS_KEY, p1);
+      toast('已保存到云端保险箱，其他设备输入该口令即可绑定');
+      renderVaultStatus();
+    }).catch(function (e) { toast('保存失败：' + errMsg({ reason: e })); });
+  }
+  function unlockTokenVault(silent) {
+    var p = ($('#vaultPass').value || '').trim() || localStorage.getItem(VAULT_PASS_KEY) || '';
+    if (!p) { if (!silent) toast('请输入主口令'); return; }
+    if (!silent) toast('正在从云端解锁…');
+    ghGetFile(GH_VAULT_FILE, '').then(function (meta) {
+      if (!meta || !meta.content) { if (!silent) toast('云端还没有保险箱，请先在常用设备保存'); return; }
+      var v;
+      try { v = JSON.parse(decodeURIComponent(escape(atob(meta.content)))); }
+      catch (e) { if (!silent) toast('保险箱解析失败'); return; }
+      if (!v.salt || !v.enc) { if (!silent) toast('保险箱格式异常'); return; }
+      var token = xorCrypt(b64urlDecode(v.enc), p + '|' + v.salt);
+      if (!/^(ghp_|github_pat_)/i.test(token)) { if (!silent) toast('主口令错误，无法解锁'); return; }
+      localStorage.setItem(GH_TOKEN_KEY, token);
+      ghTokenRaw = token;
+      var inp = $('#ghToken');
+      if (inp) inp.value = token.length > 11 ? (token.slice(0, 6) + '••••••••' + token.slice(-4)) : token;
+      if ($('#vaultRemember') && $('#vaultRemember').checked) localStorage.setItem(VAULT_PASS_KEY, p);
+      toast('已从云端保险箱解锁并绑定令牌' + (silent ? '' : '，可直接更新家长查询'));
+      loadFromCloud(true);
+      renderVaultStatus();
+    }).catch(function (e) { if (!silent) toast('解锁失败：' + errMsg({ reason: e })); });
+  }
+  function renderVaultStatus() {
+    var el = $('#vaultStatus');
+    if (!el) return;
+    ghGetFile(GH_VAULT_FILE, '').then(function (meta) {
+      if (!meta || !meta.content) { el.textContent = '云端保险箱：未创建'; el.className = 'sync-status'; return; }
+      var v;
+      try { v = JSON.parse(decodeURIComponent(escape(atob(meta.content)))); }
+      catch (e) { el.textContent = '保险箱（解析失败）'; return; }
+      var when = v.updatedAt ? new Date(v.updatedAt).toLocaleString('zh-CN') : '';
+      el.textContent = '云端保险箱：' + when; el.className = 'sync-status ok';
+    }).catch(function () { el.textContent = '保险箱状态获取失败'; el.className = 'sync-status'; });
+  }
+  /** 启动时：本机已记住主口令且未绑令牌，自动从云端解锁 */
+  function applyVaultFromStart() {
+    var p = localStorage.getItem(VAULT_PASS_KEY);
+    if (p && !getToken()) { unlockTokenVault(true); return true; }
+    return false;
+  }
+
   function ghHeaders(token) {
     var h = { Accept: 'application/vnd.github+json' };
     // 公开仓库文件可免令牌读取；仅写入（PUT）需要令牌
@@ -1626,6 +1688,8 @@
     $('#btnSync').addEventListener('click', syncParentData);
     $('#btnLoadCloud').addEventListener('click', function () { loadFromCloud(false); });
     $('#btnGenLink').addEventListener('click', genSyncLink);
+    $('#btnSaveVault').addEventListener('click', saveTokenVault);
+    $('#btnUnlockVault').addEventListener('click', function () { unlockTokenVault(false); });
     $('#btnSaveToken').addEventListener('click', saveToken);
     $('#ghToken').addEventListener('input', function () { ghTokenRaw = this.value; });
     $('#btnClear').addEventListener('click', function () {
@@ -1691,9 +1755,11 @@
 
   // 若通过「更新链接」打开，先自动绑定令牌并从云端拉取最新数据（其他设备免手填令牌）
   var fromSyncLink = applySyncFromUrl();
+  // 若本机已记住主口令且未绑令牌，自动从云端保险箱解锁（其他设备免手填令牌）
+  var vaultAuto = applyVaultFromStart();
 
-  // 首次打开且无任何数据：若已绑定令牌（非链接场景），优先从云端拉取（跨设备开用）；否则载入示例与飞书学情表
-  if (!fromSyncLink && !db.roster.students.length && !db.students.length) {
+  // 首次打开且无任何数据：若已绑定令牌（非链接/保险箱场景），优先从云端拉取（跨设备开用）；否则载入示例与飞书学情表
+  if (!fromSyncLink && !vaultAuto && !db.roster.students.length && !db.students.length) {
     if (getToken()) {
       loadFromCloud(true);
     } else {

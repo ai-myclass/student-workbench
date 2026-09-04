@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="8A4IuNkQTIjtcAAkhy6CVo">
+<head data-page-node-id="Kpw1g5z2zGGmFNbXCXpIiE">
+<meta charset="UTF-8" data-page-node-id="jIGgKWWZiuWa9Wi42ocXww" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="vgjFcAkPB38AEWDZTGV66x" />
+<title>学员学习数据统计工作台</title>
+<link rel="stylesheet" href="assets/styles.css" data-page-node-id="6dy15VgGhVjKRuV5TOfMEd" />
+</head>
+<body data-page-node-id="jyrWDoJEFmW0imKrFNZc8O">
+
+<!-- 童趣背景装饰 -->
+<div class="sky" aria-hidden="true" data-page-node-id="UAieTNkFdH90Txxrs6w5bV">
+  <svg class="cloud cloud-1" viewBox="0 0 120 60" data-page-node-id="djCNihzhdTEowGSi4nGbUo"><path d="M20 45c-9 0-16-6-16-14s7-14 16-14c2-8 9-13 17-13 10 0 18 7 19 16 1 0 2 0 3 0 9 0 16 6 16 14s-7 11-16 11H20z" fill="#fff" opacity=".85" data-page-node-id="NtlwfraPVvumzwjPcXc4mH"/></svg>
+  <svg class="cloud cloud-2" viewBox="0 0 120 60" data-page-node-id="mu2gDmFP0hjI5v5cpKExm2"><path d="M20 45c-9 0-16-6-16-14s7-14 16-14c2-8 9-13 17-13 10 0 18 7 19 16 1 0 2 0 3 0 9 0 16 6 16 14s-7 11-16 11H20z" fill="#fff" opacity=".7" data-page-node-id="4VYD8eSLcH6CvPcuwdkmsX"/></svg>
+  <svg class="cloud cloud-3" viewBox="0 0 120 60" data-page-node-id="QIV1CIso0jw3Bw3LWeCBnz"><path d="M20 45c-9 0-16-6-16-14s7-14 16-14c2-8 9-13 17-13 10 0 18 7 19 16 1 0 2 0 3 0 9 0 16 6 16 14s-7 11-16 11H20z" fill="#fff" opacity=".6" data-page-node-id="44TG6bsmqCztzCfgpUmnUI"/></svg>
+  <svg class="star star-1" viewBox="0 0 24 24" data-page-node-id="BvrsGyLBqQdEv8knc6ol1w"><path d="M12 2l2.6 6.6L22 10l-5.4 4.4L18 22l-6-3.6L6 22l1.4-7.6L2 10l7.4-1.4z" fill="#FFC53D" data-page-node-id="HWtfPsrMoimqWKs3tFdVOJ"/></svg>
+  <svg class="star star-2" viewBox="0 0 24 24" data-page-node-id="CN61wPMOz0IAaYBEiOTlR6"><path d="M12 2l2.6 6.6L22 10l-5.4 4.4L18 22l-6-3.6L6 22l1.4-7.6L2 10l7.4-1.4z" fill="#FF9FB2" data-page-node-id="1in04SAQGJFhrwJM8IT5NF"/></svg>
+  <svg class="star star-3" viewBox="0 0 24 24" data-page-node-id="nXJuBuFlQC2PCsi4C5iweW"><path d="M12 2l2.6 6.6L22 10l-5.4 4.4L18 22l-6-3.6L6 22l1.4-7.6L2 10l7.4-1.4z" fill="#7FD1FF" data-page-node-id="S74FRY9kg0FSGFKQ74ICHt"/></svg>
+</div>
+
+<header class="topbar" data-page-node-id="WqN7j6OMhLtoBI56LJHzup">
+  <div class="brand" data-page-node-id="D3dlhZFrb3qUA2LGQv9Lml">
+    <svg class="rocket" viewBox="0 0 64 64" aria-hidden="true" data-page-node-id="FRzAlmj5lP2NiK0LQaXsDH">
+      <ellipse cx="32" cy="56" rx="16" ry="4" fill="#FFD8B0" opacity=".7" data-page-node-id="Ll99V7oJYlDYJRj5XB27nH"/>
+      <path d="M32 6c8 6 12 15 12 26 0 7-2 13-5 18H25c-3-5-5-11-5-18C20 21 24 12 32 6z" fill="#FF7A59" data-page-node-id="f2SdTiDVhShUY1iRCtEOsL"/>
+      <path d="M32 6c4 6 6 15 6 26 0 7-1 13-3 18h-3V6z" fill="#FF9A80" data-page-node-id="oY0nN4oZCoQ5k2VJ4B0qv0"/>
+      <circle cx="32" cy="26" r="6" fill="#FFF3E0" data-page-node-id="HcsgH9cBDz1C44Er30KiPL"/><circle cx="32" cy="26" r="4" fill="#4DA3FF" data-page-node-id="WqH8YBulhOfreXiBBdcnIY"/>
+      <path d="M20 34c-6 2-9 7-10 13l8-3z" fill="#4DA3FF" data-page-node-id="7XsRlNXbBl713DBsqqAuDA"/>
+      <path d="M44 34c6 2 9 7 10 13l-8-3z" fill="#4DA3FF" data-page-node-id="18ixES6Un3EmG0AXOpYqsn"/>
+      <path d="M27 50h10l-5 8z" fill="#FFC53D" data-page-node-id="eniVjoULCMw9Em9itEwopb"/>
+    </svg>
+    <div class="brand-text" data-page-node-id="H7yTNQgnCXM3kjYsQTbCic">
+      <h1 data-page-node-id="RyzVQsAA3ZgVFCzAfFSbaa">学员学习数据统计工作台</h1>
+      <p id="brandSub" data-page-node-id="oWx1xrmQhHbhS0qovJ4Dff">导入班级表格，自动汇总每一讲的学习表现</p>
+    </div>
+  </div>
+  <div class="topbar-actions" data-page-node-id="A4EJFkX9ai0z2UrHUkgaNG">
+    <div class="class-chip" id="classChip" hidden data-page-node-id="cWGhxlZO7TetgLrkAWURhn">
+      <span class="dot" data-page-node-id="jhZTQ2CFTQgUIwpojuTYbf"></span><span id="classChipText" data-page-node-id="WafYDOhnX7Isd07nybemz6"></span>
+    </div>
+    <button class="btn btn-ghost" id="btnExport" data-page-node-id="t0DXK26DlClUAJnnzuqbS8">导出 CSV</button>
+    <button class="btn btn-primary" id="btnImport" data-page-node-id="Tqi1ZpZYMlHXpeuGo2oo1Q">
+      <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="6nnhdG38NP7ilLweFSkhW1"><path d="M12 16V4m0 0L8 8m4-4 4 4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" data-page-node-id="87r8Gy2eAuEdsuI7oSqOBh"/></svg>
+      导入表格
+    </button>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" data-page-node-id="mmog6DlEMBPBovshtDg6t7">
+  <button class="tab active" data-view="dashboard" data-page-node-id="ViT72UhREKt6oLMCmM407B">
+    <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="SzD1QdfF5GRZ40fWOpFT9M"><path d="M4 20V10m5 10V4m5 16v-7m5 7V8" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none" data-page-node-id="UaR13FGvQIIq45MlSnEjDG"/></svg>
+    数据看板
+  </button>
+  <button class="tab" data-view="students" data-page-node-id="GmTedTXKZRsrH2S8AKEqSk">
+    <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="ERgsWz2U1PPNE60r2mCXFb"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="2" fill="none" data-page-node-id="PsMDJ1msaNC06cpHg7onL5"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="hXNHH6VYA65imp0Srfy4Lx"/><path d="M16 6.2a3 3 0 0 1 0 5.6M17.5 14.4c2 .7 3.5 2.5 3.5 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="ZMke5kxXqIRoTPU3jBJ6py"/></svg>
+    学员名单
+  </button>
+  <button class="tab" data-view="archive" data-page-node-id="RBjTzwd09ApTwiS1EzYnaC">
+    <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="3g14kFWipXi7SxL0iqWtqM"><path d="M5 4h11l3 3v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" data-page-node-id="qdMonLSI5TT34xGM4feFv9"/><path d="M15 4v4h4M8 13h8M8 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="hSVvAPOUmALUTuNxOjYs1E"/></svg>
+    学员档案
+  </button>
+  <button class="tab" data-view="import" data-page-node-id="9WerGM9CEwB60rwSxxVQeO">
+    <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="LOkGeKEJ4PovANhAwav8hP"><path d="M12 3v10m0 0 4-4m-4 4-4-4M5 15v3a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" data-page-node-id="zHZpln4AxF1IrlnANFBV9t"/></svg>
+    数据管理
+  </button>
+</nav>
+
+<div class="scope-bar" id="scopeBar" hidden data-page-node-id="rVkkvzSW5OtmWz8lgbGr1I">
+  <span class="scope-label" data-page-node-id="7n7i8a7IQCfGa378QOQ37y">
+    <svg viewBox="0 0 24 24" width="16" height="16" data-page-node-id="GpHO033a0LslcEsZfAGsNn"><path d="M4 6h16M7 12h10M10 18h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none" data-page-node-id="ThkM7aDKNLO4H6rqBzIBii"/></svg>
+    统计范围
+  </span>
+  <select id="filterLesson" data-page-node-id="cWg4UBy8OwBKPoGDwvzeBw"></select>
+  <span class="scope-hint" id="scopeHint" data-page-node-id="JAKuAYR2ILhNQjW6vilryl"></span>
+</div>
+
+<main data-page-node-id="nBfGH7bATbT9iYATTebBeI">
+  <!-- ============ 数据看板 ============ -->
+  <section class="view active" id="view-dashboard" data-page-node-id="JcbTvD2oS694Bb8ZGDSOPA">
+    <div class="stat-row" id="statRow" data-page-node-id="RwiOuf054qvZqkStV5BqEn"></div>
+
+    <div class="card chart-card" data-page-node-id="FC0Hd4P7AiT48GOgkqHHyI">
+      <div class="card-head" data-page-node-id="JmOSIerch58vBQN1i8i0dj">
+        <h2 id="trendTitle" data-page-node-id="yuRoPXawPk9HNvwF5Mx39X">每一讲的学习趋势</h2>
+        <div class="legend" id="trendLegend" data-page-node-id="R6pGY2Hs2HTUCi7KZesQ52">
+          <span class="lg lg-blue" data-page-node-id="pAVHjuY5gbCVqh3j1ZBowS">有效听课率</span>
+          <span class="lg lg-green" data-page-node-id="f7CcwbcXTy24wTItJ2DzXW">答题正确率</span>
+          <span class="lg lg-orange" data-page-node-id="xTfhsZJixtHen8x0qt0fNx">练习完成率</span>
+        </div>
+      </div>
+      <div class="chart-wrap" id="trendChart" data-page-node-id="vkfmtYmwJwifWWnFERtDoF"></div>
+    </div>
+
+    <div class="two-col" data-page-node-id="uo8x4luRr5K6yNH5nH7SGW">
+      <div class="card" data-page-node-id="H1dGLRRtKLeGx6AfskucOE">
+        <div class="card-head" data-page-node-id="kTEclabFLAtjJsg0hZITBa"><h2 id="rankTopTitle" data-page-node-id="AxJNdo1kUfy4U5fHrMMA2h">学习小明星</h2><span class="sub" data-page-node-id="YbVBFIWn8pWjD1gDTYC4AC">综合表现 Top 5</span></div>
+        <ul class="rank-list" id="rankTop" data-page-node-id="H7OTud5IRGUqnS7KW9Muir"></ul>
+      </div>
+      <div class="card" data-page-node-id="uxR8a8y6otwFjyLzNVuqid">
+        <div class="card-head" data-page-node-id="4Rp61snJIK9sbAF5OziIpt"><h2 id="rankLowTitle" data-page-node-id="RNdnL8iZ7SpkFXrPIuHQX3">需要多关注</h2><span class="sub" data-page-node-id="Rfdzb2IBjTWTq50rQrlzyt">综合表现待提升</span></div>
+        <ul class="rank-list" id="rankLow" data-page-node-id="lUVY0gX3pAkSsi90G9Ww4q"></ul>
+      </div>
+    </div>
+
+    <div class="two-col" data-page-node-id="WDaDsrYaefL7U5ykS6uCJY">
+      <div class="card" data-page-node-id="atURwmRXGuWVDB03PbeQaO">
+        <div class="card-head" data-page-node-id="cWwmc1NhCD8efDQ4SUNtBw"><h2 data-page-node-id="ZMXYrl5TBue8Zj7NlSqCUz">年级分布</h2></div>
+        <div class="dist" id="gradeDist" data-page-node-id="H6F8N3pmr87w3ocoqxLAl3"></div>
+      </div>
+      <div class="card" data-page-node-id="LBsyovBF9GyZm01j2Kr2Ie">
+        <div class="card-head" data-page-node-id="JY3E0zYZOsmZ9gpgQ5oFUG"><h2 id="attendTitle" data-page-node-id="Z9iZNckjR3cQ5FypBCU8W6">最近一讲到课情况</h2></div>
+        <div class="dist" id="attendDist" data-page-node-id="eHlSnXUhp14olk6SwEgDBd"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 学员名单 ============ -->
+  <section class="view" id="view-students" data-page-node-id="O0I6e3E4QCIJFMBbfwj85m">
+    <div class="card" data-page-node-id="wgNVSIdPs9jS4UZIfbRMIr">
+      <div class="search-bar" data-page-node-id="vVC9SFATxbdxH0RJhL548L">
+        <div class="search-input" data-page-node-id="9BvUkv1rMn59vggvb8MCjs">
+          <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="ottTEwGREOBukE2Ms67CCZ"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" fill="none" data-page-node-id="6ZF7FFb456aFRUm3xrVlyL"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-page-node-id="ipkJhmgu9cHZiuQg0lzAd2"/></svg>
+          <input type="text" id="searchInput" placeholder="输入姓名 / 手机号 / 学员 ID 快速查找" autocomplete="off" data-page-node-id="yaMv6vCLgmIuLBM97J5Htp" />
+          <button class="clear-btn" id="clearSearch" hidden data-page-node-id="jKjxGHcv6YwTEPrqPBuHNt">&times;</button>
+        </div>
+        <div class="filters" data-page-node-id="EEIfHOa7EbPI9fK4ApRvIK">
+          <select id="filterGrade" data-page-node-id="uFVjsxAhXqlgaBtp5p0YSP"><option value="" data-page-node-id="9QI7nZZsHqabUIPAXlIR7N">全部年级</option></select>
+          <select id="filterMatch" hidden data-page-node-id="PGtta14SCWEKSSgYCVtoI7">
+            <option value="" data-page-node-id="kkmiKtpcXZG2HbFLMMvOLK">全部匹配</option>
+            <option value="yes" data-page-node-id="H86LHbY2UbXZbXpDUxhuRb">已在学情表</option>
+            <option value="no" data-page-node-id="mEJWikdA2ydVh9bvQdNfuI">未在学情表</option>
+          </select>
+          <select id="sortBy" data-page-node-id="bx6uqZht2Alhicvb5TA908">
+            <option value="score" data-page-node-id="zrDcVB6H4EGfSIM4I54BDj">综合得分（高→低）</option>
+            <option value="score_asc" data-page-node-id="zrDcVBr2k9scoreasc">综合得分（低→高）</option>
+            <option value="listen" data-page-node-id="ZYGq1xJPq7q1V7Gg505UEi">按有效听课率</option>
+            <option value="accuracy" data-page-node-id="Swt9rOS1GNcxYe3tlf76PE">按答题正确率</option>
+            <option value="homework" data-page-node-id="1eK6HiuCTMMZBBKyyhkKA5">按练习完成率</option>
+            <option value="minutes" data-page-node-id="8o8uXSgNZmM96EmllBYm8x">按听课时长</option>
+            <option value="name" data-page-node-id="cMEgzzrgS3V3RCbOLexwsE">按姓名</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-scroll" data-page-node-id="L3h2JeWDR8XASHAoOx3kb4">
+        <table class="stu-table" data-page-node-id="5hVUDPGr1x1KnhPsE9QdJq">
+          <thead data-page-node-id="dQJDhQFDCsETavTWTTRAFb"><tr id="stuHead" data-page-node-id="kcKbVAcCAui5znyrMosal4"></tr></thead>
+          <tbody id="stuBody" data-page-node-id="kJAGfcHa2dfw2DHrdCAd8j"></tbody>
+        </table>
+      </div>
+      <div class="table-foot" data-page-node-id="FzVj1IiqTLvcaUDXWfE79S"><span id="tableCount" data-page-node-id="8SZqtaBLKV3c9utth4eAu9"></span></div>
+    </div>
+  </section>
+
+  <!-- ============ 学员档案 ============ -->
+  <section class="view" id="view-archive" data-page-node-id="hGnBVTntKvusgRAAbe87yQ">
+    <div class="card" data-page-node-id="EycHx3E8LE78gVd3NHb0K0">
+      <div class="card-head" data-page-node-id="wRCx4HqeSP3cls2SE6jocN">
+        <h2 data-page-node-id="FXHjuazw4JFeFA0QbQ81K9">学员个人档案</h2>
+        <span class="sub" id="archiveSub" data-page-node-id="bn73dr0AwYEcaKtzTU5zb6">导入学情表后自动生成</span>
+      </div>
+      <div class="search-bar" data-page-node-id="XPYHr5SA5f6yeMkcEad3u1">
+        <div class="search-input" data-page-node-id="kHXj33L5cTJhsYhYtDpEz5">
+          <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="UqGvHDJKDO980rj67cW0HQ"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="2" fill="none" data-page-node-id="j4UrDDGcsH5D4cxhtggOai"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-page-node-id="4kPWcAuYXuOmCn7ItdE9zZ"/></svg>
+          <input type="text" id="archiveSearch" placeholder="按姓名 / 手机号 / 学员 ID 查找档案" autocomplete="off" data-page-node-id="ASbAyJfAZ1dCEmVs4ZWGiP" />
+          <button class="clear-btn" id="clearArchiveSearch" hidden data-page-node-id="P7CQLRQSMb99OcXmrElS58">&times;</button>
+        </div>
+        <div class="filters" data-page-node-id="FcKgmjSk1B6fyvw7BJsD5N">
+          <select id="archiveFilter" data-page-node-id="CvYyFEC63nF9EBZx7pbSla">
+            <option value="" data-page-node-id="DE8HkTwF78qSOXYzwGjCwO">全部档案</option>
+            <option value="linked" data-page-node-id="Xw3avH1JXAmrDsVeiHzJuG">已匹配学习数据</option>
+            <option value="nodata" data-page-node-id="QD6cwd79u8yKP8bRhz9pqJ">暂无学习数据</option>
+          </select>
+          <select id="archiveSort" data-page-node-id="GDG1DeN1bnxSmw3NfRMxWI">
+            <option value="name" data-page-node-id="6M4CsGBeo7dCAs1iYZz9Hd">按姓名</option>
+            <option value="score" data-page-node-id="KhgJFAMcU9tl93lsB5p6NP">综合得分（高→低）</option>
+            <option value="score_asc" data-page-node-id="KhgJFAmcS2scoreasc">综合得分（低→高）</option>
+            <option value="listen" data-page-node-id="4d1ZjLWW5jXRCIGKuYnXZq">按有效听课率</option>
+            <option value="grade" data-page-node-id="F5sSmet5X9Yi5SNMTYLZuJ">按年级</option>
+          </select>
+        </div>
+      </div>
+      <div class="table-scroll" data-page-node-id="lpsJuUPVfYcCmP9T312Z8f">
+        <table class="stu-table" data-page-node-id="uj591bqCjPzoyJkXuULJFH">
+          <thead data-page-node-id="kLaP2ujCJrEKK9uh6Uq8qO"><tr data-page-node-id="1Nl05AgsGZAKoAaN9ZH7Dw">
+            <th data-page-node-id="qOBXJrV5PkBtNMJvg5H1GA">学员</th><th data-page-node-id="2tb8AcTxSOg3T4OiRMQxqL">学员 ID</th><th data-page-node-id="9tuA0UZ0jzKrH8iMZDyQ4T">手机号</th><th data-page-node-id="FOzEdorLAPOhJsJr71Fbwh">性别</th><th data-page-node-id="HQSrapSEGDAYs2PPIB7ikG">年级</th>
+            <th data-page-node-id="p76SRFgvFguMJxprkmD6mU">信息登记</th><th data-page-node-id="PjJjyF81ECQfJnOwUHfGRd">匹配状态</th><th data-page-node-id="lcvLvxE2AxvN0zI5ylw3gG">有效听课率</th><th data-page-node-id="IP7u8Ro7tIlW8SmjDPGWrF">答题正确率</th><th data-page-node-id="pK8LrcjPYt8cEYeBS6ymrG">练习完成率</th><th data-page-node-id="kCWuFKrHiKX6xqAPlM5Lun">综合</th>
+          </tr></thead>
+          <tbody id="archiveBody" data-page-node-id="xs8qMTBGRrh1NgTOfCCTHe"></tbody>
+        </table>
+      </div>
+      <div class="table-foot" data-page-node-id="mwRUuWcUuCrhPWlwFbCSDz"><span id="archiveCount" data-page-node-id="2Yk2CzWAA9P6M4GE4jCAgp"></span></div>
+    </div>
+  </section>
+
+  <!-- ============ 数据管理 ============ -->
+  <section class="view" id="view-import" data-page-node-id="sEE8JifRzdOsficCmZfBQL">
+    <div class="dz-split" data-page-node-id="rx8UUB72hEC1NTbgqn9CmB">
+      <!-- 学情表 -->
+      <div class="card drop-card" data-page-node-id="mnKH60wwYPCYtCTbMNZD9r">
+        <div class="card-head" data-page-node-id="hF48yfHgGmILJQLFZU6HCP">
+          <h2 data-page-node-id="cjqCx6mbauyc2FlJnVjxnZ">① 导入学情表 · 建立档案</h2>
+          <span class="sub" id="rosterSub" data-page-node-id="nIHHRTS9B9yaAV01qGEgVV">尚未导入</span>
+        </div>
+        <div id="rosterDrop" class="dropzone dz-sm" data-page-node-id="qzfLmYHooKThOY1088COwb">
+          <svg viewBox="0 0 120 90" class="dz-art" aria-hidden="true" data-page-node-id="8VYP7d1KdwzihoAhNiw7wT">
+            <rect x="18" y="14" width="84" height="62" rx="12" fill="#EAF3FF" data-page-node-id="KvGaqQWMflshorVWD2ybUF"/>
+            <rect x="18" y="14" width="84" height="16" rx="8" fill="#4DA3FF" data-page-node-id="SJhdHUlSnylmPQdXpQnIo7"/>
+            <circle cx="44" cy="44" r="10" fill="#C9E2FF" data-page-node-id="HECwCoI3rEyAXTnw4v8Y0x"/>
+            <path d="M36 60c0-5 3.6-8 8-8s8 3 8 8" fill="#C9E2FF" data-page-node-id="bBHl0lejxgF90iD1Rg3UI4"/>
+            <rect x="62" y="38" width="30" height="6" rx="3" fill="#CFE3F5" data-page-node-id="X8KmXC5uyWP8pwtdpfMPEm"/>
+            <rect x="62" y="50" width="22" height="6" rx="3" fill="#CFE3F5" data-page-node-id="Qinv7JZvx3nAHhcTZD8FO1"/>
+            <circle cx="96" cy="20" r="7" fill="#3EC46D" data-page-node-id="RIVJ4zJIZ5AJfRWWRqUPH6"/>
+            <path d="m93 20 2.2 2.4L100 17.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" data-page-node-id="j7KPrt9Mu9JCLEPAdmHKDp"/>
+          </svg>
+          <h3 data-page-node-id="fAxixfTe2QlXuGKMTE9fvN">把学情表拖到这里</h3>
+          <p data-page-node-id="TLknrhQjOtiEtBWVDArnk9">需包含「姓名 / 学员ID / 手机号」中任意一列。它是学员档案的主表，<b data-page-node-id="r13BC4lpi34wxQXFwCO7cD">再次导入会覆盖</b>已有档案。</p>
+          <button class="btn btn-primary" id="btnPickRoster" data-page-node-id="jaCCdOAUD96I4NaH4CIC8x">选择学情表</button>
+          <button class="btn btn-ghost" id="btnLoadRoster" data-page-node-id="Ssy1pHWg3CHGvEwLVNyxkt">载入飞书学情表（170 人）</button>
+          <input type="file" id="rosterInput" accept=".xlsx,.xls,.csv" hidden data-page-node-id="6uO3Sc6Jje4O6HZuZHeNmS" />
+        </div>
+        <div id="rosterResult" class="import-result" hidden data-page-node-id="51uOorAaXEcAIbODJaK7TF"></div>
+      </div>
+
+      <!-- 学习数据 -->
+      <div class="card drop-card" data-page-node-id="pGdN0YAZXetAUQbgHJtnH6">
+        <div class="card-head" data-page-node-id="Gh6WVkyWQe9EyFBNmeQPiz">
+          <h2 data-page-node-id="VOJOLBEstXR5a1iusvXrrv">② 导入学习数据 · 更新每一讲</h2>
+          <span class="sub" id="dataSub" data-page-node-id="eVWF9EFyfJzYCirMJRR4qo">尚未导入</span>
+        </div>
+        <div id="dropzone" class="dropzone dz-sm" data-page-node-id="lAJeT44SR0sE9bBQ7kOCeP">
+          <svg viewBox="0 0 120 90" class="dz-art" aria-hidden="true" data-page-node-id="lHfHmCjCu1pkPcUtojLUaz">
+            <rect x="18" y="14" width="84" height="62" rx="12" fill="#FFF1DE" data-page-node-id="VNDpxVGXD7Stm4WEKsxZiZ"/>
+            <rect x="18" y="14" width="84" height="16" rx="8" fill="#FFB870" data-page-node-id="ieVLS7rYRM5wXCw36ZNEy8"/>
+            <rect x="34" y="38" width="52" height="6" rx="3" fill="#FFD9A8" data-page-node-id="RQmNVF7Q4RdfrtTrfwsOFY"/>
+            <rect x="34" y="50" width="38" height="6" rx="3" fill="#FFD9A8" data-page-node-id="TDHNpJ7AN7fjAdEBSXkm4y"/>
+            <path d="M60 20v40m0 0-8-8m8 8 8-8" stroke="#FF7A59" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" data-page-node-id="kldOZgbDlulfRpjNDPyCaT"/>
+            <circle cx="96" cy="20" r="7" fill="#3EC46D" data-page-node-id="rc7oiAwSfUhfR19tXioCyM"/>
+            <path d="m93 20 2.2 2.4L100 17.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none" data-page-node-id="7JlT5eiDTYRZPQcspq5HRK"/>
+          </svg>
+          <h3 data-page-node-id="uvKarahXZuOMQbfltkRweJ">把学习数据表拖到这里</h3>
+          <p data-page-node-id="mE4N1eUpDtLSX4ItFVKtIQ">支持 .xlsx / .xls / .csv，可一次导入多个文件。已导入学情表时会<b data-page-node-id="5RBfKUQU3gdCP5jjSqvDFa">自动按 ID → 手机号 → 姓名</b>匹配档案。</p>
+          <button class="btn btn-primary" id="btnPickFile" data-page-node-id="7FLe0Qy9QnFEzYHssGA9P2">选择文件</button>
+          <button class="btn btn-ghost" id="btnDemo" data-page-node-id="J6NEzxyMKrnZBj0eoIugUV">载入示例数据</button>
+          <input type="file" id="fileInput" accept=".xlsx,.xls,.csv" multiple hidden data-page-node-id="c7O7Mw3OGEnWTiEdQKWlzP" />
+        </div>
+        <div id="importResult" class="import-result" hidden data-page-node-id="uFgGS8biAFD0bX4PFuVbKr"></div>
+      </div>
+    </div>
+
+    <div class="card" data-page-node-id="uBVl72yVBD6O9JyFVzV4gB">
+      <div class="card-head" data-page-node-id="uy6BEnZjBCzY0VOBLc9fNk"><h2 data-page-node-id="0B62ID5lOIXp6XpUlABtra">统计口径设置</h2><span class="sub" data-page-node-id="Rrf56qDDmH2wMw59k45dhz">习题课等不参与统计的讲次</span></div>
+
+      <div class="set-row" data-page-node-id="9RCFAWsjqorGu3oJB5of8c">
+        <div class="set-main" data-page-node-id="UWAWVevhGaA8m7YlhpncMX">
+          <strong data-page-node-id="gAEVW8PTaMOLEEfenJ6xJ4">自动剔除习题课</strong>
+          <span data-page-node-id="F0z3TjtHj4lpBDO19xPETF">关闭后，所有讲次（含习题课）都会计入统计。</span>
+        </div>
+        <button class="switch on" id="swExclude" data-on="1" data-page-node-id="BzMpnFmQhhiEfHkX97djRH"><i data-page-node-id="L02tjWFjQTU2zFUrNuzyLF"></i></button>
+      </div>
+
+      <div class="set-row" data-page-node-id="M2cMQb3lh64JaxG4448RSv">
+        <div class="set-main" data-page-node-id="nQOoLyClsW1FLOae3F0k2q">
+          <strong data-page-node-id="RM4ujT6hKoeYl61AKg7nRj">剔除关键词</strong>
+          <span data-page-node-id="RXpfM0DscVY8lcXUrt9fXS">课程名包含以下任意关键词的讲次，全部不参与统计（数据仍保留，可在学员详情里查看）。</span>
+        </div>
+      </div>
+      <div class="chip-wrap" id="excludeChips" data-page-node-id="IgMBPbyaMUHrOU1pSYpp2C"></div>
+      <div class="chip-add" data-page-node-id="s5Hbqt1Y73Hg07DNdfZAoo">
+        <input type="text" id="excludeInput" placeholder="输入关键词，如：习题课 / 复习课 / 测试" maxlength="20" data-page-node-id="DbYfgJJi2VdnFOZhuLa9Ji" />
+        <button class="btn btn-ghost" id="btnAddExclude" data-page-node-id="E9xjOCBjjisPfQOIH4Wwsp">添加</button>
+      </div>
+
+      <div class="set-row" id="rowOnlyRoster" data-page-node-id="s1dHWtBqTWIwrJdmrChBYB">
+        <div class="set-main" data-page-node-id="Jqs9orOaTe5FgGTLC2AxII">
+          <strong data-page-node-id="sCIUa8Zsl9CiCHif3jWAuR">只统计学情表内的学员</strong>
+          <span data-page-node-id="ldQs4H8aP1NjLEmHLgTe4K">开启后，名单与排行榜只保留成功匹配到档案的学员。</span>
+        </div>
+        <button class="switch" id="swOnlyRoster" data-on="0" data-page-node-id="96pPsYqZqWHAy3Vz854mV6"><i data-page-node-id="A1UB0GF5HkA4vsXBzOXwN9"></i></button>
+      </div>
+
+      <div class="set-row" data-page-node-id="zHNPihGrKkZqCB874nv8cx">
+        <div class="set-main" data-page-node-id="tTIfKuCRBTjDuZZbltj1DL">
+          <strong data-page-node-id="o582nBGZsexjzEIcQGznrD">用学情表补全学员信息</strong>
+          <span data-page-node-id="xMQB6OH9ORQyQDErCz9bkw">导入学习数据时，用档案里的姓名 / 年级 / 学校等补全或覆盖缺失字段。</span>
+        </div>
+        <button class="switch on" id="swAutoProfile" data-on="1" data-page-node-id="o4xsqvThKLHdV2vp5TVhXS"><i data-page-node-id="lCdYd2CsP6maCGt5opv9mZ"></i></button>
+      </div>
+
+      <div class="course-split" id="courseSplit" data-page-node-id="XyfvO8RviiEtCFSTIUl8sS"></div>
+    </div>
+
+    <div class="card" data-page-node-id="hrHW6bfBp8gfZbHquAwya3">
+      <div class="card-head" data-page-node-id="VDU1npSAcG7ffPKTjC8It4">
+        <h2 data-page-node-id="NfyuPMm08XJdj4a45Wel0F">已导入的数据源</h2>
+        <div class="head-btns" data-page-node-id="FQQrPrHXcjq80vOsakvUXU">
+          <button class="btn btn-ghost btn-sm" id="btnExportRoster" data-page-node-id="6M2AWdimzRjJV0tq4Nrew7">导出档案 CSV</button>
+        </div>
+      </div>
+      <div class="src-title" data-page-node-id="oZL4yAIJsDrN5rGLhoipRX">学情表（档案主表）</div>
+      <ul class="source-list" id="rosterSourceList" data-page-node-id="t0ZFDkSyWbbGwEGETxd8fO"></ul>
+      <div class="src-title" style="margin-top:16px" data-page-node-id="KXax3AciNBAHeyB6V6xJWA">学习数据表</div>
+      <ul class="source-list" id="sourceList" data-page-node-id="KrpEA5EQ7H0CpEWTkdH68i"></ul>
+      <div class="danger-zone" data-page-node-id="2vfg3gwWrAnlrCklA29MGB">
+        <div data-page-node-id="Nh0lPoO2e69l1pxYbjs7sO">
+          <strong data-page-node-id="TPARQ9JUArgQJgayFQIDru">清空全部数据</strong>
+          <span data-page-node-id="fv1Ht7l34Iw9HEpGI1h8lG">删除本地保存的所有学员、档案与课程记录，此操作不可撤销。</span>
+        </div>
+        <button class="btn btn-danger" id="btnClear" data-page-node-id="L2HYxkeN2ZDuqkYAxM3vOr">清空数据</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ 学员详情抽屉 ============ -->
+<div class="drawer-mask" id="drawerMask" hidden data-page-node-id="MNlrqackvw9C7LcjpKmUGx"></div>
+<aside class="drawer" id="drawer" hidden data-page-node-id="OD2Q11M63k5nANFgVdoDYH">
+  <button class="drawer-close" id="drawerClose" aria-label="关闭" data-page-node-id="esBsC0GWfYGXnexBHlRkaQ">&times;</button>
+  <div id="drawerContent" data-page-node-id="H7eiY2h3yH46qzvtnLvQVm"></div>
+</aside>
+
+<!-- ============ 学习数据编辑浮层 ============ -->
+<div class="drawer-mask" id="editMask" hidden></div>
+<div class="edit-modal" id="editModal" hidden>
+  <div class="edit-card">
+    <div class="edit-head">
+      <h3 id="editTitle">修改学习数据</h3>
+      <button class="drawer-close" id="editClose" aria-label="关闭">&times;</button>
+    </div>
+    <div class="edit-body" id="editBody"></div>
+  </div>
+</div>
+
+<!-- ============ 学习情况分享图 ============ -->
+<div class="drawer-mask" id="shareMask" hidden></div>
+<div class="share-modal" id="shareModal" hidden>
+  <div class="share-card">
+    <div class="share-preview">
+      <canvas id="shareCanvas"></canvas>
+    </div>
+    <div class="share-panel">
+      <h3>生成学习情况分享图</h3>
+      <p class="share-tip">勾选要展示的指标，下方实时预览折线图，确认后导出图片。</p>
+      <div class="share-opts" id="shareOpts"></div>
+      <label class="share-toggle"><input type="checkbox" id="shareChips" checked> 显示顶部综合指标卡片</label>
+      <div class="share-actions">
+        <button class="btn btn-primary" id="shareDownload">导出图片</button>
+        <button class="btn btn-ghost" id="shareClose">关闭</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden data-page-node-id="7JVAT12JipE8DvZhe1KAcd"></div>
+
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="assets/parser.js"></script>
+<script src="assets/sample-data.js"></script>
+<script src="assets/roster-data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

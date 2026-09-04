@@ -1,2 +1,6 @@
 *.png
 *.log
+# 真实数据库（来自工作台导出，含手机号明文，禁止上传）
+data/_real-db.json
+# 过时诊断
+query-diagnostic.md

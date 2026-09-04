@@ -116,7 +116,9 @@ db.students.forEach((s) => {
 // 以学情表（roster）全量为查询对象：在册学员家长都能凭手机号查到自己的孩子。
 // 有学习记录的显示报告；暂无记录的保持为 null，由查询页提示「暂无学习记录」。
 let phoneFull = 0, phoneMissing = 0, withData = 0;
-const rosterSource = (db.roster && db.roster.students) || [];
+const rosterSource = (db.roster && db.roster.students && db.roster.students.length)
+  ? db.roster.students
+  : (db.students || []);
 const students = rosterSource.map((r) => {
   const ph = normalizePhone(r.phone);
   const hasPhone = ph.length >= 11;

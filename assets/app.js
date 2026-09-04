@@ -1242,6 +1242,14 @@
     download('学员档案_' + new Date().toISOString().slice(0, 10) + '.csv', SWB.toRosterCSV(db));
     toast('已导出学员档案');
   }
+  // 导出完整数据库（含手机号明文），用于固化到家长查询页。
+  // 注意：此文件仅本地使用，发给管理员后会脱敏为哈希再发布，不会泄露明文。
+  function exportDBJSON() {
+    if (!db.students.length) { toast('还没有数据可以导出'); return; }
+    var payload = JSON.parse(JSON.stringify(db));
+    download('学员完整数据_' + new Date().toISOString().slice(0, 10) + '.json', JSON.stringify(payload, null, 1));
+    toast('已导出完整数据（含手机号，请发管理员固化到家长查询页）');
+  }
 
   /* =========================================================
    * 事件绑定

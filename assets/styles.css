@@ -501,6 +501,7 @@ main{position:relative;z-index:1;max-width:1240px;margin:18px auto 60px;padding:
 }
 .share-opt:hover{transform:translateX(2px);}
 .share-opt input{width:18px;height:18px;accent-color:var(--purple);cursor:pointer;}
+.share-opt-extra{background:#F1F7FF;box-shadow:inset 0 0 0 2px #D6E8FF;}
 .sw-dot{width:14px;height:14px;border-radius:5px;flex:none;}
 .share-toggle{
   display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;color:var(--ink-2);
@@ -515,6 +516,75 @@ main{position:relative;z-index:1;max-width:1240px;margin:18px auto 60px;padding:
   #shareCanvas{max-width:300px;}
   .share-panel{width:100%;}
 }
+
+/* ── 通用弹窗（知识点 / 评语库） ── */
+.modal-card{
+  position:fixed;z-index:66;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:680px;max-width:calc(100vw - 32px);max-height:88vh;overflow:auto;
+  background:#fff;border-radius:var(--r-lg);border:3px solid var(--ink);
+  box-shadow:0 18px 0 rgba(46,37,69,.12),0 30px 60px rgba(46,37,69,.28);padding:22px 24px;
+}
+.modal-card:not([hidden]){display:block;}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.modal-head h3{font-size:19px;font-weight:800;color:var(--ink);margin:0;}
+.modal-x{
+  border:none;background:#F4EFFA;color:var(--ink-2);width:34px;height:34px;border-radius:50%;
+  font-size:22px;line-height:1;cursor:pointer;flex:none;transition:background .15s;
+}
+.modal-x:hover{background:#E9DFF7;}
+.modal-tip{font-size:13px;color:var(--ink-2);line-height:1.7;margin:0 0 16px;}
+.modal-tip code{background:#F4EFFA;padding:1px 6px;border-radius:6px;font-size:12px;color:var(--purple);}
+.modal-actions{display:flex;gap:10px;margin-top:18px;}
+.modal-actions .btn{flex:1;}
+
+/* 阶段知识点列表 */
+.kn-list{display:flex;flex-direction:column;gap:12px;}
+.kn-row{
+  background:#FBF8FF;border-radius:14px;box-shadow:inset 0 0 0 2px var(--line);
+  padding:12px 14px;display:flex;flex-direction:column;gap:8px;
+}
+.kn-row .kn-name{font-size:14.5px;font-weight:800;color:var(--ink);}
+.kn-row textarea{
+  width:100%;min-height:54px;resize:vertical;padding:9px 11px;border:1px solid var(--border);border-radius:10px;
+  font-size:13.5px;font-weight:600;color:var(--ink);font-family:inherit;line-height:1.6;background:#fffdfa;
+}
+.kn-row textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(77,163,255,.14);}
+
+/* 评语库列表 */
+.cl-list{display:flex;flex-direction:column;gap:12px;}
+.cl-row{
+  background:#FBF8FF;border-radius:14px;box-shadow:inset 0 0 0 2px var(--line);padding:12px 14px;
+  display:flex;flex-direction:column;gap:8px;position:relative;padding-right:44px;
+}
+.cl-row .cl-min,.cl-row .cl-max{
+  width:80px;padding:7px 9px;border:1px solid var(--border);border-radius:9px;font-size:13px;font-weight:700;
+  color:var(--ink);text-align:center;background:#fffdfa;font-family:inherit;
+}
+.cl-row .cl-text{
+  width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:10px;
+  font-size:13.5px;font-weight:600;color:var(--ink);font-family:inherit;line-height:1.6;background:#fffdfa;
+}
+.cl-row .cl-text:focus,.cl-row .cl-min:focus,.cl-row .cl-max:focus{
+  outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(155,91,229,.14);
+}
+.cl-dash{font-size:13px;font-weight:700;color:var(--ink-2);}
+.cl-del{
+  position:absolute;top:10px;right:12px;border:none;background:#FDECEC;color:#E5484D;width:26px;height:26px;
+  border-radius:50%;font-size:16px;line-height:1;cursor:pointer;
+}
+.cl-del:hover{background:#FBDADA;}
+.btn-add{width:100%;margin-top:12px;border:2px dashed var(--border);background:#fff;color:var(--purple);font-weight:700;}
+.btn-add:hover{background:#FBF8FF;}
+
+/* 学员详情：自定义评语 */
+.cmt-box{
+  width:100%;min-height:78px;resize:vertical;padding:10px 12px;border:1px solid var(--border);border-radius:12px;
+  font-size:14px;font-weight:600;color:var(--ink);font-family:inherit;line-height:1.7;background:#fffdfa;
+}
+.cmt-box:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px rgba(155,91,229,.14);}
+.cmt-preview{font-size:13.5px;color:var(--ink-2);line-height:1.7;margin-top:8px;background:#F7F4FB;border-radius:10px;padding:8px 11px;}
+.cmt-preview b{color:var(--purple);}
+.cmt-actions{display:flex;justify-content:flex-end;margin-top:10px;}
 
 /* ---------- 响应式 ---------- */
 @media (max-width:1080px){

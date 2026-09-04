@@ -73,6 +73,23 @@
     return 76 + (h % 5);
   }
 
+  /** 解析老师自定义评语：学员专属 override 优先，否则按综合分从评语库匹配区间模板 */
+  function resolveCustomComment(s, lib, override) {
+    var name = (s && s.name) || '宝贝';
+    var ov = (override == null ? '' : String(override)).trim();
+    if (ov) return ov.replace(/\{name\}/g, name);
+    if (!lib || !lib.length) return '';
+    var score = Math.round(((s && s.stats && s.stats.score) || 0) * 100);
+    for (var i = 0; i < lib.length; i++) {
+      var t = lib[i];
+      if (!t || !t.text) continue;
+      var min = t.min == null ? 0 : +t.min;
+      var max = t.max == null ? 100 : +t.max;
+      if (score >= min && score <= max) return String(t.text).replace(/\{name\}/g, name);
+    }
+    return '';
+  }
+
   /**
    * 生成家长查询数据。
    * @param {Object} db  工作台当前数据库（含 students / roster / statCourses 等）
@@ -125,6 +142,18 @@
       : (work.students || []);
 
     var phoneFull = 0, phoneMissing = 0, withData = 0;
+
+    // 阶段知识点映射：course -> points[]（仅保留参与统计的讲次）
+    var knowMap = {};
+    (work.knowledge || []).forEach(function (k) {
+      if (k && k.course && k.points && k.points.length) knowMap[k.course] = k.points;
+    });
+    var stageKnowledge = [];
+    courses.forEach(function (cn) {
+      if (knowMap[cn] && knowMap[cn].length) stageKnowledge.push({ course: cn, points: knowMap[cn] });
+    });
+    var commentLib = work.commentLib || [];
+
     var students = rosterSource.map(function (r) {
       var ph = normalizePhone(r.phone);
       // 跨设备云端备份会把明文手机号脱敏为 phoneHash，这里优先用明文、否则回退到已存的哈希
@@ -155,6 +184,14 @@
       var st = hasReal ? learn.stats : null;
       if (hasReal) withData++;
 
+      // 阶段知识点与评语：家长端展示用（仅在有真实学习记录时计算评语，知识点对所有学员展示）
+      var autoComment = '', customComment = '';
+      if (hasReal) {
+        var tmpS = { name: r.name || (learn && learn.name) || '', id: r.key || r.id || '', stats: st, lessons: lessons };
+        autoComment = buildTeacherComment(tmpS, courses, accFloorFor);
+        customComment = resolveCustomComment(tmpS, commentLib, (learn && learn.customComment) || '');
+      }
+
       return {
         name: r.name || '',
         id: r.key || r.id || '',
@@ -169,7 +206,9 @@
           score: null, listen: null, accuracy: null,
           homework: null, progress: null, minutes: null
         },
-        lessons: lessons
+        lessons: lessons,
+        knowledge: stageKnowledge,
+        comment: { auto: autoComment, custom: customComment }
       };
     });
 
@@ -193,6 +232,7 @@
     phoneHash: phoneHash,
     accFloorFor: accFloorFor,
     buildTeacherComment: buildTeacherComment,
+    resolveCustomComment: resolveCustomComment,
     build: build
   };
 

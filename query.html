@@ -326,9 +326,15 @@ function showResult(s) {
     tipMsg.textContent = '长按图片即可保存到相册 · 数据由辅导老师定期更新';
     var courses = DATA.courses || [];
     // 与工作台导出口径一致：默认展示 有效听课率 / 答题正确率 / 练习完成率
+    // 阶段知识点与评语均来自家长查询数据（教师在工作台配置并同步）
     SWBShare.draw(canvas, s, courses, {
       metrics: { listen: true, accuracy: true, homework: true },
       showChips: true,
+      showKnowledge: true,
+      showComment: true,
+      knowledge: s.knowledge || [],
+      autoComment: (s.comment && s.comment.auto) || '',
+      customComment: (s.comment && s.comment.custom) || '',
       footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
     });
   }

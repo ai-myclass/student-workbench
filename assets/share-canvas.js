@@ -105,6 +105,29 @@
   }
 
   /* ---------------- 教师评语 ---------------- */
+  /**
+   * 解析「老师自定义评语」：优先用学员专属 override；否则按综合得分从评语库 lib 匹配区间模板。
+   * @param {object} s    学员对象（需含 stats.score 与 name）
+   * @param {Array}  lib 评语库 [{min,max,text}]（分数区间 0~100）
+   * @param {string} override 学员专属自定义评语（优先）
+   * @returns {string} 自定义评语文本（可能为空）
+   */
+  function resolveCustomComment(s, lib, override) {
+    var name = (s && s.name) || '宝贝';
+    var ov = (override == null ? '' : String(override)).trim();
+    if (ov) return ov.replace(/\{name\}/g, name);
+    if (!lib || !lib.length) return '';
+    var score = Math.round(((s && s.stats && s.stats.score) || 0) * 100);
+    for (var i = 0; i < lib.length; i++) {
+      var t = lib[i];
+      if (!t || !t.text) continue;
+      var min = t.min == null ? 0 : +t.min;
+      var max = t.max == null ? 100 : +t.max;
+      if (score >= min && score <= max) return String(t.text).replace(/\{name\}/g, name);
+    }
+    return '';
+  }
+
   function buildTeacherComment(s, courses) {
     var st = s.stats || {};
     var pct = function (v) { return v == null ? null : Math.round(v * 100); };
@@ -166,6 +189,8 @@
     var lessons = s.lessons || {};
     var stats = s.stats || {};
     var showChips = opts.showChips !== false;
+    var showKnowledge = opts.showKnowledge !== false;   // 是否展示「阶段知识点」
+    var showComment = opts.showComment !== false;        // 是否展示「教师评语」
     var metrics = opts.metrics || null;   // null = 用默认勾选
 
     var ctx = cv.getContext('2d');
@@ -175,14 +200,56 @@
       chosen[m.key] = metrics ? !!metrics[m.key] : !!m.def;
     });
 
-    // 预计算评语 → 决定画布高度
+    // 阶段知识点：仅保留有内容的讲次
+    var knowledge = (opts.knowledge || []).filter(function (k) {
+      return k && k.course && k.points && k.points.length;
+    });
+    // 自动客观评价（系统根据学习数据生成）
+    var autoComment = opts.autoComment != null ? opts.autoComment : buildTeacherComment(s, courses);
+    // 老师自定义评语（评语库按综合分匹配 / 学员专属覆盖）
+    var customComment = opts.customComment != null
+      ? opts.customComment
+      : resolveCustomComment(s, opts.commentLib || [], opts.override);
+
+    var W = 1080, LW = W - 104 - 56;   // 文字可用宽度
     ctx.font = '400 28px "PingFang SC",sans-serif';
-    var comment = buildTeacherComment(s, courses);
-    var cLines = wrapText(ctx, comment, 1080 - 104 - 56);
-    var chH = 64 + cLines.length * 42 + 24;
-    var W = 1080;
-    var CMNT_Y = 1112, FOOT_GAP = 32, FOOT_H = 72;
-    var H = CMNT_Y + chH + FOOT_GAP + FOOT_H;
+
+    // 预计算自动评语行
+    var autoLines = wrapText(ctx, autoComment || '', LW);
+    // 预计算自定义评语行
+    var customLines = (customComment && customComment.trim())
+      ? wrapText(ctx, customComment.trim(), LW) : [];
+
+    // 预计算阶段知识点块
+    var knowBlocks = [];
+    knowledge.forEach(function (k) {
+      var pts = (k.points || []).map(function (p) { return String(p).trim(); }).filter(Boolean);
+      if (!pts.length) return;
+      var wrapped = wrapText(ctx, pts.join('、'), LW - 28);
+      knowBlocks.push({ title: String(k.course), lines: wrapped });
+    });
+
+    // 动态计算各区块高度
+    var KNOW_Y = 1112, knowH = 0;
+    if (showKnowledge && knowBlocks.length) {
+      knowH = 56 + 16;   // 标题 + 间距
+      knowBlocks.forEach(function (b) { knowH += 42 + b.lines.length * 34 + 14; });
+    }
+    var CMNT_Y = (showKnowledge && knowBlocks.length) ? (KNOW_Y + knowH + 28) : 1112;
+
+    var commentH = 0;
+    if (showComment) {
+      commentH = 64 + autoLines.length * 42 + 24;
+      if (customLines.length) commentH += 18 + 44 + customLines.length * 42 + 8;
+    }
+
+    // 画布总高度
+    var FOOT_GAP = 32, FOOT_H = 72;
+    var endY = 1080;   // 折线图底部
+    if (showKnowledge && knowBlocks.length) endY = Math.max(endY, KNOW_Y + knowH);
+    if (showComment) endY = Math.max(endY, CMNT_Y + commentH);
+    var H = endY + FOOT_GAP + FOOT_H;
+
     cv.width = W; cv.height = H;
     ctx.clearRect(0, 0, W, H);
 
@@ -312,18 +379,57 @@
       ctx.fillText('暂无可展示的学习数据', (plotL + plotR) / 2, (plotT + plotB) / 2);
     }
 
-    // 教师评语卡
-    var cY = CMNT_Y;
-    ctx.fillStyle = '#fff'; rr(ctx, 52, cY, W - 104, chH, 24); ctx.fill();
-    ctx.fillStyle = '#FFC53D'; rr(ctx, 52, cY, 12, chH, 6); ctx.fill();
-    ctx.fillStyle = '#2E2545'; ctx.font = '800 32px "PingFang SC",sans-serif';
-    ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-    ctx.fillText('📝 教师评语', 52 + 40, cY + 50);
-    ctx.fillStyle = '#4A4360'; ctx.font = '400 28px "PingFang SC",sans-serif';
-    cLines.forEach(function (ln, i) { ctx.fillText(ln, 52 + 40, cY + 92 + i * 42); });
+    // 阶段知识点卡
+    if (showKnowledge && knowBlocks.length) {
+      var kY = KNOW_Y;
+      ctx.fillStyle = '#fff'; rr(ctx, 52, kY, W - 104, knowH, 24); ctx.fill();
+      ctx.fillStyle = '#4DA3FF'; rr(ctx, 52, kY, 12, knowH, 6); ctx.fill();
+      ctx.fillStyle = '#2E2545'; ctx.font = '800 32px "PingFang SC",sans-serif';
+      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText('📚 阶段知识点', 52 + 40, kY + 50);
+      var totalK = knowBlocks.reduce(function (a, b) { return a + b.lines.length; }, 0);
+      ctx.fillStyle = '#A49CB8'; ctx.font = '500 22px "PingFang SC",sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(knowBlocks.length + ' 讲 · ' + totalK + ' 个知识点', W - 52 - 40, kY + 46);
+      ctx.textAlign = 'left';
+      var ky = kY + 92;
+      knowBlocks.forEach(function (b) {
+        ctx.fillStyle = '#4DA3FF'; ctx.font = '700 26px "PingFang SC",sans-serif';
+        ctx.fillText(b.title, 52 + 40, ky);
+        ky += 38;
+        ctx.fillStyle = '#4A4360'; ctx.font = '400 26px "PingFang SC",sans-serif';
+        b.lines.forEach(function (ln) { ctx.fillText('· ' + ln, 52 + 68, ky); ky += 34; });
+        ky += 14;
+      });
+    }
+
+    // 教师评语卡（系统自动客观评价 + 老师自定义寄语）
+    var fY;
+    if (showComment) {
+      var cY = CMNT_Y;
+      ctx.fillStyle = '#fff'; rr(ctx, 52, cY, W - 104, commentH, 24); ctx.fill();
+      ctx.fillStyle = '#FFC53D'; rr(ctx, 52, cY, 12, commentH, 6); ctx.fill();
+      ctx.fillStyle = '#2E2545'; ctx.font = '800 32px "PingFang SC",sans-serif';
+      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+      ctx.fillText('📝 教师评语（系统自动）', 52 + 40, cY + 50);
+      ctx.fillStyle = '#4A4360'; ctx.font = '400 28px "PingFang SC",sans-serif';
+      autoLines.forEach(function (ln, i) { ctx.fillText(ln, 52 + 40, cY + 92 + i * 42); });
+      var cy2 = cY + 92 + autoLines.length * 42;
+      if (customLines.length) {
+        ctx.strokeStyle = '#F0E7F5'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(52 + 40, cy2 + 6); ctx.lineTo(W - 52 - 40, cy2 + 6); ctx.stroke();
+        ctx.fillStyle = '#B57BFF'; ctx.font = '700 26px "PingFang SC",sans-serif';
+        ctx.fillText('💡 老师寄语', 52 + 40, cy2 + 44);
+        ctx.fillStyle = '#4A4360'; ctx.font = '400 28px "PingFang SC",sans-serif';
+        customLines.forEach(function (ln, i) { ctx.fillText(ln, 52 + 40, cy2 + 86 + i * 42); });
+      }
+      fY = cY + commentH + FOOT_GAP;
+    } else {
+      var lastBottom = (showKnowledge && knowBlocks.length) ? (KNOW_Y + knowH) : 1080;
+      fY = lastBottom + FOOT_GAP;
+    }
 
     // 页脚
-    var fY = cY + chH + FOOT_GAP;
     ctx.strokeStyle = '#F0E7F5'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(52, fY); ctx.lineTo(W - 52, fY); ctx.stroke();
     ctx.fillStyle = '#A49CB8'; ctx.font = '500 24px "PingFang SC",sans-serif';
@@ -337,6 +443,7 @@
     SHARE_METRICS: SHARE_METRICS,
     draw: drawShare,
     buildTeacherComment: buildTeacherComment,
+    resolveCustomComment: resolveCustomComment,
     accFloorFor: accFloorFor,
     lessonScore: lessonScore,
     lessonVal: lessonVal,

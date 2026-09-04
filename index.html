@@ -308,6 +308,17 @@
       <div class="course-split" id="courseSplit" data-page-node-id="XyfvO8RviiEtCFSTIUl8sS"></div>
     </div>
 
+    <div class="card" data-page-node-id="contentCard">
+      <div class="card-head" data-page-node-id="contentHead"><h2 data-page-node-id="contentTitle">内容配置</h2><span class="sub" data-page-node-id="contentSub">阶段知识点与家长看到的评语</span></div>
+      <p class="sync-tip" data-page-node-id="contentTip">
+        配置后，导出的分享图与<b>家长查询页</b>都会展示：① 本阶段每讲所学的<b>知识点</b>（让家长直观了解学了什么）；② 评语 = <b>系统自动客观评价</b> + <b>老师自定义寄语</b>。
+      </p>
+      <div class="sync-actions" data-page-node-id="contentActions">
+        <button class="btn btn-primary" id="btnOpenKnowledge" data-page-node-id="openKn">📚 阶段知识点配置</button>
+        <button class="btn btn-primary" id="btnOpenCommentLib" data-page-node-id="openCl">💡 评语库管理</button>
+      </div>
+    </div>
+
     <div class="card" data-page-node-id="syncCard">
       <div class="card-head" data-page-node-id="syncHead"><h2 data-page-node-id="syncTitle">跨设备同步</h2><span class="sub" data-page-node-id="syncSub">在其他手机 / 电脑上也能更新家长查询</span></div>
       <p class="sync-tip" data-page-node-id="syncTip">
@@ -397,6 +408,37 @@
         <button class="btn btn-ghost" id="shareClose">关闭</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- ============ 阶段知识点配置 ============ -->
+<div class="drawer-mask" id="knMask" hidden></div>
+<div class="modal-card" id="knModal" hidden>
+  <div class="modal-head">
+    <h3 data-page-node-id="knTitle">📚 阶段知识点配置</h3>
+    <button class="modal-x" id="knClose" aria-label="关闭">×</button>
+  </div>
+  <p class="modal-tip" data-page-node-id="knTip">为每一讲填写本阶段知识点，导出图片与家长查询页会按讲次展示。多个知识点可用换行或“、”分隔。</p>
+  <div class="kn-list" id="knList" data-page-node-id="knList"></div>
+  <div class="modal-actions">
+    <button class="btn btn-primary" id="knSave" data-page-node-id="knSave">保存知识点</button>
+    <button class="btn btn-ghost" id="knClose2" data-page-node-id="knClose2">关闭</button>
+  </div>
+</div>
+
+<!-- ============ 评语库管理 ============ -->
+<div class="drawer-mask" id="clMask" hidden></div>
+<div class="modal-card" id="clModal" hidden>
+  <div class="modal-head">
+    <h3 data-page-node-id="clTitle">💡 评语库管理</h3>
+    <button class="modal-x" id="clClose" aria-label="关闭">×</button>
+  </div>
+  <p class="modal-tip" data-page-node-id="clTip">按学员<b>综合得分</b>区间匹配寄语模板；<code>{name}</code> 会自动替换为学员姓名。学员在详情里的「专属评语」可覆盖此处模板。最终评语 = 系统自动客观评价 + 以下自定义寄语。</p>
+  <div class="cl-list" id="clList" data-page-node-id="clList"></div>
+  <button class="btn btn-ghost btn-add" id="clAdd" data-page-node-id="clAdd">＋ 新增评语模板</button>
+  <div class="modal-actions">
+    <button class="btn btn-primary" id="clSave" data-page-node-id="clSave">保存评语库</button>
+    <button class="btn btn-ghost" id="clClose2" data-page-node-id="clClose2">关闭</button>
   </div>
 </div>
 

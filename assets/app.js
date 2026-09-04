@@ -43,6 +43,16 @@
   var currentLesson = null;      // 记录正在编辑的讲次
   var shareState = null;         // 记录分享图上下文（学员 + 讲次列表）
 
+  /** 评语库默认模板（按综合得分 0~100 区间）；{name} 会被替换为学员姓名 */
+  function defaultCommentLib() {
+    return [
+      { min: 85, max: 100, text: '{name}这一阶段的综合表现非常亮眼，学习主动性强、基础也扎实。继续保持这份专注与热情，你一定会越来越优秀！' },
+      { min: 70, max: 84, text: '{name}这一阶段的学习状态很稳，知识点掌握得不错。建议多总结易错点，把基础打得更牢，再往前冲一冲。' },
+      { min: 50, max: 69, text: '{name}这一阶段还有不少进步空间，遇到卡壳的地方及时找老师，我们一起把薄弱点逐个补上来。' },
+      { min: 0, max: 49, text: '{name}目前处在打基础的关键期，需要更多耐心。老师会重点关注你，陪你一步步建立学习信心，别着急。' }
+    ];
+  }
+
   /* ---------------- 存储 ---------------- */
   function load() {
     try {
@@ -54,6 +64,10 @@
       d.activeCourses = d.activeCourses || [];
       d.sources = d.sources || [];
       d.roster = d.roster || { students: [], sources: [], updatedAt: null, fields: [] };
+      // 阶段知识点：course -> points[]，默认空
+      if (!d.knowledge) d.knowledge = [];
+      // 评语库：按综合分区间的自定义寄语模板；首次使用播种默认模板
+      if (!d.commentLib) d.commentLib = defaultCommentLib();
       return SWB.refresh(d);
     } catch (e) { return SWB.refresh(SWB.emptyDB()); }
   }
@@ -798,6 +812,19 @@
     document.body.style.overflow = '';
   }
 
+  /** 保存学员专属自定义评语（覆盖评语库） */
+  function saveCustomComment() {
+    if (!currentDrawer || !currentDrawer.student) return;
+    var ta = $('#drawerCustomComment'); if (!ta) return;
+    currentDrawer.student.customComment = ta.value.trim();
+    save(); renderAll();
+    toast('已保存自定义评语');
+    var s = currentDrawer.student;
+    var customPrev = s.customComment ? s.customComment : SWBShare.resolveCustomComment(s, db.commentLib || [], '');
+    var pv = $('#cmtCustomPreview');
+    if (pv) pv.textContent = customPrev || '（按评语库匹配，暂未配置）';
+  }
+
   /* ---------------- 生成学习情况分享图 ---------------- */
   /** 单个讲次的综合得分（与全班综合分同权：有效听课 0.35 / 答题 0.30 / 练习 0.35） */
   function lessonScore(l) { return SWBShare.lessonScore(l); }
@@ -814,7 +841,11 @@
     $('#shareOpts').innerHTML = SHARE_METRICS.map(function (m) {
       return '<label class="share-opt"><input type="checkbox" data-metric="' + m.key + '"' + (m.def ? ' checked' : '') + '>' +
         '<span class="sw-dot" style="background:' + m.color + '"></span>' + m.label + '</label>';
-    }).join('');
+    }).join('') +
+      '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareKnowledge" checked>' +
+        '<span class="sw-dot" style="background:#4DA3FF"></span>显示阶段知识点</label>' +
+      '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareComment" checked>' +
+        '<span class="sw-dot" style="background:#FFC53D"></span>显示教师评语（自动+自定义）</label>';
     $('#shareMask').hidden = false;
     $('#shareModal').hidden = false;
     document.body.style.overflow = 'hidden';
@@ -863,7 +894,25 @@
       var cb = $('#shareOpts').querySelector('[data-metric="' + m.key + '"]');
       chosen[m.key] = !!(cb && cb.checked);
     });
-    SWBShare.draw(cv, s, courses, { metrics: chosen, showChips: showChips });
+    // 阶段知识点：取该学员参与讲次里已配置知识点的部分
+    var knowMap = {};
+    (db.knowledge || []).forEach(function (k) {
+      if (k && k.course && k.points && k.points.length) knowMap[k.course] = k.points;
+    });
+    var knowledge = courses.filter(function (cn) { return knowMap[cn]; })
+      .map(function (cn) { return { course: cn, points: knowMap[cn] }; });
+    // 评语：系统自动客观评价 + 老师自定义（评语库按综合分匹配 / 学员专属覆盖）
+    var autoComment = SWBShare.buildTeacherComment(s, courses);
+    var customComment = SWBShare.resolveCustomComment(s, db.commentLib || [], s.customComment || '');
+    SWBShare.draw(cv, s, courses, {
+      metrics: chosen,
+      showChips: showChips,
+      showKnowledge: $('#shareKnowledge') ? $('#shareKnowledge').checked : true,
+      showComment: $('#shareComment') ? $('#shareComment').checked : true,
+      knowledge: knowledge,
+      autoComment: autoComment,
+      customComment: customComment
+    });
   }
   function shareDownload() {
     if (!shareState) return;
@@ -877,6 +926,88 @@
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
       toast('分享图已导出');
     } catch (e) { toast('导出失败：' + (e.message || e)); }
+  }
+
+  /* ---------------- 阶段知识点配置 ---------------- */
+  function openKnowledge() {
+    var courses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
+    if (!courses.length) { toast('还没有可统计的讲次，无法配置知识点'); return; }
+    var map = {};
+    (db.knowledge || []).forEach(function (k) { if (k && k.course) map[k.course] = k.points || []; });
+    $('#knList').innerHTML = courses.map(function (cn) {
+      var pts = (map[cn] || []).join('、');
+      return '<div class="kn-row" data-course="' + esc(cn) + '">' +
+        '<div class="kn-name">' + esc(cn) + '</div>' +
+        '<textarea class="kn-input" placeholder="本讲知识点，如：变量与数据类型、条件判断、循环结构">' + esc(pts) + '</textarea>' +
+        '</div>';
+    }).join('');
+    $('#knMask').hidden = false; $('#knModal').hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeKnowledge() {
+    $('#knMask').hidden = true; $('#knModal').hidden = true;
+    document.body.style.overflow = '';
+  }
+  function saveKnowledge() {
+    var rows = Array.prototype.slice.call($('#knList').querySelectorAll('.kn-row'));
+    var list = [];
+    rows.forEach(function (row) {
+      var cn = row.getAttribute('data-course');
+      var raw = row.querySelector('.kn-input').value.trim();
+      var points = raw ? raw.split(/[\n、,，;；]+/).map(function (x) { return x.trim(); }).filter(function (x) { return x; }) : [];
+      if (cn) list.push({ course: cn, points: points });
+    });
+    db.knowledge = list;
+    save();
+    toast('已保存 ' + list.length + ' 讲的知识点配置');
+    closeKnowledge();
+  }
+
+  /* ---------------- 评语库管理 ---------------- */
+  function openCommentLib() {
+    renderCommentLibList();
+    $('#clMask').hidden = false; $('#clModal').hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCommentLib() {
+    $('#clMask').hidden = true; $('#clModal').hidden = true;
+    document.body.style.overflow = '';
+  }
+  function renderCommentLibList() {
+    var lib = (db.commentLib && db.commentLib.length) ? db.commentLib : defaultCommentLib();
+    $('#clList').innerHTML = lib.map(function (t, i) {
+      var min = (t.min != null) ? Math.round(t.min) : 0;
+      var max = (t.max != null) ? Math.round(t.max) : 100;
+      return '<div class="cl-row" data-i="' + i + '">' +
+        '<input class="cl-min" type="number" step="1" min="0" max="100" value="' + min + '" placeholder="最低分">' +
+        '<span class="cl-dash">–</span>' +
+        '<input class="cl-max" type="number" step="1" min="0" max="100" value="' + max + '" placeholder="最高分">' +
+        '<input class="cl-text" placeholder="评语模板，可用 {name}" value="' + esc(t.text || '') + '">' +
+        '<button class="cl-del" data-del="' + i + '" aria-label="删除">×</button>' +
+        '</div>';
+    }).join('');
+  }
+  function addCommentTemplate() {
+    var lib = (db.commentLib && db.commentLib.length) ? db.commentLib.slice() : defaultCommentLib().slice();
+    lib.push({ min: 0, max: 100, text: '' });
+    db.commentLib = lib;
+    renderCommentLibList();
+  }
+  function saveCommentLib() {
+    var rows = Array.prototype.slice.call($('#clList').querySelectorAll('.cl-row'));
+    var lib = [];
+    rows.forEach(function (row) {
+      var min = parseFloat(row.querySelector('.cl-min').value);
+      var max = parseFloat(row.querySelector('.cl-max').value);
+      var text = row.querySelector('.cl-text').value.trim();
+      if (isNaN(min)) min = 0;
+      if (isNaN(max)) max = 100;
+      if (text) lib.push({ min: min, max: max, text: text });
+    });
+    db.commentLib = lib;
+    save();
+    toast('已保存评语库（' + lib.length + ' 条模板）');
+    closeCommentLib();
   }
 
   function renderDrawer(ctx) {
@@ -964,6 +1095,21 @@
         ? '<div class="info-item"><div class="k">跟进 / 备注</div><div class="v" style="font-weight:600;font-size:13px;line-height:1.6">' +
           esc((s && (s.followUp || s.remark)) || (r && r.remark) || '') + '</div></div>' : '') +
       '</div>';
+
+    // 老师自定义评语（覆盖评语库，出现在家长分享图）
+    if (s) {
+      var cc = (s.customComment || '').trim();
+      var drawerCourses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
+      var autoPrev = SWBShare.buildTeacherComment(s, drawerCourses);
+      var customPrev = cc ? cc : SWBShare.resolveCustomComment(s, db.commentLib || [], '');
+      html += '<div class="card"><div class="lesson-head"><h3>老师自定义评语</h3>' +
+        '<span class="sub" style="font-size:11.5px;color:#A49CB8">显示在家长分享图，覆盖评语库</span></div>' +
+        '<textarea id="drawerCustomComment" class="cmt-box" placeholder="给这位学员写一句专属寄语… 留空则按评语库综合分匹配">' + esc(s.customComment || '') + '</textarea>' +
+        '<div class="cmt-preview"><b>系统自动：</b>' + esc(autoPrev) + '</div>' +
+        '<div class="cmt-preview"><b>老师寄语：</b><span id="cmtCustomPreview">' + esc(customPrev || '（按评语库匹配，暂未配置）') + '</span></div>' +
+        '<div class="cmt-actions"><button class="btn btn-primary btn-sm" id="btnSaveCustomComment">保存评语</button></div>' +
+        '</div>';
+    }
 
     // 每讲明细
     if (s && Object.keys(s.lessons || {}).length) {
@@ -1622,6 +1768,7 @@
     $('#drawerContent').addEventListener('click', function (e) {
       if (e.target.closest('#btnShare')) { openShare(); return; }
       if (e.target.closest('#btnRename')) { startRename(); return; }
+      if (e.target.closest('#btnSaveCustomComment')) { saveCustomComment(); return; }
       var ed = e.target.closest('.row-edit');
       if (ed) openLessonEditor(ed.dataset.lesson, currentDrawer && currentDrawer.student);
     });
@@ -1722,6 +1869,36 @@
     $('#shareMask').addEventListener('click', closeShare);
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !$('#shareModal').hidden) closeShare();
+    });
+
+    // 阶段知识点配置
+    $('#btnOpenKnowledge').addEventListener('click', openKnowledge);
+    $('#knSave').addEventListener('click', saveKnowledge);
+    $('#knClose').addEventListener('click', closeKnowledge);
+    $('#knClose2').addEventListener('click', closeKnowledge);
+    $('#knMask').addEventListener('click', closeKnowledge);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !$('#knModal').hidden) closeKnowledge();
+    });
+
+    // 评语库管理
+    $('#btnOpenCommentLib').addEventListener('click', openCommentLib);
+    $('#clAdd').addEventListener('click', addCommentTemplate);
+    $('#clSave').addEventListener('click', saveCommentLib);
+    $('#clClose').addEventListener('click', closeCommentLib);
+    $('#clClose2').addEventListener('click', closeCommentLib);
+    $('#clMask').addEventListener('click', closeCommentLib);
+    $('#clList').addEventListener('click', function (e) {
+      var del = e.target.closest('.cl-del');
+      if (!del) return;
+      var i = parseInt(del.getAttribute('data-del'), 10);
+      var lib = (db.commentLib && db.commentLib.length) ? db.commentLib.slice() : defaultCommentLib().slice();
+      lib.splice(i, 1);
+      db.commentLib = lib;
+      renderCommentLibList();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !$('#clModal').hidden) closeCommentLib();
     });
   }
 

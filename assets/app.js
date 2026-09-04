@@ -12,7 +12,9 @@
   var GH_API_BASE = 'https://api.github.com';
   var GH_REPO = 'ai-myclass/student-workbench';       // owner/repo
   var GH_FILE = 'data/students.json';                 // 家长查询数据源
+  var GH_DB_FILE = 'data/teacher-db.json';            // 跨设备同步的云端备份（脱敏：仅含 phoneHash，剔除家庭隐私）
   var GH_PAGES_URL = 'https://ai-myclass.github.io/student-workbench/query.html';
+  var GH_TOKEN_URL = 'https://github.com/settings/tokens/new'; // classic PAT，需 repo 权限
   var ghTokenRaw = '';   // 真实令牌的内存镜像，避免界面遮罩后回存到错误值
   var PALETTE = ['#FF7A59', '#4DA3FF', '#3EC46D', '#FFC53D', '#B57BFF', '#FF8FB1', '#41C7C7', '#FF9F45'];
 
@@ -1089,6 +1091,7 @@
     var tk = getToken();
     ghTokenRaw = tk;
     if (tk) $('#ghToken').value = tk.length > 11 ? (tk.slice(0, 6) + '••••••••' + tk.slice(-4)) : tk;
+    renderCloudStatus();
   }
 
   function renderSourceList(sel, list, emptyTxt) {
@@ -1274,14 +1277,73 @@
     localStorage.setItem(GH_TOKEN_KEY, real);
     ghTokenRaw = real;
     toast('GitHub 令牌已保存（仅存本机）');
+    // 保存令牌后，若本机还没有数据，自动从云端拉取一次，方便在新设备上直接开用
+    if (!db.students.length && !hasRoster()) loadFromCloud(true);
   }
 
-  /** 把当前数据推送到 GitHub 仓库，触发 Pages 重建，家长立即可查 */
+  function ghHeaders(token) {
+    return { Authorization: 'token ' + token, Accept: 'application/vnd.github+json' };
+  }
+  /** 读取仓库文件（GitHub Contents API），不存在返回 null */
+  function ghGetFile(path, token) {
+    var url = GH_API_BASE + '/repos/' + GH_REPO + '/contents/' + path;
+    return fetch(url, { headers: ghHeaders(token) }).then(function (r) {
+      if (r.status === 404) return null;
+      if (!r.ok) return r.json().then(function (j) { throw new Error(j.message || ('HTTP ' + r.status)); });
+      return r.json();
+    });
+  }
+  /** 写入/更新仓库文件，自动带上 sha（更新需要） */
+  function ghPutFile(path, contentBase64, message, token, sha) {
+    var url = GH_API_BASE + '/repos/' + GH_REPO + '/contents/' + path;
+    var body = { message: message, content: contentBase64 };
+    if (sha) body.sha = sha;
+    return fetch(url, {
+      method: 'PUT',
+      headers: Object.assign({ 'Content-Type': 'application/json' }, ghHeaders(token)),
+      body: JSON.stringify(body)
+    }).then(function (r) {
+      if (!r.ok) return r.json().then(function (j) { throw new Error(j.message || ('HTTP ' + r.status)); });
+      return r.json();
+    });
+  }
+  /** 把文件推送到仓库（先取 sha 再 PUT） */
+  function pushFile(path, contentBase64, message, token) {
+    return ghGetFile(path, token).then(function (meta) {
+      return ghPutFile(path, contentBase64, message, token, meta && meta.sha);
+    });
+  }
+
+  /**
+   * 云端备份脱敏：手机号转为 FNV-1a 哈希（不保留明文），剔除家庭隐私字段。
+   * 云端备份的敏感等级与已公开的 students.json 一致（姓名 + 成绩 + phoneHash），
+   * 任何设备拉取后仍能正确重建家长查询数据，但无法反推家长手机号或家庭住址。
+   */
+  function sanitizeDBForCloud(src) {
+    var d = JSON.parse(JSON.stringify(src));
+    function stripPhone(o) {
+      if (!o) return;
+      if (o.phone) {
+        var h = SWBParent.phoneHash(o.phone);
+        o.phoneHash = h || o.phoneHash || '';
+        o.phone = '';
+      }
+    }
+    function stripSensitive(o) {
+      if (!o) return;
+      delete o.guardian; delete o.address; delete o.remark; delete o.followUp;
+    }
+    (d.students || []).forEach(function (s) { stripPhone(s); stripSensitive(s); });
+    (d.roster && d.roster.students || []).forEach(function (s) { stripPhone(s); stripSensitive(s); });
+    d.updatedAt = new Date().toISOString();
+    return d;
+  }
+
+  /** 把当前数据推送到 GitHub：家长查询页 + 云端备份，触发 Pages 重建，家长立即可查 */
   function syncParentData() {
     var token = getToken();
     if (!token) {
       toast('请先在「数据管理」填写 GitHub 访问令牌');
-      // 跳到数据管理页，方便填写
       $$('.tab').forEach(function (t) { t.classList.toggle('active', t.dataset.view === 'import'); });
       $$('.view').forEach(function (v) { v.classList.toggle('active', v.id === 'view-import'); });
       $('#ghToken').focus();
@@ -1291,61 +1353,100 @@
 
     var btn = $('#btnSync');
     btn.disabled = true;
-    toast('正在生成家长查询数据…');
+    toast('正在同步到家长查询页与云端备份…');
 
-    var payload, content;
+    var payload, content, cloudPayload, cloudContent;
     try {
       payload = SWBParent.build(db, SWB);
       content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 1))));
+      cloudPayload = sanitizeDBForCloud(db);
+      cloudContent = btoa(unescape(encodeURIComponent(JSON.stringify(cloudPayload, null, 1))));
     } catch (e) {
       btn.disabled = false;
       toast('生成失败：' + e.message);
       return;
     }
 
-    var headers = {
-      Authorization: 'token ' + token,
-      Accept: 'application/vnd.github+json'
-    };
-    var url = GH_API_BASE + '/repos/' + GH_REPO + '/contents/' + GH_FILE;
+    var ts = new Date().toISOString();
+    var pStudents = pushFile(GH_FILE, content, 'sync: 更新家长查询数据 ' + ts, token);
+    var pCloud = ghGetFile(GH_DB_FILE, token).then(function (meta) {
+      return ghPutFile(GH_DB_FILE, cloudContent, 'sync: 云端备份 ' + ts, token, meta && meta.sha);
+    });
 
-    // 先取 sha（文件已存在时更新需要）
-    fetch(url, { headers: headers })
-      .then(function (r) { return r.status === 200 ? r.json() : null; })
-      .then(function (meta) {
-        var body = {
-          message: 'sync: 更新家长查询数据 ' + new Date().toISOString(),
-          content: content
-        };
-        if (meta && meta.sha) body.sha = meta.sha;
-        return fetch(url, {
-          method: 'PUT',
-          headers: Object.assign({ 'Content-Type': 'application/json' }, headers),
-          body: JSON.stringify(body)
-        });
-      })
-      .then(function (r) {
-        if (!r.ok) return r.json().then(function (j) { throw new Error(j.message || ('HTTP ' + r.status)); });
-        return r.json();
-      })
-      .then(function (res) {
-        btn.disabled = false;
-        if (res && res.content && res.content.sha) {
-          var n = payload.students.length;
-          var q = payload._meta.phoneFull;
-          var rep = payload._meta.withData;
-          toast('已同步！' + n + ' 名学员（' + q + ' 人可查，' + rep + ' 人有报告）。家长稍后刷新即可查到');
-        } else {
-          toast('同步异常，请检查令牌权限后重试');
-        }
-      })
-      .catch(function (e) {
-        btn.disabled = false;
-        var msg = e && e.message ? e.message : String(e);
-        if (/401|403/.test(msg)) msg = '令牌无权限，请确认具有该仓库 repo 权限';
-        else if (/network|Failed to fetch|CORS/i.test(msg)) msg = '网络或跨域被拦截，请检查网络后重试';
-        toast('同步失败：' + msg);
-      });
+    Promise.allSettled([pStudents, pCloud]).then(function (res) {
+      btn.disabled = false;
+      var okS = res[0].status === 'fulfilled';
+      var okC = res[1].status === 'fulfilled';
+      var n = payload.students.length, q = payload._meta.phoneFull, rep = payload._meta.withData;
+      if (okS && okC) {
+        toast('已同步！' + n + ' 名学员（' + q + ' 人可查，' + rep + ' 人有报告）· 云端已备份');
+      } else if (okS) {
+        toast('家长查询已更新，但云端备份失败：' + errMsg(res[1]));
+      } else if (okC) {
+        toast('云端已备份，但家长查询更新失败：' + errMsg(res[0]));
+      } else {
+        toast('同步失败：' + errMsg(res[0]));
+      }
+    });
+  }
+
+  function errMsg(r) {
+    var m = r && r.reason && r.reason.message ? r.reason.message : String((r && r.reason) || '');
+    if (/401|403/.test(m)) return '令牌无权限，请确认具有该仓库 repo 权限';
+    if (/network|Failed to fetch|CORS/i.test(m)) return '网络或跨域被拦截，请检查网络后重试';
+    return m;
+  }
+
+  /** 从云端拉取数据到本机（跨设备更新） */
+  function loadFromCloud(silent) {
+    var token = getToken();
+    if (!token) {
+      if (!silent) { toast('请先填写 GitHub 访问令牌'); }
+      $$('.tab').forEach(function (t) { t.classList.toggle('active', t.dataset.view === 'import'); });
+      $$('.view').forEach(function (v) { v.classList.toggle('active', v.id === 'view-import'); });
+      $('#ghToken').focus();
+      return;
+    }
+    if (!silent) toast('正在从云端加载数据…');
+    ghGetFile(GH_DB_FILE, token).then(function (meta) {
+      if (!meta || !meta.content) {
+        if (!silent) toast('云端还没有备份，请先在常用设备点「更新家长查询」');
+        return;
+      }
+      var json;
+      try {
+        json = JSON.parse(decodeURIComponent(escape(atob(meta.content))));
+      } catch (e) { toast('云端数据解析失败'); return; }
+
+      if (!silent && (db.students.length || hasRoster())) {
+        if (!confirm('从云端加载会用最新备份覆盖当前本机数据，继续吗？')) return;
+      }
+      db = SWB.refresh(json);
+      lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
+      $('#searchInput').value = ''; $('#archiveSearch').value = '';
+      save(); renderAll();
+      var when = json.updatedAt ? new Date(json.updatedAt).toLocaleString('zh-CN') : '未知时间';
+      toast('已从云端加载（备份更新于 ' + when + '）');
+      renderCloudStatus();
+    }).catch(function (e) {
+      if (!silent) toast('云端加载失败：' + errMsg({ reason: e }));
+    });
+  }
+
+  function renderCloudStatus() {
+    var el = $('#cloudStatus');
+    if (!el) return;
+    if (!getToken()) { el.textContent = '未绑定令牌'; el.className = 'sync-status'; return; }
+    ghGetFile(GH_DB_FILE, getToken()).then(function (meta) {
+      if (!meta || !meta.content) { el.textContent = '云端暂无备份'; el.className = 'sync-status'; return; }
+      var json;
+      try { json = JSON.parse(decodeURIComponent(escape(atob(meta.content)))); }
+      catch (e) { el.textContent = '云端备份（解析失败）'; return; }
+      var when = json.updatedAt ? new Date(json.updatedAt).toLocaleString('zh-CN') : '';
+      var cnt = (json.students ? json.students.length : 0) + (json.roster && json.roster.students ? json.roster.students.length : 0);
+      el.textContent = '云端备份：' + when + ' · ' + cnt + ' 条记录';
+      el.className = 'sync-status ok';
+    }).catch(function () { el.textContent = '云端状态获取失败'; el.className = 'sync-status'; });
   }
 
   /* =========================================================
@@ -1481,6 +1582,7 @@
     $('#btnExport').addEventListener('click', exportCSV);
     $('#btnExportDB').addEventListener('click', exportDBJSON);
     $('#btnSync').addEventListener('click', syncParentData);
+    $('#btnLoadCloud').addEventListener('click', function () { loadFromCloud(false); });
     $('#btnSaveToken').addEventListener('click', saveToken);
     $('#ghToken').addEventListener('input', function () { ghTokenRaw = this.value; });
     $('#btnClear').addEventListener('click', function () {
@@ -1544,14 +1646,18 @@
   bind();
   renderAll();
 
-  // 首次打开且无任何数据：先载示例学习数据，再载入飞书学情表（170 人）自动匹配
+  // 首次打开且无任何数据：若已绑定令牌，优先从云端拉取（跨设备开用）；否则载入示例与飞书学情表
   if (!db.roster.students.length && !db.students.length) {
-    if (window.SWB_SAMPLE && window.SWB_SAMPLE.students) {
-      var s = JSON.parse(JSON.stringify(window.SWB_SAMPLE));
-      SWB.mergeInto(db, s);
-      recompute();
+    if (getToken()) {
+      loadFromCloud(true);
+    } else {
+      if (window.SWB_SAMPLE && window.SWB_SAMPLE.students) {
+        var s = JSON.parse(JSON.stringify(window.SWB_SAMPLE));
+        SWB.mergeInto(db, s);
+        recompute();
+      }
+      loadRosterSample(true);
+      toast('已自动载入飞书学情表（170 人）与示例学习数据');
     }
-    loadRosterSample(true);
-    toast('已自动载入飞书学情表（170 人）与示例学习数据');
   }
 })();

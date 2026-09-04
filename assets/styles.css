@@ -94,6 +94,13 @@ ul{margin:0;padding:0;list-style:none;}
 .token-wrap{display:flex;gap:8px;align-items:center;min-width:260px;}
 #ghToken{width:220px;padding:8px 12px;border-radius:10px;border:2px solid var(--line);font-size:13px;font-family:inherit;color:var(--ink);outline:none;transition:border-color .15s;}
 #ghToken:focus{border-color:var(--purple);}
+.token-help{margin-top:10px;font-size:12.5px;color:var(--muted);line-height:1.7;}
+.token-help a{color:var(--purple);font-weight:700;text-decoration:none;border-bottom:1px dashed var(--purple);}
+.token-help a:hover{opacity:.8;}
+.sync-tip{font-size:13px;color:var(--muted);line-height:1.85;margin:0 0 14px;}
+.sync-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.sync-status{font-size:12.5px;color:var(--muted);font-weight:600;}
+.sync-status.ok{color:#2FAE5E;}
 
 /* ---------- Tab ---------- */
 .tabs{

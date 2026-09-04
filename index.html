@@ -292,6 +292,9 @@
           <input type="password" id="ghToken" placeholder="粘贴 GitHub PAT，如 ghp_xxx" autocomplete="off" data-page-node-id="ghTokInput" />
           <button class="btn btn-ghost btn-sm" id="btnSaveToken" data-page-node-id="ghTokSave">保存</button>
         </div>
+        <div class="token-help" data-page-node-id="ghTokHelp">
+          没有令牌？<a href="https://github.com/settings/tokens/new" target="_blank" rel="noopener">点此创建</a>（勾选 <b>repo</b> 权限，生成后复制 ghp_ 开头的一串）。仅存本机，不上传。
+        </div>
       </div>
 
       <div class="set-row" data-page-node-id="zHNPihGrKkZqCB874nv8cx">
@@ -303,6 +306,18 @@
       </div>
 
       <div class="course-split" id="courseSplit" data-page-node-id="XyfvO8RviiEtCFSTIUl8sS"></div>
+    </div>
+
+    <div class="card" data-page-node-id="syncCard">
+      <div class="card-head" data-page-node-id="syncHead"><h2 data-page-node-id="syncTitle">跨设备同步</h2><span class="sub" data-page-node-id="syncSub">在其他手机 / 电脑上也能更新家长查询</span></div>
+      <p class="sync-tip" data-page-node-id="syncTip">
+        在<b>常用设备</b>点「更新家长查询」时，会顺带把数据脱敏备份到云端（手机号转为哈希、不保留家庭住址）。<br>
+        在<b>其它设备</b>打开本页、粘贴同一个令牌并点「从云端加载数据」，即可把最新数据拉到本机；改完后再点「更新家长查询」推送给家长。
+      </p>
+      <div class="sync-actions" data-page-node-id="syncActions">
+        <button class="btn btn-ghost" id="btnLoadCloud" data-page-node-id="syncLoad">从云端加载数据</button>
+        <span class="sync-status" id="cloudStatus" data-page-node-id="syncStatus">未绑定令牌</span>
+      </div>
     </div>
 
     <div class="card" data-page-node-id="hrHW6bfBp8gfZbHquAwya3">

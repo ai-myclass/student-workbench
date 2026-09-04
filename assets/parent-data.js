@@ -127,7 +127,9 @@
     var phoneFull = 0, phoneMissing = 0, withData = 0;
     var students = rosterSource.map(function (r) {
       var ph = normalizePhone(r.phone);
-      var hasPhone = ph.length >= 11;
+      // 跨设备云端备份会把明文手机号脱敏为 phoneHash，这里优先用明文、否则回退到已存的哈希
+      var hash = ph.length >= 11 ? phoneHash(ph) : (r.phoneHash || '');
+      var hasPhone = ph.length >= 11 || !!r.phoneHash;
       if (hasPhone) phoneFull++; else phoneMissing++;
 
       var learn = (r.key && learnByKey[r.key]) || (r.name && learnByName[r.name]) || null;
@@ -159,7 +161,7 @@
         grade: r.grade || (st ? (learn.grade || '') : ''),
         gender: r.gender || '',
         school: r.school || '',
-        phoneHash: hasPhone ? phoneHash(ph) : '',
+        phoneHash: hash,
         stats: st ? {
           score: st.score, listen: st.listen, accuracy: st.accuracy,
           homework: st.homework, progress: st.progress, minutes: st.minutes

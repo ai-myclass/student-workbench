@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>学员学习情况查询</title>
+<style>
+  /* ══════════════════════════════════════════
+     学员学习情况查询 · 家长端
+     配色沿用工作台：奶油底 + 马卡龙 + 厚阴影
+     ══════════════════════════════════════════ */
+  :root {
+    --bg: #FFF7EE;
+    --card: #FFFFFF;
+    --ink: #2E2545;
+    --ink-2: #6B6285;
+    --muted: #A49CB8;
+    --line: #F0E7F5;
+    --primary: #FF7A59;
+    --primary-dk: #E85A38;
+    --accent: #4DA3FF;
+    --ok: #3EC46D;
+    --warn: #FFC53D;
+    --err: #E5484D;
+    --shadow: 0 4px 0 rgba(46,37,69,.10), 0 10px 24px rgba(46,37,69,.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+                 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+  }
+
+  /* ── 顶部 ── */
+  .nav {
+    background: linear-gradient(135deg, #FF7A59 0%, #FF9FB2 50%, #4DA3FF 100%);
+    padding: 0 16px;
+    position: sticky; top: 0; z-index: 50;
+    box-shadow: 0 2px 16px rgba(46,37,69,.16);
+  }
+  .nav-inner {
+    max-width: 640px; margin: 0 auto;
+    height: 54px; display: flex; align-items: center; gap: 10px;
+    color: #fff;
+  }
+  .nav-logo { font-size: 24px; animation: bob 2.6s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+  .nav-title { font-size: 17px; font-weight: 800; letter-spacing: .5px; }
+  .nav-sub { font-size: 11px; opacity: .85; font-weight: 500; }
+
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+
+  /* ── 英雄区 ── */
+  .hero { text-align: center; padding: 30px 0 18px; }
+  .hero-emoji { font-size: 52px; display: inline-block; animation: bob 3s ease-in-out infinite; }
+  .hero h1 {
+    font-size: 22px; font-weight: 800; margin-top: 6px;
+    background: linear-gradient(135deg, var(--primary-dk), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .hero p { font-size: 13px; color: var(--muted); margin-top: 5px; }
+
+  /* ── 查询卡 ── */
+  .card {
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    padding: 22px 18px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .label { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 7px; }
+  .label::before { content: '📱'; font-size: 18px; }
+  .row { display: flex; gap: 10px; }
+  .row input {
+    flex: 1; min-width: 0;
+    padding: 13px 16px;
+    border: 2px solid var(--line); border-radius: 14px;
+    font-size: 16px; outline: none; background: #FFFDFA; color: var(--ink);
+    font-weight: 500; letter-spacing: .5px;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .row input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(77,163,255,.14); }
+  .row input::placeholder { color: #CFC6DD; font-weight: 400; letter-spacing: 0; }
+  .row button {
+    padding: 13px 24px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dk));
+    color: #fff; border: none; border-radius: 14px;
+    font-size: 15px; font-weight: 800; letter-spacing: 2px;
+    cursor: pointer; white-space: nowrap;
+    box-shadow: 0 3px 0 var(--primary-dk), 0 6px 14px rgba(255,122,89,.28);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .row button:hover { transform: translateY(-1px); }
+  .row button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--primary-dk); }
+  .row button:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+  .err {
+    display: none; margin-top: 12px;
+    color: var(--err); font-size: 13px; font-weight: 500;
+    background: #FEF2F2; border: 1px solid #FECACA;
+    padding: 10px 14px; border-radius: 12px;
+  }
+  .hint { font-size: 12px; color: var(--muted); text-align: center; margin-top: 10px; }
+
+  /* ── 结果区 ── */
+  .result { display: none; }
+  .result.show { display: block; animation: pop .45s cubic-bezier(.16,1,.3,1); }
+  @keyframes pop { from{opacity:0;transform:translateY(24px) scale(.97)} to{opacity:1;transform:none} }
+
+  .result-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
+  }
+  .result-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 7px; }
+  .result-title::before { content: '🎉'; font-size: 18px; }
+  .btn-save {
+    padding: 9px 18px; border: 2px solid var(--accent); border-radius: 12px;
+    background: #fff; color: var(--accent);
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    box-shadow: 0 2px 0 rgba(77,163,255,.25);
+    transition: transform .15s, background .15s;
+  }
+  .btn-save:hover { background: #F2F8FF; }
+  .btn-save:active { transform: translateY(2px); box-shadow: none; }
+
+  .canvas-box {
+    background: var(--card);
+    border: 2px solid var(--line);
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .canvas-box canvas { width: 100%; height: auto; display: block; border-radius: 12px; }
+
+  .tip {
+    margin-top: 12px; font-size: 12px; color: var(--muted);
+    text-align: center; line-height: 1.7;
+  }
+
+  .foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 22px; line-height: 1.8; }
+
+  @media (max-width: 420px) {
+    .hero { padding: 24px 0 14px; }
+    .hero-emoji { font-size: 44px; }
+    .hero h1 { font-size: 19px; }
+    .card { padding: 18px 14px; border-radius: 16px; }
+    .row { flex-direction: column; }
+    .row button { width: 100%; letter-spacing: 4px; }
+    .canvas-box { padding: 8px; border-radius: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">🚀</span>
+    <span class="nav-title">学习情况查询</span>
+    <span class="nav-sub">· 家长端</span>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-emoji">📊</div>
+    <h1>学员学习情况查询</h1>
+    <p>输入报名时预留的手机号，查看孩子的学习报告</p>
+  </div>
+
+  <div class="card">
+    <div class="label">输入手机号查询</div>
+    <div class="row">
+      <input type="tel" id="phoneInput" placeholder="请输入11位手机号" autocomplete="off"
+             inputmode="numeric" maxlength="13" />
+      <button id="searchBtn">查 询</button>
+    </div>
+    <div class="err" id="errMsg"></div>
+    <div class="hint" id="dataHint">正在加载数据…</div>
+  </div>
+
+  <div class="result" id="result">
+    <div class="result-head">
+      <span class="result-title" id="resultTitle">查询结果</span>
+      <button class="btn-save" id="saveBtn">💾 保存图片</button>
+    </div>
+    <div class="canvas-box">
+      <canvas id="shareCanvas"></canvas>
+    </div>
+    <div class="tip">长按图片即可保存到相册 · 数据由辅导老师定期更新</div>
+  </div>
+
+  <div class="foot">
+    本页面仅用于学员本人及家长查询学习情况<br />
+    如遇问题请联系辅导老师
+  </div>
+</div>
+
+<script src="assets/share-canvas.js"></script>
+<script>
+/* ═══════════════ 手机号哈希（与导出工具完全一致） ═══════════════ */
+function normalizePhone(v) { return String(v == null ? '' : v).replace(/\D/g, ''); }
+function phoneHash(phone) {
+  var s = normalizePhone(phone);
+  if (!s) return '';
+  var h1 = 0x811c9dc5, h2 = 0x01000193;
+  for (var i = 0; i < s.length; i++) {
+    var c = s.charCodeAt(i);
+    h1 ^= c; h1 = Math.imul(h1, 0x01000193) >>> 0;
+    h2 = (h2 ^ c) >>> 0; h2 = Math.imul(h2, 0x85ebca6b) >>> 0;
+    h2 ^= h2 >>> 13; h2 >>>= 0;
+  }
+  function hex(n) { return ('00000000' + (n >>> 0).toString(16)).slice(-8); }
+  return hex(h1) + hex(h2);
+}
+
+/* ═══════════════ DOM ═══════════════ */
+var phoneInput = document.getElementById('phoneInput');
+var searchBtn  = document.getElementById('searchBtn');
+var errMsg     = document.getElementById('errMsg');
+var dataHint   = document.getElementById('dataHint');
+var result     = document.getElementById('result');
+var resultTitle= document.getElementById('resultTitle');
+var saveBtn    = document.getElementById('saveBtn');
+var canvas     = document.getElementById('shareCanvas');
+
+var DATA = null;          // 服务端 JSON
+var loaded = false;
+var current = null;       // 当前查到的学员
+
+function showErr(m) { errMsg.textContent = m; errMsg.style.display = 'block'; }
+function hideErr()  { errMsg.style.display = 'none'; }
+
+/* ═══════════════ 加载数据 ═══════════════ */
+function loadData(cb) {
+  fetch('./data/students.json?' + Date.now())
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (d) {
+      DATA = d;
+      loaded = true;
+      var n = (d.students && d.students.length) || 0;
+      dataHint.textContent = n ? ('已收录 ' + n + ' 名学员 · 更新于 ' + fmtDate(d.updatedAt)) : '暂无学员数据';
+      cb();
+    })
+    .catch(function (e) {
+      loaded = false;
+      dataHint.textContent = '数据加载失败，请稍后重试';
+      console.error('数据加载失败:', e.message);
+      cb();
+    });
+}
+function fmtDate(iso) {
+  if (!iso) return '—';
+  var d = new Date(iso);
+  if (isNaN(d.getTime())) return '—';
+  return (d.getMonth() + 1) + '月' + d.getDate() + '日';
+}
+
+/* ═══════════════ 查询 ═══════════════ */
+function doSearch() {
+  hideErr();
+  result.classList.remove('show');
+  current = null;
+
+  var phone = normalizePhone(phoneInput.value);
+  if (!phone) { showErr('请输入手机号'); return; }
+  if (phone.length !== 11) { showErr('请输入完整的 11 位手机号'); return; }
+  if (!loaded || !DATA) { showErr('数据加载中，请稍后重试'); return; }
+  if (!DATA.students || !DATA.students.length) { showErr('暂无学员数据'); return; }
+
+  var h = phoneHash(phone);
+  var hit = null;
+  for (var i = 0; i < DATA.students.length; i++) {
+    if (DATA.students[i].phoneHash && DATA.students[i].phoneHash === h) { hit = DATA.students[i]; break; }
+  }
+  if (!hit) { showErr('未找到该手机号对应的学员，请核对后重试'); return; }
+  showResult(hit);
+}
+
+/* ═══════════════ 渲染结果 ═══════════════ */
+function showResult(s) {
+  current = s;
+  var courses = DATA.courses || [];
+  // 与工作台导出口径一致：默认展示 有效听课率 / 答题正确率 / 练习完成率
+  SWBShare.draw(canvas, s, courses, {
+    metrics: { listen: true, accuracy: true, homework: true },
+    showChips: true,
+    footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
+  });
+  resultTitle.textContent = '查询结果 · ' + (s.name || '学员');
+  result.classList.add('show');
+  // 滚动到结果
+  setTimeout(function () {
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 60);
+}
+
+/* ═══════════════ 保存图片 ═══════════════ */
+saveBtn.addEventListener('click', function () {
+  if (!current) return;
+  try {
+    var url = canvas.toDataURL('image/png');
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = '学习报告_' + (current.name || '学员') + '_' + new Date().toISOString().slice(0, 10) + '.png';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  } catch (e) {
+    showErr('保存失败：' + (e.message || e));
+  }
+});
+
+/* ═══════════════ 事件 ═══════════════ */
+searchBtn.addEventListener('click', doSearch);
+phoneInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') doSearch(); });
+// 输入时自动格式化为 3-4-4
+phoneInput.addEventListener('input', function () {
+  var d = normalizePhone(this.value).slice(0, 11);
+  var f = d.length > 7 ? (d.slice(0,3) + ' ' + d.slice(3,7) + ' ' + d.slice(7))
+        : d.length > 3 ? (d.slice(0,3) + ' ' + d.slice(3))
+        : d;
+  this.value = f;
+  hideErr();
+});
+
+/* ═══════════════ 初始化（支持 ?phone= 直链） ═══════════════ */
+loadData(function () {
+  var p = new URLSearchParams(window.location.search).get('phone');
+  if (p) { phoneInput.value = p; doSearch(); }
+});
+</script>
+</body>
+</html>

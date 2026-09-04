@@ -1,0 +1,991 @@
+{
+ "updatedAt": "2026-09-04T06:46:39.867Z",
+ "hashAlgo": "fnv1a64",
+ "courseSource": "activeCourses(回退·含习题课)",
+ "courseCount": 1,
+ "courses": [
+  "习题课 开班家长会"
+ ],
+ "students": [
+  {
+   "name": "熙哥",
+   "id": "7474200916",
+   "grade": "四年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "小贝壳",
+   "id": "15921152369711",
+   "grade": "二年级",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "桑夏",
+   "id": "6225285362",
+   "grade": "三年级",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "170cfa0256cff0b7",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "吴晓乐",
+   "id": "7445754781",
+   "grade": "初三",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "b3371250071c7364",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 95.98,
+    "minutes": 40
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 95.98,
+     "minutes": 40,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "尹韵棋",
+   "id": "15880804642329",
+   "grade": "-",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 15.39,
+    "minutes": 6
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 15.39,
+     "minutes": 6,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "黄治锦",
+   "id": "5634660741",
+   "grade": "三年级",
+   "gender": "男",
+   "school": "南海实验小学",
+   "phoneHash": "b41241f993d3a4ae",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.56,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.56,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "屈洋",
+   "id": "7465765504",
+   "grade": "一年级",
+   "gender": "男",
+   "school": "",
+   "phoneHash": "33a83310ecf5cf5a",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 92.84,
+    "minutes": 38
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 92.84,
+     "minutes": 38,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "玥兮",
+   "id": "15858952495142",
+   "grade": "二年级",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "3979271663e7e77a",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 82.27,
+    "minutes": 34
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 82.27,
+     "minutes": 34,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "达达",
+   "id": "7907594",
+   "grade": "二年级",
+   "gender": "-",
+   "school": "",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "甜甜",
+   "id": "7404786649",
+   "grade": "三年级",
+   "gender": "-",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "小桃",
+   "id": "7291488445",
+   "grade": "三年级",
+   "gender": "-",
+   "school": "",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "甘峻洋",
+   "id": "7447479602",
+   "grade": "二年级",
+   "gender": "男",
+   "school": "",
+   "phoneHash": "3e0ba5caee410acf",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 48.43,
+    "minutes": 20
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 48.43,
+     "minutes": 20,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "韩俊豪",
+   "id": "7445099085",
+   "grade": "二年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "052084e462e83b4a",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 95.19,
+    "minutes": 39
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 95.19,
+     "minutes": 39,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "章宇宸",
+   "id": "7444761096",
+   "grade": "二年级",
+   "gender": "-",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.64,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.64,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "sugar",
+   "id": "15837143533117",
+   "grade": "四年级",
+   "gender": "女",
+   "school": "宝安区桥头学校",
+   "phoneHash": "c488df0c3013bb40",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "王紫彤",
+   "id": "5974507725",
+   "grade": "三年级",
+   "gender": "-",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 7.83,
+    "minutes": 3
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 7.83,
+     "minutes": 3,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "林楚妍",
+   "id": "15024850473538",
+   "grade": "二年级",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "7beb6a7e7d39d8b3",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.44,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.44,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "凯凯",
+   "id": "15914291690512",
+   "grade": "四年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "9a977df705c74ed9",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 98.85,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 98.85,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "邱瑾",
+   "id": "4528010973",
+   "grade": "二年级",
+   "gender": "男",
+   "school": "",
+   "phoneHash": "5037bf9cbfc22bfd",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.56,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.56,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "瀚瀚",
+   "id": "3155069322",
+   "grade": "五年级",
+   "gender": "-",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "黄凯峰",
+   "id": "7366163160",
+   "grade": "二年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "4a8725f874b59585",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.56,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.56,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "李政翰",
+   "id": "7368295470",
+   "grade": "三年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "7ca6021f0a025133",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.56,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.56,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "庞涵予",
+   "id": "7372463087",
+   "grade": "二年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "127b76c15540b17e",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.56,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.56,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "妙妙",
+   "id": "6900116266",
+   "grade": "二年级",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "3ba5801e652adb9c",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0.16,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0.16,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "🚀天天",
+   "id": "2871266102",
+   "grade": "五年级",
+   "gender": "-",
+   "school": "",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "翁梓华",
+   "id": "20582571",
+   "grade": "三年级",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "6bbae2ee2b6a54e0",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "辰辰",
+   "id": "305019467088402",
+   "grade": "二年级",
+   "gender": "男",
+   "school": "济南市历城区易安小学",
+   "phoneHash": "c41fff9c95a94dd1",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "唐糖",
+   "id": "7272151280",
+   "grade": "二年级",
+   "gender": "-",
+   "school": "",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 60.87,
+    "minutes": 25
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 60.87,
+     "minutes": 25,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "林玥彤",
+   "id": "7317903472",
+   "grade": "三年级",
+   "gender": "女",
+   "school": "-",
+   "phoneHash": "f99e680299c05c51",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 94.55,
+    "minutes": 39
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 94.55,
+     "minutes": 39,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "铭博",
+   "id": "7317932251",
+   "grade": "五年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "c9c12e3211c05300",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.6,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.6,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "邓程淦",
+   "id": "7320946781",
+   "grade": "三年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "35eb69ab592ae189",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "张辰亮",
+   "id": "7324000494",
+   "grade": "三年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "57b9abb1564b90ff",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 99.05,
+    "minutes": 41
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 99.05,
+     "minutes": 41,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "凌奕凡",
+   "id": "7347589373",
+   "grade": "三年级",
+   "gender": "男",
+   "school": "",
+   "phoneHash": "7e5896e329002b9c",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 61.39,
+    "minutes": 25
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 61.39,
+     "minutes": 25,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "一航",
+   "id": "7351611577",
+   "grade": "三年级",
+   "gender": "男",
+   "school": "-",
+   "phoneHash": "7335aef0fea085bd",
+   "stats": {
+    "score": 0.5,
+    "listen": 1,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 88.75,
+    "minutes": 37
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": true,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 88.75,
+     "minutes": 37,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  },
+  {
+   "name": "海睿",
+   "id": "7357830640",
+   "grade": "四年级",
+   "gender": "-",
+   "school": "-",
+   "phoneHash": "",
+   "stats": {
+    "score": 0,
+    "listen": 0,
+    "accuracy": null,
+    "homework": 0,
+    "progress": 0,
+    "minutes": 0
+   },
+   "lessons": {
+    "习题课 开班家长会": {
+     "effective": false,
+     "attend": false,
+     "accuracy": 0,
+     "hwStatus": "未提交",
+     "progress": 0,
+     "minutes": 0,
+     "quizRight": 0,
+     "quizAnswer": 0
+    }
+   }
+  }
+ ]
+}

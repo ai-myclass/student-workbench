@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-09-04T07:59:25.723Z",
+ "updatedAt": "2026-09-04T08:30:51.759Z",
  "hashAlgo": "fnv1a64",
  "courseSource": "activeCourses(回退·含习题课)",
  "courseCount": 1,
@@ -3073,5 +3073,10 @@
    },
    "lessons": {}
   }
- ]
+ ],
+ "_meta": {
+  "phoneFull": 139,
+  "phoneMissing": 31,
+  "withData": 16
+ }
 }

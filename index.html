@@ -64,6 +64,10 @@
     <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="3g14kFWipXi7SxL0iqWtqM"><path d="M5 4h11l3 3v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" data-page-node-id="qdMonLSI5TT34xGM4feFv9"/><path d="M15 4v4h4M8 13h8M8 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="hSVvAPOUmALUTuNxOjYs1E"/></svg>
     学员档案
   </button>
+  <button class="tab" data-view="content" data-page-node-id="contentTab">
+    <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="contentTabIco"><path d="M5 4h11l3 3v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" data-page-node-id="ct1"/><path d="M15 4v4h4M8 13h8M8 17h5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="ct2"/></svg>
+    内容配置
+  </button>
   <button class="tab" data-view="import" data-page-node-id="9WerGM9CEwB60rwSxxVQeO">
     <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="LOkGeKEJ4PovANhAwav8hP"><path d="M12 3v10m0 0 4-4m-4 4-4-4M5 15v3a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" data-page-node-id="zHZpln4AxF1IrlnANFBV9t"/></svg>
     数据管理
@@ -308,17 +312,6 @@
       <div class="course-split" id="courseSplit" data-page-node-id="XyfvO8RviiEtCFSTIUl8sS"></div>
     </div>
 
-    <div class="card" data-page-node-id="contentCard">
-      <div class="card-head" data-page-node-id="contentHead"><h2 data-page-node-id="contentTitle">内容配置</h2><span class="sub" data-page-node-id="contentSub">阶段知识点与家长看到的评语</span></div>
-      <p class="sync-tip" data-page-node-id="contentTip">
-        配置后，导出的分享图与<b>家长查询页</b>都会展示：① 本阶段每讲所学的<b>知识点</b>（让家长直观了解学了什么）；② 评语 = <b>系统自动客观评价</b> + <b>老师自定义寄语</b>。
-      </p>
-      <div class="sync-actions" data-page-node-id="contentActions">
-        <button class="btn btn-primary" id="btnOpenKnowledge" data-page-node-id="openKn">📚 阶段知识点配置</button>
-        <button class="btn btn-primary" id="btnOpenCommentLib" data-page-node-id="openCl">💡 评语库管理</button>
-      </div>
-    </div>
-
     <div class="card" data-page-node-id="syncCard">
       <div class="card-head" data-page-node-id="syncHead"><h2 data-page-node-id="syncTitle">跨设备同步</h2><span class="sub" data-page-node-id="syncSub">在其他手机 / 电脑上也能更新家长查询</span></div>
       <p class="sync-tip" data-page-node-id="syncTip">
@@ -368,6 +361,42 @@
         </div>
         <button class="btn btn-danger" id="btnClear" data-page-node-id="L2HYxkeN2ZDuqkYAxM3vOr">清空数据</button>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ 内容配置 ============ -->
+  <section class="view" id="view-content" data-page-node-id="viewContent">
+    <div class="card content-hero" data-page-node-id="contentHero">
+      <div class="hero-emoji" data-page-node-id="heroEmoji">🎯</div>
+      <div class="hero-text" data-page-node-id="heroText">
+        <h2 data-page-node-id="heroTitle">内容配置</h2>
+        <p data-page-node-id="heroDesc">配置家长在分享图与查询页能看到的内容：每一讲所学的 <strong>阶段知识点</strong>，以及由「系统自动客观评价 + 老师自定义寄语」组成的<strong>评语</strong>。配置完成后点「更新家长查询」即可同步给家长。</p>
+      </div>
+    </div>
+
+    <div class="two-col" data-page-node-id="contentGrid">
+      <div class="card feature-card kn" data-page-node-id="featKn">
+        <div class="feature-ico" data-page-node-id="featKnIco">📚</div>
+        <div class="feature-body" data-page-node-id="featKnBody">
+          <h3 data-page-node-id="featKnTitle">阶段知识点</h3>
+          <p data-page-node-id="featKnDesc">按讲次填写本阶段知识点，导出图片与家长查询页会按讲次展示，让家长直观了解孩子每一讲学了什么。多个知识点可用换行或“、”分隔。</p>
+        </div>
+        <button class="btn btn-primary" id="btnOpenKnowledge" data-page-node-id="openKn">配置知识点</button>
+      </div>
+
+      <div class="card feature-card cl" data-page-node-id="featCl">
+        <div class="feature-ico" data-page-node-id="featClIco">💡</div>
+        <div class="feature-body" data-page-node-id="featClBody">
+          <h3 data-page-node-id="featClTitle">评语库</h3>
+          <p data-page-node-id="featClDesc">按学员综合得分区间配置寄语模板，再结合系统自动客观评价。每位学员还可在详情里写专属寄语，自动覆盖此处模板。</p>
+        </div>
+        <button class="btn btn-primary" id="btnOpenCommentLib" data-page-node-id="openCl">管理评语库</button>
+      </div>
+    </div>
+
+    <div class="card content-note" data-page-node-id="contentNote">
+      <div class="note-ico" data-page-node-id="noteIco">✨</div>
+      <p data-page-node-id="noteText">最终分享图与查询页展示的评语 = <b>系统自动客观评价</b>（依据听课、答题、作业与综合分自动生成）+ <b>老师自定义寄语</b>（评语库模板或学员专属寄语）。两段内容分开呈现，家长读起来更清晰。</p>
     </div>
   </section>
 </main>

@@ -823,7 +823,7 @@
     var autoPrev = SWBShare.buildTeacherComment(s, drawerCourses);
     var customPrev = s.customComment ? s.customComment : SWBShare.resolveCustomComment(s, db.commentLib || [], '');
     var pv = $('#cmtFullPreview');
-    if (pv) pv.textContent = (autoPrev + (customPrev ? '\n\n' + customPrev : '')) || '（暂无学习数据，暂不能生成评语）';
+    if (pv) pv.textContent = (autoPrev + (customPrev ? '\n' + customPrev : '')) || '（暂无学习数据，暂不能生成评语）';
     toast('已保存自定义评语');
   }
 
@@ -844,6 +844,8 @@
       return '<label class="share-opt"><input type="checkbox" data-metric="' + m.key + '"' + (m.def ? ' checked' : '') + '>' +
         '<span class="sw-dot" style="background:' + m.color + '"></span>' + m.label + '</label>';
     }).join('') +
+      '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareChart" checked>' +
+        '<span class="sw-dot" style="background:#9B5DE5"></span>显示学习趋势折线图</label>' +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareKnowledge" checked>' +
         '<span class="sw-dot" style="background:#4DA3FF"></span>显示阶段知识点</label>' +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareComment" checked>' +
@@ -909,6 +911,7 @@
     SWBShare.draw(cv, s, courses, {
       metrics: chosen,
       showChips: showChips,
+      showChart: $('#shareChart') ? $('#shareChart').checked : true,
       showKnowledge: $('#shareKnowledge') ? $('#shareKnowledge').checked : true,
       showComment: $('#shareComment') ? $('#shareComment').checked : true,
       knowledge: knowledge,

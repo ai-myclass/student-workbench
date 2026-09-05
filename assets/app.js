@@ -817,12 +817,14 @@
     if (!currentDrawer || !currentDrawer.student) return;
     var ta = $('#drawerCustomComment'); if (!ta) return;
     currentDrawer.student.customComment = ta.value.trim();
-    save(); renderAll();
-    toast('已保存自定义评语');
+    save();
     var s = currentDrawer.student;
+    var drawerCourses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
+    var autoPrev = SWBShare.buildTeacherComment(s, drawerCourses);
     var customPrev = s.customComment ? s.customComment : SWBShare.resolveCustomComment(s, db.commentLib || [], '');
-    var pv = $('#cmtCustomPreview');
-    if (pv) pv.textContent = customPrev || '（按评语库匹配，暂未配置）';
+    var pv = $('#cmtFullPreview');
+    if (pv) pv.textContent = (autoPrev + (customPrev ? '\n\n' + customPrev : '')) || '（暂无学习数据，暂不能生成评语）';
+    toast('已保存自定义评语');
   }
 
   /* ---------------- 生成学习情况分享图 ---------------- */
@@ -1102,11 +1104,12 @@
       var drawerCourses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
       var autoPrev = SWBShare.buildTeacherComment(s, drawerCourses);
       var customPrev = cc ? cc : SWBShare.resolveCustomComment(s, db.commentLib || [], '');
+      var fullPrev = autoPrev + (customPrev ? '\n\n' + customPrev : '');
       html += '<div class="card"><div class="lesson-head"><h3>老师自定义评语</h3>' +
-        '<span class="sub" style="font-size:11.5px;color:#A49CB8">显示在家长分享图，覆盖评语库</span></div>' +
+        '<span class="sub" style="font-size:11.5px;color:#A49CB8">显示在家长分享图，留空则按评语库综合分匹配</span></div>' +
         '<textarea id="drawerCustomComment" class="cmt-box" placeholder="给这位学员写一句专属寄语… 留空则按评语库综合分匹配">' + esc(s.customComment || '') + '</textarea>' +
-        '<div class="cmt-preview"><b>系统自动：</b>' + esc(autoPrev) + '</div>' +
-        '<div class="cmt-preview"><b>老师寄语：</b><span id="cmtCustomPreview">' + esc(customPrev || '（按评语库匹配，暂未配置）') + '</span></div>' +
+        '<div class="cmt-preview"><b>家长看到的完整评语</b>' +
+        '<div id="cmtFullPreview" style="margin-top:6px;white-space:pre-wrap;line-height:1.75;font-weight:400">' + esc(fullPrev || '（暂无学习数据，暂不能生成评语）') + '</div></div>' +
         '<div class="cmt-actions"><button class="btn btn-primary btn-sm" id="btnSaveCustomComment">保存评语</button></div>' +
         '</div>';
     }

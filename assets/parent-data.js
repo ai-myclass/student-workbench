@@ -32,37 +32,31 @@
     return hex(h1) + hex(h2);
   }
 
-  /** 依据学习数据自动生成教师评语（亲切、鼓励、有温度，与工作台一致） */
+  /** 依据学习数据自动生成教师评语（叙事口吻，与工作台 share-canvas.js 完全一致） */
   function buildTeacherComment(s, courses, accFloorFor) {
     var st = s.stats || {};
     var pct = function (v) { return v == null ? null : Math.round(v * 100); };
-    var score = pct(st.score), listen = pct(st.listen), hw = pct(st.homework);
-    var rawAcc = pct(st.accuracy);
+    var listen = pct(st.listen), rawAcc = pct(st.accuracy), hw = pct(st.homework);
     var acc = rawAcc == null ? null : Math.max(rawAcc, accFloorFor(s));
     var name = s.name || '宝贝';
-    var p = [];
-    if (score >= 85) p.push(name + '同学，这一阶段的成长老师都看在眼里，忍不住想给你点个大大的赞');
-    else if (score >= 70) p.push(name + '同学，最近你的学习状态稳稳当当，老师看在眼里、喜在心里');
-    else if (score >= 50) p.push(name + '同学，这一阶段你一直在踏踏实实地往前走，老师都记着呢');
-    else p.push(name + '同学，老师知道你也在悄悄努力，咱们慢慢来，不着急');
+    var parts = [name + '同学，最近的学习成长老师都看在眼里，'];
     if (listen != null) {
-      if (listen >= 90) p.push('课堂上你总眼睛亮亮地跟着老师走，有效听课率高达' + listen + '%，这份专注特别珍贵');
-      else if (listen >= 70) p.push('课堂上你大多时候都很投入，有效听课率' + listen + '%，偶尔走神也很正常呀');
-      else if (listen >= 40) p.push('有时你会悄悄“神游”，有效听课率' + listen + '%，下次多和老师互动，课堂会更有趣哦');
-      else p.push('课堂上你偶尔会走神，有效听课率' + listen + '%，别担心，老师会多请你来回答问题帮你回到状态');
+      if (listen >= 90) parts.push('课上有效听课率' + listen + '%，专注听课的好习惯值得称赞👍');
+      else if (listen >= 70) parts.push('课上有效听课率' + listen + '%，大多数时候都很投入，很棒👍');
+      else if (listen >= 40) parts.push('课上有效听课率' + listen + '%，偶尔会走神，下次多和老师互动会更专注哦👍');
+      else parts.push('课上有效听课率' + listen + '%，别担心，老师会多请你回答问题帮你回到状态👍');
     }
     if (acc != null) {
-      if (acc >= 85) p.push('直播答题正确率' + acc + '%，知识点你吃得透透的，太棒啦');
-      else if (acc >= 60) p.push('直播答题正确率' + acc + '%，基础打得挺牢，难一点的咱们再多练练就好');
-      else p.push('直播答题正确率' + acc + '%，还有些小坑没绕过去，老师陪你一个一个填平它');
+      if (acc >= 85) parts.push('直播答题正确率' + acc + '%，知识点掌握得很扎实，棒棒哒✊');
+      else if (acc >= 60) parts.push('直播答题正确率' + acc + '%，基础打得挺牢，偶尔错几道也正常✊');
+      else parts.push('直播答题正确率' + acc + '%，还有些小坑没绕过去，要再更加仔细✊');
     }
     if (hw != null) {
-      if (hw >= 90) p.push('课后练习你几乎一节不落都完成了，这份坚持老师要给大大的赞');
-      else if (hw >= 60) p.push('课后练习完成率' + hw + '%，保持得不错，记得别攒太多哦');
-      else p.push('课后练习完成率' + hw + '%，作业是和老师“悄悄对话”的机会，咱们尽量按时交呀');
+      if (hw >= 90) parts.push('练习完成率' + hw + '%，每节课的练习都认真完成，为你点赞👏');
+      else if (hw >= 60) parts.push('练习完成率' + hw + '%，保持得不错，记得尽量别攒太多👏');
+      else parts.push('练习完成率' + hw + '%，作业是和老师悄悄对话的机会，咱们按时交会更熟👏');
     }
-    p.push('—— 你的专属辅导老师');
-    return p.join('，') + '。';
+    return parts.join('');
   }
 
   /** 导出展示时答题正确率的最低下限（按学员稳定浮动 76~80） */

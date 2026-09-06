@@ -18,15 +18,15 @@
   var GH_PAGES_URL = 'https://ai-myclass.github.io/student-workbench/query.html';
   var GH_TOKEN_URL = 'https://github.com/settings/tokens/new'; // classic PAT，需 repo 权限
   var ghTokenRaw = '';   // 真实令牌的内存镜像，避免界面遮罩后回存到错误值
-  var PALETTE = ['#FF7A59', '#4DA3FF', '#3EC46D', '#FFC53D', '#B57BFF', '#FF8FB1', '#41C7C7', '#FF9F45'];
+  var PALETTE = ['#3B82F6', '#14B8A6', '#3B82F6', '#F59E0B', '#64748B', '#EC4899', '#10B981', '#3B82F6'];
 
   /** 分享图可勾选的指标（key 对应lesson对象字段，color 为折线颜色，def 为默认勾选） */
   var SHARE_METRICS = [
-    { key: 'listen', label: '有效听课率', color: '#2E8BD6', def: true },
-    { key: 'accuracy', label: '答题正确率', color: '#2FB45F', def: true },
-    { key: 'homework', label: '练习完成率', color: '#F5793B', def: true },
-    { key: 'progress', label: '听课进度', color: '#9B5DE5', def: false },
-    { key: 'score', label: '综合得分', color: '#E0A62E', def: false }
+    { key: 'listen', label: '有效听课率', color: '#3B82F6', def: true },
+    { key: 'accuracy', label: '答题正确率', color: '#14B8A6', def: true },
+    { key: 'homework', label: '练习完成率', color: '#3B82F6', def: true },
+    { key: 'progress', label: '听课进度', color: '#60A5FA', def: false },
+    { key: 'score', label: '综合得分', color: '#0EA5E9', def: false }
   ];
 
   var db = load();
@@ -100,10 +100,10 @@
     return PALETTE[h % PALETTE.length];
   }
   function scoreColor(v) {
-    if (v >= 0.85) return '#3EC46D';
-    if (v >= 0.70) return '#4DA3FF';
-    if (v >= 0.50) return '#FFC53D';
-    return '#FF7A59';
+    if (v >= 0.85) return '#14B8A6';
+    if (v >= 0.70) return '#3B82F6';
+    if (v >= 0.50) return '#0EA5E9';
+    return '#3B82F6';
   }
   function shortName(name) {
     var s = String(name || '');
@@ -330,17 +330,11 @@
   }
 
   function emptyBlock(title, sub, withDemo) {
-    return '<div style="text-align:center;padding:40px 0;color:#A49CB8">' +
-      '<svg viewBox="0 0 120 90" width="130" style="opacity:.8">' +
-      '<ellipse cx="60" cy="78" rx="26" ry="5" fill="#F0E7F5"/>' +
-      '<path d="M60 8c9 7 13 17 13 29 0 8-2 14-5 20H52c-3-6-5-12-5-20C47 25 51 15 60 8z" fill="#FFD9CB"/>' +
-      '<circle cx="60" cy="30" r="7" fill="#fff"/><circle cx="60" cy="30" r="4.5" fill="#B9C7D6"/>' +
-      '<path d="M47 38c-6 2-10 8-11 15l9-4z" fill="#CFE3F5"/>' +
-      '<path d="M73 38c6 2 10 8 11 15l-9-4z" fill="#CFE3F5"/>' +
-      '</svg>' +
-      '<div style="font-weight:800;color:#6B6285;margin-top:6px">' + esc(title) + '</div>' +
-      '<div style="font-size:12.5px;margin-top:4px">' + esc(sub) + '</div>' +
-      (withDemo ? '<div style="margin-top:14px;display:flex;gap:10px;justify-content:center">' +
+    return '<div class="empty-state-block">' +
+      '<img class="empty-state-img" src="assets/img/empty-state.png" alt="" />' +
+      '<div class="empty-state-title">' + esc(title) + '</div>' +
+      '<div class="empty-state-sub">' + esc(sub) + '</div>' +
+      (withDemo ? '<div class="empty-state-actions">' +
         '<button class="btn btn-primary" data-demo="1">载入示例数据</button>' +
         '<button class="btn btn-ghost" data-goto-import="1">去导入表格</button></div>' : '') +
       '</div>';
@@ -350,22 +344,16 @@
     var ex = db.excludedCourses || [];
     var activeEx = (db.activeCourses || []).filter(function (c) { return ex.indexOf(c) !== -1; });
     var kws = (SWB.settings(db).excludeKeywords || []).join('、') || '（空）';
-    return '<div style="text-align:center;padding:36px 0;color:#A49CB8">' +
-      '<svg viewBox="0 0 120 90" width="130" style="opacity:.8">' +
-      '<ellipse cx="60" cy="78" rx="26" ry="5" fill="#F0E7F5"/>' +
-      '<path d="M60 8c9 7 13 17 13 29 0 8-2 14-5 20H52c-3-6-5-12-5-20C47 25 51 15 60 8z" fill="#FFD9CB"/>' +
-      '<circle cx="60" cy="30" r="7" fill="#fff"/><circle cx="60" cy="30" r="4.5" fill="#B9C7D6"/>' +
-      '<path d="M47 38c-6 2-10 8-11 15l9-4z" fill="#CFE3F5"/>' +
-      '<path d="M73 38c6 2 10 8 11 15l-9-4z" fill="#CFE3F5"/>' +
-      '</svg>' +
-      '<div style="font-weight:800;color:#6B6285;margin-top:6px">当前没有可统计的正课</div>' +
-      '<div style="font-size:12.5px;margin-top:4px;line-height:1.7">' +
+    return '<div class="empty-state-block">' +
+      '<img class="empty-state-img" src="assets/img/empty-state.png" alt="" />' +
+      '<div class="empty-state-title">当前没有可统计的正课</div>' +
+      '<div class="empty-state-sub">' +
       (activeEx.length
         ? '已开课的 ' + activeEx.length + ' 讲全部命中了剔除规则（' + esc(kws) + '），所以不计入统计。'
         : '导入的表格里还没有已开课的讲次。') +
       '</div>' +
       (activeEx.length
-        ? '<div style="margin-top:14px"><button class="btn btn-primary" data-show-drill="1">临时把习题课纳入统计</button></div>'
+        ? '<div class="empty-state-actions"><button class="btn btn-primary" data-show-drill="1">临时把习题课纳入统计</button></div>'
         : '') +
       '</div>';
   }
@@ -393,8 +381,8 @@
 
     [0, 0.25, 0.5, 0.75, 1].forEach(function (t) {
       g += '<line x1="' + padL + '" y1="' + y(t).toFixed(1) + '" x2="' + (W - padR) + '" y2="' + y(t).toFixed(1) +
-        '" stroke="#F0E7F5" stroke-width="1.5"/>';
-      g += '<text x="' + (padL - 10) + '" y="' + (y(t) + 4).toFixed(1) + '" font-size="11" fill="#A49CB8" text-anchor="end">' + (t * 100) + '%</text>';
+        '" stroke="#D3DBF2" stroke-width="1.5"/>';
+      g += '<text x="' + (padL - 10) + '" y="' + (y(t) + 4).toFixed(1) + '" font-size="11" fill="#9AA6CE" text-anchor="end">' + (t * 100) + '%</text>';
     });
 
     function series(key, color) {
@@ -411,22 +399,22 @@
       });
       return { path: d, dots: dots };
     }
-    var s1 = series('listen', '#4DA3FF'), s2 = series('accuracy', '#3EC46D'), s3 = series('homework', '#FF7A59');
+    var s1 = series('listen', '#3B82F6'), s2 = series('accuracy', '#14B8A6'), s3 = series('homework', '#3B82F6');
 
     var labels = trend.map(function (t, i) {
       if (n > 16 && i % 2 === 1 && i !== hi) return '';
-      var c1 = i === hi ? '#FF7A59' : '#6B6285';
+      var c1 = i === hi ? '#3B82F6' : '#5C6BA8';
       return '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 22) + '" font-size="11" fill="' + c1 +
         '" font-weight="' + (i === hi ? 800 : 400) + '" text-anchor="middle">' + esc(shortName(t.name)) + '</text>' +
-        '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 38) + '" font-size="10" fill="#C3BBDA" text-anchor="middle">' +
+        '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 38) + '" font-size="10" fill="#9AA6CE" text-anchor="middle">' +
         esc(t.name.replace(/^第\d+讲\s*/, '').slice(0, 8)) + '</text>';
     }).join('');
 
     box.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" style="max-width:none">' +
       g +
-      '<path d="' + s1.path + '" fill="none" stroke="#4DA3FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="' + s2.path + '" fill="none" stroke="#3EC46D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="' + s3.path + '" fill="none" stroke="#FF7A59" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<path d="' + s1.path + '" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<path d="' + s2.path + '" fill="none" stroke="#14B8A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
+      '<path d="' + s3.path + '" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
       s1.dots + s2.dots + s3.dots +
       labels + '</svg>';
   }
@@ -481,7 +469,7 @@
       return ia - ib;
     });
     var max = Math.max.apply(null, keys.map(function (k) { return map[k]; })) || 1;
-    var colors = ['#4DA3FF', '#3EC46D', '#FFC53D', '#B57BFF', '#FF7A59', '#FF8FB1', '#41C7C7'];
+    var colors = ['#3B82F6', '#14B8A6', '#0EA5E9', '#60A5FA', '#3B82F6', '#EC4899', '#14B8A6'];
     $('#gradeDist').innerHTML = keys.map(function (k, i) {
       return '<div class="dist-row"><span class="dist-label">' + esc(k) + '</span>' +
         '<span class="dist-track"><i style="width:' + (map[k] / max * 100) + '%;background:' + colors[i % colors.length] + '"></i></span>' +
@@ -495,20 +483,20 @@
     var bd = SWB.courseBreakdown(db, cn);
     var n = db.students.length || 1;
     var rows = [
-      { k: '有效听课', v: bd.effective, c: '#3EC46D' },
-      { k: '到课未达标', v: bd.attendedOnly, c: '#FFC53D' },
-      { k: '未到课', v: bd.absent, c: '#C9C2DA' },
-      { k: '练习已交', v: bd.hwDone, c: '#4DA3FF' }
+      { k: '有效听课', v: bd.effective, c: '#14B8A6' },
+      { k: '到课未达标', v: bd.attendedOnly, c: '#0EA5E9' },
+      { k: '未到课', v: bd.absent, c: '#C2CCEC' },
+      { k: '练习已交', v: bd.hwDone, c: '#3B82F6' }
     ];
     var max = Math.max.apply(null, rows.map(function (r) { return r.v; })) || 1;
     $('#attendDist').innerHTML =
-      '<div style="font-size:12.5px;color:#6B6285;font-weight:700;margin-bottom:6px">' + esc(cn) + '</div>' +
+      '<div style="font-size:12.5px;color:#5C6BA8;font-weight:700;margin-bottom:6px">' + esc(cn) + '</div>' +
       rows.map(function (r) {
         return '<div class="dist-row"><span class="dist-label">' + r.k + '</span>' +
           '<span class="dist-track"><i style="width:' + (r.v / max * 100) + '%;background:' + r.c + '"></i></span>' +
           '<span class="dist-val">' + r.v + '/' + n + '</span></div>';
       }).join('') +
-      '<div style="margin-top:6px;font-size:12px;color:#A49CB8">人均听课 ' + Math.round(bd.avgMinutes) +
+      '<div style="margin-top:6px;font-size:12px;color:#9AA6CE">人均听课 ' + Math.round(bd.avgMinutes) +
       ' 分钟 · 平均进度 ' + Math.round(bd.progress) + '% · 答题 ' + bd.quizRight + '/' + bd.quizAnswer + '</div>';
   }
 
@@ -594,7 +582,7 @@
             '<td>' + (l.attended ? '<span class="tag tag-yes">到课</span>' : '<span class="tag tag-no">未到</span>') + '</td>' +
             '<td>' + (l.effective ? '<span class="tag tag-yes">有效</span>' : '<span class="tag tag-no">—</span>') + '</td>' +
             '<td class="mono">' + (l.quizRight || 0) + '/' + (l.quizAnswer || 0) + '</td>' +
-            '<td>' + mini(l.quizAnswer ? (l.accuracy || 0) / 100 : null, '#3EC46D') + '</td>' +
+            '<td>' + mini(l.quizAnswer ? (l.accuracy || 0) / 100 : null, '#14B8A6') + '</td>' +
             '<td>' + hwTag(l.hwStatus) + '</td>' +
             '<td class="mono">' + (l.durationMin || 0) + ' 分</td>' +
             '<td><span class="score-badge" style="background:' + scoreColor(st.score) + '">' + (st.score * 100).toFixed(0) + '</span></td>';
@@ -602,9 +590,9 @@
           base += '<td><span class="pill ' + gCls + '">' + esc(val(s.gender) || '未填') + '</span></td>' +
             '<td class="grade-tag">' + esc(val(s.grade) || '—') + '</td>' +
             matchBadge(s) +
-            '<td>' + mini(st.listen, '#4DA3FF') + '</td>' +
-            '<td>' + mini(st.accuracy, '#3EC46D') + '</td>' +
-            '<td>' + mini(st.homework, '#FF7A59') + '</td>' +
+            '<td>' + mini(st.listen, '#3B82F6') + '</td>' +
+            '<td>' + mini(st.accuracy, '#14B8A6') + '</td>' +
+            '<td>' + mini(st.homework, '#3B82F6') + '</td>' +
             '<td><span class="score-badge" style="background:' + scoreColor(st.score) + '">' + (st.score * 100).toFixed(0) + '</span></td>';
         }
         return base + '</tr>';
@@ -629,7 +617,7 @@
       : '<span class="tag tag-warn">' + esc(status || '未提交') + '</span>';
   }
   function mini(v, color) {
-    if (v === null || v === undefined) return '<span class="mini-num" style="color:#C3BBDA">—</span>';
+    if (v === null || v === undefined) return '<span class="mini-num" style="color:#9AA6CE">—</span>';
     return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + color + '"></i></span>' +
       '<span class="mini-num">' + (v * 100).toFixed(0) + '%</span></span>';
   }
@@ -691,10 +679,10 @@
             ? '<span class="tag tag-no">暂无学习数据</span>'
             : '<span class="tag tag-yes">已匹配</span>') + '</td>' +
           (a.noData
-            ? '<td colspan="3" class="mono" style="color:#C3BBDA">—</td><td><span class="score-badge" style="background:#C9C2DA">—</span></td>'
-            : '<td>' + mini(st.listen, '#4DA3FF') + '</td>' +
-              '<td>' + mini(st.accuracy, '#3EC46D') + '</td>' +
-              '<td>' + mini(st.homework, '#FF7A59') + '</td>' +
+            ? '<td colspan="3" class="mono" style="color:#9AA6CE">—</td><td><span class="score-badge" style="background:#C2CCEC">—</span></td>'
+            : '<td>' + mini(st.listen, '#3B82F6') + '</td>' +
+              '<td>' + mini(st.accuracy, '#14B8A6') + '</td>' +
+              '<td>' + mini(st.homework, '#3B82F6') + '</td>' +
               '<td><span class="score-badge" style="background:' + scoreColor(st.score) + '">' + (st.score * 100).toFixed(0) + '</span></td>') +
           '</tr>';
       }).join('');
@@ -845,11 +833,11 @@
         '<span class="sw-dot" style="background:' + m.color + '"></span>' + m.label + '</label>';
     }).join('') +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareChart" checked>' +
-        '<span class="sw-dot" style="background:#9B5DE5"></span>显示学习趋势折线图</label>' +
+        '<span class="sw-dot" style="background:#60A5FA"></span>显示学习趋势折线图</label>' +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareKnowledge" checked>' +
-        '<span class="sw-dot" style="background:#4DA3FF"></span>显示阶段知识点</label>' +
+        '<span class="sw-dot" style="background:#3B82F6"></span>显示阶段知识点</label>' +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareComment" checked>' +
-        '<span class="sw-dot" style="background:#FFC53D"></span>显示教师评语（自动+自定义）</label>';
+        '<span class="sw-dot" style="background:#0EA5E9"></span>显示教师评语（自动+自定义）</label>';
     $('#shareMask').hidden = false;
     $('#shareModal').hidden = false;
     document.body.style.overflow = 'hidden';
@@ -1044,10 +1032,10 @@
       : (r ? '<span class="tag tag-yes">档案已匹配</span>' : '<span class="tag tag-no">未在学情表中</span>');
 
     var rings = [
-      { l: '有效听课率', v: st.listen, c: '#4DA3FF' },
-      { l: '答题正确率', v: st.accuracy, c: '#3EC46D' },
-      { l: '练习完成率', v: st.homework, c: '#FF7A59' },
-      { l: '综合得分', v: st.score, c: '#B57BFF' }
+      { l: '有效听课率', v: st.listen, c: '#3B82F6' },
+      { l: '答题正确率', v: st.accuracy, c: '#14B8A6' },
+      { l: '练习完成率', v: st.homework, c: '#3B82F6' },
+      { l: '综合得分', v: st.score, c: '#60A5FA' }
     ];
 
     var infoRows = [
@@ -1082,12 +1070,12 @@
     if (!noData) {
       html += '<div class="ring-row">' + rings.map(function (x) { return ring(x.v, x.c, x.l); }).join('') + '</div>' +
         '<div class="spark-wrap"><div class="lesson-head"><h3>每一讲的听课进度</h3>' +
-        '<span class="sub" style="font-size:11.5px;color:#A49CB8">绿色=有效 · 黄色=到课 · 灰色=未到</span></div>' +
+        '<span class="sub" style="font-size:11.5px;color:#9AA6CE">绿色=有效 · 黄色=到课 · 灰色=未到</span></div>' +
         spark(s) + '</div>';
     }
 
     html += '<div class="card" style="margin-bottom:18px"><div class="lesson-head"><h3>个人档案</h3>' +
-      '<span class="sub" style="font-size:11.5px;color:#A49CB8">' + (r ? '来源：学情表' : '来源：学习数据表') + '</span></div>' +
+      '<span class="sub" style="font-size:11.5px;color:#9AA6CE">' + (r ? '来源：学情表' : '来源：学习数据表') + '</span></div>' +
       '<div class="info-grid">' +
       (infoRows.length
         ? infoRows.map(function (p) {
@@ -1109,7 +1097,7 @@
       var customPrev = cc ? cc : SWBShare.resolveCustomComment(s, db.commentLib || [], '');
       var fullPrev = autoPrev + (customPrev ? '\n\n' + customPrev : '');
       html += '<div class="card"><div class="lesson-head"><h3>老师自定义评语</h3>' +
-        '<span class="sub" style="font-size:11.5px;color:#A49CB8">显示在家长分享图，留空则按评语库综合分匹配</span></div>' +
+        '<span class="sub" style="font-size:11.5px;color:#9AA6CE">显示在家长分享图，留空则按评语库综合分匹配</span></div>' +
         '<textarea id="drawerCustomComment" class="cmt-box" placeholder="给这位学员写一句专属寄语… 留空则按评语库综合分匹配">' + esc(s.customComment || '') + '</textarea>' +
         '<div class="cmt-preview"><b>家长看到的完整评语</b>' +
         '<div id="cmtFullPreview" style="margin-top:6px;white-space:pre-wrap;line-height:1.75;font-weight:400">' + esc(fullPrev || '（暂无学习数据，暂不能生成评语）') + '</div></div>' +
@@ -1120,7 +1108,7 @@
     // 每讲明细
     if (s && Object.keys(s.lessons || {}).length) {
       html += '<div class="card"><div class="lesson-head"><h3>每讲明细</h3>' +
-        '<span class="sub" style="font-size:11.5px;color:#A49CB8">灰色行=不计入统计</span></div>' +
+        '<span class="sub" style="font-size:11.5px;color:#9AA6CE">灰色行=不计入统计</span></div>' +
         '<div style="overflow-x:auto"><table class="lesson-table">' +
         '<thead><tr><th>讲次</th><th>到课</th><th>有效</th><th>完课</th><th>时长</th><th>进度</th>' +
         '<th>答对/作答</th><th>正确率</th><th>练习</th><th>得分</th><th style="width:46px"></th></tr></thead><tbody>' +
@@ -1149,13 +1137,13 @@
       var accTxt = (l.quizAnswer > 0)
         ? '<span class="tag ' + ((l.accuracy || 0) >= 80 ? 'tag-yes' : 'tag-warn') + '">' + pct((l.accuracy || 0) / 100, 0) + '</span>'
         : '<span class="tag tag-no">无</span>';
-      return '<tr style="opacity:' + (inStat ? 1 : .45) + (isCurrent ? ';outline:2.5px solid #FF7A59;border-radius:12px' : '') + '">' +
+      return '<tr style="opacity:' + (inStat ? 1 : .45) + (isCurrent ? ';outline:2.5px solid #3B82F6;border-radius:12px' : '') + '">' +
         '<td><span class="lesson-name" title="' + esc(cn) + '">' + esc(shortName(cn)) + tag + '</span></td>' +
         '<td>' + (l.attended ? '<span class="tag tag-yes">到课</span>' : '<span class="tag tag-no">未到</span>') + '</td>' +
         '<td>' + (l.effective ? '<span class="tag tag-yes">有效</span>' : '<span class="tag tag-no">—</span>') + '</td>' +
         '<td>' + (l.finished ? '<span class="tag tag-blue">完课</span>' : '<span class="tag tag-no">—</span>') + '</td>' +
         '<td class="mono">' + (l.durationMin || 0) + ' 分</td>' +
-        '<td>' + miniBar(l.progress / 100, '#4DA3FF') + '</td>' +
+        '<td>' + miniBar(l.progress / 100, '#3B82F6') + '</td>' +
         '<td class="mono">' + (l.quizRight || 0) + '/' + (l.quizAnswer || 0) + '</td>' +
         '<td>' + accTxt + '</td>' +
         '<td>' + hwTag(l.hwStatus) + '</td>' +
@@ -1166,7 +1154,7 @@
   }
 
   function miniBar(v, c) {
-    if (!v) return '<span style="color:#C3BBDA">—</span>';
+    if (!v) return '<span style="color:#9AA6CE">—</span>';
     return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + c + '"></i></span>' +
       '<span class="mini-num">' + (v * 100).toFixed(0) + '%</span></span>';
   }
@@ -1178,7 +1166,7 @@
       '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="#F1EBF8" stroke-width="8"/>' +
       '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="8" stroke-linecap="round" ' +
       'stroke-dasharray="' + (c * val2).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 33 33)"/>' +
-      '<text x="33" y="37" text-anchor="middle" font-size="14" font-weight="800" fill="#2E2545">' +
+      '<text x="33" y="37" text-anchor="middle" font-size="14" font-weight="800" fill="#1C398E">' +
       (v === null || v === undefined ? '—' : Math.round(v * 100)) + '</text>' +
       '</svg><div class="rl">' + esc(label) + '</div></div>';
   }
@@ -1193,15 +1181,15 @@
       var h = Math.max(3, (l.progress || 0) / 100 * (H - 34));
       if (l.progress > 0) anyProgress = true;
       var x = 10 + i * ((W - 20) / n) + (((W - 20) / n) - bw) / 2;
-      var col = l.effective ? '#3EC46D' : (l.attended ? '#FFC53D' : '#E6DFF2');
+      var col = l.effective ? '#14B8A6' : (l.attended ? '#0EA5E9' : '#D3DBF2');
       return '<rect x="' + x.toFixed(1) + '" y="' + (H - 24 - h).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) +
         '" rx="4" fill="' + col + '"><title>' + esc(cn) + '\n进度 ' + (l.progress || 0) + '% · 听课 ' + (l.durationMin || 0) + ' 分钟</title></rect>' +
-        '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (H - 8) + '" font-size="9.5" fill="' + (cn === lessonScope ? '#FF7A59' : '#A49CB8') +
+        '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (H - 8) + '" font-size="9.5" fill="' + (cn === lessonScope ? '#3B82F6' : '#9AA6CE') +
         '" text-anchor="middle">' + esc(shortName(cn).replace('第', '').replace('讲', '')) + '</text>';
     }).join('');
     return '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" height="' + H + '" preserveAspectRatio="xMinYMid meet">' +
-      '<line x1="10" y1="' + (H - 24) + '" x2="' + (W - 10) + '" y2="' + (H - 24) + '" stroke="#F0E7F5" stroke-width="2"/>' + bars + '</svg>' +
-      (anyProgress ? '' : '<div style="text-align:center;font-size:11.5px;color:#A49CB8;margin-top:4px">该学员在所选讲次中暂无学习进度</div>');
+      '<line x1="10" y1="' + (H - 24) + '" x2="' + (W - 10) + '" y2="' + (H - 24) + '" stroke="#D3DBF2" stroke-width="2"/>' + bars + '</svg>' +
+      (anyProgress ? '' : '<div style="text-align:center;font-size:11.5px;color:#9AA6CE;margin-top:4px">该学员在所选讲次中暂无学习进度</div>');
   }
 
   /* =========================================================
@@ -1227,7 +1215,7 @@
     // 关键词 chips
     $('#excludeChips').innerHTML = (sg.excludeKeywords || []).map(function (k) {
       return '<span class="chip">' + esc(k) + '<button class="chip-x" data-kw="' + esc(k) + '" aria-label="移除">&times;</button></span>';
-    }).join('') || '<span style="font-size:12.5px;color:#A49CB8">暂无关键词，所有讲次都会计入统计</span>';
+    }).join('') || '<span style="font-size:12.5px;color:#9AA6CE">暂无关键词，所有讲次都会计入统计</span>';
 
     // 课程分类概览
     var stat = db.statCourses || [], ex = db.excludedCourses || [];

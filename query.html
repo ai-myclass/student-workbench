@@ -4,31 +4,42 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>学员学习情况查询</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
 <style>
-  /* ══════════════════════════════════════════
-     学员学习情况查询 · 家长端
-     配色沿用工作台：奶油底 + 马卡龙 + 厚阴影
-     ══════════════════════════════════════════ */
+  /* 学员学习情况查询 · 家长端 · 现代童趣大厂风 */
   :root {
-    --bg: #FFF7EE;
+    --bg: #DDE4F8;
     --card: #FFFFFF;
-    --ink: #2E2545;
-    --ink-2: #6B6285;
-    --muted: #A49CB8;
-    --line: #F0E7F5;
-    --primary: #FF7A59;
-    --primary-dk: #E85A38;
-    --accent: #4DA3FF;
-    --ok: #3EC46D;
-    --warn: #FFC53D;
-    --err: #E5484D;
-    --shadow: 0 4px 0 rgba(46,37,69,.10), 0 10px 24px rgba(46,37,69,.08);
+    --surface-2: #F1F4FD;
+    --ink: #1C398E;
+    --ink-2: #5C6BA8;
+    --muted: #9AA6CE;
+    --line: #D3DBF2;
+    --line-2: #C2CCEC;
+    --primary: #3B82F6;
+    --primary-dk: #2563EB;
+    --primary-soft: #DBEAFE;
+    --accent: #3B82F6;
+    --ok: #14B8A6;
+    --warn: #0EA5E9;
+    --err: #EF4444;
+    --err-soft: #FCE0E0;
+    --inset: inset 5px 5px 11px rgba(140,156,206,.30), inset -5px -5px 11px rgba(255,255,255,.78);
+    --clay-dark: rgba(140,156,206,.42);
+    --clay-light: rgba(255,255,255,.82);
+    --shadow: 10px 10px 24px var(--clay-dark), -6px -6px 14px var(--clay-light);
+    --shadow-sm: 5px 5px 12px var(--clay-dark), -3px -3px 8px var(--clay-light);
+    --radius-lg: 32px;
+    --radius-md: 22px;
+    --radius-sm: 16px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
                  'Microsoft YaHei', 'Noto Sans SC', sans-serif;
     background: var(--bg);
     color: var(--ink);
@@ -38,79 +49,77 @@
     padding-bottom: 40px;
   }
 
-  /* ── 顶部 ── */
   .nav {
-    background: linear-gradient(135deg, #FF7A59 0%, #FF9FB2 50%, #4DA3FF 100%);
+    background: var(--primary);
     padding: 0 16px;
     position: sticky; top: 0; z-index: 50;
-    box-shadow: 0 2px 16px rgba(46,37,69,.16);
+    box-shadow: 0 10px 24px rgba(140,156,206,.35);
   }
   .nav-inner {
     max-width: 640px; margin: 0 auto;
-    height: 54px; display: flex; align-items: center; gap: 10px;
+    height: 58px; display: flex; align-items: center; gap: 10px;
     color: #fff;
   }
-  .nav-logo { font-size: 24px; animation: bob 2.6s ease-in-out infinite; }
+  .nav-logo { width: 34px; height: 34px; border-radius: 10px; object-fit: cover; background: rgba(255,255,255,.25); padding: 2px; animation: bob 2.6s ease-in-out infinite; }
   @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
   .nav-title { font-size: 17px; font-weight: 800; letter-spacing: .5px; }
   .nav-sub { font-size: 11px; opacity: .85; font-weight: 500; }
 
   .wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
 
-  /* ── 英雄区 ── */
-  .hero { text-align: center; padding: 30px 0 18px; }
-  .hero-emoji { font-size: 52px; display: inline-block; animation: bob 3s ease-in-out infinite; }
+  .hero { text-align: center; padding: 32px 0 20px; animation: fadeInDown .5s ease both; }
+  @keyframes fadeInDown { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:none} }
+  .hero-mascot { width: 88px; height: 88px; object-fit: contain; display: inline-block; animation: bob 3s ease-in-out infinite; filter: drop-shadow(8px 8px 16px rgba(140,156,206,.35)); }
   .hero h1 {
-    font-size: 22px; font-weight: 800; margin-top: 6px;
-    background: linear-gradient(135deg, var(--primary-dk), var(--accent));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    font-size: 22px; font-weight: 800; margin-top: 8px; color: var(--ink);
   }
-  .hero p { font-size: 13px; color: var(--muted); margin-top: 5px; }
+  .hero p { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
 
-  /* ── 查询卡 ── */
   .card {
     background: var(--card);
-    border: 2px solid var(--line);
-    border-radius: 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
     padding: 22px 18px;
     box-shadow: var(--shadow);
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    animation: fadeInUp .5s .1s ease both;
   }
-  .label { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 7px; }
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+  .label { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 7px; color: var(--ink); }
   .label::before { content: '📱'; font-size: 18px; }
   .row { display: flex; gap: 10px; }
   .row input {
     flex: 1; min-width: 0;
     padding: 13px 16px;
-    border: 2px solid var(--line); border-radius: 14px;
-    font-size: 16px; outline: none; background: #FFFDFA; color: var(--ink);
+    border: 1px solid var(--line); border-radius: var(--radius-md);
+    font-size: 16px; outline: none; background: var(--surface-2); color: var(--ink);
     font-weight: 500; letter-spacing: .5px;
-    transition: border-color .2s, box-shadow .2s;
+    box-shadow: var(--inset);
+    transition: border-color .2s, box-shadow .2s, background .2s;
   }
-  .row input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(77,163,255,.14); }
-  .row input::placeholder { color: #CFC6DD; font-weight: 400; letter-spacing: 0; }
+  .row input:focus { border-color: var(--primary); background: var(--surface-2); box-shadow: var(--inset), 0 0 0 4px var(--primary-soft); }
+  .row input::placeholder { color: var(--muted); font-weight: 400; letter-spacing: 0; }
   .row button {
     padding: 13px 24px; flex-shrink: 0;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dk));
-    color: #fff; border: none; border-radius: 14px;
+    background: var(--primary);
+    color: #fff; border: none; border-radius: var(--radius-md);
     font-size: 15px; font-weight: 800; letter-spacing: 2px;
     cursor: pointer; white-space: nowrap;
-    box-shadow: 0 3px 0 var(--primary-dk), 0 6px 14px rgba(255,122,89,.28);
-    transition: transform .15s, box-shadow .15s;
+    box-shadow: var(--shadow-sm);
+    transition: transform .15s, box-shadow .15s, filter .15s;
   }
-  .row button:hover { transform: translateY(-1px); }
-  .row button:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--primary-dk); }
-  .row button:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+  .row button:hover { transform: translateY(-2px); box-shadow: var(--shadow); filter: brightness(1.05); }
+  .row button:active { transform: translateY(1px); box-shadow: var(--inset); }
+  .row button:disabled { opacity: .5; cursor: not-allowed; transform: none; filter: none; }
 
   .err {
     display: none; margin-top: 12px;
     color: var(--err); font-size: 13px; font-weight: 500;
-    background: #FEF2F2; border: 1px solid #FECACA;
-    padding: 10px 14px; border-radius: 12px;
+    background: var(--err-soft); border: 1px solid #FECACA;
+    padding: 10px 14px; border-radius: var(--radius-sm);
   }
-  .hint { font-size: 12px; color: var(--muted); text-align: center; margin-top: 10px; }
+  .hint { font-size: 12px; color: var(--ink-2); text-align: center; margin-top: 10px; }
 
-  /* ── 结果区 ── */
   .result { display: none; }
   .result.show { display: block; animation: pop .45s cubic-bezier(.16,1,.3,1); }
   @keyframes pop { from{opacity:0;transform:translateY(24px) scale(.97)} to{opacity:1;transform:none} }
@@ -119,51 +128,54 @@
     display: flex; align-items: center; justify-content: space-between;
     gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
   }
-  .result-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 7px; }
+  .result-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 7px; color: var(--ink); }
   .result-title::before { content: '🎉'; font-size: 18px; }
   .btn-save {
-    padding: 9px 18px; border: 2px solid var(--accent); border-radius: 12px;
-    background: #fff; color: var(--accent);
+    padding: 9px 18px; border: 1.5px solid var(--primary); border-radius: var(--radius-md);
+    background: var(--card); color: var(--primary);
     font-size: 13px; font-weight: 700; cursor: pointer;
-    box-shadow: 0 2px 0 rgba(77,163,255,.25);
-    transition: transform .15s, background .15s;
+    box-shadow: var(--shadow-sm);
+    transition: transform .15s, background .15s, box-shadow .15s;
   }
-  .btn-save:hover { background: #F2F8FF; }
-  .btn-save:active { transform: translateY(2px); box-shadow: none; }
+  .btn-save:hover { background: var(--primary-soft); transform: translateY(-1px); }
+  .btn-save:active { transform: translateY(1px); box-shadow: var(--inset); }
 
   .canvas-box {
     background: var(--card);
-    border: 2px solid var(--line);
-    border-radius: 20px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
     padding: 10px;
     box-shadow: var(--shadow);
     overflow: hidden;
   }
-  .canvas-box canvas { width: 100%; height: auto; display: block; border-radius: 12px; }
+  .canvas-box canvas { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); }
 
   .nodata {
-    text-align: center; padding: 48px 20px 40px;
+    text-align: center; padding: 32px 20px 28px;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: fadeInUp .5s ease both;
   }
-  .nodata-emoji { font-size: 56px; animation: bob 3s ease-in-out infinite; }
-  .nodata-title { font-size: 19px; font-weight: 800; color: var(--ink); margin-top: 4px; }
-  .nodata-sub { font-size: 13px; color: var(--muted); line-height: 1.7; max-width: 280px; }
+  .empty-illust { width: 180px; height: auto; margin-bottom: 4px; }
+  .nodata-emoji { font-size: 40px; animation: bob 3s ease-in-out infinite; }
+  .nodata-title { font-size: 18px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+  .nodata-sub { font-size: 13px; color: var(--ink-2); line-height: 1.7; max-width: 300px; }
 
   .tip {
-    margin-top: 12px; font-size: 12px; color: var(--muted);
+    margin-top: 12px; font-size: 12px; color: var(--ink-2);
     text-align: center; line-height: 1.7;
   }
 
   .foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 22px; line-height: 1.8; }
 
   @media (max-width: 420px) {
-    .hero { padding: 24px 0 14px; }
-    .hero-emoji { font-size: 44px; }
+    .hero { padding: 26px 0 16px; }
+    .hero-emoji { font-size: 40px; }
     .hero h1 { font-size: 19px; }
-    .card { padding: 18px 14px; border-radius: 16px; }
+    .card { padding: 18px 14px; border-radius: 20px; }
     .row { flex-direction: column; }
     .row button { width: 100%; letter-spacing: 4px; }
-    .canvas-box { padding: 8px; border-radius: 16px; }
+    .canvas-box { padding: 8px; border-radius: 20px; }
+    .empty-illust { width: 150px; }
   }
 </style>
 </head>
@@ -171,7 +183,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <span class="nav-logo">🚀</span>
+    <img class="nav-logo" src="assets/img/mascot.png" alt="" />
     <span class="nav-title">学习情况查询</span>
     <span class="nav-sub">· 家长端</span>
   </div>
@@ -179,7 +191,7 @@
 
 <div class="wrap">
   <div class="hero">
-    <div class="hero-emoji">📊</div>
+    <img class="hero-mascot" src="assets/img/mascot.png" alt="" />
     <h1>学员学习情况查询</h1>
     <p>输入报名时预留的手机号，查看孩子的学习报告</p>
   </div>
@@ -202,8 +214,9 @@
     </div>
     <div class="canvas-box">
       <canvas id="shareCanvas"></canvas>
-      <div class="nodata" id="noData" style="display:none">
-        <div class="nodata-emoji">🌱</div>
+    <div class="nodata" id="noData" style="display:none">
+      <img class="empty-illust" src="assets/img/empty-state.png" alt="" />
+      <div class="nodata-emoji">🌱</div>
         <div class="nodata-title">暂无学习记录</div>
         <div class="nodata-sub">孩子已报名在册，正课开始后学习数据会在这里更新～<br/>如有疑问请联系辅导老师</div>
       </div>

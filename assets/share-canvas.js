@@ -9,16 +9,16 @@
 (function (global) {
   'use strict';
 
-  var PALETTE = ['#FF7A59', '#4DA3FF', '#3EC46D', '#FFC53D', '#B57BFF', '#FF8FB1', '#41C7C7', '#FF9F45'];
+  var PALETTE = ['#2563EB', '#14B8A6', '#3B82F6', '#F59E0B', '#64748B', '#EC4899', '#10B981', '#2563EB'];
   var UNASSIGNED = ['未布置', '未安排', '未开放', '未发布'];
 
   /** 分享图可勾选的指标 */
   var SHARE_METRICS = [
-    { key: 'listen', label: '有效听课率', color: '#2E8BD6', def: true },
-    { key: 'accuracy', label: '答题正确率', color: '#2FB45F', def: true },
-    { key: 'homework', label: '练习完成率', color: '#F5793B', def: true },
-    { key: 'progress', label: '听课进度', color: '#9B5DE5', def: false },
-    { key: 'score', label: '综合得分', color: '#E0A62E', def: false }
+    { key: 'listen', label: '有效听课率', color: '#2563EB', def: true },
+    { key: 'accuracy', label: '答题正确率', color: '#14B8A6', def: true },
+    { key: 'homework', label: '练习完成率', color: '#2563EB', def: true },
+    { key: 'progress', label: '听课进度', color: '#60A5FA', def: false },
+    { key: 'score', label: '综合得分', color: '#0EA5E9', def: false }
   ];
 
   /* ---------------- 基础工具 ---------------- */
@@ -247,17 +247,17 @@
     ctx.clearRect(0, 0, W, H);
 
     // 背景
-    ctx.fillStyle = '#FFF7EE';
+    ctx.fillStyle = '#E7ECFA';
     rr(ctx, 0, 0, W, H, 0); ctx.fill();
 
     // 顶部渐变标题条
     var grad = ctx.createLinearGradient(52, 0, W - 52, 0);
-    grad.addColorStop(0, '#FF7A59'); grad.addColorStop(.5, '#FF9FB2'); grad.addColorStop(1, '#4DA3FF');
+    grad.addColorStop(0, '#2563EB'); grad.addColorStop(.5, '#60A5FA'); grad.addColorStop(1, '#3B82F6');
     ctx.fillStyle = grad;
     rr(ctx, 52, 52, W - 104, 118, 26); ctx.fill();
     ctx.font = '64px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif';
     ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-    ctx.fillText('🚀', 88, 113);
+    ctx.fillText('🎓', 88, 113);
     ctx.fillStyle = '#fff';
     ctx.font = '800 46px "PingFang SC","Microsoft YaHei",sans-serif';
     ctx.fillText('学习情况分享', 188, 100);
@@ -276,20 +276,20 @@
     ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
     ctx.fillText((s.name || '?').slice(0, 1), ax, ay + 2);
     ctx.textAlign = 'left';
-    ctx.fillStyle = '#2E2545'; ctx.font = '800 52px "PingFang SC",sans-serif';
+    ctx.fillStyle = '#1C398E'; ctx.font = '800 52px "PingFang SC",sans-serif';
     ctx.fillText(s.name || '未命名', 52 + 188, cardY + 64);
-    ctx.fillStyle = '#6B6285'; ctx.font = '500 27px "PingFang SC",sans-serif';
+    ctx.fillStyle = '#5C6BA8'; ctx.font = '500 27px "PingFang SC",sans-serif';
     ctx.fillText([s.grade, s.gender].filter(Boolean).join(' · ') || '信息待完善', 52 + 188, cardY + 110);
-    ctx.fillStyle = '#A49CB8'; ctx.font = '400 24px "PingFang SC",sans-serif';
+    ctx.fillStyle = '#9AA6CE'; ctx.font = '400 24px "PingFang SC",sans-serif';
     ctx.fillText('学员ID ' + shortId(s.id) + (s.phone ? '  ·  ' + maskPhone(s.phone) : ''), 52 + 188, cardY + 144);
 
     // 顶部综合指标卡片
     if (showChips && chipsY != null) {
       var chips = [
-        { l: '综合得分', v: stats.score != null ? stats.score * 100 : null, c: '#B57BFF' },
-        { l: '有效听课率', v: stats.listen != null ? stats.listen * 100 : null, c: '#4DA3FF' },
-        { l: '答题正确率', v: stats.accuracy != null ? Math.max(Math.round(stats.accuracy * 100), accFloorFor(s)) : null, c: '#3EC46D' },
-        { l: '练习完成率', v: stats.homework != null ? stats.homework * 100 : null, c: '#FF7A59' }
+        { l: '综合得分', v: stats.score != null ? stats.score * 100 : null, c: '#60A5FA' },
+        { l: '有效听课率', v: stats.listen != null ? stats.listen * 100 : null, c: '#3B82F6' },
+        { l: '答题正确率', v: stats.accuracy != null ? Math.max(Math.round(stats.accuracy * 100), accFloorFor(s)) : null, c: '#14B8A6' },
+        { l: '练习完成率', v: stats.homework != null ? stats.homework * 100 : null, c: '#2563EB' }
       ];
       var n = 4, gap = 24, cw = (CARDW - gap * (n - 1)) / n, cy = chipsY, chh = 128;
       chips.forEach(function (c2, i) {
@@ -298,7 +298,7 @@
         ctx.fillStyle = c2.c; ctx.font = '800 44px "PingFang SC",sans-serif';
         ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
         ctx.fillText(c2.v == null ? '—' : Math.round(c2.v) + '%', x + 24, cy + 64);
-        ctx.fillStyle = '#6B6285'; ctx.font = '500 24px "PingFang SC",sans-serif';
+        ctx.fillStyle = '#5C6BA8'; ctx.font = '500 24px "PingFang SC",sans-serif';
         ctx.fillText(c2.l, x + 24, cy + 100);
       });
     }
@@ -309,14 +309,14 @@
       var plotB = plotT + CHART_PLOT_H;
       var plotL = 170, plotR = W - 52;
       ctx.fillStyle = '#fff'; rr(ctx, CARDX, chartY, CARDW, chartH, 24); ctx.fill();
-      ctx.fillStyle = '#2E2545'; ctx.font = '800 36px "PingFang SC",sans-serif';
+      ctx.fillStyle = '#1C398E'; ctx.font = '800 36px "PingFang SC",sans-serif';
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.fillText('每一讲学习数据走势', TX, chartY + 56);
       var lx = TX, ly = chartY + 92;
       SHARE_METRICS.forEach(function (m) {
         if (!chosen[m.key]) return;
         ctx.fillStyle = m.color; rr(ctx, lx, ly, 18, 18, 5); ctx.fill();
-        ctx.fillStyle = '#6B6285'; ctx.font = '500 24px "PingFang SC",sans-serif';
+        ctx.fillStyle = '#5C6BA8'; ctx.font = '500 24px "PingFang SC",sans-serif';
         ctx.textBaseline = 'middle'; ctx.fillText(m.label, lx + 26, ly + 10);
         lx += 26 + ctx.measureText(m.label).width + 28;
       });
@@ -325,9 +325,9 @@
       // 网格 + Y 轴刻度
       [0, 0.25, 0.5, 0.75, 1].forEach(function (t) {
         var gy = plotT + (plotB - plotT) * (1 - t);
-        ctx.strokeStyle = '#F0E7F5'; ctx.lineWidth = 2;
+        ctx.strokeStyle = '#D3DBF2'; ctx.lineWidth = 2;
         ctx.beginPath(); ctx.moveTo(plotL, gy); ctx.lineTo(plotR, gy); ctx.stroke();
-        ctx.fillStyle = '#C3BBDA'; ctx.font = '500 22px "PingFang SC",sans-serif';
+        ctx.fillStyle = '#9AA6CE'; ctx.font = '500 22px "PingFang SC",sans-serif';
         ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
         ctx.fillText(Math.round(t * 100) + '%', plotL - 14, gy);
       });
@@ -341,11 +341,11 @@
       var step = courses.length > 14 ? 2 : 1;
       courses.forEach(function (cn, i) {
         if (i % step !== 0 && i !== courses.length - 1) return;
-        ctx.fillStyle = '#A49CB8'; ctx.font = '500 22px "PingFang SC",sans-serif';
+        ctx.fillStyle = '#9AA6CE'; ctx.font = '500 22px "PingFang SC",sans-serif';
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
         ctx.fillText(String(i + 1), px(i), plotB + 16);
       });
-      ctx.strokeStyle = '#E6DFF2'; ctx.lineWidth = 2;
+      ctx.strokeStyle = '#D3DBF2'; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(plotL, plotB); ctx.lineTo(plotR, plotB); ctx.stroke();
       ctx.textBaseline = 'alphabetic';
 
@@ -373,7 +373,7 @@
         });
       });
       if (!any) {
-        ctx.fillStyle = '#A49CB8'; ctx.font = '500 26px "PingFang SC",sans-serif';
+        ctx.fillStyle = '#9AA6CE'; ctx.font = '500 26px "PingFang SC",sans-serif';
         ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
         ctx.fillText('暂无可展示的学习数据', (plotL + plotR) / 2, (plotT + plotB) / 2);
         ctx.textBaseline = 'alphabetic';
@@ -384,21 +384,21 @@
     if (showKnowledge && knowY != null && knowBlocks.length) {
       var kY = knowY;
       ctx.fillStyle = '#fff'; rr(ctx, CARDX, kY, CARDW, knowH, 24); ctx.fill();
-      ctx.fillStyle = '#4DA3FF'; rr(ctx, CARDX, kY, 12, knowH, 6); ctx.fill();
-      ctx.fillStyle = '#2E2545'; ctx.font = '800 32px "PingFang SC",sans-serif';
+      ctx.fillStyle = '#3B82F6'; rr(ctx, CARDX, kY, 12, knowH, 6); ctx.fill();
+      ctx.fillStyle = '#1C398E'; ctx.font = '800 32px "PingFang SC",sans-serif';
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.fillText('📚 阶段知识点', TX, kY + 50);
       var totalK = knowBlocks.reduce(function (a, b) { return a + b.lines.length; }, 0);
-      ctx.fillStyle = '#A49CB8'; ctx.font = '500 22px "PingFang SC",sans-serif';
+      ctx.fillStyle = '#9AA6CE'; ctx.font = '500 22px "PingFang SC",sans-serif';
       ctx.textAlign = 'right';
       ctx.fillText(knowBlocks.length + ' 讲 · ' + totalK + ' 个知识点', W - PAD - 40, kY + 46);
       ctx.textAlign = 'left';
       var ky = kY + 92;
       knowBlocks.forEach(function (b) {
-        ctx.fillStyle = '#4DA3FF'; ctx.font = '700 26px "PingFang SC",sans-serif';
+        ctx.fillStyle = '#3B82F6'; ctx.font = '700 26px "PingFang SC",sans-serif';
         ctx.fillText(b.title, TX, ky);
         ky += 38;
-        ctx.fillStyle = '#4A4360'; ctx.font = '400 26px "PingFang SC",sans-serif';
+        ctx.fillStyle = '#4B5563'; ctx.font = '400 26px "PingFang SC",sans-serif';
         b.lines.forEach(function (ln) { ctx.fillText('· ' + ln, TX + 28, ky); ky += 34; });
         ky += 14;
       });
@@ -408,18 +408,18 @@
     if (showComment && cmtY != null && hasComment) {
       var cY = cmtY;
       ctx.fillStyle = '#fff'; rr(ctx, CARDX, cY, CARDW, cmtH, 24); ctx.fill();
-      ctx.fillStyle = '#FFC53D'; rr(ctx, CARDX, cY, 12, cmtH, 6); ctx.fill();
-      ctx.fillStyle = '#2E2545'; ctx.font = '800 32px "PingFang SC",sans-serif';
+      ctx.fillStyle = '#0EA5E9'; rr(ctx, CARDX, cY, 12, cmtH, 6); ctx.fill();
+      ctx.fillStyle = '#1C398E'; ctx.font = '800 32px "PingFang SC",sans-serif';
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.fillText('📝 教师评语', TX, cY + 50);
-      ctx.fillStyle = '#4A4360'; ctx.font = '400 28px "PingFang SC",sans-serif';
+      ctx.fillStyle = '#4B5563'; ctx.font = '400 28px "PingFang SC",sans-serif';
       combinedLines.forEach(function (ln, i) { ctx.fillText(ln, TX, cY + 92 + i * 42); });
     }
 
     // 页脚
-    ctx.strokeStyle = '#F0E7F5'; ctx.lineWidth = 2;
+    ctx.strokeStyle = '#D3DBF2'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(PAD, fY); ctx.lineTo(W - PAD, fY); ctx.stroke();
-    ctx.fillStyle = '#A49CB8'; ctx.font = '500 24px "PingFang SC",sans-serif';
+    ctx.fillStyle = '#9AA6CE'; ctx.font = '500 24px "PingFang SC",sans-serif';
     ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     ctx.fillText(opts.footer || ('学员学习数据统计工作台 · 生成于 ' + new Date().toLocaleString('zh-CN')), W / 2, fY + 52);
 

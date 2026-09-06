@@ -174,6 +174,28 @@
     text-align: center; line-height: 1.7;
   }
 
+  /* ---------- 评语卡片 ---------- */
+  .comment-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: 16px 16px 14px;
+    box-shadow: var(--shadow-sm); margin-bottom: 12px;
+    animation: fadeInUp .5s ease both;
+  }
+  .cmt-label {
+    font-size: 13px; font-weight: 700; color: var(--ink);
+    display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+  }
+  .cmt-text { font-size: 13.5px; line-height: 1.85; color: var(--ink-2); text-align: justify; }
+  .cmt-auto {
+    background: var(--surface-2); border-radius: var(--radius-sm);
+    padding: 10px 12px;
+  }
+  .cmt-custom {
+    background: var(--primary-soft); border-left: 3px solid var(--primary);
+    border-radius: var(--radius-sm); padding: 10px 12px; color: var(--ink);
+  }
+  .cmt-block + .cmt-block { margin-top: 12px; }
+
   .foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 22px; line-height: 1.8; }
 
   @media (max-width: 420px) {
@@ -229,6 +251,16 @@
         <div class="nodata-sub">孩子已报名在册，正课开始后学习数据会在这里更新～<br/>如有疑问请联系辅导老师</div>
       </div>
     </div>
+    <div class="comment-card" id="commentCard" style="display:none">
+      <div class="cmt-block" id="cmtAutoBlock">
+        <div class="cmt-label">📝 教师评语</div>
+        <div class="cmt-text cmt-auto" id="cmtAuto"></div>
+      </div>
+      <div class="cmt-block" id="cmtCustomBlock" style="display:none">
+        <div class="cmt-label">💡 老师寄语</div>
+        <div class="cmt-text cmt-custom" id="cmtCustom"></div>
+      </div>
+    </div>
     <div class="tip" id="tipMsg">长按图片即可保存到相册 · 数据由辅导老师定期更新</div>
   </div>
 
@@ -265,6 +297,11 @@ var result     = document.getElementById('result');
 var resultTitle= document.getElementById('resultTitle');
 var saveBtn    = document.getElementById('saveBtn');
 var tipMsg     = document.getElementById('tipMsg');
+var commentCard = document.getElementById('commentCard');
+var cmtAuto    = document.getElementById('cmtAuto');
+var cmtAutoBlock = document.getElementById('cmtAutoBlock');
+var cmtCustom  = document.getElementById('cmtCustom');
+var cmtCustomBlock = document.getElementById('cmtCustomBlock');
 var canvas     = document.getElementById('shareCanvas');
 var noData     = document.getElementById('noData');
 
@@ -337,6 +374,7 @@ function showResult(s) {
   if (!hasRealData(s)) {
     // 查到学员，但暂无学习记录：隐藏分享图与保存按钮，显示提示卡片
     canvas.style.display = 'none';
+    commentCard.style.display = 'none';
     noData.style.display = 'flex';
     saveBtn.style.display = 'none';
     tipMsg.textContent = '孩子已报名在册，正课开始后学习数据会在这里更新 · 如有疑问请联系辅导老师';
@@ -359,6 +397,20 @@ function showResult(s) {
       customComment: (s.comment && s.comment.custom) || '',
       footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
     });
+
+    // 页面评语卡片：与分享图同口径（系统自动评语 + 老师寄语，可有其一或同时展示）
+    var cm = s.comment || {};
+    var auto = (cm.auto || '').trim();
+    var cus = (cm.custom || '').trim();
+    if (auto || cus) {
+      commentCard.style.display = 'block';
+      if (auto) { cmtAuto.textContent = auto; cmtAutoBlock.style.display = 'block'; }
+      else { cmtAutoBlock.style.display = 'none'; }
+      if (cus) { cmtCustom.textContent = cus; cmtCustomBlock.style.display = 'block'; }
+      else { cmtCustomBlock.style.display = 'none'; }
+    } else {
+      commentCard.style.display = 'none';
+    }
   }
 
   result.classList.add('show');

@@ -6,42 +6,46 @@
 <title>学员学习情况查询</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
 <style>
-  /* 学员学习情况查询 · 家长端 · 现代童趣大厂风 */
+  /* 学员学习情况查询 · 家长端 · Doodle × Glass × Premium × Flat */
   :root {
-    --bg: #DDE4F8;
+    --bg: #F2F3F5;
     --card: #FFFFFF;
-    --surface-2: #F1F4FD;
-    --ink: #1C398E;
-    --ink-2: #5C6BA8;
-    --muted: #9AA6CE;
-    --line: #D3DBF2;
-    --line-2: #C2CCEC;
-    --primary: #3B82F6;
-    --primary-dk: #2563EB;
-    --primary-soft: #DBEAFE;
-    --accent: #3B82F6;
-    --ok: #14B8A6;
-    --warn: #0EA5E9;
-    --err: #EF4444;
-    --err-soft: #FCE0E0;
-    --inset: inset 5px 5px 11px rgba(140,156,206,.30), inset -5px -5px 11px rgba(255,255,255,.78);
-    --clay-dark: rgba(140,156,206,.42);
-    --clay-light: rgba(255,255,255,.82);
-    --shadow: 10px 10px 24px var(--clay-dark), -6px -6px 14px var(--clay-light);
-    --shadow-sm: 5px 5px 12px var(--clay-dark), -3px -3px 8px var(--clay-light);
-    --radius-lg: 32px;
-    --radius-md: 22px;
-    --radius-sm: 16px;
+    --card-solid: #FFFFFF;
+    --surface-2: #F5F6F7;
+    --ink: #1F2329;
+    --ink-2: #646A73;
+    --muted: #8F959E;
+    --line: #E5E6EB;
+    --line-2: #DEE0E3;
+    --primary: #3370FF;
+    --primary-dk: #2B5FD9;
+    --primary-soft: rgba(51,112,255,.10);
+    --accent: #3370FF;
+    --ok: #2CB5A0;
+    --warn: #EFA83D;
+    --err: #E5484D;
+    --err-soft: rgba(229,72,77,.10);
+    --glass-brd: #E5E6EB;
+    --blur: none;
+    --shadow: 0 1px 2px rgba(31,35,41,.05), 0 4px 12px rgba(31,35,41,.06);
+    --shadow-sm: 0 1px 4px rgba(31,35,41,.06);
+    --radius-lg: 18px;
+    --radius-md: 13px;
+    --radius-sm: 10px;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
                  'Microsoft YaHei', 'Noto Sans SC', sans-serif;
-    background: var(--bg);
+    background:
+      radial-gradient(420px 300px at -5% -5%, rgba(214,228,255,.38), transparent 70%),
+      radial-gradient(360px 280px at 105% 20%, rgba(216,243,236,.32), transparent 70%),
+      radial-gradient(320px 260px at 8% 90%, rgba(240,247,255,.35), transparent 70%),
+      linear-gradient(150deg, #F5F8FF 0%, #F3FAF8 48%, #F7F8FA 100%) fixed;
     color: var(--ink);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -50,18 +54,18 @@
   }
 
   .nav {
-    background: var(--primary);
+    background: var(--primary-dk);
     padding: 0 16px;
     position: sticky; top: 0; z-index: 50;
-    box-shadow: 0 10px 24px rgba(140,156,206,.35);
+    box-shadow: 0 8px 24px rgba(51,112,255,.35);
   }
   .nav-inner {
     max-width: 640px; margin: 0 auto;
     height: 58px; display: flex; align-items: center; gap: 10px;
     color: #fff;
   }
-  .nav-logo { width: 34px; height: 34px; border-radius: 10px; object-fit: cover; background: rgba(255,255,255,.25); padding: 2px; animation: bob 2.6s ease-in-out infinite; }
-  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+  .nav-logo { width: 36px; height: 36px; border-radius: 12px 9px 13px 8px; object-fit: cover; background: rgba(255,255,255,.9); padding: 2px; transform: rotate(-3deg); animation: bob 2.6s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:rotate(-4deg) translateY(0)} 50%{transform:rotate(2deg) translateY(-4px)} }
   .nav-title { font-size: 17px; font-weight: 800; letter-spacing: .5px; }
   .nav-sub { font-size: 11px; opacity: .85; font-weight: 500; }
 
@@ -69,15 +73,20 @@
 
   .hero { text-align: center; padding: 32px 0 20px; animation: fadeInDown .5s ease both; }
   @keyframes fadeInDown { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:none} }
-  .hero-mascot { width: 88px; height: 88px; object-fit: contain; display: inline-block; animation: bob 3s ease-in-out infinite; filter: drop-shadow(8px 8px 16px rgba(140,156,206,.35)); }
+  .hero-mascot { width: 92px; height: 92px; object-fit: contain; display: inline-block; animation: bob 3s ease-in-out infinite; filter: drop-shadow(0 8px 18px rgba(51,112,255,.25)); background: rgba(255,255,255,.6); border-radius: 26px; border: 1.5px solid var(--glass-brd); padding: 6px; }
   .hero h1 {
-    font-size: 22px; font-weight: 800; margin-top: 8px; color: var(--ink);
+    font-family: 'Inter','PingFang SC',sans-serif;
+    font-size: 30px; font-weight: 700; margin-top: 10px; color: var(--ink);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='9' viewBox='0 0 120 9'%3E%3Cpath d='M2 6 Q 12 1.5, 24 5 T 46 5 T 68 5 T 90 5 T 116 4.5' fill='none' stroke='%23FFB930' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: center bottom; background-size: 150px 9px;
+    padding-bottom: 13px;
   }
-  .hero p { font-size: 13px; color: var(--ink-2); margin-top: 6px; }
+  .hero p { font-size: 13px; color: var(--ink-2); margin-top: 8px; }
 
   .card {
     background: var(--card);
-    border: 1px solid var(--line);
+    backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--glass-brd);
     border-radius: var(--radius-lg);
     padding: 22px 18px;
     box-shadow: var(--shadow);
@@ -85,37 +94,36 @@
     animation: fadeInUp .5s .1s ease both;
   }
   @keyframes fadeInUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
-  .label { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 7px; color: var(--ink); }
-  .label::before { content: '📱'; font-size: 18px; }
+  .label { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; color: var(--ink); }
+  .label::before { content: '📱'; font-size: 18px; transform: rotate(-5deg); }
   .row { display: flex; gap: 10px; }
   .row input {
     flex: 1; min-width: 0;
     padding: 13px 16px;
-    border: 1px solid var(--line); border-radius: var(--radius-md);
-    font-size: 16px; outline: none; background: var(--surface-2); color: var(--ink);
+    border: 1.5px solid var(--line); border-radius: var(--radius-md);
+    font-size: 16px; outline: none; background: rgba(255,255,255,.7); color: var(--ink);
     font-weight: 500; letter-spacing: .5px;
-    box-shadow: var(--inset);
     transition: border-color .2s, box-shadow .2s, background .2s;
   }
-  .row input:focus { border-color: var(--primary); background: var(--surface-2); box-shadow: var(--inset), 0 0 0 4px var(--primary-soft); }
+  .row input:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--primary-soft); }
   .row input::placeholder { color: var(--muted); font-weight: 400; letter-spacing: 0; }
   .row button {
     padding: 13px 24px; flex-shrink: 0;
-    background: var(--primary);
+    background: var(--primary-dk);
     color: #fff; border: none; border-radius: var(--radius-md);
     font-size: 15px; font-weight: 800; letter-spacing: 2px;
     cursor: pointer; white-space: nowrap;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 6px 18px rgba(51,112,255,.35);
     transition: transform .15s, box-shadow .15s, filter .15s;
   }
-  .row button:hover { transform: translateY(-2px); box-shadow: var(--shadow); filter: brightness(1.05); }
-  .row button:active { transform: translateY(1px); box-shadow: var(--inset); }
+  .row button:hover { transform: translateY(-2px) rotate(-.5deg); box-shadow: 0 10px 26px rgba(51,112,255,.42); }
+  .row button:active { transform: translateY(1px) scale(.97); box-shadow: inset 0 2px 6px rgba(31,35,41,.25); }
   .row button:disabled { opacity: .5; cursor: not-allowed; transform: none; filter: none; }
 
   .err {
     display: none; margin-top: 12px;
-    color: var(--err); font-size: 13px; font-weight: 500;
-    background: var(--err-soft); border: 1px solid #FECACA;
+    color: #E5484D; font-size: 13px; font-weight: 500;
+    background: var(--err-soft); border: 1.5px solid rgba(229,72,77,.3);
     padding: 10px 14px; border-radius: var(--radius-sm);
   }
   .hint { font-size: 12px; color: var(--ink-2); text-align: center; margin-top: 10px; }
@@ -128,21 +136,22 @@
     display: flex; align-items: center; justify-content: space-between;
     gap: 10px; margin-bottom: 12px; flex-wrap: wrap;
   }
-  .result-title { font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 7px; color: var(--ink); }
-  .result-title::before { content: '🎉'; font-size: 18px; }
+  .result-title { font-family: 'Inter','PingFang SC',sans-serif; font-size: 22px; font-weight: 700; display: flex; align-items: center; gap: 7px; color: var(--ink); }
+  .result-title::before { content: '🎉'; font-size: 18px; transform: rotate(-6deg); }
   .btn-save {
     padding: 9px 18px; border: 1.5px solid var(--primary); border-radius: var(--radius-md);
-    background: var(--card); color: var(--primary);
+    background: rgba(255,255,255,.7); color: var(--primary);
     font-size: 13px; font-weight: 700; cursor: pointer;
     box-shadow: var(--shadow-sm);
     transition: transform .15s, background .15s, box-shadow .15s;
   }
   .btn-save:hover { background: var(--primary-soft); transform: translateY(-1px); }
-  .btn-save:active { transform: translateY(1px); box-shadow: var(--inset); }
+  .btn-save:active { transform: translateY(1px); box-shadow: inset 0 2px 5px rgba(31,35,41,.15); }
 
   .canvas-box {
     background: var(--card);
-    border: 1px solid var(--line);
+    backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--glass-brd);
     border-radius: var(--radius-lg);
     padding: 10px;
     box-shadow: var(--shadow);
@@ -157,7 +166,7 @@
   }
   .empty-illust { width: 180px; height: auto; margin-bottom: 4px; }
   .nodata-emoji { font-size: 40px; animation: bob 3s ease-in-out infinite; }
-  .nodata-title { font-size: 18px; font-weight: 800; color: var(--ink); margin-top: 4px; }
+  .nodata-title { font-family: 'Inter','PingFang SC',sans-serif; font-size: 24px; font-weight: 700; color: var(--ink); margin-top: 4px; }
   .nodata-sub { font-size: 13px; color: var(--ink-2); line-height: 1.7; max-width: 300px; }
 
   .tip {
@@ -169,8 +178,7 @@
 
   @media (max-width: 420px) {
     .hero { padding: 26px 0 16px; }
-    .hero-emoji { font-size: 40px; }
-    .hero h1 { font-size: 19px; }
+    .hero h1 { font-size: 25px; }
     .card { padding: 18px 14px; border-radius: 20px; }
     .row { flex-direction: column; }
     .row button { width: 100%; letter-spacing: 4px; }
@@ -183,7 +191,7 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <img class="nav-logo" src="assets/img/mascot.png" alt="" />
+    <img class="nav-logo" src="assets/img/mascot.svg" alt="" />
     <span class="nav-title">学习情况查询</span>
     <span class="nav-sub">· 家长端</span>
   </div>
@@ -191,7 +199,7 @@
 
 <div class="wrap">
   <div class="hero">
-    <img class="hero-mascot" src="assets/img/mascot.png" alt="" />
+    <img class="hero-mascot" src="assets/img/mascot.svg" alt="" />
     <h1>学员学习情况查询</h1>
     <p>输入报名时预留的手机号，查看孩子的学习报告</p>
   </div>
@@ -215,7 +223,7 @@
     <div class="canvas-box">
       <canvas id="shareCanvas"></canvas>
     <div class="nodata" id="noData" style="display:none">
-      <img class="empty-illust" src="assets/img/empty-state.png" alt="" />
+      <img class="empty-illust" src="assets/img/empty-state.svg" alt="" />
       <div class="nodata-emoji">🌱</div>
         <div class="nodata-title">暂无学习记录</div>
         <div class="nodata-sub">孩子已报名在册，正课开始后学习数据会在这里更新～<br/>如有疑问请联系辅导老师</div>
@@ -278,7 +286,7 @@ function loadData(cb) {
       DATA = d;
       loaded = true;
       var n = (d.students && d.students.length) || 0;
-      dataHint.textContent = n ? ('已收录 ' + n + ' 名学员 · 更新于 ' + fmtDate(d.updatedAt)) : '暂无学员数据';
+      dataHint.textContent = d.updatedAt ? ('数据更新于 ' + fmtDate(d.updatedAt)) : '';
       cb();
     })
     .catch(function (e) {

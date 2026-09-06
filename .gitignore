@@ -4,3 +4,7 @@
 data/_real-db.json
 # 过时诊断
 query-diagnostic.md
+
+# 本地版本存档与预览截图，不上传
+legacy-clay/
+_previews/

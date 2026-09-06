@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 180">
+  <!-- 2D 扁平简约 · 内容配置（知识点 + 评语库） -->
+  <!-- 中央主卡：知识点 -->
+  <rect x="76" y="34" width="108" height="112" rx="14" fill="#FFFFFF" stroke="#E5E6EB" stroke-width="2"/>
+  <rect x="92" y="52" width="52" height="10" rx="5" fill="#3370FF"/>
+  <rect x="92" y="74" width="76" height="8" rx="4" fill="#E5E6EB"/>
+  <rect x="92" y="90" width="64" height="8" rx="4" fill="#E5E6EB"/>
+  <rect x="92" y="106" width="70" height="8" rx="4" fill="#E5E6EB"/>
+  <rect x="92" y="122" width="44" height="8" rx="4" fill="#EAF1FF"/>
+  <!-- 左侧浮卡：评语（对话气泡） -->
+  <rect x="18" y="58" width="64" height="50" rx="12" fill="#2CB5A0"/>
+  <path d="M40 108 l6 12 10-12 z" fill="#2CB5A0"/>
+  <rect x="30" y="72" width="40" height="6" rx="3" fill="#FFFFFF" opacity=".85"/>
+  <rect x="30" y="86" width="28" height="6" rx="3" fill="#FFFFFF" opacity=".6"/>
+  <!-- 右下浮卡：灯泡提示 -->
+  <rect x="178" y="98" width="60" height="60" rx="12" fill="#EFA83D"/>
+  <circle cx="208" cy="122" r="12" fill="#FFFFFF"/>
+  <rect x="203" y="136" width="10" height="7" rx="3" fill="#FFFFFF" opacity=".85"/>
+  <line x1="208" y1="100" x2="208" y2="106" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <line x1="192" y1="108" x2="196" y2="112" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <line x1="224" y1="108" x2="220" y2="112" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <!-- 左上小星 -->
+  <path d="M36 26 l5 10 11 1.6-8 7.8 1.9 11-9.9-5.2-9.9 5.2 1.9-11-8-7.8 11-1.6z" fill="#F0655A"/>
+  <!-- 右上圆点 -->
+  <circle cx="228" cy="44" r="7" fill="#D6E4FF"/>
+  <circle cx="246" cy="70" r="4" fill="#D8F3EC"/>
+</svg>

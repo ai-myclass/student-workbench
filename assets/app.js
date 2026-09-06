@@ -18,7 +18,7 @@
   var GH_PAGES_URL = 'https://ai-myclass.github.io/student-workbench/query.html';
   var GH_TOKEN_URL = 'https://github.com/settings/tokens/new'; // classic PAT，需 repo 权限
   var ghTokenRaw = '';   // 真实令牌的内存镜像，避免界面遮罩后回存到错误值
-  var PALETTE = ['#3B82F6', '#14B8A6', '#3B82F6', '#F59E0B', '#64748B', '#EC4899', '#10B981', '#3B82F6'];
+  var PALETTE = ['#3B82F6', '#14B8A6', '#3B82F6', '#F59E0B', '#475569', '#F472B6', '#2DD4BF', '#3B82F6'];
 
   /** 分享图可勾选的指标（key 对应lesson对象字段，color 为折线颜色，def 为默认勾选） */
   var SHARE_METRICS = [
@@ -26,7 +26,7 @@
     { key: 'accuracy', label: '答题正确率', color: '#14B8A6', def: true },
     { key: 'homework', label: '练习完成率', color: '#3B82F6', def: true },
     { key: 'progress', label: '听课进度', color: '#60A5FA', def: false },
-    { key: 'score', label: '综合得分', color: '#0EA5E9', def: false }
+    { key: 'score', label: '综合得分', color: '#FB923C', def: false }
   ];
 
   var db = load();
@@ -102,7 +102,7 @@
   function scoreColor(v) {
     if (v >= 0.85) return '#14B8A6';
     if (v >= 0.70) return '#3B82F6';
-    if (v >= 0.50) return '#0EA5E9';
+    if (v >= 0.50) return '#FB923C';
     return '#3B82F6';
   }
   function shortName(name) {
@@ -331,7 +331,7 @@
 
   function emptyBlock(title, sub, withDemo) {
     return '<div class="empty-state-block">' +
-      '<img class="empty-state-img" src="assets/img/empty-state.png" alt="" />' +
+      '<img class="empty-state-img" src="assets/img/empty-state.svg" alt="" />' +
       '<div class="empty-state-title">' + esc(title) + '</div>' +
       '<div class="empty-state-sub">' + esc(sub) + '</div>' +
       (withDemo ? '<div class="empty-state-actions">' +
@@ -345,7 +345,7 @@
     var activeEx = (db.activeCourses || []).filter(function (c) { return ex.indexOf(c) !== -1; });
     var kws = (SWB.settings(db).excludeKeywords || []).join('、') || '（空）';
     return '<div class="empty-state-block">' +
-      '<img class="empty-state-img" src="assets/img/empty-state.png" alt="" />' +
+      '<img class="empty-state-img" src="assets/img/empty-state.svg" alt="" />' +
       '<div class="empty-state-title">当前没有可统计的正课</div>' +
       '<div class="empty-state-sub">' +
       (activeEx.length
@@ -376,13 +376,13 @@
     // 高亮列
     if (hi >= 0) {
       g += '<rect x="' + (x(hi) - 26).toFixed(1) + '" y="' + padT + '" width="52" height="' + ih +
-        '" rx="14" fill="#FFF0E4"/>';
+        '" rx="14" fill="#FDF3D8"/>';
     }
 
     [0, 0.25, 0.5, 0.75, 1].forEach(function (t) {
       g += '<line x1="' + padL + '" y1="' + y(t).toFixed(1) + '" x2="' + (W - padR) + '" y2="' + y(t).toFixed(1) +
-        '" stroke="#D3DBF2" stroke-width="1.5"/>';
-      g += '<text x="' + (padL - 10) + '" y="' + (y(t) + 4).toFixed(1) + '" font-size="11" fill="#9AA6CE" text-anchor="end">' + (t * 100) + '%</text>';
+        '" stroke="#E2E8F0" stroke-width="1.5"/>';
+      g += '<text x="' + (padL - 10) + '" y="' + (y(t) + 4).toFixed(1) + '" font-size="11" fill="#94A3B8" text-anchor="end">' + (t * 100) + '%</text>';
     });
 
     function series(key, color) {
@@ -403,10 +403,10 @@
 
     var labels = trend.map(function (t, i) {
       if (n > 16 && i % 2 === 1 && i !== hi) return '';
-      var c1 = i === hi ? '#3B82F6' : '#5C6BA8';
+      var c1 = i === hi ? '#3B82F6' : '#475569';
       return '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 22) + '" font-size="11" fill="' + c1 +
         '" font-weight="' + (i === hi ? 800 : 400) + '" text-anchor="middle">' + esc(shortName(t.name)) + '</text>' +
-        '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 38) + '" font-size="10" fill="#9AA6CE" text-anchor="middle">' +
+        '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 38) + '" font-size="10" fill="#94A3B8" text-anchor="middle">' +
         esc(t.name.replace(/^第\d+讲\s*/, '').slice(0, 8)) + '</text>';
     }).join('');
 
@@ -469,7 +469,7 @@
       return ia - ib;
     });
     var max = Math.max.apply(null, keys.map(function (k) { return map[k]; })) || 1;
-    var colors = ['#3B82F6', '#14B8A6', '#0EA5E9', '#60A5FA', '#3B82F6', '#EC4899', '#14B8A6'];
+    var colors = ['#3B82F6', '#14B8A6', '#FB923C', '#60A5FA', '#3B82F6', '#F472B6', '#14B8A6'];
     $('#gradeDist').innerHTML = keys.map(function (k, i) {
       return '<div class="dist-row"><span class="dist-label">' + esc(k) + '</span>' +
         '<span class="dist-track"><i style="width:' + (map[k] / max * 100) + '%;background:' + colors[i % colors.length] + '"></i></span>' +
@@ -484,19 +484,19 @@
     var n = db.students.length || 1;
     var rows = [
       { k: '有效听课', v: bd.effective, c: '#14B8A6' },
-      { k: '到课未达标', v: bd.attendedOnly, c: '#0EA5E9' },
-      { k: '未到课', v: bd.absent, c: '#C2CCEC' },
+      { k: '到课未达标', v: bd.attendedOnly, c: '#FB923C' },
+      { k: '未到课', v: bd.absent, c: '#CBD5E1' },
       { k: '练习已交', v: bd.hwDone, c: '#3B82F6' }
     ];
     var max = Math.max.apply(null, rows.map(function (r) { return r.v; })) || 1;
     $('#attendDist').innerHTML =
-      '<div style="font-size:12.5px;color:#5C6BA8;font-weight:700;margin-bottom:6px">' + esc(cn) + '</div>' +
+      '<div style="font-size:12.5px;color:#475569;font-weight:700;margin-bottom:6px">' + esc(cn) + '</div>' +
       rows.map(function (r) {
         return '<div class="dist-row"><span class="dist-label">' + r.k + '</span>' +
           '<span class="dist-track"><i style="width:' + (r.v / max * 100) + '%;background:' + r.c + '"></i></span>' +
           '<span class="dist-val">' + r.v + '/' + n + '</span></div>';
       }).join('') +
-      '<div style="margin-top:6px;font-size:12px;color:#9AA6CE">人均听课 ' + Math.round(bd.avgMinutes) +
+      '<div style="margin-top:6px;font-size:12px;color:#94A3B8">人均听课 ' + Math.round(bd.avgMinutes) +
       ' 分钟 · 平均进度 ' + Math.round(bd.progress) + '% · 答题 ' + bd.quizRight + '/' + bd.quizAnswer + '</div>';
   }
 
@@ -617,7 +617,7 @@
       : '<span class="tag tag-warn">' + esc(status || '未提交') + '</span>';
   }
   function mini(v, color) {
-    if (v === null || v === undefined) return '<span class="mini-num" style="color:#9AA6CE">—</span>';
+    if (v === null || v === undefined) return '<span class="mini-num" style="color:#94A3B8">—</span>';
     return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + color + '"></i></span>' +
       '<span class="mini-num">' + (v * 100).toFixed(0) + '%</span></span>';
   }
@@ -679,7 +679,7 @@
             ? '<span class="tag tag-no">暂无学习数据</span>'
             : '<span class="tag tag-yes">已匹配</span>') + '</td>' +
           (a.noData
-            ? '<td colspan="3" class="mono" style="color:#9AA6CE">—</td><td><span class="score-badge" style="background:#C2CCEC">—</span></td>'
+            ? '<td colspan="3" class="mono" style="color:#94A3B8">—</td><td><span class="score-badge" style="background:#CBD5E1">—</span></td>'
             : '<td>' + mini(st.listen, '#3B82F6') + '</td>' +
               '<td>' + mini(st.accuracy, '#14B8A6') + '</td>' +
               '<td>' + mini(st.homework, '#3B82F6') + '</td>' +
@@ -837,7 +837,7 @@
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareKnowledge" checked>' +
         '<span class="sw-dot" style="background:#3B82F6"></span>显示阶段知识点</label>' +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareComment" checked>' +
-        '<span class="sw-dot" style="background:#0EA5E9"></span>显示教师评语（自动+自定义）</label>';
+        '<span class="sw-dot" style="background:#FB923C"></span>显示教师评语（自动+自定义）</label>';
     $('#shareMask').hidden = false;
     $('#shareModal').hidden = false;
     document.body.style.overflow = 'hidden';
@@ -1070,12 +1070,12 @@
     if (!noData) {
       html += '<div class="ring-row">' + rings.map(function (x) { return ring(x.v, x.c, x.l); }).join('') + '</div>' +
         '<div class="spark-wrap"><div class="lesson-head"><h3>每一讲的听课进度</h3>' +
-        '<span class="sub" style="font-size:11.5px;color:#9AA6CE">绿色=有效 · 黄色=到课 · 灰色=未到</span></div>' +
+        '<span class="sub" style="font-size:11.5px;color:#94A3B8">绿色=有效 · 黄色=到课 · 灰色=未到</span></div>' +
         spark(s) + '</div>';
     }
 
     html += '<div class="card" style="margin-bottom:18px"><div class="lesson-head"><h3>个人档案</h3>' +
-      '<span class="sub" style="font-size:11.5px;color:#9AA6CE">' + (r ? '来源：学情表' : '来源：学习数据表') + '</span></div>' +
+      '<span class="sub" style="font-size:11.5px;color:#94A3B8">' + (r ? '来源：学情表' : '来源：学习数据表') + '</span></div>' +
       '<div class="info-grid">' +
       (infoRows.length
         ? infoRows.map(function (p) {
@@ -1097,7 +1097,7 @@
       var customPrev = cc ? cc : SWBShare.resolveCustomComment(s, db.commentLib || [], '');
       var fullPrev = autoPrev + (customPrev ? '\n\n' + customPrev : '');
       html += '<div class="card"><div class="lesson-head"><h3>老师自定义评语</h3>' +
-        '<span class="sub" style="font-size:11.5px;color:#9AA6CE">显示在家长分享图，留空则按评语库综合分匹配</span></div>' +
+        '<span class="sub" style="font-size:11.5px;color:#94A3B8">显示在家长分享图，留空则按评语库综合分匹配</span></div>' +
         '<textarea id="drawerCustomComment" class="cmt-box" placeholder="给这位学员写一句专属寄语… 留空则按评语库综合分匹配">' + esc(s.customComment || '') + '</textarea>' +
         '<div class="cmt-preview"><b>家长看到的完整评语</b>' +
         '<div id="cmtFullPreview" style="margin-top:6px;white-space:pre-wrap;line-height:1.75;font-weight:400">' + esc(fullPrev || '（暂无学习数据，暂不能生成评语）') + '</div></div>' +
@@ -1108,7 +1108,7 @@
     // 每讲明细
     if (s && Object.keys(s.lessons || {}).length) {
       html += '<div class="card"><div class="lesson-head"><h3>每讲明细</h3>' +
-        '<span class="sub" style="font-size:11.5px;color:#9AA6CE">灰色行=不计入统计</span></div>' +
+        '<span class="sub" style="font-size:11.5px;color:#94A3B8">灰色行=不计入统计</span></div>' +
         '<div style="overflow-x:auto"><table class="lesson-table">' +
         '<thead><tr><th>讲次</th><th>到课</th><th>有效</th><th>完课</th><th>时长</th><th>进度</th>' +
         '<th>答对/作答</th><th>正确率</th><th>练习</th><th>得分</th><th style="width:46px"></th></tr></thead><tbody>' +
@@ -1154,7 +1154,7 @@
   }
 
   function miniBar(v, c) {
-    if (!v) return '<span style="color:#9AA6CE">—</span>';
+    if (!v) return '<span style="color:#94A3B8">—</span>';
     return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + c + '"></i></span>' +
       '<span class="mini-num">' + (v * 100).toFixed(0) + '%</span></span>';
   }
@@ -1163,10 +1163,10 @@
     var val2 = v === null || v === undefined ? 0 : Math.max(0, Math.min(1, v));
     return '<div class="ring-card">' +
       '<svg width="66" height="66" viewBox="0 0 66 66">' +
-      '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="#F1EBF8" stroke-width="8"/>' +
+      '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="#E2E8F0" stroke-width="8"/>' +
       '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="8" stroke-linecap="round" ' +
       'stroke-dasharray="' + (c * val2).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 33 33)"/>' +
-      '<text x="33" y="37" text-anchor="middle" font-size="14" font-weight="800" fill="#1C398E">' +
+      '<text x="33" y="37" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">' +
       (v === null || v === undefined ? '—' : Math.round(v * 100)) + '</text>' +
       '</svg><div class="rl">' + esc(label) + '</div></div>';
   }
@@ -1181,15 +1181,15 @@
       var h = Math.max(3, (l.progress || 0) / 100 * (H - 34));
       if (l.progress > 0) anyProgress = true;
       var x = 10 + i * ((W - 20) / n) + (((W - 20) / n) - bw) / 2;
-      var col = l.effective ? '#14B8A6' : (l.attended ? '#0EA5E9' : '#D3DBF2');
+      var col = l.effective ? '#14B8A6' : (l.attended ? '#FB923C' : '#E2E8F0');
       return '<rect x="' + x.toFixed(1) + '" y="' + (H - 24 - h).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + h.toFixed(1) +
         '" rx="4" fill="' + col + '"><title>' + esc(cn) + '\n进度 ' + (l.progress || 0) + '% · 听课 ' + (l.durationMin || 0) + ' 分钟</title></rect>' +
-        '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (H - 8) + '" font-size="9.5" fill="' + (cn === lessonScope ? '#3B82F6' : '#9AA6CE') +
+        '<text x="' + (x + bw / 2).toFixed(1) + '" y="' + (H - 8) + '" font-size="9.5" fill="' + (cn === lessonScope ? '#3B82F6' : '#94A3B8') +
         '" text-anchor="middle">' + esc(shortName(cn).replace('第', '').replace('讲', '')) + '</text>';
     }).join('');
     return '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" height="' + H + '" preserveAspectRatio="xMinYMid meet">' +
-      '<line x1="10" y1="' + (H - 24) + '" x2="' + (W - 10) + '" y2="' + (H - 24) + '" stroke="#D3DBF2" stroke-width="2"/>' + bars + '</svg>' +
-      (anyProgress ? '' : '<div style="text-align:center;font-size:11.5px;color:#9AA6CE;margin-top:4px">该学员在所选讲次中暂无学习进度</div>');
+      '<line x1="10" y1="' + (H - 24) + '" x2="' + (W - 10) + '" y2="' + (H - 24) + '" stroke="#E2E8F0" stroke-width="2"/>' + bars + '</svg>' +
+      (anyProgress ? '' : '<div style="text-align:center;font-size:11.5px;color:#94A3B8;margin-top:4px">该学员在所选讲次中暂无学习进度</div>');
   }
 
   /* =========================================================
@@ -1215,7 +1215,7 @@
     // 关键词 chips
     $('#excludeChips').innerHTML = (sg.excludeKeywords || []).map(function (k) {
       return '<span class="chip">' + esc(k) + '<button class="chip-x" data-kw="' + esc(k) + '" aria-label="移除">&times;</button></span>';
-    }).join('') || '<span style="font-size:12.5px;color:#9AA6CE">暂无关键词，所有讲次都会计入统计</span>';
+    }).join('') || '<span style="font-size:12.5px;color:#94A3B8">暂无关键词，所有讲次都会计入统计</span>';
 
     // 课程分类概览
     var stat = db.statCourses || [], ex = db.excludedCourses || [];
@@ -1920,9 +1920,40 @@
     });
   }
 
+  /* ---------------- 下拉框宽度贴合选中项（field-sizing 的 JS 兜底，兼容 Safari） ---------------- */
+  var _fitCtx = document.createElement('canvas').getContext('2d');
+  function fitSelectWidth(sel){
+    var opt = sel.options[sel.selectedIndex];
+    if (!opt) return;
+    var cs = getComputedStyle(sel);
+    _fitCtx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+    var padL = parseFloat(cs.paddingLeft) || 0;
+    var padR = parseFloat(cs.paddingRight) || 0;
+    var bd = (parseFloat(cs.borderLeftWidth) || 0) + (parseFloat(cs.borderRightWidth) || 0);
+    var w = Math.ceil(_fitCtx.measureText(opt.text).width + padL + padR + bd + 4);
+    var max = parseFloat(cs.maxWidth);
+    if (max > 0) w = Math.min(w, max);
+    var min = parseFloat(cs.minWidth);
+    if (min > 0) w = Math.max(w, min);
+    sel.style.width = w + 'px';
+  }
+  function fitAllSelects(){
+    document.querySelectorAll('.filters select, .scope-bar select').forEach(fitSelectWidth);
+  }
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.tagName === 'SELECT' &&
+        (e.target.closest('.filters') || e.target.closest('.scope-bar'))) {
+      fitSelectWidth(e.target);
+    }
+  });
+  // 学员表/筛选器由 JS 异步重渲染，监听 DOM 变化后重算
+  new MutationObserver(function(){ fitAllSelects(); })
+    .observe(document.body, { childList: true, subtree: true });
+
   /* ---------------- 启动 ---------------- */
   bind();
   renderAll();
+  fitAllSelects();
 
   // 若通过「更新链接」打开，先自动绑定令牌并从云端拉取最新数据（其他设备免手填令牌）
   var fromSyncLink = applySyncFromUrl();

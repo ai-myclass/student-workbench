@@ -250,7 +250,7 @@
     /* ---------- 竖向布局（游标法，避免模块互相遮挡） ---------- */
     var GAP = 28, y = 370;     // 370 = 学员信息卡底部
     var chipsY = null, chartY = null, chartH = 0, knowY = null, knowH = 0, cmtY = null, cmtH = 0;
-    var CHART_TOP = 116, CHART_PLOT_H = 420, CHART_BOT = 30;
+    var CHART_TOP = 150, CHART_PLOT_H = 390, CHART_BOT = 56;
 
     if (showChips) { y += GAP; chipsY = y; y += 128; }
     if (showChart) {
@@ -337,12 +337,13 @@
     if (showChart && chartY != null) {
       var plotT = chartY + CHART_TOP;
       var plotB = plotT + CHART_PLOT_H;
-      var plotL = 170, plotR = W - 52;
+      var plotL = 110, plotR = W - 110;
+      var xPad = 70;  // X 轴两端留白，避免折线点贴边
       ctx.fillStyle = '#fff'; rr(ctx, CARDX, chartY, CARDW, chartH, 24); ctx.fill();
       ctx.fillStyle = '#0F172A'; ctx.font = '800 36px "PingFang SC",sans-serif';
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.fillText('每一讲学习数据走势', TX, chartY + 56);
-      var lx = TX, ly = chartY + 92;
+      var lx = TX, ly = chartY + 104;
       SHARE_METRICS.forEach(function (m) {
         if (!chosen[m.key]) return;
         ctx.fillStyle = m.color; rr(ctx, lx, ly, 18, 18, 5); ctx.fill();
@@ -359,11 +360,13 @@
         ctx.beginPath(); ctx.moveTo(plotL, gy); ctx.lineTo(plotR, gy); ctx.stroke();
         ctx.fillStyle = '#94A3B8'; ctx.font = '500 22px "PingFang SC",sans-serif';
         ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
-        ctx.fillText(Math.round(t * 100) + '%', plotL - 14, gy);
+        ctx.fillText(Math.round(t * 100) + '%', plotL - 22, gy);
       });
 
+      var plotW = plotR - plotL;
       var px = function (i) {
-        return courses.length === 1 ? (plotL + plotR) / 2 : plotL + (plotR - plotL) * i / (courses.length - 1);
+        if (courses.length === 1) return plotL + plotW / 2;
+        return plotL + xPad + (plotW - xPad * 2) * i / (courses.length - 1);
       };
       var py = function (v) { return plotT + (plotB - plotT) * (1 - v); };
 
@@ -373,7 +376,7 @@
         if (i % step !== 0 && i !== courses.length - 1) return;
         ctx.fillStyle = '#94A3B8'; ctx.font = '500 22px "PingFang SC",sans-serif';
         ctx.textAlign = 'center'; ctx.textBaseline = 'top';
-        ctx.fillText(String(i + 1), px(i), plotB + 16);
+        ctx.fillText(String(i + 1), px(i), plotB + 24);
       });
       ctx.strokeStyle = '#E2E8F0'; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(plotL, plotB); ctx.lineTo(plotR, plotB); ctx.stroke();

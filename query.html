@@ -183,18 +183,16 @@
   }
   .cmt-label {
     font-size: 13px; font-weight: 700; color: var(--ink);
-    display: flex; align-items: center; gap: 6px; margin-bottom: 6px;
+    display: flex; align-items: center; gap: 6px; margin-bottom: 10px;
   }
   .cmt-text { font-size: 13.5px; line-height: 1.85; color: var(--ink-2); text-align: justify; }
-  .cmt-auto {
-    background: var(--surface-2); border-radius: var(--radius-sm);
-    padding: 10px 12px;
-  }
-  .cmt-custom {
+  .cmt-text p { margin: 0; }
+  .cmt-text p + p { margin-top: 10px; }
+  .cmt-custom-part {
     background: var(--primary-soft); border-left: 3px solid var(--primary);
     border-radius: var(--radius-sm); padding: 10px 12px; color: var(--ink);
+    margin-top: 10px;
   }
-  .cmt-block + .cmt-block { margin-top: 12px; }
 
   .foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 22px; line-height: 1.8; }
 
@@ -252,14 +250,8 @@
       </div>
     </div>
     <div class="comment-card" id="commentCard" style="display:none">
-      <div class="cmt-block" id="cmtAutoBlock">
-        <div class="cmt-label">📝 教师评语</div>
-        <div class="cmt-text cmt-auto" id="cmtAuto"></div>
-      </div>
-      <div class="cmt-block" id="cmtCustomBlock" style="display:none">
-        <div class="cmt-label">💡 老师寄语</div>
-        <div class="cmt-text cmt-custom" id="cmtCustom"></div>
-      </div>
+      <div class="cmt-label">📝 教师评语</div>
+      <div class="cmt-text" id="cmtText"></div>
     </div>
     <div class="tip" id="tipMsg">长按图片即可保存到相册 · 数据由辅导老师定期更新</div>
   </div>
@@ -298,10 +290,7 @@ var resultTitle= document.getElementById('resultTitle');
 var saveBtn    = document.getElementById('saveBtn');
 var tipMsg     = document.getElementById('tipMsg');
 var commentCard = document.getElementById('commentCard');
-var cmtAuto    = document.getElementById('cmtAuto');
-var cmtAutoBlock = document.getElementById('cmtAutoBlock');
-var cmtCustom  = document.getElementById('cmtCustom');
-var cmtCustomBlock = document.getElementById('cmtCustomBlock');
+var cmtText    = document.getElementById('cmtText');
 var canvas     = document.getElementById('shareCanvas');
 var noData     = document.getElementById('noData');
 
@@ -311,6 +300,11 @@ var current = null;       // 当前查到的学员
 
 function showErr(m) { errMsg.textContent = m; errMsg.style.display = 'block'; }
 function hideErr()  { errMsg.style.display = 'none'; }
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
 
 /* ═══════════════ 加载数据 ═══════════════ */
 function loadData(cb) {
@@ -401,16 +395,16 @@ function showResult(s) {
       footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
     });
 
-    // 页面评语卡片：与分享图同口径（系统自动评语 + 老师寄语，可有其一或同时展示）
+    // 页面评语卡片：系统自动评语与老师寄语合并为一段展示
     var cm = s.comment || {};
     var auto = (cm.auto || '').trim();
     var cus = (cm.custom || '').trim();
     if (auto || cus) {
       commentCard.style.display = 'block';
-      if (auto) { cmtAuto.textContent = auto; cmtAutoBlock.style.display = 'block'; }
-      else { cmtAutoBlock.style.display = 'none'; }
-      if (cus) { cmtCustom.textContent = cus; cmtCustomBlock.style.display = 'block'; }
-      else { cmtCustomBlock.style.display = 'none'; }
+      var html = '';
+      if (auto) html += '<p>' + escapeHtml(auto) + '</p>';
+      if (cus) html += '<p class="cmt-custom-part">' + escapeHtml(cus) + '</p>';
+      cmtText.innerHTML = html;
     } else {
       commentCard.style.display = 'none';
     }

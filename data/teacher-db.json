@@ -1,6 +1,6 @@
 {
  "version": 2,
- "updatedAt": "2026-09-07T06:54:57.745Z",
+ "updatedAt": "2026-09-07T07:55:10.034Z",
  "courses": [
   "习题课 开班家长会",
   "第1讲 第01讲·化妆舞会-造型切换",
@@ -177254,7 +177254,22 @@
   "autoProfile": true,
   "onlyRoster": false
  },
- "knowledge": [],
+ "knowledge": [
+  {
+   "course": "第1讲 第01讲·化妆舞会-造型切换",
+   "points": [
+    "造型切换",
+    "角色触发"
+   ]
+  },
+  {
+   "course": "第2讲 第02讲·神庙探险-运动基础",
+   "points": [
+    "面向方向",
+    "运动模块"
+   ]
+  }
+ ],
  "commentLib": [
   {
    "min": 85,

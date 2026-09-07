@@ -90,7 +90,11 @@
   /** 取某个指标在单讲上的取值（0~1，缺失返回 null） */
   function lessonVal(key, l) {
     if (key === 'listen') return l.effective ? 1 : 0;
-    if (key === 'accuracy') return l.accuracy != null ? l.accuracy / 100 : null;
+    if (key === 'accuracy') {
+      // 无答题记录（0 题）不绘制折线点，避免把「没参与」误画成有得分，与指标卡口径一致
+      if (l.quizAnswer != null && +l.quizAnswer === 0) return null;
+      return l.accuracy != null ? l.accuracy / 100 : null;
+    }
     if (key === 'homework') return isUnassigned(l.hwStatus) ? null : (isHwDone(l.hwStatus) ? 1 : 0);
     if (key === 'progress') return (l.progress || 0) / 100;
     if (key === 'score') return lessonScore(l);
@@ -314,7 +318,7 @@
       var chips = [
         { l: '综合得分', v: stats.score != null ? stats.score * 100 : null, c: '#60A5FA' },
         { l: '有效听课率', v: stats.listen != null ? stats.listen * 100 : null, c: '#3B82F6' },
-        { l: '答题正确率', v: stats.accuracy != null ? Math.max(Math.round(stats.accuracy * 100), accFloorFor(s)) : null, c: '#14B8A6' },
+        { l: '答题正确率', v: stats.accuracy != null ? Math.round(stats.accuracy * 100) : null, c: '#14B8A6' },
         { l: '练习完成率', v: stats.homework != null ? stats.homework * 100 : null, c: '#2563EB' }
       ];
       var n = 4, gap = 24, cw = (CARDW - gap * (n - 1)) / n, cy = chipsY, chh = 128;
@@ -383,7 +387,6 @@
         courses.forEach(function (cn, i) {
           var v = lessonVal(m.key, lessons[cn] || {});
           if (v == null) return;
-          if (m.key === 'accuracy') v = Math.max(v, accFloorFor(s) / 100);
           pts.push({ x: px(i), y: py(v) });
         });
         if (!pts.length) return;

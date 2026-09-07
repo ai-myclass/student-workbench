@@ -393,7 +393,8 @@ function showResult(s) {
       showChips: scope.showStageSummary !== false,
       showChart: courses.length > 0,
       showKnowledge: scope.showStageKnowledge !== false,
-      showComment: true,
+      // 评语在下方 HTML commentCard 中独立展示，避免与分享图内评语重复
+      showComment: false,
       knowledge: s.knowledge || [],
       autoComment: (s.comment && s.comment.auto) || '',
       customComment: (s.comment && s.comment.custom) || '',

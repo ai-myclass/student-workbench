@@ -394,6 +394,16 @@
       <div class="note-ico" data-page-node-id="noteIco">✨</div>
       <p data-page-node-id="noteText">最终分享图与查询页展示的评语 = <b>系统自动客观评价</b>（依据听课、答题、作业与综合分自动生成）+ <b>老师自定义寄语</b>（评语库模板或学员专属寄语）。两段内容分开呈现，家长读起来更清晰。</p>
     </div>
+
+    <div class="card scope-card" data-page-node-id="scopeCard">
+      <div class="scope-ico" data-page-node-id="scopeIco">👀</div>
+      <div class="scope-body" data-page-node-id="scopeBody">
+        <h3 data-page-node-id="scopeTitle">家长可见范围</h3>
+        <p data-page-node-id="scopeDesc">选择家长在查询端能看到哪些 <strong>讲次（课节数据）</strong>，以及是否展示 <strong>阶段综合评估</strong> 与 <strong>阶段知识点</strong>。配置后点「更新家长查询」即可生效——家长只能查到您勾选的内容。</p>
+        <div class="scope-stat" id="scopeStat" data-page-node-id="scopeStat">当前：全部讲次可见</div>
+      </div>
+      <button class="btn btn-primary" id="btnOpenScope" data-page-node-id="openScope">设置可见范围</button>
+    </div>
   </section>
 </main>
 
@@ -464,6 +474,36 @@
   <div class="modal-actions">
     <button class="btn btn-primary" id="clSave" data-page-node-id="clSave">保存评语库</button>
     <button class="btn btn-ghost" id="clClose2" data-page-node-id="clClose2">关闭</button>
+  </div>
+</div>
+
+<!-- ============ 家长可见范围配置 ============ -->
+<div class="drawer-mask" id="scopeMask" hidden></div>
+<div class="modal-card" id="scopeModal" hidden>
+  <div class="modal-head">
+    <h3 data-page-node-id="scopeModalTitle">👀 家长可见范围</h3>
+    <button class="modal-x" id="scopeClose" aria-label="关闭">×</button>
+  </div>
+  <p class="modal-tip" data-page-node-id="scopeModalTip">勾选家长可查看的讲次（课节数据）；未勾选的讲次家长端不会显示，阶段综合评估与知识点将仅基于勾选的讲次重新计算。下方两个开关控制「阶段学习数据」是否展示。</p>
+  <div class="scope-section">
+    <div class="scope-section-head">
+      <span data-page-node-id="scopeLessonHead">课节数据（讲次）</span>
+      <div class="scope-quick">
+        <button class="btn-link" id="scopeAll" type="button" data-page-node-id="scopeAll">全选</button>
+        <span class="scope-sep">·</span>
+        <button class="btn-link" id="scopeNone" type="button" data-page-node-id="scopeNone">全不选</button>
+      </div>
+    </div>
+    <div class="scope-list" id="scopeList" data-page-node-id="scopeList"></div>
+  </div>
+  <div class="scope-section">
+    <div class="scope-section-head"><span data-page-node-id="scopeStageHead">阶段学习数据</span></div>
+    <label class="scope-toggle"><input type="checkbox" id="scopeStageSummary" checked> 展示阶段综合评估（综合分 / 有效听课率 / 答题正确率 / 练习完成率）</label>
+    <label class="scope-toggle"><input type="checkbox" id="scopeStageKnowledge" checked> 展示阶段知识点</label>
+  </div>
+  <div class="modal-actions">
+    <button class="btn btn-primary" id="scopeSave" data-page-node-id="scopeSave">保存可见范围</button>
+    <button class="btn btn-ghost" id="scopeClose2" data-page-node-id="scopeClose2">关闭</button>
   </div>
 </div>
 

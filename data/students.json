@@ -1,11 +1,18 @@
 {
- "updatedAt": "2026-09-07T05:58:55.429Z",
+ "updatedAt": "2026-09-07T06:17:56.997Z",
  "hashAlgo": "fnv1a64",
  "courseSource": "statCourses(正课)",
  "courseCount": 1,
  "courses": [
   "第1讲 第01讲·化妆舞会-造型切换"
  ],
+ "parentScope": {
+  "courses": [
+   "第1讲 第01讲·化妆舞会-造型切换"
+  ],
+  "showStageSummary": true,
+  "showStageKnowledge": true
+ },
  "students": [
   {
    "name": "靳安心",

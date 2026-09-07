@@ -135,6 +135,18 @@
       courseSource = 'activeCourses(回退·含习题课)';
     }
 
+    // 家长可见范围：老师选择家长端可展示的「课节数据」（讲次）。
+    // 仅保留老师在后台勾选的讲次；未配置（courses=null）则展示全部讲次。
+    var scope = work.parentScope || {};
+    var scopeCourses = scope.courses;
+    if (scopeCourses && Array.isArray(scopeCourses) && scopeCourses.length) {
+      var set = {};
+      scopeCourses.forEach(function (c) { set[c] = true; });
+      var filtered = courses.filter(function (c) { return set[c]; });
+      // 老师若全部取消勾选，回退为全部讲次，避免家长端拿到空数据
+      if (filtered.length) { courses = filtered; courseSource += '·已按家长可见范围筛选'; }
+    }
+
     // 第二次 refresh：按最终确定的讲次口径重算统计，保证 stats 与导出的 courses 一致
     SWB.refresh(work, courses);
 
@@ -169,10 +181,14 @@
     (work.knowledge || []).forEach(function (k) {
       if (k && k.course && k.points && k.points.length) knowMap[k.course] = k.points;
     });
+    // 家长可见范围：是否展示「阶段学习数据」中的阶段知识点（默认展示）
+    var showStageKnowledge = scope.showStageKnowledge !== false;
     var stageKnowledge = [];
-    courses.forEach(function (cn) {
-      if (knowMap[cn] && knowMap[cn].length) stageKnowledge.push({ course: cn, points: knowMap[cn] });
-    });
+    if (showStageKnowledge) {
+      courses.forEach(function (cn) {
+        if (knowMap[cn] && knowMap[cn].length) stageKnowledge.push({ course: cn, points: knowMap[cn] });
+      });
+    }
     var commentLib = work.commentLib || [];
 
     var students = rosterSource.map(function (r) {
@@ -239,6 +255,12 @@
       courseSource: courseSource,
       courseCount: courses.length,
       courses: courses,
+      // 家长可见范围：家长查询端据此决定展示哪些讲次/阶段数据
+      parentScope: {
+        courses: courses,
+        showStageSummary: scope.showStageSummary !== false,
+        showStageKnowledge: showStageKnowledge
+      },
       students: students,
       _meta: {
         phoneFull: phoneFull,

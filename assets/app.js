@@ -43,6 +43,11 @@
   var currentLesson = null;      // 记录正在编辑的讲次
   var shareState = null;         // 记录分享图上下文（学员 + 讲次列表）
 
+  /** 家长可见范围默认配置：null 表示沿用全部讲次；两个开关默认开启 */
+  function defaultParentScope() {
+    return { courses: null, showStageSummary: true, showStageKnowledge: true };
+  }
+
   /** 评语库默认模板（按综合得分 0~100 区间）；{name} 会被替换为学员姓名 */
   function defaultCommentLib() {
     return [
@@ -68,6 +73,13 @@
       if (!d.knowledge) d.knowledge = [];
       // 评语库：按综合分区间的自定义寄语模板；首次使用播种默认模板
       if (!d.commentLib) d.commentLib = defaultCommentLib();
+      // 家长可见范围：老师选择家长查询端可展示的讲次与阶段数据；缺省为全部可见
+      if (!d.parentScope) d.parentScope = defaultParentScope();
+      else {
+        if (d.parentScope.courses === undefined) d.parentScope.courses = null;
+        if (d.parentScope.showStageSummary === undefined) d.parentScope.showStageSummary = true;
+        if (d.parentScope.showStageKnowledge === undefined) d.parentScope.showStageKnowledge = true;
+      }
       return SWB.refresh(d);
     } catch (e) { return SWB.refresh(SWB.emptyDB()); }
   }
@@ -163,6 +175,7 @@
     renderStudents();
     renderArchive();
     renderData();
+    renderScopeStat();
   }
 
   function renderHeader() {
@@ -1001,6 +1014,62 @@
     save();
     toast('已保存评语库（' + lib.length + ' 条模板）');
     closeCommentLib();
+  }
+
+  /* ---------------- 家长可见范围配置 ---------------- */
+  /** 内容配置卡片上的状态提示：当前家长端可见讲次数 + 阶段数据开关 */
+  function renderScopeStat() {
+    var el = $('#scopeStat'); if (!el) return;
+    var sc = db.parentScope || defaultParentScope();
+    var total = (db.statCourses && db.statCourses.length) ? db.statCourses.length : (db.courses ? db.courses.length : 0);
+    var visible = (sc.courses && sc.courses.length) ? sc.courses.length : total;
+    var parts = ['当前可见讲次：' + visible + ' / ' + total];
+    if (sc.showStageSummary === false) parts.push('阶段综合评估已隐藏');
+    if (sc.showStageKnowledge === false) parts.push('阶段知识点已隐藏');
+    el.textContent = parts.join(' · ');
+  }
+
+  function allCourseNames() {
+    return (db.statCourses && db.statCourses.length) ? db.statCourses : (db.courses || []);
+  }
+
+  function openScope() {
+    var courses = allCourseNames();
+    if (!courses.length) { toast('还没有可统计的讲次，无法设置可见范围'); return; }
+    var sc = db.parentScope || defaultParentScope();
+    // 当前勾选集合：未配置（courses=null）视为全部勾选
+    var checked = {};
+    if (sc.courses && sc.courses.length) sc.courses.forEach(function (c) { checked[c] = true; });
+    else courses.forEach(function (c) { checked[c] = true; });
+    $('#scopeList').innerHTML = courses.map(function (cn) {
+      return '<label class="scope-row"><input type="checkbox" class="scope-cb" value="' + esc(cn) + '"' + (checked[cn] ? ' checked' : '') + '>' +
+        '<span class="scope-name">' + esc(cn) + '</span></label>';
+    }).join('');
+    $('#scopeStageSummary').checked = sc.showStageSummary !== false;
+    $('#scopeStageKnowledge').checked = sc.showStageKnowledge !== false;
+    $('#scopeMask').hidden = false; $('#scopeModal').hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeScope() {
+    $('#scopeMask').hidden = true; $('#scopeModal').hidden = true;
+    document.body.style.overflow = '';
+  }
+  function saveScope() {
+    var courses = allCourseNames();
+    var picked = Array.prototype.slice.call($('#scopeList').querySelectorAll('.scope-cb'))
+      .filter(function (cb) { return cb.checked; })
+      .map(function (cb) { return cb.value; });
+    // 全选或全不选：记为 null（沿用全部讲次），避免把"全部"硬编码成列表，也更稳健
+    var selected = (picked.length === courses.length || picked.length === 0) ? null : picked;
+    db.parentScope = {
+      courses: selected,
+      showStageSummary: $('#scopeStageSummary').checked,
+      showStageKnowledge: $('#scopeStageKnowledge').checked
+    };
+    save();
+    renderScopeStat();
+    toast('已保存家长可见范围' + (selected ? '（' + picked.length + ' 讲）' : '（全部讲次）'));
+    closeScope();
   }
 
   function renderDrawer(ctx) {
@@ -1877,6 +1946,13 @@
 
     // 评语库管理
     $('#btnOpenCommentLib').addEventListener('click', openCommentLib);
+    $('#btnOpenScope').addEventListener('click', openScope);
+    $('#scopeSave').addEventListener('click', saveScope);
+    $('#scopeClose').addEventListener('click', closeScope);
+    $('#scopeClose2').addEventListener('click', closeScope);
+    $('#scopeMask').addEventListener('click', closeScope);
+    $('#scopeAll').addEventListener('click', function () { $$('#scopeList .scope-cb').forEach(function (cb) { cb.checked = true; }); });
+    $('#scopeNone').addEventListener('click', function () { $$('#scopeList .scope-cb').forEach(function (cb) { cb.checked = false; }); });
     $('#clAdd').addEventListener('click', addCommentTemplate);
     $('#clSave').addEventListener('click', saveCommentLib);
     $('#clClose').addEventListener('click', closeCommentLib);

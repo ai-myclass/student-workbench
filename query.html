@@ -383,14 +383,16 @@ function showResult(s) {
     canvas.style.display = 'block';
     saveBtn.style.display = 'inline-block';
     tipMsg.textContent = '长按图片即可保存到相册 · 数据由辅导老师定期更新';
+    // 家长可见范围：老师在工作台勾选的讲次与阶段数据开关（缺省全部展示）
+    var scope = DATA.parentScope || {};
     var courses = DATA.courses || [];
     // 与工作台导出口径一致：默认展示 有效听课率 / 答题正确率 / 练习完成率
-    // 阶段知识点与评语均来自家长查询数据（教师在工作台配置并同步）
+    // 课节数据（讲次）仅展示老师勾选的部分；阶段综合评估 / 阶段知识点按开关控制
     SWBShare.draw(canvas, s, courses, {
       metrics: { listen: true, accuracy: true, homework: true },
-      showChips: true,
-      showChart: true,
-      showKnowledge: true,
+      showChips: scope.showStageSummary !== false,
+      showChart: courses.length > 0,
+      showKnowledge: scope.showStageKnowledge !== false,
       showComment: true,
       knowledge: s.knowledge || [],
       autoComment: (s.comment && s.comment.auto) || '',

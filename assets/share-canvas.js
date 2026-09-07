@@ -250,11 +250,11 @@
     /* ---------- 竖向布局（游标法，避免模块互相遮挡） ---------- */
     var GAP = 28, y = 370;     // 370 = 学员信息卡底部
     var chipsY = null, chartY = null, chartH = 0, knowY = null, knowH = 0, cmtY = null, cmtH = 0;
-    var CHART_TOP = 150, CHART_PLOT_H = 390, CHART_BOT = 56;
+    var CHART_TOP = 176, CHART_PLOT_H = 390, CHART_BOT = 56;
 
     if (showChips) { y += GAP; chipsY = y; y += 128; }
     if (showChart) {
-      y += GAP; chartY = y;
+      y += GAP + 16; chartY = y;   // 指标卡与折线图卡片之间再多 16px 呼吸感
       chartH = CHART_TOP + CHART_PLOT_H + CHART_BOT;
       y += chartH;
     }
@@ -343,7 +343,7 @@
       ctx.fillStyle = '#0F172A'; ctx.font = '800 36px "PingFang SC",sans-serif';
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.fillText('每一讲学习数据走势', TX, chartY + 56);
-      var lx = TX, ly = chartY + 104;
+      var lx = TX, ly = chartY + 112;
       SHARE_METRICS.forEach(function (m) {
         if (!chosen[m.key]) return;
         ctx.fillStyle = m.color; rr(ctx, lx, ly, 18, 18, 5); ctx.fill();

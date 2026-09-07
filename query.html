@@ -188,11 +188,6 @@
   .cmt-text { font-size: 13.5px; line-height: 1.85; color: var(--ink-2); text-align: justify; }
   .cmt-text p { margin: 0; }
   .cmt-text p + p { margin-top: 10px; }
-  .cmt-custom-part {
-    background: var(--primary-soft); border-left: 3px solid var(--primary);
-    border-radius: var(--radius-sm); padding: 10px 12px; color: var(--ink);
-    margin-top: 10px;
-  }
 
   .foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 22px; line-height: 1.8; }
 
@@ -403,7 +398,7 @@ function showResult(s) {
       commentCard.style.display = 'block';
       var html = '';
       if (auto) html += '<p>' + escapeHtml(auto) + '</p>';
-      if (cus) html += '<p class="cmt-custom-part">' + escapeHtml(cus) + '</p>';
+      if (cus) html += '<p>' + escapeHtml(cus) + '</p>';
       cmtText.innerHTML = html;
     } else {
       commentCard.style.display = 'none';

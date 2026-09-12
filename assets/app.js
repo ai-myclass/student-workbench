@@ -111,11 +111,13 @@
     for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
     return PALETTE[h % PALETTE.length];
   }
+  /** 综合分 / 进度条配色：越低越红，越高越绿（青） */
   function scoreColor(v) {
-    if (v >= 0.85) return '#14B8A6';
-    if (v >= 0.70) return '#3B82F6';
-    if (v >= 0.50) return '#FB923C';
-    return '#3B82F6';
+    if (v >= 0.85) return '#14B8A6';   // 优 · 青绿
+    if (v >= 0.70) return '#3B82F6';   // 良 · 蓝
+    if (v >= 0.50) return '#EFA83D';   // 中 · 黄
+    if (v >= 0.30) return '#F2994A';   // 偏弱 · 橙
+    return '#E5484D';                  // 差 · 红
   }
   function shortName(name) {
     var s = String(name || '');
@@ -601,7 +603,7 @@
             '<td>' + (l.attended ? '<span class="tag tag-yes">到课</span>' : '<span class="tag tag-no">未到</span>') + '</td>' +
             '<td>' + (l.effective ? '<span class="tag tag-yes">有效</span>' : '<span class="tag tag-no">—</span>') + '</td>' +
             '<td class="mono">' + (l.quizRight || 0) + '/' + (l.quizAnswer || 0) + '</td>' +
-            '<td>' + mini(l.quizAnswer ? (l.accuracy || 0) / 100 : null, '#14B8A6') + '</td>' +
+            '<td>' + mini(l.quizAnswer ? (l.accuracy || 0) / 100 : null) + '</td>' +
             '<td>' + hwTag(l.hwStatus) + '</td>' +
             '<td class="mono">' + (l.durationMin || 0) + ' 分</td>' +
             '<td><span class="score-badge" style="background:' + scoreColor(st.score) + '">' + (st.score * 100).toFixed(0) + '</span></td>';
@@ -609,9 +611,9 @@
           base += '<td><span class="pill ' + gCls + '">' + esc(val(s.gender) || '未填') + '</span></td>' +
             '<td class="grade-tag">' + esc(val(s.grade) || '—') + '</td>' +
             matchBadge(s) +
-            '<td>' + mini(st.listen, '#3B82F6') + '</td>' +
-            '<td>' + mini(st.accuracy, '#14B8A6') + '</td>' +
-            '<td>' + mini(st.homework, '#3B82F6') + '</td>' +
+            '<td>' + mini(st.listen) + '</td>' +
+            '<td>' + mini(st.accuracy) + '</td>' +
+            '<td>' + mini(st.homework) + '</td>' +
             '<td><span class="score-badge" style="background:' + scoreColor(st.score) + '">' + (st.score * 100).toFixed(0) + '</span></td>';
         }
         return base + '</tr>';
@@ -635,10 +637,12 @@
       ? '<span class="tag tag-yes">' + esc(status) + '</span>'
       : '<span class="tag tag-warn">' + esc(status || '未提交') + '</span>';
   }
+  /** 进度条：未传 color 时按数值自动配色（越低越红） */
   function mini(v, color) {
     if (v === null || v === undefined) return '<span class="mini-num" style="color:#94A3B8">—</span>';
-    return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + color + '"></i></span>' +
-      '<span class="mini-num">' + (v * 100).toFixed(0) + '%</span></span>';
+    var c = color || scoreColor(v);
+    return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + c + '"></i></span>' +
+      '<span class="mini-num" style="color:' + c + '">' + (v * 100).toFixed(0) + '%</span></span>';
   }
 
   /* =========================================================
@@ -699,9 +703,9 @@
             : '<span class="tag tag-yes">已匹配</span>') + '</td>' +
           (a.noData
             ? '<td colspan="3" class="mono" style="color:#94A3B8">—</td><td><span class="score-badge" style="background:#CBD5E1">—</span></td>'
-            : '<td>' + mini(st.listen, '#3B82F6') + '</td>' +
-              '<td>' + mini(st.accuracy, '#14B8A6') + '</td>' +
-              '<td>' + mini(st.homework, '#3B82F6') + '</td>' +
+            :               '<td>' + mini(st.listen) + '</td>' +
+              '<td>' + mini(st.accuracy) + '</td>' +
+              '<td>' + mini(st.homework) + '</td>' +
               '<td><span class="score-badge" style="background:' + scoreColor(st.score) + '">' + (st.score * 100).toFixed(0) + '</span></td>') +
           '</tr>';
       }).join('');
@@ -1107,10 +1111,10 @@
       : (r ? '<span class="tag tag-yes">档案已匹配</span>' : '<span class="tag tag-no">未在学情表中</span>');
 
     var rings = [
-      { l: '有效听课率', v: st.listen, c: '#3B82F6' },
-      { l: '答题正确率', v: st.accuracy, c: '#14B8A6' },
-      { l: '练习完成率', v: st.homework, c: '#3B82F6' },
-      { l: '综合得分', v: st.score, c: '#60A5FA' }
+      { l: '有效听课率', v: st.listen },
+      { l: '答题正确率', v: st.accuracy },
+      { l: '练习完成率', v: st.homework },
+      { l: '综合得分', v: st.score }
     ];
 
     var infoRows = [
@@ -1219,7 +1223,7 @@
         '<td>' + (l.effective ? '<span class="tag tag-yes">有效</span>' : '<span class="tag tag-no">—</span>') + '</td>' +
         '<td>' + (l.finished ? '<span class="tag tag-blue">完课</span>' : '<span class="tag tag-no">—</span>') + '</td>' +
         '<td class="mono">' + (l.durationMin || 0) + ' 分</td>' +
-        '<td>' + miniBar(l.progress / 100, '#3B82F6') + '</td>' +
+        '<td>' + miniBar(l.progress / 100) + '</td>' +
         '<td class="mono">' + (l.quizRight || 0) + '/' + (l.quizAnswer || 0) + '</td>' +
         '<td>' + accTxt + '</td>' +
         '<td>' + hwTag(l.hwStatus) + '</td>' +
@@ -1231,16 +1235,18 @@
 
   function miniBar(v, c) {
     if (!v) return '<span style="color:#94A3B8">—</span>';
-    return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + c + '"></i></span>' +
-      '<span class="mini-num">' + (v * 100).toFixed(0) + '%</span></span>';
+    var col = c || scoreColor(v);
+    return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + col + '"></i></span>' +
+      '<span class="mini-num" style="color:' + col + '">' + (v * 100).toFixed(0) + '%</span></span>';
   }
   function ring(v, color, label) {
     var r = 26, c = 2 * Math.PI * r;
     var val2 = v === null || v === undefined ? 0 : Math.max(0, Math.min(1, v));
+    var col = color || (v === null || v === undefined ? '#E2E8F0' : scoreColor(v));
     return '<div class="ring-card">' +
       '<svg width="66" height="66" viewBox="0 0 66 66">' +
       '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="#E2E8F0" stroke-width="8"/>' +
-      '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="8" stroke-linecap="round" ' +
+      '<circle cx="33" cy="33" r="' + r + '" fill="none" stroke="' + col + '" stroke-width="8" stroke-linecap="round" ' +
       'stroke-dasharray="' + (c * val2).toFixed(1) + ' ' + c.toFixed(1) + '" transform="rotate(-90 33 33)"/>' +
       '<text x="33" y="37" text-anchor="middle" font-size="14" font-weight="800" fill="#0F172A">' +
       (v === null || v === undefined ? '—' : Math.round(v * 100)) + '</text>' +

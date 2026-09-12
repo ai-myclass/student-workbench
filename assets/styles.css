@@ -717,6 +717,9 @@ main{position:relative;z-index:1;max-width:1280px;margin:24px auto 80px;padding:
 .scope-card .scope-body p strong{color:var(--text);}
 .scope-card .scope-stat{margin-top:9px;font-size:12.5px;font-weight:700;color:var(--blue);background:var(--blue-soft);display:inline-block;padding:4px 11px;border-radius:999px;}
 .scope-card .btn{width:auto;flex:none;white-space:nowrap;}
+.ai-progress{margin-top:10px;font-size:12.5px;font-weight:600;color:#8F959E;background:#F2F3F5;border-radius:999px;display:inline-block;padding:4px 12px;}
+.ai-progress.ok{color:#2CB5A0;background:rgba(44,181,160,.12);}
+.ai-progress.err{color:#E5484D;background:rgba(229,72,77,.12);}
 
 .scope-section{margin-top:18px;border-top:1.5px solid var(--line);padding-top:16px;}
 .scope-section:first-of-type{border-top:none;padding-top:0;}

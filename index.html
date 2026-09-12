@@ -404,6 +404,16 @@
       </div>
       <button class="btn btn-primary" id="btnOpenScope" data-page-node-id="openScope">设置可见范围</button>
     </div>
+
+    <div class="card scope-card" data-page-node-id="aiCard">
+      <div class="scope-ico" data-page-node-id="aiIco">✨</div>
+      <div class="scope-body" data-page-node-id="aiBody">
+        <h3 data-page-node-id="aiTitle">AI 智能评语</h3>
+        <p data-page-node-id="aiDesc">调用 AI 根据每位学员的真实学习数据（听课、答题、作业、各讲表现）生成自然、具体、有鼓励性的家长评语，比规则模板更贴合每个孩子。生成后请点「更新家长查询」同步给家长。</p>
+        <div class="ai-progress" id="aiCommentStatus" data-page-node-id="aiStatus">就绪</div>
+      </div>
+      <button class="btn btn-primary" id="btnAiBatch" data-page-node-id="aiBatch">✨ 批量生成评语</button>
+    </div>
   </section>
 </main>
 
@@ -515,6 +525,8 @@
 <script src="assets/roster-data.js"></script>
 <script src="assets/parent-data.js"></script>
 <script src="assets/share-canvas.js"></script>
+<!-- WorkBuddy Cloud SDK（免密钥 LLM，用于 AI 生成评语） -->
+<script src="https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

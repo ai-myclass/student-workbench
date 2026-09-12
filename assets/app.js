@@ -852,10 +852,22 @@
     wbAiModel = models.find(function (x) { return x.disabled !== true; }) || models[0];
     return wbAiModel;
   }
+  /** 判断当前来源是否为云端允许的（本地开发或 WorkBuddy 自有域名）；外部域名如 GitHub Pages 无法连接云端 AI */
+  function aiCloudOriginOk() {
+    var h = location.hostname;
+    return h === 'localhost' || h === '127.0.0.1' || h.endsWith('.workbuddy.host');
+  }
+  /** 外部来源（如 GitHub Pages）下的 AI 功能提示 */
+  var AI_EXTERNAL_HINT = '当前为 GitHub Pages 公开站，无法连接云端 AI（同源限制）。请在本地 localhost 打开工作台生成评语，再点「更新家长查询」同步家长端。';
   /** 拉取可用模型列表并填充下拉框；失败时静默保留「自动（推荐）」选项 */
   async function loadAiModels() {
     var sel = $('#aiModelSelect');
     if (!sel) return;
+    if (!aiCloudOriginOk()) {
+      var st0 = $('#aiCommentStatus');
+      if (st0) st0.textContent = AI_EXTERNAL_HINT;
+      return;
+    }
     try {
       var cloud = ensureCloud();
       var models = await cloud.llm.models.list();
@@ -952,6 +964,12 @@
     var courses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
     var targets = (db.students || []).filter(function (s) { return s && s.stats && s.stats.score > 0; });
     if (!targets.length) { toast('没有已产生学习数据的学员'); return; }
+    if (!aiCloudOriginOk()) {
+      status.textContent = AI_EXTERNAL_HINT;
+      status.className = 'ai-progress err';
+      toast('当前站点无法连接云端 AI，请在本地 localhost 打开工作台');
+      return;
+    }
     btn.disabled = true;
     status.className = 'ai-progress';
     var modelLabel = selectedAiModelName();
@@ -969,7 +987,7 @@
       }
       save();
       if (ok === 0 && fail > 0) {
-        status.textContent = '生成失败 ' + fail + ' 条：云端未授权本站点来源（CORS 预检被拒）。请在 WorkBuddy 云控制台把 ' + location.origin + ' 加入「允许来源 / Allowed Origins」后重试。';
+        status.textContent = '生成失败 ' + fail + ' 条：云端未授权本站点来源（CORS 预检被拒）。' + AI_EXTERNAL_HINT;
         status.className = 'ai-progress err';
         toast('AI 评语生成失败，详见上方提示');
       } else {
@@ -986,6 +1004,7 @@
     if (!currentDrawer || !currentDrawer.student) return;
     var s = currentDrawer.student;
     if (!(s.stats && s.stats.score > 0)) { toast('该学员暂无学习数据，无法生成'); return; }
+    if (!aiCloudOriginOk()) { toast('当前站点无法连接云端 AI，请在本地 localhost 打开工作台'); return; }
     var btn = $('#btnAiGenComment');
     var courses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
     if (btn) { btn.disabled = true; btn.textContent = '生成中…'; }

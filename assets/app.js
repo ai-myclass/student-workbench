@@ -880,7 +880,10 @@
     } catch (e) {
       console.error('加载 AI 模型列表失败', e);
       var st2 = $('#aiCommentStatus');
-      if (st2) st2.textContent = '模型列表加载失败，将用默认模型（点击「刷新列表」重试）';
+      var msg = (e && e.message && /fetch|network/i.test(e.message))
+        ? '模型列表加载失败：云端未授权本站点来源（CORS 预检被拒）。请在 WorkBuddy 云控制台把 ' + location.origin + ' 加入「允许来源 / Allowed Origins」后点「刷新列表」。'
+        : '模型列表加载失败：' + ((e && e.message) || e) + '（点「刷新列表」重试）';
+      if (st2) st2.textContent = msg;
     }
   }
   /** 返回当前选中的模型 id（空串表示自动） */
@@ -965,9 +968,15 @@
         if (i < targets.length - 1) await sleep(400);
       }
       save();
-      status.textContent = '完成：成功 ' + ok + ' 条，失败 ' + fail + ' 条 · 记得点「更新家长查询」同步';
-      status.className = 'ai-progress ok';
-      toast('已为 ' + ok + ' 名学员生成 AI 评语');
+      if (ok === 0 && fail > 0) {
+        status.textContent = '生成失败 ' + fail + ' 条：云端未授权本站点来源（CORS 预检被拒）。请在 WorkBuddy 云控制台把 ' + location.origin + ' 加入「允许来源 / Allowed Origins」后重试。';
+        status.className = 'ai-progress err';
+        toast('AI 评语生成失败，详见上方提示');
+      } else {
+        status.textContent = '完成：成功 ' + ok + ' 条，失败 ' + fail + ' 条 · 记得点「更新家长查询」同步';
+        status.className = 'ai-progress ok';
+        toast('已为 ' + ok + ' 名学员生成 AI 评语');
+      }
     } catch (e) {
       status.textContent = '生成中断：' + (e.message || e);
       status.className = 'ai-progress err';

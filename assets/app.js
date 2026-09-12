@@ -877,7 +877,7 @@
 
   /** 依据学习数据自动生成教师评语（亲切、鼓励、有温度） */
   function buildTeacherComment(s, courses) { return SWBShare.buildTeacherComment(s, courses); }
-  function avg(arr) { var t = 0; arr.forEach(function (v) { t += v; }); return t / arr.length; }
+  function arrMean(arr) { var t = 0; arr.forEach(function (v) { t += v; }); return t / arr.length; }
   function wrapText(ctx, text, maxW) {
     var out = [], line = '';
     for (var i = 0; i < text.length; i++) {
@@ -1775,7 +1775,7 @@
     });
 
     // 讲次筛选
-    $('#filterLesson').addEventListener('change', function () { setScope(this.value); });
+    $('#filterLesson').addEventListener('change', function () { window.__chg = (window.__chg || []); window.__chg.push(this.value); setScope(this.value); });
 
     // 名单搜索
     var si = $('#searchInput');

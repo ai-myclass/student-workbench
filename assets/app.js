@@ -156,6 +156,12 @@
     if (d.length > 4) return d.slice(0, 3) + '****' + d.slice(-4);
     return d;
   }
+  /** 复制按钮：点击复制 data-copy 中的完整值（ID/手机号不截断） */
+  function copyBtn(value) {
+    if (!value) return '';
+    return '<button class="copy-btn" type="button" data-copy="' + esc(value) + '" title="复制" aria-label="复制">' +
+      '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button>';
+  }
   /** 学情表「信息登记」状态 */
   function regTag(s) {
     var t = val(s);
@@ -585,8 +591,8 @@
           '<td><div class="cell-stu"><span class="avatar" style="background:' + colorOf(s.name) + '">' + esc(s.name.slice(0, 1)) + '</span>' +
           '<span><div class="cell-name">' + esc(s.name) + '</div>' +
           '<div class="cell-sub">' + esc(s.nickname ? '昵称 ' + s.nickname : (val(s.region) || '')) + '</div></span></div></td>' +
-          '<td class="mono" title="' + esc(s.id || '') + '">' + shortId(s.id) + '</td>' +
-          '<td class="mono" title="' + esc(s.phone || '') + '">' + maskPhone(s.phone) + '</td>';
+          '<td class="mono" title="' + esc(s.id || '') + '">' + shortId(s.id) + copyBtn(s.id) + '</td>' +
+          '<td class="mono" title="' + esc(s.phone || '') + '">' + maskPhone(s.phone) + copyBtn(s.phone) + '</td>';
 
         if (lessonScope) {
           var l = s.lessons[lessonScope] || {};
@@ -1148,7 +1154,8 @@
       '<div class="info-grid">' +
       (infoRows.length
         ? infoRows.map(function (p) {
-            return '<div class="info-item"><div class="k">' + esc(p[0]) + '</div><div class="v" title="' + esc(p[2] || '') + '">' + esc(p[1]) + '</div></div>';
+            var cpy = p[2] ? copyBtn(p[2]) : '';
+            return '<div class="info-item"><div class="k">' + esc(p[0]) + '</div><div class="v" title="' + esc(p[2] || '') + '">' + esc(p[1]) + cpy + '</div></div>';
           }).join('')
         : '<div class="info-item" style="grid-column:1/-1"><div class="k">—</div><div class="v">暂无档案信息</div></div>') +
       extraHtml +
@@ -1806,6 +1813,18 @@
 
     // 打开详情
     $('#stuBody').addEventListener('click', function (e) {
+      var cp = e.target.closest('.copy-btn');
+      if (cp) {
+        e.stopPropagation();
+        e.preventDefault();
+        var txt = cp.getAttribute('data-copy');
+        copyText(txt).then(function () {
+          cp.classList.add('copied');
+          toast('已复制：' + txt);
+          setTimeout(function () { cp.classList.remove('copied'); }, 1200);
+        }).catch(function () { toast('复制失败，请手动选择复制'); });
+        return;
+      }
       var tr = e.target.closest('tr[data-id]');
       if (tr) openStudent(tr.dataset.id);
     });

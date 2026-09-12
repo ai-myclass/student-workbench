@@ -323,6 +323,10 @@ main{position:relative;z-index:1;max-width:1280px;margin:24px auto 80px;padding:
 .cell-name{font-weight:700;}
 .cell-sub{font-size:11px;color:var(--text-3);}
 .mono{font-family:var(--font-num);color:var(--text-2);font-variant-numeric:tabular-nums;}
+.copy-btn{display:inline-flex;align-items:center;justify-content:center;margin-left:6px;width:22px;height:22px;padding:0;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--text-3);cursor:pointer;vertical-align:middle;transition:color .12s ease,border-color .12s ease,background .12s ease,transform .08s ease;}
+.copy-btn:hover{color:var(--primary);border-color:var(--primary);background:#F3F7FF;}
+.copy-btn:active{transform:scale(.9);}
+.copy-btn.copied{color:#2CB5A0;border-color:#2CB5A0;background:#EAFBF6;}
 .pill{display:inline-block;padding:4px 12px;border-radius:var(--r-pill);font-size:11.5px;font-weight:700;}
 .pill-boy{background:var(--blue-soft);color:#2E5AAC;}
 .pill-girl{background:var(--pink-soft);color:#D6336C;}

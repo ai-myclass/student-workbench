@@ -189,6 +189,39 @@
   .cmt-text p { margin: 0; }
   .cmt-text p + p { margin-top: 10px; }
 
+  /* ---------- 课节切换 + 单讲详情 ---------- */
+  .lesson-switch {
+    display: flex; align-items: center; gap: 10px;
+    margin: 2px 2px 14px; flex-wrap: wrap;
+  }
+  .ls-label { font-size: 13px; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
+  .ls-select {
+    flex: 1; min-width: 200px; max-width: 100%;
+    height: 40px; padding: 0 12px; font-size: 13.5px; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-md);
+    outline: none; cursor: pointer; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' fill='none' stroke='%23646A73' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center; padding-right: 34px;
+  }
+  .ls-select:hover { border-color: var(--line-2); }
+  .ls-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+
+  .lesson-detail {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-lg); padding: 16px; margin-bottom: 14px;
+    box-shadow: var(--shadow-sm); animation: fadeInUp .4s ease both;
+  }
+  .ld-head { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 12px; line-height: 1.5; }
+  .ld-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ld-item {
+    background: var(--surface-2); border-radius: var(--radius-md);
+    padding: 10px 12px; display: flex; flex-direction: column; gap: 5px;
+  }
+  .ld-k { font-size: 12px; color: var(--ink-2); }
+  .ld-v { font-size: 16px; font-weight: 700; color: var(--ink); }
+  .ld-item.ok .ld-v { color: var(--ok); }
+  .ld-item.warn .ld-v { color: var(--warn); }
+
   .foot { text-align: center; font-size: 11px; color: var(--muted); margin-top: 22px; line-height: 1.8; }
 
   @media (max-width: 420px) {
@@ -235,7 +268,14 @@
       <span class="result-title" id="resultTitle">查询结果</span>
       <button class="btn-save" id="saveBtn">💾 保存图片</button>
     </div>
-    <div class="canvas-box">
+    <div class="lesson-switch" id="lessonSwitch" style="display:none">
+      <span class="ls-label">课节</span>
+      <select id="lessonSelect" class="ls-select">
+        <option value="">全部课节 · 综合情况</option>
+      </select>
+    </div>
+    <div class="lesson-detail" id="lessonDetail" style="display:none"></div>
+    <div class="canvas-box" id="canvasBox">
       <canvas id="shareCanvas"></canvas>
     <div class="nodata" id="noData" style="display:none">
       <img class="empty-illust" src="assets/img/empty-state.svg" alt="" />
@@ -367,42 +407,23 @@ function showResult(s) {
     noData.style.display = 'flex';
     saveBtn.style.display = 'none';
     tipMsg.textContent = '孩子已报名在册，正课开始后学习数据会在这里更新 · 如有疑问请联系辅导老师';
+    document.getElementById('lessonSwitch').style.display = 'none';
+    document.getElementById('lessonDetail').style.display = 'none';
+    document.getElementById('lessonDetail').innerHTML = '';
   } else {
     noData.style.display = 'none';
-    canvas.style.display = 'block';
     saveBtn.style.display = 'inline-block';
     tipMsg.textContent = '长按图片即可保存到相册 · 数据由辅导老师定期更新';
     // 家长可见范围：老师在工作台勾选的讲次与阶段数据开关（缺省全部展示）
     var scope = DATA.parentScope || {};
     var courses = DATA.courses || [];
-    // 与工作台导出口径一致：默认展示 有效听课率 / 答题正确率 / 练习完成率
-    // 课节数据（讲次）仅展示老师勾选的部分；阶段综合评估 / 阶段知识点按开关控制
-    SWBShare.draw(canvas, s, courses, {
-      metrics: { listen: true, accuracy: true, homework: true },
-      showChips: scope.showStageSummary !== false,
-      showChart: courses.length > 0,
-      showKnowledge: scope.showStageKnowledge !== false,
-      // 评语在下方 HTML commentCard 中独立展示，避免与分享图内评语重复
-      showComment: false,
-      knowledge: s.knowledge || [],
-      autoComment: (s.comment && s.comment.auto) || '',
-      customComment: (s.comment && s.comment.custom) || '',
-      footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
-    });
-
+    // 默认展示全部课节综合情况（有效听课率 / 答题正确率 / 练习完成率）
+    drawShare(s, scope, courses);
+    // 课节切换：默认「全部课节 · 综合情况」，选中某一讲则展示该讲具体学习情况
+    setupLessonSwitch(s, courses);
+    renderLessonMode('', s);
     // 页面评语卡片：系统自动评语与老师寄语合并为一段展示
-    var cm = s.comment || {};
-    var auto = (cm.auto || '').trim();
-    var cus = (cm.custom || '').trim();
-    if (auto || cus) {
-      commentCard.style.display = 'block';
-      var html = '';
-      if (auto) html += '<p>' + escapeHtml(auto) + '</p>';
-      if (cus) html += '<p>' + escapeHtml(cus) + '</p>';
-      cmtText.innerHTML = html;
-    } else {
-      commentCard.style.display = 'none';
-    }
+    renderCommentCard(s);
   }
 
   result.classList.add('show');
@@ -410,6 +431,95 @@ function showResult(s) {
   setTimeout(function () {
     result.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 60);
+}
+
+/* 绘制全部课节综合分享图 */
+function drawShare(s, scope, courses) {
+  SWBShare.draw(canvas, s, courses, {
+    metrics: { listen: true, accuracy: true, homework: true },
+    showChips: scope.showStageSummary !== false,
+    showChart: courses.length > 0,
+    showKnowledge: scope.showStageKnowledge !== false,
+    // 评语在下方 HTML commentCard 中独立展示，避免与分享图内评语重复
+    showComment: false,
+    knowledge: s.knowledge || [],
+    autoComment: (s.comment && s.comment.auto) || '',
+    customComment: (s.comment && s.comment.custom) || '',
+    footer: '学员学习数据统计工作台 · ' + fmtDate(DATA.updatedAt) + '更新'
+  });
+}
+
+/* 渲染页面评语卡片（系统自动评语 + 老师寄语，合并为一段） */
+function renderCommentCard(s) {
+  var cm = s.comment || {};
+  var auto = (cm.auto || '').trim();
+  var cus = (cm.custom || '').trim();
+  if (auto || cus) {
+    commentCard.style.display = 'block';
+    var html = '';
+    if (auto) html += '<p>' + escapeHtml(auto) + '</p>';
+    if (cus) html += '<p>' + escapeHtml(cus) + '</p>';
+    cmtText.innerHTML = html;
+  } else {
+    commentCard.style.display = 'none';
+  }
+}
+
+/* 构建课节切换下拉框：仅列出该学员有学习数据的讲次 */
+function setupLessonSwitch(s, courses) {
+  var sw = document.getElementById('lessonSwitch');
+  var sel = document.getElementById('lessonSelect');
+  var lessons = s.lessons || {};
+  var list = (courses || []).filter(function (cn) { return lessons[cn]; });
+  if (!list.length) { sw.style.display = 'none'; sel.innerHTML = '<option value="">全部课节 · 综合情况</option>'; return; }
+  sel.innerHTML = '<option value="">全部课节 · 综合情况</option>' + list.map(function (cn) {
+    return '<option value="' + escapeHtml(cn) + '">' + escapeHtml(cn) + '</option>';
+  }).join('');
+  sel.value = '';
+  sw.style.display = 'flex';
+}
+
+/* 切换展示模式：空串=全部课节综合；某讲次=该讲次具体学习情况 */
+function renderLessonMode(cn, s) {
+  var canvasBox = document.getElementById('canvasBox');
+  var detail = document.getElementById('lessonDetail');
+  if (!cn) {
+    canvasBox.style.display = 'block';
+    canvas.style.display = 'block';
+    detail.style.display = 'none';
+    detail.innerHTML = '';
+    saveBtn.style.display = 'inline-block';
+  } else {
+    canvasBox.style.display = 'none';
+    detail.style.display = 'block';
+    detail.innerHTML = buildLessonDetail(s, cn);
+    saveBtn.style.display = 'none';
+  }
+}
+
+/* 生成单讲次详情卡片 */
+function buildLessonDetail(s, cn) {
+  var L = (s.lessons && s.lessons[cn]) || {};
+  var attend = L.attend ? '已到课' : '未到课';
+  var effective = L.effective ? '有效' : '未达有效';
+  var acc = (L.accuracy != null && L.accuracy !== '') ? L.accuracy + '%' : '—';
+  var quiz = (L.quizAnswer) ? ('答题 ' + L.quizRight + '/' + L.quizAnswer) : '';
+  var accFull = quiz ? (acc + '（' + quiz + '）') : acc;
+  var hw = L.hwStatus || '—';
+  var prog = (L.progress != null && L.progress !== '') ? L.progress + '%' : '—';
+  var mins = (L.minutes != null && L.minutes !== '') ? (L.minutes + ' 分钟') : '—';
+  var items = [
+    { k: '到课情况', v: attend, cls: L.attend ? 'ok' : 'warn' },
+    { k: '有效听课', v: effective, cls: L.effective ? 'ok' : 'warn' },
+    { k: '答题正确率', v: accFull, cls: '' },
+    { k: '练习完成', v: hw, cls: (hw && hw.indexOf('通过') >= 0) ? 'ok' : (hw && hw.indexOf('未') >= 0 ? 'warn' : '') },
+    { k: '听课进度', v: prog, cls: '' },
+    { k: '听课时长', v: mins, cls: '' }
+  ];
+  var grid = items.map(function (it) {
+    return '<div class="ld-item ' + it.cls + '"><span class="ld-k">' + it.k + '</span><b class="ld-v">' + escapeHtml(it.v) + '</b></div>';
+  }).join('');
+  return '<div class="ld-head">📖 ' + escapeHtml(cn) + '</div><div class="ld-grid">' + grid + '</div>';
 }
 
 /* ═══════════════ 保存图片 ═══════════════ */
@@ -429,6 +539,11 @@ saveBtn.addEventListener('click', function () {
 /* ═══════════════ 事件 ═══════════════ */
 searchBtn.addEventListener('click', doSearch);
 phoneInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') doSearch(); });
+// 课节切换：选择某一讲 → 展示该讲具体学习情况；选择「全部课节」→ 回到综合情况
+document.getElementById('lessonSelect').addEventListener('change', function () {
+  if (!current) { setupLessonSwitch(current || {}, DATA.courses || []); return; }
+  renderLessonMode(this.value, current);
+});
 // 输入时自动格式化为 3-4-4
 phoneInput.addEventListener('input', function () {
   var d = normalizePhone(this.value).slice(0, 11);

@@ -828,203 +828,6 @@
     toast('已保存自定义评语');
   }
 
-  /* ---------------- AI 生成评语（WorkBuddy Cloud 免密钥 LLM） ---------------- */
-  var WB_CLOUD_CONFIG = {
-    endpoint: 'https://student-workbench.app.workbuddy.host',
-    publishableKey: 'wbpk_IeITQTfZatFCaqh4YTUegl_mZzUcIejh3xmxGRmEPQ3STHgntDPBP7o'
-  };
-  var wbCloud = null, wbAiModel = null, wbAiModels = [];
-  function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
-  function ensureCloud() {
-    if (wbCloud) return wbCloud;
-    if (typeof WorkBuddyCloud === 'undefined') throw new Error('AI 模块未加载，请刷新页面');
-    wbCloud = WorkBuddyCloud.createWorkBuddyCloud({
-      endpoint: WB_CLOUD_CONFIG.endpoint,
-      publishableKey: WB_CLOUD_CONFIG.publishableKey
-    });
-    return wbCloud;
-  }
-  async function ensureAiModel() {
-    if (wbAiModel) return wbAiModel;
-    var cloud = ensureCloud();
-    var models = await cloud.llm.models.list();
-    if (!models || !models.length) throw new Error('当前没有可用的 AI 模型');
-    wbAiModel = models.find(function (x) { return x.disabled !== true; }) || models[0];
-    return wbAiModel;
-  }
-  /** 判断当前来源是否为云端允许的（本地开发或 WorkBuddy 自有域名）；外部域名如 GitHub Pages 无法连接云端 AI */
-  function aiCloudOriginOk() {
-    var h = location.hostname;
-    return h === 'localhost' || h === '127.0.0.1' || h.endsWith('.workbuddy.host');
-  }
-  /** 外部来源（如 GitHub Pages）下的 AI 功能提示 */
-  var AI_EXTERNAL_HINT = '当前为 GitHub Pages 公开站，无法连接云端 AI（同源限制）。请在本地 localhost 打开工作台生成评语，再点「更新家长查询」同步家长端。';
-  /** 拉取可用模型列表并填充下拉框；失败时静默保留「自动（推荐）」选项 */
-  async function loadAiModels() {
-    var sel = $('#aiModelSelect');
-    if (!sel) return;
-    if (!aiCloudOriginOk()) {
-      var st0 = $('#aiCommentStatus');
-      if (st0) st0.textContent = AI_EXTERNAL_HINT;
-      return;
-    }
-    try {
-      var cloud = ensureCloud();
-      var models = await cloud.llm.models.list();
-      wbAiModels = (models || []).filter(function (m) { return m && m.disabled !== true; });
-      var prev = sel.value;
-      sel.innerHTML = '';
-      var auto = document.createElement('option');
-      auto.value = '';
-      auto.textContent = '自动（推荐）';
-      sel.appendChild(auto);
-      wbAiModels.forEach(function (m) {
-        var o = document.createElement('option');
-        o.value = m.id;
-        o.textContent = (m.name || m.id) + (m.provider ? ' · ' + m.provider : '');
-        sel.appendChild(o);
-      });
-      if (prev && wbAiModels.some(function (m) { return m.id === prev; })) sel.value = prev;
-      var st = $('#aiCommentStatus');
-      if (st && /就绪|模型/.test(st.textContent)) {
-        st.textContent = '就绪 · 共 ' + wbAiModels.length + ' 个模型可用';
-      }
-    } catch (e) {
-      console.error('加载 AI 模型列表失败', e);
-      var st2 = $('#aiCommentStatus');
-      var msg = (e && e.message && /fetch|network/i.test(e.message))
-        ? '模型列表加载失败：云端未授权本站点来源（CORS 预检被拒）。请在 WorkBuddy 云控制台把 ' + location.origin + ' 加入「允许来源 / Allowed Origins」后点「刷新列表」。'
-        : '模型列表加载失败：' + ((e && e.message) || e) + '（点「刷新列表」重试）';
-      if (st2) st2.textContent = msg;
-    }
-  }
-  /** 返回当前选中的模型 id（空串表示自动） */
-  function selectedAiModelId() {
-    var sel = $('#aiModelSelect');
-    return sel ? sel.value : '';
-  }
-  /** 返回当前选中的模型展示名（自动时返回「自动」） */
-  function selectedAiModelName() {
-    var id = selectedAiModelId();
-    if (!id) return '自动';
-    var m = wbAiModels.find(function (x) { return x.id === id; });
-    return (m && (m.name || m.id)) || id;
-  }
-  function buildCommentMessages(s, courses) {
-    var st = s.stats || {};
-    var pp = function (v) { return v == null ? null : Math.round(v * 100); };
-    var lines = [];
-    lines.push('学员姓名：' + (s.name || '该学员'));
-    lines.push('综合得分：' + (pp(st.score) == null ? '—' : pp(st.score) + ' 分'));
-    lines.push('有效听课率：' + (pp(st.listen) == null ? '—' : pp(st.listen) + '%'));
-    lines.push('直播答题正确率：' + (pp(st.accuracy) == null ? '—' : pp(st.accuracy) + '%'));
-    lines.push('练习完成率：' + (pp(st.homework) == null ? '—' : pp(st.homework) + '%'));
-    var lp = [];
-    (courses || []).forEach(function (cn, i) {
-      var l = (s.lessons && s.lessons[cn]) || {};
-      var sc = l.score != null ? Math.round(l.score * 100) : null;
-      var ac = l.accuracy != null ? Math.round(l.accuracy) : null;
-      var hw = (l.hwStatus && l.hwStatus.indexOf('未') === -1) ? '已完成' : (l.hwStatus || '未布置');
-      lp.push('第' + (i + 1) + '讲[' + cn + ']：得分' + (sc == null ? '—' : sc + '分') + '，答题' + (ac == null ? '—' : ac + '%') + '，练习' + hw);
-    });
-    if (lp.length) lines.push('各讲次表现：\n' + lp.join('\n'));
-    var know = (s.knowledge || []).filter(function (k) { return k && k.course && k.points && k.points.length; });
-    if (know.length) lines.push('本阶段知识点：\n' + know.map(function (k) { return k.course + '：' + k.points.join('、'); }).join('\n'));
-    var system = '你是少儿编程 / 乐高科创课程的辅导老师，擅长为家长撰写温暖、具体、有鼓励性的学习评语。' +
-      '要求：1）只基于下面客观数据，不编造；2）点出 1-2 个亮点与 1 个薄弱点；3）语气亲切像真人老师；' +
-      '4）80-160 字；5）不出现手机号等隐私。';
-    var user = '请根据以下学员真实学习数据，为家长写一段「老师寄语」：\n' + lines.join('\n');
-    return [{ role: 'system', content: system }, { role: 'user', content: user }];
-  }
-  async function generateOneComment(s, courses) {
-    var selectedId = selectedAiModelId();
-    var model;
-    if (selectedId) {
-      model = { id: selectedId };
-    } else {
-      model = await ensureAiModel();
-    }
-    var messages = buildCommentMessages(s, courses);
-    var cloud = ensureCloud();
-    var text = '';
-    for await (var chunk of cloud.llm.chat.completions.create({
-      model: model.id,
-      messages: messages,
-      stream: true,
-      temperature: 0.8
-    })) {
-      var d = chunk.choices && chunk.choices[0] && chunk.choices[0].delta;
-      if (d && d.content) text += d.content;
-    }
-    return text.trim();
-  }
-  async function batchGenerateComments() {
-    var btn = $('#btnAiBatch'), status = $('#aiCommentStatus');
-    if (!btn || !status || btn.disabled) return;
-    var courses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
-    var targets = (db.students || []).filter(function (s) { return s && s.stats && s.stats.score > 0; });
-    if (!targets.length) { toast('没有已产生学习数据的学员'); return; }
-    if (!aiCloudOriginOk()) {
-      status.textContent = AI_EXTERNAL_HINT;
-      status.className = 'ai-progress err';
-      toast('当前站点无法连接云端 AI，请在本地 localhost 打开工作台');
-      return;
-    }
-    btn.disabled = true;
-    status.className = 'ai-progress';
-    var modelLabel = selectedAiModelName();
-    status.textContent = '准备生成 0/' + targets.length + ' · 模型：' + modelLabel;
-    var ok = 0, fail = 0;
-    try {
-      for (var i = 0; i < targets.length; i++) {
-        var s = targets[i];
-        status.textContent = '生成中 ' + (i + 1) + '/' + targets.length + ' · ' + (s.name || '学员') + ' · ' + modelLabel;
-        try {
-          var c = await generateOneComment(s, courses);
-          if (c) { s.customComment = c; ok++; }
-        } catch (e) { fail++; console.error('评语生成失败', s.name, e); }
-        if (i < targets.length - 1) await sleep(400);
-      }
-      save();
-      if (ok === 0 && fail > 0) {
-        status.textContent = '生成失败 ' + fail + ' 条：云端未授权本站点来源（CORS 预检被拒）。' + AI_EXTERNAL_HINT;
-        status.className = 'ai-progress err';
-        toast('AI 评语生成失败，详见上方提示');
-      } else {
-        status.textContent = '完成：成功 ' + ok + ' 条，失败 ' + fail + ' 条 · 记得点「更新家长查询」同步';
-        status.className = 'ai-progress ok';
-        toast('已为 ' + ok + ' 名学员生成 AI 评语');
-      }
-    } catch (e) {
-      status.textContent = '生成中断：' + (e.message || e);
-      status.className = 'ai-progress err';
-    } finally { btn.disabled = false; }
-  }
-  async function aiGenForCurrentDrawer() {
-    if (!currentDrawer || !currentDrawer.student) return;
-    var s = currentDrawer.student;
-    if (!(s.stats && s.stats.score > 0)) { toast('该学员暂无学习数据，无法生成'); return; }
-    if (!aiCloudOriginOk()) { toast('当前站点无法连接云端 AI，请在本地 localhost 打开工作台'); return; }
-    var btn = $('#btnAiGenComment');
-    var courses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
-    if (btn) { btn.disabled = true; btn.textContent = '生成中…'; }
-    try {
-      var c = await generateOneComment(s, courses);
-      if (c) {
-        s.customComment = c; save();
-        var ta = $('#drawerCustomComment'); if (ta) ta.value = c;
-        var autoPrev = SWBShare.buildTeacherComment(s, courses);
-        var pv = $('#cmtFullPreview');
-        if (pv) pv.textContent = (autoPrev + (c ? '\n\n' + c : '')) || '（暂无学习数据，暂不能生成评语）';
-        toast('已生成 AI 寄语（' + selectedAiModelName() + '），已自动保存到该学员');
-      }
-    } catch (e) {
-      toast('生成失败：' + (e.message || e));
-    } finally {
-      if (btn) { btn.disabled = false; btn.textContent = '✨ AI 生成寄语'; }
-    }
-  }
-
   /* ---------------- 生成学习情况分享图 ---------------- */
   /** 单个讲次的综合得分（与全班综合分同权：有效听课 0.35 / 答题 0.30 / 练习 0.35） */
   function lessonScore(l) { return SWBShare.lessonScore(l); }
@@ -1368,7 +1171,6 @@
         '<div class="cmt-preview"><b>家长看到的完整评语</b>' +
         '<div id="cmtFullPreview" style="margin-top:6px;white-space:pre-wrap;line-height:1.75;font-weight:400">' + esc(fullPrev || '（暂无学习数据，暂不能生成评语）') + '</div></div>' +
         '<div class="cmt-actions"><button class="btn btn-primary btn-sm" id="btnSaveCustomComment">保存评语</button>' +
-        ((s && s.stats && s.stats.score > 0) ? '<button class="btn btn-ghost btn-sm" id="btnAiGenComment">✨ AI 生成寄语</button>' : '') + '</div>' +
         '</div>';
     }
 
@@ -2030,7 +1832,6 @@
       if (e.target.closest('#btnShare')) { openShare(); return; }
       if (e.target.closest('#btnRename')) { startRename(); return; }
       if (e.target.closest('#btnSaveCustomComment')) { saveCustomComment(); return; }
-      if (e.target.closest('#btnAiGenComment')) { aiGenForCurrentDrawer(); return; }
       var ed = e.target.closest('.row-edit');
       if (ed) openLessonEditor(ed.dataset.lesson, currentDrawer && currentDrawer.student);
     });
@@ -2146,9 +1947,6 @@
     // 评语库管理
     $('#btnOpenCommentLib').addEventListener('click', openCommentLib);
     $('#btnOpenScope').addEventListener('click', openScope);
-    $('#btnAiBatch').addEventListener('click', batchGenerateComments);
-    $('#btnAiRefreshModels').addEventListener('click', loadAiModels);
-    loadAiModels();
     $('#scopeSave').addEventListener('click', saveScope);
     $('#scopeClose').addEventListener('click', closeScope);
     $('#scopeClose2').addEventListener('click', closeScope);

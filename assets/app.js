@@ -833,7 +833,7 @@
     endpoint: 'https://student-workbench.app.workbuddy.host',
     publishableKey: 'wbpk_IeITQTfZatFCaqh4YTUegl_mZzUcIejh3xmxGRmEPQ3STHgntDPBP7o'
   };
-  var wbCloud = null, wbAiModel = null;
+  var wbCloud = null, wbAiModel = null, wbAiModels = [];
   function sleep(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
   function ensureCloud() {
     if (wbCloud) return wbCloud;
@@ -851,6 +851,49 @@
     if (!models || !models.length) throw new Error('当前没有可用的 AI 模型');
     wbAiModel = models.find(function (x) { return x.disabled !== true; }) || models[0];
     return wbAiModel;
+  }
+  /** 拉取可用模型列表并填充下拉框；失败时静默保留「自动（推荐）」选项 */
+  async function loadAiModels() {
+    var sel = $('#aiModelSelect');
+    if (!sel) return;
+    try {
+      var cloud = ensureCloud();
+      var models = await cloud.llm.models.list();
+      wbAiModels = (models || []).filter(function (m) { return m && m.disabled !== true; });
+      var prev = sel.value;
+      sel.innerHTML = '';
+      var auto = document.createElement('option');
+      auto.value = '';
+      auto.textContent = '自动（推荐）';
+      sel.appendChild(auto);
+      wbAiModels.forEach(function (m) {
+        var o = document.createElement('option');
+        o.value = m.id;
+        o.textContent = (m.name || m.id) + (m.provider ? ' · ' + m.provider : '');
+        sel.appendChild(o);
+      });
+      if (prev && wbAiModels.some(function (m) { return m.id === prev; })) sel.value = prev;
+      var st = $('#aiCommentStatus');
+      if (st && /就绪|模型/.test(st.textContent)) {
+        st.textContent = '就绪 · 共 ' + wbAiModels.length + ' 个模型可用';
+      }
+    } catch (e) {
+      console.error('加载 AI 模型列表失败', e);
+      var st2 = $('#aiCommentStatus');
+      if (st2) st2.textContent = '模型列表加载失败，将用默认模型（点击「刷新列表」重试）';
+    }
+  }
+  /** 返回当前选中的模型 id（空串表示自动） */
+  function selectedAiModelId() {
+    var sel = $('#aiModelSelect');
+    return sel ? sel.value : '';
+  }
+  /** 返回当前选中的模型展示名（自动时返回「自动」） */
+  function selectedAiModelName() {
+    var id = selectedAiModelId();
+    if (!id) return '自动';
+    var m = wbAiModels.find(function (x) { return x.id === id; });
+    return (m && (m.name || m.id)) || id;
   }
   function buildCommentMessages(s, courses) {
     var st = s.stats || {};
@@ -879,7 +922,13 @@
     return [{ role: 'system', content: system }, { role: 'user', content: user }];
   }
   async function generateOneComment(s, courses) {
-    var model = await ensureAiModel();
+    var selectedId = selectedAiModelId();
+    var model;
+    if (selectedId) {
+      model = { id: selectedId };
+    } else {
+      model = await ensureAiModel();
+    }
     var messages = buildCommentMessages(s, courses);
     var cloud = ensureCloud();
     var text = '';
@@ -902,12 +951,13 @@
     if (!targets.length) { toast('没有已产生学习数据的学员'); return; }
     btn.disabled = true;
     status.className = 'ai-progress';
-    status.textContent = '准备生成 0/' + targets.length;
+    var modelLabel = selectedAiModelName();
+    status.textContent = '准备生成 0/' + targets.length + ' · 模型：' + modelLabel;
     var ok = 0, fail = 0;
     try {
       for (var i = 0; i < targets.length; i++) {
         var s = targets[i];
-        status.textContent = '生成中 ' + (i + 1) + '/' + targets.length + ' · ' + (s.name || '学员');
+        status.textContent = '生成中 ' + (i + 1) + '/' + targets.length + ' · ' + (s.name || '学员') + ' · ' + modelLabel;
         try {
           var c = await generateOneComment(s, courses);
           if (c) { s.customComment = c; ok++; }
@@ -938,7 +988,7 @@
         var autoPrev = SWBShare.buildTeacherComment(s, courses);
         var pv = $('#cmtFullPreview');
         if (pv) pv.textContent = (autoPrev + (c ? '\n\n' + c : '')) || '（暂无学习数据，暂不能生成评语）';
-        toast('已生成 AI 寄语，已自动保存到该学员');
+        toast('已生成 AI 寄语（' + selectedAiModelName() + '），已自动保存到该学员');
       }
     } catch (e) {
       toast('生成失败：' + (e.message || e));
@@ -2069,6 +2119,8 @@
     $('#btnOpenCommentLib').addEventListener('click', openCommentLib);
     $('#btnOpenScope').addEventListener('click', openScope);
     $('#btnAiBatch').addEventListener('click', batchGenerateComments);
+    $('#btnAiRefreshModels').addEventListener('click', loadAiModels);
+    loadAiModels();
     $('#scopeSave').addEventListener('click', saveScope);
     $('#scopeClose').addEventListener('click', closeScope);
     $('#scopeClose2').addEventListener('click', closeScope);

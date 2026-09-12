@@ -411,6 +411,13 @@
         <h3 data-page-node-id="aiTitle">AI 智能评语</h3>
         <p data-page-node-id="aiDesc">调用 AI 根据每位学员的真实学习数据（听课、答题、作业、各讲表现）生成自然、具体、有鼓励性的家长评语，比规则模板更贴合每个孩子。生成后请点「更新家长查询」同步给家长。</p>
         <div class="ai-progress" id="aiCommentStatus" data-page-node-id="aiStatus">就绪</div>
+        <div class="ai-model-row">
+          <span class="ai-model-label">模型</span>
+          <select id="aiModelSelect" class="ai-model-select" title="选择用于生成评语的 AI 模型（默认自动选用可用模型）">
+            <option value="">自动（推荐）</option>
+          </select>
+          <button type="button" class="btn btn-ghost btn-sm" id="btnAiRefreshModels">刷新列表</button>
+        </div>
       </div>
       <button class="btn btn-primary" id="btnAiBatch" data-page-node-id="aiBatch">✨ 批量生成评语</button>
     </div>

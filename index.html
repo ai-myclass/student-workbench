@@ -55,6 +55,10 @@
     <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="ERgsWz2U1PPNE60r2mCXFb"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="2" fill="none" data-page-node-id="PsMDJ1msaNC06cpHg7onL5"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="hXNHH6VYA65imp0Srfy4Lx"/><path d="M16 6.2a3 3 0 0 1 0 5.6M17.5 14.4c2 .7 3.5 2.5 3.5 4.6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="ZMke5kxXqIRoTPU3jBJ6py"/></svg>
     学员名单
   </button>
+  <button class="tab" data-view="alert" data-page-node-id="alertTab">
+    <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="alertTabIco"><path d="M12 3l9 16H3L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none" data-page-node-id="at1"/><path d="M12 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-page-node-id="at2"/><circle cx="12" cy="17" r="1.2" fill="currentColor" data-page-node-id="at3"/></svg>
+    学习预警
+  </button>
   <button class="tab" data-view="archive" data-page-node-id="RBjTzwd09ApTwiS1EzYnaC">
     <svg viewBox="0 0 24 24" width="18" height="18" data-page-node-id="3g14kFWipXi7SxL0iqWtqM"><path d="M5 4h11l3 3v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round" data-page-node-id="qdMonLSI5TT34xGM4feFv9"/><path d="M15 4v4h4M8 13h8M8 17h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" data-page-node-id="hSVvAPOUmALUTuNxOjYs1E"/></svg>
     学员档案
@@ -152,6 +156,23 @@
         </table>
       </div>
       <div class="table-foot" data-page-node-id="FzVj1IiqTLvcaUDXWfE79S"><span id="tableCount" data-page-node-id="8SZqtaBLKV3c9utth4eAu9"></span></div>
+    </div>
+  </section>
+
+  <!-- ============ 学习预警 ============ -->
+  <section class="view" id="view-alert" data-page-node-id="alertView">
+    <div class="card" data-page-node-id="alertCard">
+      <div class="card-head" data-page-node-id="alertHeadWrap">
+        <h2 data-page-node-id="alertTitle">学习预警</h2>
+        <span class="sub" id="alertSummary" data-page-node-id="alertSummary">根据学习数据自动筛选需关注的学员</span>
+      </div>
+      <div class="table-scroll" data-page-node-id="alertScroll">
+        <table class="stu-table" data-page-node-id="alertTable">
+          <thead data-page-node-id="alertThead"><tr id="alertHead" data-page-node-id="alertHeadRow"></tr></thead>
+          <tbody id="alertBody" data-page-node-id="alertBody"></tbody>
+        </table>
+      </div>
+      <div class="table-foot" data-page-node-id="alertFoot"><span id="alertCount" data-page-node-id="alertCount"></span></div>
     </div>
   </section>
 

@@ -182,6 +182,7 @@
     renderDashboard();
     renderStudents();
     renderArchive();
+    renderAlerts();
     renderData();
     renderScopeStat();
   }
@@ -643,6 +644,148 @@
     var c = color || scoreColor(v);
     return '<span class="mini"><span class="mini-track"><i style="width:' + (v * 100).toFixed(0) + '%;background:' + c + '"></i></span>' +
       '<span class="mini-num" style="color:' + c + '">' + (v * 100).toFixed(0) + '%</span></span>';
+  }
+
+  /* =========================================================
+   * 学习预警：按当前统计范围筛选需关注的学员
+   * ======================================================= */
+  /** 取当前统计范围下某学员的可评估指标（综合 or 单讲） */
+  function alertEval(s) {
+    if (lessonScope) {
+      var l = s.lessons[lessonScope] || {};
+      var attended = !!l.attended, effective = !!l.effective;
+      var accuracy = (l.quizAnswer > 0) ? (l.quizRight / l.quizAnswer) : null;
+      var homework = null;
+      if (!U.isUnassigned(l.hwStatus)) homework = U.isHwDone(l.hwStatus) ? 1 : 0;
+      var listen = effective ? 1 : 0;
+      var attend = attended ? 1 : 0;
+      var hasData = attended || effective || (l.quizAnswer > 0) || ((l.durationMin || 0) > 0) || !U.isUnassigned(l.hwStatus);
+      // 单讲综合分：权重同 studentStats
+      var parts = [{ w: 0.35, v: listen }];
+      if (accuracy !== null) parts.push({ w: 0.30, v: accuracy });
+      if (homework !== null) parts.push({ w: 0.35, v: homework });
+      var ws = 0, vs = 0; parts.forEach(function (p) { ws += p.w; vs += p.w * p.v; });
+      var score = ws > 0 ? vs / ws : 0;
+      return { single: true, listen: listen, attend: attend, accuracy: accuracy, homework: homework, score: score, hasData: hasData, l: l };
+    }
+    var st = s.stats;
+    return { single: false, listen: st.listen, attend: st.attend, accuracy: st.accuracy, homework: st.homework, score: st.score, hasData: st.activeCount > 0, st: st };
+  }
+  /** 根据指标推导出预警原因与紧急程度 */
+  function alertInfo(m) {
+    var reasons = [];
+    if (!m.hasData) {
+      reasons.push(m.single ? '本讲无学习数据' : '暂无学习数据');
+    }
+    if (m.single) {
+      if (!m.attended) reasons.push('本讲未到课');
+      else if (!m.effective) reasons.push('本讲无效听课');
+      if (m.accuracy !== null && m.accuracy < 0.5) reasons.push('答题正确率偏低(' + Math.round(m.accuracy * 100) + '%)');
+      if (m.homework !== null && m.homework < 0.5) reasons.push('练习未完成');
+      if (m.hasData && m.score < 0.5) reasons.push('综合表现偏弱(' + Math.round(m.score * 100) + '%)');
+    } else {
+      if (m.score < 0.5) reasons.push('综合得分偏低(' + Math.round(m.score * 100) + '%)');
+      if (m.listen < 0.5) reasons.push('有效听课率不足(' + Math.round(m.listen * 100) + '%)');
+      if (m.attend < 0.5) reasons.push('到课率不足(' + Math.round(m.attend * 100) + '%)');
+      if (m.accuracy !== null && m.accuracy < 0.5) reasons.push('答题正确率偏低(' + Math.round(m.accuracy * 100) + '%)');
+      if (m.homework !== null && m.homework < 0.5) reasons.push('练习完成率偏低(' + Math.round(m.homework * 100) + '%)');
+    }
+    var urgent = false;
+    if (!m.hasData) urgent = !m.single;            // 综合全程无数据=紧急；单讲无数据=关注
+    else if (m.score < 0.3) urgent = true;          // 综合分极低
+    else if (m.single) urgent = !m.attended;        // 单讲整讲缺席
+    else urgent = (m.listen === 0 || m.attend === 0); // 综合有效/到课全无
+    return { reasons: reasons, level: urgent ? 'urgent' : 'watch' };
+  }
+  function renderAlerts() {
+    var sum = $('#alertSummary'), head = $('#alertHead'), body = $('#alertBody'), foot = $('#alertCount');
+    if (!db.students.length) {
+      sum.textContent = '根据学习数据自动筛选需关注的学员';
+      head.innerHTML = '<th>提示</th>';
+      body.innerHTML = '<tr><td colspan="1"><div class="empty-tip">还没有学员数据 ——<br><button class="btn btn-primary" data-demo="1" style="margin-top:12px">载入示例数据</button></div></td></tr>';
+      foot.textContent = '';
+      return;
+    }
+    var rows = [];
+    db.students.forEach(function (s) {
+      var m = alertEval(s);
+      var info = alertInfo(m);
+      if (info.reasons.length) rows.push({ s: s, m: m, reasons: info.reasons, level: info.level });
+    });
+    rows.sort(function (a, b) {
+      if (a.level !== b.level) return a.level === 'urgent' ? -1 : 1;
+      return (a.m.score || 0) - (b.m.score || 0);
+    });
+    var urgent = rows.filter(function (r) { return r.level === 'urgent'; }).length;
+    var watch = rows.length - urgent;
+    sum.innerHTML = '<b class="as-num">' + rows.length + '</b> 名学员需关注 · ' +
+      '<span class="as-urgent">紧急 ' + urgent + '</span> · <span class="as-watch">关注 ' + watch + '</span>' +
+      (lessonScope ? '（口径：' + shortName(lessonScope) + '）' : '（口径：全部正课综合）');
+
+    var nameCell = function (s) {
+      return '<td><div class="cell-stu"><span class="avatar" style="background:' + colorOf(s.name) + '">' + esc(s.name.slice(0, 1)) + '</span>' +
+        '<span><div class="cell-name">' + esc(s.name) + '</div>' +
+        '<div class="cell-sub">' + esc(s.nickname ? '昵称 ' + s.nickname : (val(s.region) || '')) + '</div></span></div></td>';
+    };
+    var gradeCell = function (s) { return '<td class="grade-tag">' + esc(val(s.grade) || '—') + '</td>'; };
+    var reasonChips = function (r) {
+      return r.reasons.map(function (t) { return '<span class="reason-chip">' + esc(t) + '</span>'; }).join('');
+    };
+    var lvlBadge = function (lv) {
+      return '<span class="lvl-badge ' + (lv === 'urgent' ? 'lvl-urgent' : 'lvl-watch') + '">' + (lv === 'urgent' ? '紧急' : '关注') + '</span>';
+    };
+
+    if (!rows.length) {
+      head.innerHTML = (lessonScope
+        ? ['学员', '学员 ID', '手机号', '年级', '预警原因', '到课', '有效', '正确率', '练习', '综合', '程度']
+        : ['学员', '学员 ID', '手机号', '年级', '预警原因', '有效听课率', '答题正确率', '练习完成率', '综合', '程度'])
+        .map(function (h) { return '<th>' + esc(h) + '</th>'; }).join('');
+      var cs = lessonScope ? 11 : 10;
+      body.innerHTML = '<tr><td colspan="' + cs + '"><div class="empty-tip">🎉 当前范围内暂无需要关注的学员，都很棒！</div></td></tr>';
+      foot.textContent = '当前范围内暂无需要关注的学员';
+      return;
+    }
+
+    if (lessonScope) {
+      head.innerHTML = ['学员', '学员 ID', '手机号', '年级', '预警原因', '到课', '有效', '正确率', '练习', '综合', '程度']
+        .map(function (h) { return '<th>' + esc(h) + '</th>'; }).join('');
+      body.innerHTML = rows.map(function (r) {
+        var s = r.s, m = r.m, l = m.l || {};
+        return '<tr data-id="' + esc(s.id) + '">' +
+          nameCell(s) +
+          '<td class="mono" title="' + esc(s.id || '') + '">' + shortId(s.id) + copyBtn(s.id) + '</td>' +
+          '<td class="mono" title="' + esc(s.phone || '') + '">' + maskPhone(s.phone) + copyBtn(s.phone) + '</td>' +
+          gradeCell(s) +
+          '<td class="reasons">' + reasonChips(r) + '</td>' +
+          '<td>' + (m.attended ? '<span class="tag tag-yes">到课</span>' : '<span class="tag tag-no">未到</span>') + '</td>' +
+          '<td>' + (m.effective ? '<span class="tag tag-yes">有效</span>' : '<span class="tag tag-no">—</span>') + '</td>' +
+          '<td>' + mini(m.accuracy) + '</td>' +
+          '<td>' + hwTag(l.hwStatus) + '</td>' +
+          '<td><span class="score-badge" style="background:' + scoreColor(m.score) + '">' + Math.round(m.score * 100) + '</span></td>' +
+          '<td>' + lvlBadge(r.level) + '</td>' +
+          '</tr>';
+      }).join('');
+    } else {
+      head.innerHTML = ['学员', '学员 ID', '手机号', '年级', '预警原因', '有效听课率', '答题正确率', '练习完成率', '综合', '程度']
+        .map(function (h) { return '<th>' + esc(h) + '</th>'; }).join('');
+      body.innerHTML = rows.map(function (r) {
+        var s = r.s, m = r.m;
+        return '<tr data-id="' + esc(s.id) + '">' +
+          nameCell(s) +
+          '<td class="mono" title="' + esc(s.id || '') + '">' + shortId(s.id) + copyBtn(s.id) + '</td>' +
+          '<td class="mono" title="' + esc(s.phone || '') + '">' + maskPhone(s.phone) + copyBtn(s.phone) + '</td>' +
+          gradeCell(s) +
+          '<td class="reasons">' + reasonChips(r) + '</td>' +
+          '<td>' + mini(m.listen) + '</td>' +
+          '<td>' + mini(m.accuracy) + '</td>' +
+          '<td>' + mini(m.homework) + '</td>' +
+          '<td><span class="score-badge" style="background:' + scoreColor(m.score) + '">' + Math.round(m.score * 100) + '</span></td>' +
+          '<td>' + lvlBadge(r.level) + '</td>' +
+          '</tr>';
+      }).join('');
+    }
+    foot.textContent = '共 ' + rows.length + ' 名需关注学员（紧急 ' + urgent + ' · 关注 ' + watch + '）' +
+      (lessonScope ? ' · 范围：' + shortName(lessonScope) : '');
   }
 
   /* =========================================================
@@ -1849,6 +1992,22 @@
       }
       var tr = e.target.closest('tr[data-key]');
       if (tr) openArchiveItem(tr.dataset.key);
+    });
+    $('#alertBody').addEventListener('click', function (e) {
+      var cp = e.target.closest('.copy-btn');
+      if (cp) {
+        e.stopPropagation();
+        e.preventDefault();
+        var txt = cp.getAttribute('data-copy');
+        copyText(txt).then(function () {
+          cp.classList.add('copied');
+          toast('已复制：' + txt);
+          setTimeout(function () { cp.classList.remove('copied'); }, 1200);
+        }).catch(function () { toast('复制失败，请手动选择复制'); });
+        return;
+      }
+      var tr = e.target.closest('tr[data-id]');
+      if (tr) openStudent(tr.dataset.id);
     });
     $('#rankTop').addEventListener('click', function (e) {
       var li = e.target.closest('.rank-item'); if (li) openStudent(li.dataset.id);

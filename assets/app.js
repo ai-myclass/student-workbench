@@ -693,8 +693,8 @@
           '<td><div class="cell-stu"><span class="avatar" style="background:' + colorOf(r.name) + '">' + esc((r.name || '?').slice(0, 1)) + '</span>' +
           '<span><div class="cell-name">' + esc(r.name || '—') + '</div>' +
           '<div class="cell-sub">' + esc([val(r.school), val(r.klass)].filter(Boolean).join(' · ') || val(r.level) || '') + '</div></span></div></td>' +
-          '<td class="mono" title="' + esc(r.id || '') + '">' + shortId(r.id) + '</td>' +
-          '<td class="mono" title="' + esc(r.phone || '') + '">' + maskPhone(r.phone) + '</td>' +
+          '<td class="mono" title="' + esc(r.id || '') + '">' + shortId(r.id) + copyBtn(r.id) + '</td>' +
+          '<td class="mono" title="' + esc(r.phone || '') + '">' + maskPhone(r.phone) + copyBtn(r.phone) + '</td>' +
           '<td><span class="pill ' + gCls + '">' + esc(val(r.gender) || '未填') + '</span></td>' +
           '<td class="grade-tag">' + esc(val(r.grade) || '—') + '</td>' +
           '<td>' + regTag(r.regStatus) + '</td>' +
@@ -1835,6 +1835,18 @@
       if (tr) openStudent(tr.dataset.id);
     });
     $('#archiveBody').addEventListener('click', function (e) {
+      var cp = e.target.closest('.copy-btn');
+      if (cp) {
+        e.stopPropagation();
+        e.preventDefault();
+        var txt = cp.getAttribute('data-copy');
+        copyText(txt).then(function () {
+          cp.classList.add('copied');
+          toast('已复制：' + txt);
+          setTimeout(function () { cp.classList.remove('copied'); }, 1200);
+        }).catch(function () { toast('复制失败，请手动选择复制'); });
+        return;
+      }
       var tr = e.target.closest('tr[data-key]');
       if (tr) openArchiveItem(tr.dataset.key);
     });

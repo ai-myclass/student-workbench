@@ -654,22 +654,27 @@
     if (lessonScope) {
       var l = s.lessons[lessonScope] || {};
       var attended = !!l.attended, effective = !!l.effective;
-      var accuracy = (l.quizAnswer > 0) ? (l.quizRight / l.quizAnswer) : null;
-      var homework = null;
-      if (!U.isUnassigned(l.hwStatus)) homework = U.isHwDone(l.hwStatus) ? 1 : 0;
+      var qa = l.quizAnswer || 0;
+      var accuracy = (qa > 0) ? (l.quizRight / qa) : null;
+      var homework = null, hwDone = false;
+      if (!U.isUnassigned(l.hwStatus)) { hwDone = U.isHwDone(l.hwStatus); homework = hwDone ? 1 : 0; }
       var listen = effective ? 1 : 0;
       var attend = attended ? 1 : 0;
-      var hasData = attended || effective || (l.quizAnswer > 0) || ((l.durationMin || 0) > 0) || !U.isUnassigned(l.hwStatus);
+      var hasData = attended || effective || (qa > 0) || ((l.durationMin || 0) > 0) || !U.isUnassigned(l.hwStatus);
+      // 有效学习数据：本讲存在真实学习行为（有效听课/答题/练习/听课时长/进度），到课与否不作为唯一依据
+      var learning = effective || (qa > 0) || hwDone || ((l.durationMin || 0) > 0) || ((l.progress || 0) > 0);
       // 单讲综合分：权重同 studentStats
       var parts = [{ w: 0.35, v: listen }];
       if (accuracy !== null) parts.push({ w: 0.30, v: accuracy });
       if (homework !== null) parts.push({ w: 0.35, v: homework });
       var ws = 0, vs = 0; parts.forEach(function (p) { ws += p.w; vs += p.w * p.v; });
       var score = ws > 0 ? vs / ws : 0;
-      return { single: true, listen: listen, attend: attend, accuracy: accuracy, homework: homework, score: score, hasData: hasData, l: l };
+      return { single: true, attended: attended, effective: effective, listen: listen, attend: attend, accuracy: accuracy, homework: homework, score: score, hasData: hasData, learning: learning, l: l };
     }
     var st = s.stats;
-    return { single: false, listen: st.listen, attend: st.attend, accuracy: st.accuracy, homework: st.homework, score: st.score, hasData: st.activeCount > 0, st: st };
+    // 有效学习数据：有过有效听课/答题/练习/听课时长
+    var learningC = st.listen > 0 || st.hasQuiz || (st.hwDone || 0) > 0 || (st.minutes || 0) > 0;
+    return { single: false, listen: st.listen, attend: st.attend, accuracy: st.accuracy, homework: st.homework, score: st.score, hasData: st.activeCount > 0, learning: learningC, st: st };
   }
   /** 根据指标推导出预警原因与紧急程度 */
   function alertInfo(m) {
@@ -678,23 +683,27 @@
       reasons.push(m.single ? '本讲无学习数据' : '暂无学习数据');
     }
     if (m.single) {
-      if (!m.attended) reasons.push('本讲未到课');
-      else if (!m.effective) reasons.push('本讲无效听课');
+      // 只要本讲存在有效学习数据（有效听课/答题/练习/时长），就不再因「未到课」拉警报
+      if (!m.learning) {
+        if (!m.attended) reasons.push('本讲未到课');
+        else if (!m.effective) reasons.push('本讲无效听课');
+      }
       if (m.accuracy !== null && m.accuracy < 0.5) reasons.push('答题正确率偏低(' + Math.round(m.accuracy * 100) + '%)');
       if (m.homework !== null && m.homework < 0.5) reasons.push('练习未完成');
       if (m.hasData && m.score < 0.5) reasons.push('综合表现偏弱(' + Math.round(m.score * 100) + '%)');
     } else {
       if (m.score < 0.5) reasons.push('综合得分偏低(' + Math.round(m.score * 100) + '%)');
       if (m.listen < 0.5) reasons.push('有效听课率不足(' + Math.round(m.listen * 100) + '%)');
-      if (m.attend < 0.5) reasons.push('到课率不足(' + Math.round(m.attend * 100) + '%)');
+      // 有效听课率达标（≥50%）视为有有效学习数据，忽略到课率不足
+      if (m.attend < 0.5 && m.listen < 0.5) reasons.push('到课率不足(' + Math.round(m.attend * 100) + '%)');
       if (m.accuracy !== null && m.accuracy < 0.5) reasons.push('答题正确率偏低(' + Math.round(m.accuracy * 100) + '%)');
       if (m.homework !== null && m.homework < 0.5) reasons.push('练习完成率偏低(' + Math.round(m.homework * 100) + '%)');
     }
     var urgent = false;
-    if (!m.hasData) urgent = !m.single;            // 综合全程无数据=紧急；单讲无数据=关注
-    else if (m.score < 0.3) urgent = true;          // 综合分极低
-    else if (m.single) urgent = !m.attended;        // 单讲整讲缺席
-    else urgent = (m.listen === 0 || m.attend === 0); // 综合有效/到课全无
+    if (!m.hasData) urgent = !m.single;                 // 综合全程无数据=紧急；单讲无数据=关注
+    else if (m.score < 0.3) urgent = true;               // 综合分极低
+    else if (m.single) urgent = (!m.attended && !m.learning); // 单讲缺席且无任何学习数据
+    else urgent = (m.listen === 0 && m.attend === 0);    // 综合有效与到课均为 0
     return { reasons: reasons, level: urgent ? 'urgent' : 'watch' };
   }
   function renderAlerts() {

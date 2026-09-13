@@ -850,9 +850,17 @@
           '<td><span class="pill ' + gCls + '">' + esc(val(r.gender) || '未填') + '</span></td>' +
           '<td class="grade-tag">' + esc(val(r.grade) || '—') + '</td>' +
           '<td>' + regTag(r.regStatus) + '</td>' +
-          '<td>' + (a.noData
-            ? '<span class="tag tag-no">暂无学习数据</span>'
-            : '<span class="tag tag-yes">已匹配</span>') + '</td>' +
+          (function () {
+            var wd = SWB.isWithdrawn(r) && !SWB.isExcepted(db, r);
+            if (wd) {
+              var rlink = SWB.isBlacklisted(db, r)
+                ? ' <a class="restore-link" data-restore="' + esc(r.id || r.phone || '') + '">↩ 移出黑名单</a>' : '';
+              return '<td><span class="tag tag-wd">已退课</span>' + rlink + '</td>';
+            }
+            return '<td>' + (a.noData
+              ? '<span class="tag tag-no">暂无学习数据</span>'
+              : '<span class="tag tag-yes">已匹配</span>') + '</td>';
+          })() +
           (a.noData
             ? '<td colspan="3" class="mono" style="color:#94A3B8">—</td><td><span class="score-badge" style="background:#CBD5E1">—</span></td>'
             :               '<td>' + mini(st.listen) + '</td>' +
@@ -1437,7 +1445,8 @@
       ? db.roster.students.length + ' 份档案 · ' + new Date(db.roster.updatedAt).toLocaleString('zh-CN')
       : '尚未导入';
     $('#dataSub').textContent = db.students.length
-      ? db.students.length + ' 名学员 · ' + (db.statCourses || []).length + ' 讲正课'
+      ? db.students.length + ' 名学员 · ' + (db.statCourses || []).length + ' 讲正课' +
+        ((db.blacklist && db.blacklist.length) ? ' · 已退课 ' + db.blacklist.length + ' 人移出' : '')
       : '尚未导入';
 
     // 开关
@@ -1502,9 +1511,11 @@
     var box = $('#rosterResult');
     box.hidden = false;
     box.className = 'import-result';
+    var bl = db.blacklist ? db.blacklist.length : 0;
     box.innerHTML = '已建立 <b>' + r.total + '</b> 份学员档案（来源：' + esc(r.source) + '）。<br>' +
       '与已有学习数据自动匹配上 <b>' + m + '</b> 人' +
       (db.students.length ? '，未匹配 <b>' + (db.students.length - m) + '</b> 人（可在「学员名单」里用「未匹配」筛选查看）。' : '。') +
+      (bl ? '<br><b style="color:#E5484D">已自动将 ' + bl + ' 名退课学员移出班级数据（见「学员档案」可恢复）。</b>' : '') +
       (parsed.meta.extra && parsed.meta.extra.length
         ? '<br>额外收录字段：' + esc(parsed.meta.extra.slice(0, 8).join('、')) : '');
     return r;
@@ -1816,6 +1827,7 @@
     }
     (d.students || []).forEach(function (s) { stripPhone(s); stripSensitive(s); });
     (d.roster && d.roster.students || []).forEach(function (s) { stripPhone(s); stripSensitive(s); });
+    (d.blacklist || []).forEach(function (s) { stripPhone(s); stripSensitive(s); });
     d.updatedAt = new Date().toISOString();
     return d;
   }
@@ -1987,6 +1999,15 @@
       if (tr) openStudent(tr.dataset.id);
     });
     $('#archiveBody').addEventListener('click', function (e) {
+      var rb = e.target.closest('.restore-link');
+      if (rb) {
+        e.stopPropagation(); e.preventDefault();
+        var sid = rb.getAttribute('data-restore');
+        var ok = SWB.restoreFromBlacklist(db, sid);
+        recompute(); save(); renderAll();
+        toast(ok ? '已移出黑名单，恢复至班级数据' : '已加入白名单，后续不再自动拉黑');
+        return;
+      }
       var cp = e.target.closest('.copy-btn');
       if (cp) {
         e.stopPropagation();

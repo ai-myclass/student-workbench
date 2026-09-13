@@ -118,6 +118,51 @@
       .replace(/[\s\u3000]/g, '').replace(/[（(].*?[)）]/g, '').trim().toLowerCase();
   }
 
+  /* ---------------- 退课 / 黑名单 ---------------- */
+  /** 命中即视为「已退课」的状态关键词 */
+  var WITHDRAW_TOKENS = ['退课', '已退', '退费', '退班', '退学', '退订'];
+
+  /** 从学情表记录里提取退课原因文本（命中关键词返回该字段原文，否则空串） */
+  function withdrawnReason(r) {
+    if (!r) return '';
+    var vals = [];
+    var k;
+    // 已知状态类字段
+    ['renewStatus', 'regStatus', 'todayNote', 'remark', 'level', 'followUp', 'lastLesson'].forEach(function (f) {
+      if (r[f]) vals.push(String(r[f]));
+    });
+    // 自定义列（extra 里的任意字段）
+    if (r.extra) {
+      for (k in r.extra) { if (r.extra.hasOwnProperty(k) && r.extra[k]) vals.push(String(r.extra[k])); }
+    }
+    // 任意键名含「状态」或「退」的列（兼容其它命名，如「退款状态」「退课原因」）
+    for (k in r) {
+      if (!r.hasOwnProperty(k)) continue;
+      if (k === 'key' || k === 'phoneHash' || k === 'lessons' || k === 'extra') continue;
+      if (typeof r[k] === 'string' && r[k] && /状态|退/.test(k)) vals.push(r[k]);
+    }
+    for (var i = 0; i < vals.length; i++) {
+      var s = String(vals[i]);
+      for (var j = 0; j < WITHDRAW_TOKENS.length; j++) {
+        if (s.indexOf(WITHDRAW_TOKENS[j]) !== -1) return s.trim();
+      }
+    }
+    return '';
+  }
+  function isWithdrawn(r) { return !!withdrawnReason(r); }
+
+  /** 某学员是否被手动移出黑名单（白名单例外，持久化进 db.blacklistExceptions） */
+  function isExcepted(db, s) {
+    var ex = db.blacklistExceptions;
+    if (!ex || !ex.length) return false;
+    var id = normId(s.id), ph = normPhone(s.phone);
+    for (var i = 0; i < ex.length; i++) {
+      if (ex[i] === id || ex[i] === ph) return true;
+    }
+    return false;
+  }
+
+
   /* ---------------- 课程剔除 ---------------- */
   function settings(db) {
     if (!db.settings) db.settings = {};
@@ -462,9 +507,17 @@
     return null;
   }
 
-  /** 全量重算匹配关系（切换学情表 / 清空后调用） */
+  /** 全量重算匹配关系 + 退课黑名单（切换学情表 / 清空后调用） */
   function applyRoster(db) {
     var ridx = rosterIndex(db);
+    // 退课判定：扫描学情表中的退课状态，建立 ID/手机号 → 原因 索引
+    var witById = {}, witByPhone = {}, witKeys = {};
+    (db.roster.students || []).forEach(function (r) {
+      var reason = withdrawnReason(r);
+      if (!reason) return;
+      var id = normId(r.id); if (id) { witById[id] = reason; witKeys[id] = 1; }
+      var ph = normPhone(r.phone); if (ph) { witByPhone[ph] = reason; witKeys[ph] = 1; }
+    });
     var link = {}, matched = 0, filled = 0;
     db.students.forEach(function (s) {
       var r = matchRecord(ridx, s);
@@ -480,6 +533,11 @@
           });
         }
       }
+      // 退课黑名单：按 ID 或 手机号 命中学情表退课状态即标记（不以姓名为依据，避免误伤同名）
+      var w = witById[normId(s.id)] || witByPhone[normPhone(s.phone)] || null;
+      var exc = isExcepted(db, s);
+      s.blacklisted = !!w && !exc;
+      s.blacklistReason = (w && !exc) ? w : '';
     });
     db.rosterMatched = matched;
     db.rosterLink = link;
@@ -488,8 +546,53 @@
       src.matched = matched;
       src.unmatched = db.students.length - matched;
     });
-    return { matched: matched, filled: filled, total: db.students.length };
+    return { matched: matched, filled: filled, total: db.students.length, withdrawn: Object.keys(witKeys).length };
   }
+
+  /** 把已标记的退课学员移出班级数据，存入 db.blacklist（不修改学情表） */
+  function purgeBlacklist(db) {
+    if (!db.blacklist) db.blacklist = [];
+    var removed = db.students.filter(function (s) { return s.blacklisted; });
+    if (!removed.length) return 0;
+    var seen = {}, out = [];
+    removed.forEach(function (s) {
+      var k = normId(s.id) || normPhone(s.phone);
+      if (k && seen[k]) return;
+      if (k) seen[k] = 1;
+      out.push(s);
+    });
+    db.students = db.students.filter(function (s) { return !s.blacklisted; });
+    out.forEach(function (s) { db.blacklist.push(s); });
+    return out.length;
+  }
+
+  /** 将退课学员移出黑名单、恢复进班级数据（持久：记入例外名单，刷新后不再自动拉黑） */
+  function restoreFromBlacklist(db, sid) {
+    var n = normId(sid), p = normPhone(sid);
+    db.blacklistExceptions = db.blacklistExceptions || [];
+    if (n) db.blacklistExceptions.push(n);
+    if (p) db.blacklistExceptions.push(p);
+    var moved = null;
+    if (db.blacklist) {
+      for (var i = 0; i < db.blacklist.length; i++) {
+        var b = db.blacklist[i];
+        if (normId(b.id) === n || normPhone(b.phone) === p) { moved = db.blacklist.splice(i, 1)[0]; break; }
+      }
+    }
+    if (moved) {
+      moved.blacklisted = false; moved.blacklistReason = '';
+      db.students.push(moved);
+    }
+    return !!moved;
+  }
+
+  /** 该学情表记录对应的学员是否已在黑名单中（用于档案列表展示恢复入口） */
+  function isBlacklisted(db, r) {
+    if (!db.blacklist || !db.blacklist.length) return false;
+    var n = normId(r.id), p = normPhone(r.phone);
+    return db.blacklist.some(function (b) { return normId(b.id) === n || normPhone(b.phone) === p; });
+  }
+
 
   /* ---------------- 指标计算 ---------------- */
   function isCourseActive(db, courseName) {
@@ -615,9 +718,12 @@
 
     db.scopeCourses = scope || null;
     var list = scope && scope.length ? scope : db.statCourses;
-    db.students.forEach(function (s) { s.stats = studentStats(db, s, list); });
 
-    applyRoster(db);
+    applyRoster(db);                 // 重新匹配学情表 + 标记退课黑名单
+    purgeBlacklist(db);              // 退课学员移出班级数据，存入 db.blacklist
+    db.rosterMatched = db.students.reduce(function (a, s) { return a + (s.rosterMatched ? 1 : 0); }, 0);
+
+    db.students.forEach(function (s) { s.stats = studentStats(db, s, list); });
     buildArchive(db);
     return db;
   }
@@ -707,6 +813,7 @@
       courses: [], students: [], sources: [],
       activeCourses: [], statCourses: [], excludedCourses: [],
       scopeCourses: null, archive: [], rosterLink: {}, rosterMatched: 0,
+      blacklist: [], blacklistExceptions: [],
       roster: { students: [], sources: [], updatedAt: null, fields: [] },
       settings: {
         excludeKeywords: DEFAULT_EXCLUDE.slice(),
@@ -726,6 +833,11 @@
     mergeInto: mergeInto,
     mergeRosterInto: mergeRosterInto,
     applyRoster: applyRoster,
+    purgeBlacklist: purgeBlacklist,
+    restoreFromBlacklist: restoreFromBlacklist,
+    isBlacklisted: isBlacklisted,
+    isWithdrawn: isWithdrawn,
+    isExcepted: isExcepted,
     rosterIndex: rosterIndex,
     matchRecord: matchRecord,
     refresh: refresh,

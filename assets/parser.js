@@ -390,13 +390,46 @@
   /** 学情表整体入库（档案以最后一次导入为准） */
   function mergeRosterInto(db, parsed) {
     db.roster = db.roster || { students: [], sources: [], updatedAt: null };
+
+    // 把花名册在读学员同步进 db.students：
+    // - 已存在（按 ID / 手机号 / 姓名匹配）→ 仅补全档案字段，不覆盖已有学习数据
+    // - 不存在 → 新增（无学习数据的在读学员也计入班级名单，使「在读」人数等于花名册人数）
+    var idx = {};
+    db.students.forEach(function (s, i) {
+      if (normId(s.id)) idx['id:' + normId(s.id)] = i;
+      if (normPhone(s.phone)) idx['ph:' + normPhone(s.phone)] = i;
+      if (normName(s.name)) idx['nm:' + normName(s.name)] = i;
+    });
+    var added = 0, merged = 0;
+    parsed.students.forEach(function (ns) {
+      var ki = idx['id:' + normId(ns.id)];
+      if (ki === undefined && normPhone(ns.phone)) ki = idx['ph:' + normPhone(ns.phone)];
+      if (ki === undefined && normName(ns.name)) ki = idx['nm:' + normName(ns.name)];
+      if (ki !== undefined) {
+        var old = db.students[ki];
+        if (settings(db).autoProfile) {
+          PROFILE_KEYS.forEach(function (k) {
+            if (k === 'id') return;
+            if (ns[k] && ns[k] !== '-' && (!old[k] || old[k] === '-')) old[k] = ns[k];
+          });
+        }
+        merged++;
+      } else {
+        db.students.push(ns);
+        added++;
+        if (normId(ns.id)) idx['id:' + normId(ns.id)] = db.students.length - 1;
+        if (normPhone(ns.phone)) idx['ph:' + normPhone(ns.phone)] = db.students.length - 1;
+        if (normName(ns.name)) idx['nm:' + normName(ns.name)] = db.students.length - 1;
+      }
+    });
+
     db.roster.students = parsed.students;
     db.roster.sources = db.roster.sources || [];
     db.roster.sources.unshift({ name: parsed.source, rows: parsed.students.length, time: new Date().toISOString() });
     db.roster.sources = db.roster.sources.slice(0, 10);
     db.roster.updatedAt = new Date().toISOString();
     db.roster.fields = parsed.meta.extra || [];
-    return { total: parsed.students.length, source: parsed.source };
+    return { total: parsed.students.length, source: parsed.source, added: added, merged: merged };
   }
 
   /* ---------------- 学习数据合并入库 ---------------- */

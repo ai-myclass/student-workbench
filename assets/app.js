@@ -1512,10 +1512,11 @@
     box.hidden = false;
     box.className = 'import-result';
     var bl = db.blacklist ? db.blacklist.length : 0;
-    box.innerHTML = '已建立 <b>' + r.total + '</b> 份学员档案（来源：' + esc(r.source) + '）。<br>' +
-      '与已有学习数据自动匹配上 <b>' + m + '</b> 人' +
-      (db.students.length ? '，未匹配 <b>' + (db.students.length - m) + '</b> 人（可在「学员名单」里用「未匹配」筛选查看）。' : '。') +
-      (bl ? '<br><b style="color:#E5484D">已自动将 ' + bl + ' 名退课学员移出班级数据（见「学员档案」可恢复）。</b>' : '') +
+    box.innerHTML = '花名册《' + esc(r.source) + '》共 <b>' + r.total + '</b> 人在读' +
+      (r.added ? '，新增 <b>' + r.added + '</b> 名在读学员（此前无学习记录）' : '') + '。<br>' +
+      '当前班级在读 <b>' + db.students.length + '</b> 人' +
+      (db.students.length ? '，其中 <b>' + m + '</b> 人有学习数据' : '') + '。' +
+      (bl ? '<br><b style="color:#E5484D">已自动将 ' + bl + ' 名不在花名册内的学员移出班级数据（见「学员档案」可恢复）。</b>' : '') +
       (parsed.meta.extra && parsed.meta.extra.length
         ? '<br>额外收录字段：' + esc(parsed.meta.extra.slice(0, 8).join('、')) : '');
     return r;

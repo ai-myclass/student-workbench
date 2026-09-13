@@ -17,6 +17,7 @@
   var BASE_FIELDS = {
     'userID': 'id', 'useid': 'id', 'userid': 'id', 'userId': 'id', 'user_id': 'id',
     '用户ID': 'id', '用户id': 'id', '学员ID': 'id', '学员id': 'id', 'ID': 'id', 'id': 'id',
+    'UID': 'id', 'uid': 'id',
     '学生ID': 'id', '学号': 'id', '编号': 'id', '学员编号': 'id',
     '电话': 'phone', '手机号': 'phone', '联系方式': 'phone', '手机': 'phone',
     '联系电话': 'phone', '家长手机号': 'phone', 'mobile': 'phone',
@@ -118,38 +119,21 @@
       .replace(/[\s\u3000]/g, '').replace(/[（(].*?[)）]/g, '').trim().toLowerCase();
   }
 
-  /* ---------------- 退课 / 黑名单 ---------------- */
-  /** 命中即视为「已退课」的状态关键词 */
-  var WITHDRAW_TOKENS = ['退课', '已退', '退费', '退班', '退学', '退订'];
-
-  /** 从学情表记录里提取退课原因文本（命中关键词返回该字段原文，否则空串） */
-  function withdrawnReason(r) {
-    if (!r) return '';
-    var vals = [];
-    var k;
-    // 已知状态类字段
-    ['renewStatus', 'regStatus', 'todayNote', 'remark', 'level', 'followUp', 'lastLesson'].forEach(function (f) {
-      if (r[f]) vals.push(String(r[f]));
-    });
-    // 自定义列（extra 里的任意字段）
-    if (r.extra) {
-      for (k in r.extra) { if (r.extra.hasOwnProperty(k) && r.extra[k]) vals.push(String(r.extra[k])); }
-    }
-    // 任意键名含「状态」或「退」的列（兼容其它命名，如「退款状态」「退课原因」）
-    for (k in r) {
-      if (!r.hasOwnProperty(k)) continue;
-      if (k === 'key' || k === 'phoneHash' || k === 'lessons' || k === 'extra') continue;
-      if (typeof r[k] === 'string' && r[k] && /状态|退/.test(k)) vals.push(r[k]);
-    }
-    for (var i = 0; i < vals.length; i++) {
-      var s = String(vals[i]);
-      for (var j = 0; j < WITHDRAW_TOKENS.length; j++) {
-        if (s.indexOf(WITHDRAW_TOKENS[j]) !== -1) return s.trim();
-      }
-    }
-    return '';
+  /* ---------------- 退班 / 黑名单 ----------------
+   * 判定规则：不依赖关键词。以「新增花名册」为权威在读名单，
+   * 将当前在读学员的 ID / 手机号与花名册比对：
+   *   若该学员的 ID 或 手机号在花名册中找不到 → 视为已退班/转出 → 拉入黑名单。
+   * 仅按 ID / 手机号比对（不含姓名），避免同名误判。
+   */
+  /** 仅按 学员ID / 手机号 与学情表比对（不含姓名，避免同名误判） */
+  function matchByIdPhone(ridx, s) {
+    if (!ridx || !ridx.list.length) return null;
+    var byId = normId(s.id) ? ridx.byId[normId(s.id)] : null;
+    if (byId) return byId;
+    var byPhone = normPhone(s.phone) ? ridx.byPhone[normPhone(s.phone)] : null;
+    if (byPhone) return byPhone;
+    return null;
   }
-  function isWithdrawn(r) { return !!withdrawnReason(r); }
 
   /** 某学员是否被手动移出黑名单（白名单例外，持久化进 db.blacklistExceptions） */
   function isExcepted(db, s) {
@@ -507,20 +491,15 @@
     return null;
   }
 
-  /** 全量重算匹配关系 + 退课黑名单（切换学情表 / 清空后调用） */
+  /** 全量重算匹配关系 + 退班黑名单（切换学情表 / 清空后调用） */
   function applyRoster(db) {
     var ridx = rosterIndex(db);
-    // 退课判定：扫描学情表中的退课状态，建立 ID/手机号 → 原因 索引
-    var witById = {}, witByPhone = {}, witKeys = {};
-    (db.roster.students || []).forEach(function (r) {
-      var reason = withdrawnReason(r);
-      if (!reason) return;
-      var id = normId(r.id); if (id) { witById[id] = reason; witKeys[id] = 1; }
-      var ph = normPhone(r.phone); if (ph) { witByPhone[ph] = reason; witKeys[ph] = 1; }
-    });
-    var link = {}, matched = 0, filled = 0;
+    // 花名册为空时无法判定「谁不在花名册内」，不执行拉黑（避免全员误拉黑）
+    var rosterEmpty = !(db.roster && db.roster.students && db.roster.students.length);
+    var link = {}, matched = 0, filled = 0, blacklisted = 0;
     db.students.forEach(function (s) {
-      var r = matchRecord(ridx, s);
+      // 仅按 ID / 手机号 与新增花名册比对（不含姓名，避免同名误判）
+      var r = matchByIdPhone(ridx, s);
       s.rosterMatched = !!r;
       s.rosterKey = r ? r.key : '';
       if (r) {
@@ -533,11 +512,14 @@
           });
         }
       }
-      // 退课黑名单：按 ID 或 手机号 命中学情表退课状态即标记（不以姓名为依据，避免误伤同名）
-      var w = witById[normId(s.id)] || witByPhone[normPhone(s.phone)] || null;
+      // 退班判定：当前在读学员的 ID/手机号不在新增花名册内 → 视为已退班/转出 → 拉黑。
+      // 仅当该学员本身带有 ID 或 手机号时才比对；两者皆空则无法判定，不误拉黑。
+      var hasId = !!normId(s.id), hasPh = !!normPhone(s.phone);
       var exc = isExcepted(db, s);
-      s.blacklisted = !!w && !exc;
-      s.blacklistReason = (w && !exc) ? w : '';
+      var bl = !rosterEmpty && !r && (hasId || hasPh) && !exc;
+      s.blacklisted = bl;
+      s.blacklistReason = bl ? '不在花名册内（已退班/转出）' : '';
+      if (bl) blacklisted++;
     });
     db.rosterMatched = matched;
     db.rosterLink = link;
@@ -546,7 +528,7 @@
       src.matched = matched;
       src.unmatched = db.students.length - matched;
     });
-    return { matched: matched, filled: filled, total: db.students.length, withdrawn: Object.keys(witKeys).length };
+    return { matched: matched, filled: filled, total: db.students.length, withdrawn: blacklisted };
   }
 
   /** 把已标记的退课学员移出班级数据，存入 db.blacklist（不修改学情表） */
@@ -586,11 +568,17 @@
     return !!moved;
   }
 
-  /** 该学情表记录对应的学员是否已在黑名单中（用于档案列表展示恢复入口） */
+  /** 该学情表记录对应的学员是否已在黑名单中（用于档案列表展示恢复入口）
+   *  仅按非空的 ID/手机号 比对，避免空值互相命中造成误判 */
   function isBlacklisted(db, r) {
     if (!db.blacklist || !db.blacklist.length) return false;
     var n = normId(r.id), p = normPhone(r.phone);
-    return db.blacklist.some(function (b) { return normId(b.id) === n || normPhone(b.phone) === p; });
+    return db.blacklist.some(function (b) {
+      var bn = normId(b.id), bp = normPhone(b.phone);
+      if (n && bn && bn === n) return true;
+      if (p && bp && bp === p) return true;
+      return false;
+    });
   }
 
 
@@ -836,7 +824,6 @@
     purgeBlacklist: purgeBlacklist,
     restoreFromBlacklist: restoreFromBlacklist,
     isBlacklisted: isBlacklisted,
-    isWithdrawn: isWithdrawn,
     isExcepted: isExcepted,
     rosterIndex: rosterIndex,
     matchRecord: matchRecord,

@@ -851,7 +851,7 @@
           '<td class="grade-tag">' + esc(val(r.grade) || '—') + '</td>' +
           '<td>' + regTag(r.regStatus) + '</td>' +
           (function () {
-            var wd = SWB.isWithdrawn(r) && !SWB.isExcepted(db, r);
+            var wd = SWB.isBlacklisted(db, r);
             if (wd) {
               var rlink = SWB.isBlacklisted(db, r)
                 ? ' <a class="restore-link" data-restore="' + esc(r.id || r.phone || '') + '">↩ 移出黑名单</a>' : '';

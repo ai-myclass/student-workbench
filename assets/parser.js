@@ -387,13 +387,10 @@
     };
   }
 
-  /** 学情表整体入库（档案以最后一次导入为准） */
-  function mergeRosterInto(db, parsed) {
-    db.roster = db.roster || { students: [], sources: [], updatedAt: null };
-
-    // 把花名册在读学员同步进 db.students：
-    // - 已存在（按 ID / 手机号 / 姓名匹配）→ 仅补全档案字段，不覆盖已有学习数据
-    // - 不存在 → 新增（无学习数据的在读学员也计入班级名单，使「在读」人数等于花名册人数）
+  /** 把花名册在读学员同步进 db.students（去重合并；不存在则新增，使「在读」人数等于花名册人数）。
+   *  rosterStudents 为空时不改动（防止空花名册误新增）。返回 {added, merged}。 */
+  function syncRosterStudents(db, rosterStudents) {
+    if (!rosterStudents || !rosterStudents.length) return { added: 0, merged: 0 };
     var idx = {};
     db.students.forEach(function (s, i) {
       if (normId(s.id)) idx['id:' + normId(s.id)] = i;
@@ -401,7 +398,7 @@
       if (normName(s.name)) idx['nm:' + normName(s.name)] = i;
     });
     var added = 0, merged = 0;
-    parsed.students.forEach(function (ns) {
+    rosterStudents.forEach(function (ns) {
       var ki = idx['id:' + normId(ns.id)];
       if (ki === undefined && normPhone(ns.phone)) ki = idx['ph:' + normPhone(ns.phone)];
       if (ki === undefined && normName(ns.name)) ki = idx['nm:' + normName(ns.name)];
@@ -422,6 +419,16 @@
         if (normName(ns.name)) idx['nm:' + normName(ns.name)] = db.students.length - 1;
       }
     });
+    return { added: added, merged: merged };
+  }
+
+  /** 学情表整体入库（档案以最后一次导入为准） */
+  function mergeRosterInto(db, parsed) {
+    db.roster = db.roster || { students: [], sources: [], updatedAt: null };
+
+    // 把花名册在读学员同步进 db.students（已存在则补全档案、不存在则新增，使在读人数=花名册人数）
+    var sync = syncRosterStudents(db, parsed.students);
+    var added = sync.added, merged = sync.merged;
 
     db.roster.students = parsed.students;
     db.roster.sources = db.roster.sources || [];
@@ -740,6 +747,7 @@
     db.scopeCourses = scope || null;
     var list = scope && scope.length ? scope : db.statCourses;
 
+    syncRosterStudents(db, db.roster.students);  // 先按花名册把在读学员补齐进班级名单（含无数据的新增学员）
     applyRoster(db);                 // 重新匹配学情表 + 标记退课黑名单
     purgeBlacklist(db);              // 退课学员移出班级数据，存入 db.blacklist
     db.rosterMatched = db.students.reduce(function (a, s) { return a + (s.rosterMatched ? 1 : 0); }, 0);

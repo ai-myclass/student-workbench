@@ -1568,6 +1568,7 @@
         try {
           var parsed = SWB.parseWorkbook(new Uint8Array(e.target.result), f.name);
           var r = SWB.mergeInto(db, parsed);
+          SWB.recordHomeroom(db, parsed.students);   // 把本次导入记为花名册（在读名单基准）
           total.added += r.added; total.updated += r.updated; total.newCourses += r.newCourses;
           total.matched += r.matched; total.unmatched += r.unmatched;
           ok++;
@@ -1596,7 +1597,8 @@
         box.innerHTML = '导入成功 <b>' + ok + '</b> 个文件：新增学员 <b>' + total.added + '</b> 人，更新 <b>' +
           total.updated + '</b> 人，新增讲次 <b>' + total.newCourses + '</b> 个。' + matchTxt +
           '<br>当前共 <b>' + db.students.length + '</b> 名学员、<b>' + (db.statCourses || []).length +
-          '</b> 讲正课' + ((db.excludedCourses || []).length ? '（另有 ' + db.excludedCourses.length + ' 讲已剔除）' : '') + '。';
+          '</b> 讲正课' + ((db.excludedCourses || []).length ? '（另有 ' + db.excludedCourses.length + ' 讲已剔除）' : '') + '。' +
+          '花名册（在读基准）共 <b>' + (db.homeroom ? db.homeroom.length : 0) + '</b> 人，不在其中的学员已标记为退班并移出班级数据。';
         toast('导入完成');
       } else if (ok) {
         box.className = 'import-result';

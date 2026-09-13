@@ -387,56 +387,16 @@
     };
   }
 
-  /** 把花名册在读学员同步进 db.students（去重合并；不存在则新增，使「在读」人数等于花名册人数）。
-   *  rosterStudents 为空时不改动（防止空花名册误新增）。返回 {added, merged}。 */
-  function syncRosterStudents(db, rosterStudents) {
-    if (!rosterStudents || !rosterStudents.length) return { added: 0, merged: 0 };
-    var idx = {};
-    db.students.forEach(function (s, i) {
-      if (normId(s.id)) idx['id:' + normId(s.id)] = i;
-      if (normPhone(s.phone)) idx['ph:' + normPhone(s.phone)] = i;
-      if (normName(s.name)) idx['nm:' + normName(s.name)] = i;
-    });
-    var added = 0, merged = 0;
-    rosterStudents.forEach(function (ns) {
-      var ki = idx['id:' + normId(ns.id)];
-      if (ki === undefined && normPhone(ns.phone)) ki = idx['ph:' + normPhone(ns.phone)];
-      if (ki === undefined && normName(ns.name)) ki = idx['nm:' + normName(ns.name)];
-      if (ki !== undefined) {
-        var old = db.students[ki];
-        if (settings(db).autoProfile) {
-          PROFILE_KEYS.forEach(function (k) {
-            if (k === 'id') return;
-            if (ns[k] && ns[k] !== '-' && (!old[k] || old[k] === '-')) old[k] = ns[k];
-          });
-        }
-        merged++;
-      } else {
-        db.students.push(ns);
-        added++;
-        if (normId(ns.id)) idx['id:' + normId(ns.id)] = db.students.length - 1;
-        if (normPhone(ns.phone)) idx['ph:' + normPhone(ns.phone)] = db.students.length - 1;
-        if (normName(ns.name)) idx['nm:' + normName(ns.name)] = db.students.length - 1;
-      }
-    });
-    return { added: added, merged: merged };
-  }
-
-  /** 学情表整体入库（档案以最后一次导入为准） */
+  /** 学情表整体入库（档案以最后一次导入为准；学情表仅用于档案匹配/补全，不参与退班判定） */
   function mergeRosterInto(db, parsed) {
     db.roster = db.roster || { students: [], sources: [], updatedAt: null };
-
-    // 把花名册在读学员同步进 db.students（已存在则补全档案、不存在则新增，使在读人数=花名册人数）
-    var sync = syncRosterStudents(db, parsed.students);
-    var added = sync.added, merged = sync.merged;
-
     db.roster.students = parsed.students;
     db.roster.sources = db.roster.sources || [];
     db.roster.sources.unshift({ name: parsed.source, rows: parsed.students.length, time: new Date().toISOString() });
     db.roster.sources = db.roster.sources.slice(0, 10);
     db.roster.updatedAt = new Date().toISOString();
     db.roster.fields = parsed.meta.extra || [];
-    return { total: parsed.students.length, source: parsed.source, added: added, merged: merged };
+    return { total: parsed.students.length, source: parsed.source };
   }
 
   /* ---------------- 学习数据合并入库 ---------------- */
@@ -519,6 +479,30 @@
     });
     return idx;
   }
+  /** 花名册索引（基于 db.homeroom，即「导入学习数据」累计的在读名单基准） */
+  function homeroomIndex(db) {
+    var idx = { byId: {}, byPhone: {}, byName: {}, list: [] };
+    (db.homeroom || []).forEach(function (r) {
+      idx.list.push(r);
+      var id = normId(r.id); if (id && !idx.byId[id]) idx.byId[id] = r;
+      var ph = normPhone(r.phone); if (ph && !idx.byPhone[ph]) idx.byPhone[ph] = r;
+      var nm = normName(r.name); if (nm && !idx.byName[nm]) idx.byName[nm] = r;
+    });
+    return idx;
+  }
+  /** 把一批「导入学习数据」解析出的学员累计并入花名册（在读名单基准），按 id（空则用手机号）去重 */
+  function recordHomeroom(db, students) {
+    db.homeroom = db.homeroom || [];
+    var seen = {};
+    db.homeroom.forEach(function (h) { var k = normId(h.id) || normPhone(h.phone); if (k) seen[k] = 1; });
+    (students || []).forEach(function (s) {
+      var k = normId(s.id) || normPhone(s.phone);
+      if (!k || seen[k]) return;
+      seen[k] = 1;
+      db.homeroom.push({ id: s.id, phone: s.phone, name: s.name });
+    });
+    return db.homeroom.length;
+  }
   /** 匹配顺序：学员 ID → 手机号 → 姓名 */
   function matchRecord(ridx, s) {
     if (!ridx || !ridx.list.length) return null;
@@ -533,9 +517,10 @@
 
   /** 全量重算匹配关系 + 退班黑名单（切换学情表 / 清空后调用） */
   function applyRoster(db) {
-    var ridx = rosterIndex(db);
+    var ridx = rosterIndex(db);          // 学情表（档案来源）：仅用于档案匹配/补全
+    var hidx = homeroomIndex(db);        // 花名册（在读名单基准）：用于退班判定
     // 花名册为空时无法判定「谁不在花名册内」，不执行拉黑（避免全员误拉黑）
-    var rosterEmpty = !(db.roster && db.roster.students && db.roster.students.length);
+    var hEmpty = !(db.homeroom && db.homeroom.length);
     var link = {}, matched = 0, filled = 0, blacklisted = 0;
     db.students.forEach(function (s) {
       // 仅按 ID / 手机号 与新增花名册比对（不含姓名，避免同名误判）
@@ -552,11 +537,12 @@
           });
         }
       }
-      // 退班判定：当前在读学员的 ID/手机号不在新增花名册内 → 视为已退班/转出 → 拉黑。
+      // 退班判定：当前在读学员的 ID/手机号不在【花名册】（导入学习数据累计的在读名单）内 → 视为已退班/转出 → 拉黑。
       // 仅当该学员本身带有 ID 或 手机号时才比对；两者皆空则无法判定，不误拉黑。
+      var h = matchByIdPhone(hidx, s);
       var hasId = !!normId(s.id), hasPh = !!normPhone(s.phone);
       var exc = isExcepted(db, s);
-      var bl = !rosterEmpty && !r && (hasId || hasPh) && !exc;
+      var bl = !hEmpty && !h && (hasId || hasPh) && !exc;
       s.blacklisted = bl;
       s.blacklistReason = bl ? '不在花名册内（已退班/转出）' : '';
       if (bl) blacklisted++;
@@ -586,6 +572,27 @@
     db.students = db.students.filter(function (s) { return !s.blacklisted; });
     out.forEach(function (s) { db.blacklist.push(s); });
     return out.length;
+  }
+
+  /** 花名册更新后，把黑名单里「现在已在新花名册内」的学员自动恢复进班级数据（去重），避免旧逻辑误拉黑后无法复活 */
+  function reviveFromHomeroom(db) {
+    if (!db.blacklist || !db.blacklist.length || !db.homeroom || !db.homeroom.length) return;
+    var hBy = {};
+    db.homeroom.forEach(function (h) {
+      var id = normId(h.id); if (id) (hBy['id:' + id] = hBy['id:' + id] || []).push(h);
+      var ph = normPhone(h.phone); if (ph) (hBy['ph:' + ph] = hBy['ph:' + ph] || []).push(h);
+    });
+    var remain = [];
+    db.blacklist.forEach(function (b) {
+      var id = normId(b.id), ph = normPhone(b.phone);
+      var inH = (id && hBy['id:' + id]) || (ph && hBy['ph:' + ph]);
+      if (!inH) { remain.push(b); return; }
+      var dup = db.students.some(function (s) {
+        return (id && normId(s.id) === id) || (ph && normPhone(s.phone) === ph);
+      });
+      if (!dup) { b.blacklisted = false; b.blacklistReason = ''; db.students.push(b); }
+    });
+    db.blacklist = remain;
   }
 
   /** 将退课学员移出黑名单、恢复进班级数据（持久：记入例外名单，刷新后不再自动拉黑） */
@@ -747,8 +754,8 @@
     db.scopeCourses = scope || null;
     var list = scope && scope.length ? scope : db.statCourses;
 
-    syncRosterStudents(db, db.roster.students);  // 先按花名册把在读学员补齐进班级名单（含无数据的新增学员）
-    applyRoster(db);                 // 重新匹配学情表 + 标记退课黑名单
+    reviveFromHomeroom(db);          // 花名册更新后，先把黑名单里已回到花名册的学员复活
+    applyRoster(db);                 // 重新匹配学情表（档案） + 按花名册标记退课黑名单
     purgeBlacklist(db);              // 退课学员移出班级数据，存入 db.blacklist
     db.rosterMatched = db.students.reduce(function (a, s) { return a + (s.rosterMatched ? 1 : 0); }, 0);
 
@@ -841,8 +848,8 @@
       version: 2, updatedAt: null,
       courses: [], students: [], sources: [],
       activeCourses: [], statCourses: [], excludedCourses: [],
-      scopeCourses: null, archive: [], rosterLink: {}, rosterMatched: 0,
-      blacklist: [], blacklistExceptions: [],
+      scopeCourses: null, archive: [],       rosterLink: {}, rosterMatched: 0,
+      blacklist: [], blacklistExceptions: [], homeroom: [],
       roster: { students: [], sources: [], updatedAt: null, fields: [] },
       settings: {
         excludeKeywords: DEFAULT_EXCLUDE.slice(),
@@ -867,6 +874,8 @@
     isBlacklisted: isBlacklisted,
     isExcepted: isExcepted,
     rosterIndex: rosterIndex,
+    homeroomIndex: homeroomIndex,
+    recordHomeroom: recordHomeroom,
     matchRecord: matchRecord,
     refresh: refresh,
     studentStats: studentStats,

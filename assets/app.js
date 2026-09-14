@@ -1835,6 +1835,32 @@
     return d;
   }
 
+  /** 拉取云端最新备份数据库，作为家长数据生成的基准（防止本机 localStorage 为旧数据导致漏同步）。
+   *  云端读取失败或为空时返回 null，调用方回退到本机 db。 */
+  function loadCloudDB(token) {
+    return ghGetFile(GH_DB_FILE, token).then(function (meta) {
+      if (!meta || !meta.content) return null;
+      var json = decodeB64(meta.content);
+      var d = JSON.parse(json);
+      SWB.refresh(d);
+      overlayRosterPhones(d);   // 还原学情表完整手机号，与 build 口径一致
+      return d;
+    }).catch(function () { return null; });
+  }
+  function decodeB64(b64) {
+    try { return decodeURIComponent(escape(window.atob(String(b64).replace(/\s/g, '')))); }
+    catch (e) { return window.atob(String(b64).replace(/\s/g, '')); }
+  }
+  /** 把本机学员的「老师自定义评语」合并进基准库，保留老师本地批改 */
+  function overlayLocalCustomComments(base, local) {
+    var byId = {};
+    (local.students || []).forEach(function (s) { if (s && s.id) byId[String(s.id)] = s; });
+    (base.students || []).forEach(function (s) {
+      var l = s && s.id && byId[String(s.id)];
+      if (l && l.customComment) s.customComment = l.customComment;
+    });
+  }
+
   /** 把当前数据推送到 GitHub：家长查询页 + 云端备份，触发 Pages 重建，家长立即可查 */
   function syncParentData() {
     var token = getToken();
@@ -1851,38 +1877,51 @@
     btn.disabled = true;
     toast('正在同步到家长查询页与云端备份…');
 
-    var payload, content, cloudPayload, cloudContent;
-    try {
-      payload = SWBParent.build(db, SWB);
-      content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 1))));
-      cloudPayload = sanitizeDBForCloud(db);
-      cloudContent = btoa(unescape(encodeURIComponent(JSON.stringify(cloudPayload, null, 1))));
-    } catch (e) {
-      btn.disabled = false;
-      toast('生成失败：' + e.message);
-      return;
-    }
+    loadCloudDB(token).then(function (cloudDb) {
+      // 以「数据量更大」的一方为基准：本机为空 homeroom 或旧数据时优先用云端最新备份，
+      // 本机已导入更新（如新增讲次）时则用本机，确保家长端始终拿到最新在班数据。
+      var localCount = (db.homeroom || []).length || (db.students || []).length;
+      var cloudCount = cloudDb ? ((cloudDb.homeroom || []).length || (cloudDb.students || []).length) : 0;
+      var buildSource = (cloudDb && cloudCount >= localCount) ? cloudDb : db;
+      overlayLocalCustomComments(buildSource, db);
 
-    var ts = new Date().toISOString();
-    var pStudents = pushFile(GH_FILE, content, 'sync: 更新家长查询数据 ' + ts, token);
-    var pCloud = ghGetFile(GH_DB_FILE, token).then(function (meta) {
-      return ghPutFile(GH_DB_FILE, cloudContent, 'sync: 云端备份 ' + ts, token, meta && meta.sha);
-    });
-
-    Promise.allSettled([pStudents, pCloud]).then(function (res) {
-      btn.disabled = false;
-      var okS = res[0].status === 'fulfilled';
-      var okC = res[1].status === 'fulfilled';
-      var n = payload.students.length, q = payload._meta.phoneFull, rep = payload._meta.withData;
-      if (okS && okC) {
-        toast('已同步！' + n + ' 名学员（' + q + ' 人可查，' + rep + ' 人有报告）· 云端已备份');
-      } else if (okS) {
-        toast('家长查询已更新，但云端备份失败：' + errMsg(res[1]));
-      } else if (okC) {
-        toast('云端已备份，但家长查询更新失败：' + errMsg(res[0]));
-      } else {
-        toast('同步失败：' + errMsg(res[0]));
+      var payload, content, cloudPayload, cloudContent;
+      try {
+        payload = SWBParent.build(buildSource, SWB);
+        content = btoa(unescape(encodeURIComponent(JSON.stringify(payload, null, 1))));
+        cloudPayload = sanitizeDBForCloud(buildSource);   // 云端备份以本次发布的基准为准
+        cloudContent = btoa(unescape(encodeURIComponent(JSON.stringify(cloudPayload, null, 1))));
+      } catch (e) {
+        btn.disabled = false;
+        toast('生成失败：' + e.message);
+        return;
       }
+
+      var ts = new Date().toISOString();
+      var pStudents = pushFile(GH_FILE, content, 'sync: 更新家长查询数据 ' + ts, token);
+      var pCloud = ghGetFile(GH_DB_FILE, token).then(function (meta) {
+        return ghPutFile(GH_DB_FILE, cloudContent, 'sync: 云端备份 ' + ts, token, meta && meta.sha);
+      });
+
+      Promise.allSettled([pStudents, pCloud]).then(function (res) {
+        btn.disabled = false;
+        var okS = res[0].status === 'fulfilled';
+        var okC = res[1].status === 'fulfilled';
+        var n = payload.students.length, q = payload._meta.phoneFull, rep = payload._meta.withData;
+        var src = (buildSource === cloudDb) ? '（已用云端最新在班数据）' : '';
+        if (okS && okC) {
+          toast('已同步！' + n + ' 名学员（' + q + ' 人可查，' + rep + ' 人有报告）· 云端已备份' + src);
+        } else if (okS) {
+          toast('家长查询已更新，但云端备份失败：' + errMsg(res[1]));
+        } else if (okC) {
+          toast('云端已备份，但家长查询更新失败：' + errMsg(res[0]));
+        } else {
+          toast('同步失败：' + errMsg(res[0]));
+        }
+      });
+    }).catch(function (e) {
+      btn.disabled = false;
+      toast('同步失败：' + (e && e.message || e));
     });
   }
 

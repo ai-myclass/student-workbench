@@ -89,7 +89,9 @@
         if (d.parentScope.showStageSummary === undefined) d.parentScope.showStageSummary = true;
         if (d.parentScope.showStageKnowledge === undefined) d.parentScope.showStageKnowledge = true;
       }
-      return SWB.refresh(d);
+      var nd = SWB.refresh(d);
+      repairStudentPhones(nd); // 自愈：用内置学情表完整号覆盖旧缓存残留的脱敏/缺失手机号
+      return nd;
     } catch (e) { return SWB.refresh(SWB.emptyDB()); }
   }
   function save() {
@@ -2145,6 +2147,26 @@
     });
   }
 
+  /**
+   * 用内置学情表(SWB_ROSTER, 飞书 Base 快照, 含完整手机号) 回填 db.students[].phone 中
+   * 缺失 / 脱敏(含 ****) / 位数不足 的号码，保证「批量复制手机号」永远拿到完整号。
+   * 仅在「内置有更完整号码」时覆盖：已有 11 位完整号的绝不改成脱敏号。
+   * 用于根治旧缓存(补全前批次)残留掩码号的问题——每次加载自动自愈。
+   */
+  function repairStudentPhones(d) {
+    if (!window.SWB_ROSTER || !window.SWB_ROSTER.students) return;
+    var full = {};
+    window.SWB_ROSTER.students.forEach(function (r) {
+      if (r && String(r.phone || '').replace(/\D/g, '').length >= 11) full[String(r.id || r.key)] = r.phone;
+    });
+    (d.students || []).forEach(function (s) {
+      if (!s) return;
+      if (String(s.phone || '').replace(/\D/g, '').length >= 11) return; // 已有完整号，不动
+      var f = full[String(s.id || '')];
+      if (f) s.phone = f;
+    });
+  }
+
   /** 从云端拉取数据到本机（跨设备更新）。公开文件免令牌即可读取 */
   function loadFromCloud(silent) {
     var token = getToken();
@@ -2164,6 +2186,7 @@
       }
       db = SWB.refresh(json);
       overlayRosterPhones(db); // 补回学情表完整手机号，保证家长端可查询
+      repairStudentPhones(db); // 同步自愈主表手机号（防止旧缓存掩码号残留）
       lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
       sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false; selectedIds = {};
       $('#searchInput').value = ''; $('#archiveSearch').value = '';

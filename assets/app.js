@@ -43,6 +43,7 @@
     score: { min: null, max: null }
   };
   var rangePanelOpen = false;    // 指标筛选面板是否展开
+  var selectedIds = {};          // 批量选中：学员 id -> true
   var lessonScope = '';          // '' = 全部正课；否则为某一讲的课程名
   var archiveKw = '';
   var archiveFilter = '';
@@ -709,18 +710,19 @@
 
     // 表头（可点击小箭头排序）
     var cols = lessonScope ? STU_COLS.lesson : STU_COLS.all;
-    $('#stuHead').innerHTML = cols.map(function (c) {
-      if (!c.sort) return '<th>' + esc(c.label) + '</th>';
-      var active = sortKey === c.sort && sortDir;
-      var arrow = !active ? '⇅' : (sortDir === 'asc' ? '▲' : '▼');
-      return '<th class="th-sortable' + (active ? ' th-active' : '') + '" data-sort="' + c.sort + '">' +
-        esc(c.label) + '<span class="th-sort">' + arrow + '</span></th>';
-    }).join('');
-    var head = cols.map(function (c) { return c.label; });
+    $('#stuHead').innerHTML = '<th class="th-check" title="全选当前名单"><input type="checkbox" id="checkAll" class="row-check-all" aria-label="全选"></th>' +
+      cols.map(function (c) {
+        if (!c.sort) return '<th>' + esc(c.label) + '</th>';
+        var active = sortKey === c.sort && sortDir;
+        var arrow = !active ? '⇅' : (sortDir === 'asc' ? '▲' : '▼');
+        return '<th class="th-sortable' + (active ? ' th-active' : '') + '" data-sort="' + c.sort + '">' +
+          esc(c.label) + '<span class="th-sort">' + arrow + '</span></th>';
+      }).join('');
+    var colCount = cols.length + 1;   // +1 为全选复选框列
 
     var list = filtered();
     var body = $('#stuBody');
-    var colspan = head.length;
+    var colspan = colCount;
     if (!list.length) {
       body.innerHTML = '<tr><td colspan="' + colspan + '"><div class="empty-tip">' +
         (db.students.length ? '没有匹配的学员，换个关键词试试'
@@ -730,7 +732,9 @@
       body.innerHTML = list.map(function (s) {
         var st = s.stats;
         var gCls = s.gender === '男' ? 'pill-boy' : (s.gender === '女' ? 'pill-girl' : 'pill-none');
-        var base = '<tr data-id="' + esc(s.id) + '">' +
+        var checkTd = '<td class="td-check"><input type="checkbox" class="row-check" data-id="' + esc(s.id) + '"' + (selectedIds[s.id] ? ' checked' : '') + ' aria-label="选择"></td>';
+        var rowCls = selectedIds[s.id] ? ' class="sel"' : '';
+        var base = '<tr data-id="' + esc(s.id) + '"' + rowCls + '>' + checkTd +
           '<td><div class="cell-stu"><span class="avatar" style="background:' + colorOf(s.name) + '">' + esc(s.name.slice(0, 1)) + '</span>' +
           '<span><div class="cell-name">' + esc(s.name) + '</div>' +
           '<div class="cell-sub">' + esc(s.nickname ? '昵称 ' + s.nickname : (val(s.region) || '')) + '</div></span></div></td>' +
@@ -764,6 +768,47 @@
       ? '显示 ' + list.length + ' / ' + db.students.length + ' 名学员' +
         (lessonScope ? '（统计范围：' + shortName(lessonScope) + '）' : '')
       : '';
+    syncCheckState();
+    updateBatchBar();
+  }
+
+  /** 同步表头「全选」勾选框状态：根据当前可见行的选中情况 */
+  function syncCheckState() {
+    var boxes = $$('#stuBody .row-check');
+    var visible = boxes.map(function (cb) { return cb.getAttribute('data-id'); });
+    var selVis = visible.filter(function (id) { return selectedIds[id]; });
+    var ca = document.getElementById('checkAll');
+    if (!ca) return;
+    if (visible.length === 0) { ca.checked = false; ca.indeterminate = false; }
+    else if (selVis.length === visible.length) { ca.checked = true; ca.indeterminate = false; }
+    else if (selVis.length > 0) { ca.checked = false; ca.indeterminate = true; }
+    else { ca.checked = false; ca.indeterminate = false; }
+  }
+
+  /** 批量操作条：根据选中数量显示 / 隐藏并更新计数 */
+  function updateBatchBar() {
+    var ids = Object.keys(selectedIds).filter(function (k) { return selectedIds[k]; });
+    var bar = document.getElementById('batchBar');
+    if (!bar) return;
+    bar.hidden = ids.length === 0;
+    var c = document.getElementById('batchCount');
+    if (c) c.textContent = ids.length;
+  }
+
+  /** 批量复制选中学员的手机号或 ID，多个之间用空格间隔 */
+  function batchCopy(field, label) {
+    var ids = Object.keys(selectedIds).filter(function (k) { return selectedIds[k]; });
+    if (!ids.length) { toast('请先勾选学员'); return; }
+    var map = {};
+    db.students.forEach(function (s) { map[s.id] = s; });
+    var vals = ids.map(function (id) {
+      var s = map[id];
+      return s ? (field === 'phone' ? s.phone : s.id) : '';
+    }).filter(function (v) { return v != null && String(v).trim() !== ''; });
+    if (!vals.length) { toast('所选学员没有可复制的' + label); return; }
+    copyText(vals.join(' ')).then(function () {
+      toast('已复制 ' + vals.length + ' 个' + label + '（空格分隔）');
+    }).catch(function () { toast('复制失败，请手动选择'); });
   }
 
   function matchBadge(s) {
@@ -2120,7 +2165,7 @@
       db = SWB.refresh(json);
       overlayRosterPhones(db); // 补回学情表完整手机号，保证家长端可查询
       lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
-      sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false;
+      sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false; selectedIds = {};
       $('#searchInput').value = ''; $('#archiveSearch').value = '';
       save(); renderAll();
       var when = json.updatedAt ? new Date(json.updatedAt).toLocaleString('zh-CN') : '未知时间';
@@ -2217,6 +2262,35 @@
       renderStudents();
     });
 
+    // 表头「全选」：仅作用于当前名单可见行
+    $('#stuHead').addEventListener('change', function (e) {
+      if (!e.target || e.target.id !== 'checkAll') return;
+      var on = e.target.checked;
+      $$('#stuBody .row-check').forEach(function (cb) {
+        var id = cb.getAttribute('data-id');
+        if (on) selectedIds[id] = true; else delete selectedIds[id];
+        cb.checked = on;
+      });
+      syncCheckState();
+      updateBatchBar();
+    });
+    // 行复选框：切换单个学员选中
+    $('#stuBody').addEventListener('change', function (e) {
+      var cb = e.target.closest && e.target.closest('.row-check');
+      if (!cb) return;
+      var id = cb.getAttribute('data-id');
+      if (cb.checked) selectedIds[id] = true; else delete selectedIds[id];
+      syncCheckState();
+      updateBatchBar();
+    });
+    // 批量复制 / 取消选择
+    $('#btnCopyPhones').addEventListener('click', function () { batchCopy('phone', '手机号'); });
+    $('#btnCopyIds').addEventListener('click', function () { batchCopy('id', 'ID'); });
+    $('#btnClearSel').addEventListener('click', function () {
+      selectedIds = {};
+      renderStudents();
+    });
+
     // 档案搜索
     var ai = $('#archiveSearch');
     ai.addEventListener('input', function () {
@@ -2244,6 +2318,8 @@
         }).catch(function () { toast('复制失败，请手动选择复制'); });
         return;
       }
+      // 点击复选框 / 复选框所在单元格：仅处理选中，不打开抽屉
+      if (e.target.closest('.td-check')) return;
       var tr = e.target.closest('tr[data-id]');
       if (tr) openStudent(tr.dataset.id);
     });
@@ -2383,7 +2459,7 @@
         (hasRoster() ? db.roster.students.length + ' 份档案' : '0 份档案') + '，此操作不可撤销。')) return;
       db = SWB.refresh(SWB.emptyDB());
       lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
-      sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false;
+      sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false; selectedIds = {};
       $('#searchInput').value = ''; $('#archiveSearch').value = '';
       save(); renderAll();
       toast('已清空数据');

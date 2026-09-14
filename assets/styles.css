@@ -369,6 +369,16 @@ main{position:relative;z-index:1;max-width:1280px;margin:24px auto 80px;padding:
 .copy-btn svg{width:11px;height:11px;}
 .copy-btn.copied{color:#2CB5A0;border-color:#2CB5A0;background:#EAFBF6;}
 
+/* ---------- 批量选择 ---------- */
+.stu-table th.th-check, .stu-table td.td-check{width:38px;min-width:38px;text-align:center;padding-left:6px;padding-right:6px;}
+.stu-table .row-check, .stu-table .row-check-all{width:17px;height:17px;accent-color:var(--primary);cursor:pointer;vertical-align:middle;}
+.stu-table tbody tr.sel td{background:#F3F7FF;}
+.stu-table tbody tr.sel:hover td{background:#EAF1FF;}
+.batch-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 0;padding:10px 14px;background:var(--primary-soft);border:1px solid rgba(51,112,255,.22);border-radius:var(--r-md);flex-wrap:wrap;}
+.batch-count{font-size:13.5px;color:var(--text);font-weight:500;}
+.batch-count b{color:var(--primary);font-size:15px;margin:0 2px;}
+.batch-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+
 /* ---------- 学习预警 ---------- */
 #alertSummary{display:inline-flex;align-items:baseline;gap:6px;flex-wrap:wrap;}
 #alertSummary .as-num{color:var(--primary);font-weight:800;}

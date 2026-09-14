@@ -1893,6 +1893,34 @@
     return m;
   }
 
+  /**
+   * 把内置飞书学情表（含完整手机号）按 id 补回 db.roster：
+   * 云端备份的 roster 手机号常为空/脱敏，导致家长端按手机号查不到孩子。
+   * 仅在校验到 roster 手机号缺失时回填，不覆盖已有的完整手机号。
+   */
+  function overlayRosterPhones(d) {
+    if (!window.SWB_ROSTER || !window.SWB_ROSTER.students) return;
+    if (!d.roster || !d.roster.students || !d.roster.students.length) {
+      d.roster = JSON.parse(JSON.stringify(window.SWB_ROSTER));
+      return;
+    }
+    var full = {};
+    window.SWB_ROSTER.students.forEach(function (r) {
+      if (r && String(r.phone || '').replace(/\D/g, '').length >= 11) full[String(r.id || r.key)] = r;
+    });
+    d.roster.students.forEach(function (r) {
+      if (!r) return;
+      var k = String(r.id || r.key || '');
+      var f = full[k];
+      if (f && String(r.phone || '').replace(/\D/g, '').length < 11) {
+        r.phone = f.phone;
+        if (f.grade != null) r.grade = f.grade;
+        if (f.school != null) r.school = f.school;
+        if (f.gender != null) r.gender = f.gender;
+      }
+    });
+  }
+
   /** 从云端拉取数据到本机（跨设备更新）。公开文件免令牌即可读取 */
   function loadFromCloud(silent) {
     var token = getToken();
@@ -1911,6 +1939,7 @@
         if (!confirm('从云端加载会用最新备份覆盖当前本机数据，继续吗？')) return;
       }
       db = SWB.refresh(json);
+      overlayRosterPhones(db); // 补回学情表完整手机号，保证家长端可查询
       lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
       $('#searchInput').value = ''; $('#archiveSearch').value = '';
       save(); renderAll();

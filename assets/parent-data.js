@@ -150,29 +150,33 @@
     // 第二次 refresh：按最终确定的讲次口径重算统计，保证 stats 与导出的 courses 一致
     SWB.refresh(work, courses);
 
-    // 手机号解析：以学情表为准补全（平台数据常脱敏）
-    var rosterByKey = {};
-    (work.roster.students || []).forEach(function (r) { if (r && r.key) rosterByKey[r.key] = r; });
-    function isFullPhone(v) { return normalizePhone(v).length >= 11; }
-    function resolvePhone(s) {
-      if (isFullPhone(s.phone)) return { phone: normalizePhone(s.phone), from: 'student' };
-      var r = s.rosterKey ? rosterByKey[s.rosterKey] : null;
-      if (r && isFullPhone(r.phone)) return { phone: normalizePhone(r.phone), from: 'roster' };
-      return { phone: normalizePhone(s.phone), from: 'incomplete' };
-    }
+    var normId = function (v) { return String(v == null ? '' : v).replace(/\D/g, ''); };
 
-    // 学习数据索引：按 rosterKey 与姓名，便于把学习记录挂到学情表学员上
-    var learnByKey = {};
-    var learnByName = {};
+    // 学情表索引：按 key / id 双键，便于按"花名册ID"反查到完整手机号与档案
+    var rosterById = {}, rosterByKey = {};
+    (work.roster.students || []).forEach(function (r) {
+      if (!r) return;
+      if (r.key) { rosterByKey[r.key] = r; var k = normId(r.key); if (k) rosterById[k] = r; }
+      var rid = normId(r.id); if (rid) rosterById[rid] = r;
+    });
+    function isFullPhone(v) { return normalizePhone(v).length >= 11; }
+
+    // 学习数据索引：按 id / 手机号 / 姓名，便于把学习记录挂到学员上
+    var learnById = {}, learnByPhone = {}, learnByName = {};
     work.students.forEach(function (s) {
-      if (s.rosterKey) learnByKey[s.rosterKey] = s;
+      if (!s) return;
+      var sid = normId(s.id); if (sid) learnById[sid] = s;
+      var sp = normalizePhone(s.phone); if (sp.length >= 11) learnByPhone[sp] = s;
       if (s.name) learnByName[s.name] = s;
     });
 
-    // 以学情表（roster）全量为查询对象：在册学员家长都能凭手机号查到自己的孩子。
-    var rosterSource = (work.roster && work.roster.students && work.roster.students.length)
-      ? work.roster.students
-      : (work.students || []);
+    // 家长可见范围：以"真实花名册（homeroom，工作台在读基准）"为全班查询对象，
+    // 保证家长端覆盖班级每一名学员；若花名册为空（如未导入），回退到学情表全量，向后兼容。
+    var classSource = (work.homeroom && work.homeroom.length)
+      ? work.homeroom
+      : ((work.roster && work.roster.students && work.roster.students.length)
+          ? work.roster.students
+          : (work.students || []));
 
     var phoneFull = 0, phoneMissing = 0, withData = 0;
 
@@ -191,20 +195,31 @@
     }
     var commentLib = work.commentLib || [];
 
-    var students = rosterSource.map(function (r) {
-      var ph = normalizePhone(r.phone);
-      // 跨设备云端备份会把明文手机号脱敏为 phoneHash，这里优先用明文、否则回退到已存的哈希
-      var hash = ph.length >= 11 ? phoneHash(ph) : (r.phoneHash || '');
-      var hasPhone = ph.length >= 11 || !!r.phoneHash;
+    var students = classSource.map(function (r) {
+      var rid = normId(r.id);
+      // 学情表档案（含完整手机号）+ 学习数据，均按 id/手机号/姓名反查
+      var rosterRec = (rid && rosterById[rid]) || (r.rosterKey && rosterByKey[r.rosterKey]) || null;
+      var learn = (rid && learnById[rid])
+        || (r.phone && learnByPhone[normalizePhone(r.phone)])
+        || (r.name && learnByName[r.name]) || null;
+
+      // 完整手机号优先取自学情表档案（含完整号），其次取花名册/学习数据本身
+      var fullPhone = '';
+      if (rosterRec && isFullPhone(rosterRec.phone)) fullPhone = normalizePhone(rosterRec.phone);
+      else if (isFullPhone(r.phone)) fullPhone = normalizePhone(r.phone);
+      else if (learn && isFullPhone(learn.phone)) fullPhone = normalizePhone(learn.phone);
+      var hash = fullPhone ? phoneHash(fullPhone) : (r.phoneHash || (rosterRec && rosterRec.phoneHash) || '');
+      var hasPhone = !!fullPhone || !!r.phoneHash || !!(rosterRec && rosterRec.phoneHash);
       if (hasPhone) phoneFull++; else phoneMissing++;
 
-      var learn = (r.key && learnByKey[r.key]) || (r.name && learnByName[r.name]) || null;
-      var hasReal = !!(learn && learn.stats && learn.stats.score > 0);
+      var name = r.name || (learn && learn.name) || (rosterRec && rosterRec.name) || '';
+      var learnRec = learn;
+      var hasReal = !!(learnRec && learnRec.stats && learnRec.stats.score > 0);
 
       var lessons = {};
       if (hasReal) {
         courses.forEach(function (cn) {
-          var l = learn.lessons && learn.lessons[cn];
+          var l = learnRec.lessons && learnRec.lessons[cn];
           if (!l) return;
           lessons[cn] = {
             effective: !!l.effective,
@@ -218,23 +233,23 @@
           };
         });
       }
-      var st = hasReal ? learn.stats : null;
+      var st = hasReal ? learnRec.stats : null;
       if (hasReal) withData++;
 
       // 阶段知识点与评语：家长端展示用（仅在有真实学习记录时计算评语，知识点对所有学员展示）
       var autoComment = '', customComment = '';
       if (hasReal) {
-        var tmpS = { name: r.name || (learn && learn.name) || '', id: r.key || r.id || '', stats: st, lessons: lessons };
+        var tmpS = { name: name, id: rid || (learnRec && learnRec.id) || '', stats: st, lessons: lessons };
         autoComment = buildTeacherComment(tmpS, courses, accFloorFor);
-        customComment = resolveCustomComment(tmpS, commentLib, (learn && learn.customComment) || '');
+        customComment = resolveCustomComment(tmpS, commentLib, (learnRec && learnRec.customComment) || '');
       }
 
       return {
-        name: r.name || '',
-        id: r.key || r.id || '',
-        grade: r.grade || (st ? (learn.grade || '') : ''),
-        gender: r.gender || '',
-        school: r.school || '',
+        name: name,
+        id: rid || r.id || (learnRec && learnRec.id) || '',
+        grade: (rosterRec && rosterRec.grade) || (learnRec && learnRec.grade) || r.grade || '',
+        gender: (rosterRec && rosterRec.gender) || r.gender || (learnRec && learnRec.gender) || '',
+        school: (rosterRec && rosterRec.school) || (learnRec && learnRec.school) || r.school || '',
         phoneHash: hash,
         stats: st ? {
           score: st.score, listen: st.listen, accuracy: st.accuracy,

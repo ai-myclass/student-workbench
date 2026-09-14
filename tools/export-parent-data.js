@@ -36,23 +36,20 @@ if (!SWB) { console.error('parser.js 未导出 SWB'); process.exit(1); }
 // parent-data.js 在 Node 下通过 module.exports 暴露
 const SWBParent = require(path.join(ROOT, 'assets', 'parent-data.js'));
 
-const sampleWin = loadBrowserScript('sample-data.js');
 const rosterWin = loadBrowserScript('roster-data.js');
 
-/* ---------- 合并数据（与工作台启动流程一致） ---------- */
-const db = SWB.emptyDB();
-
-if (!sampleWin.SWB_SAMPLE || !sampleWin.SWB_SAMPLE.students) {
-  console.error('缺少示例学习数据 SWB_SAMPLE');
+/* ---------- 以真实数据（teacher-db.json）为基准重建 db ---------- */
+const dbPath = path.join(ROOT, 'data', 'teacher-db.json');
+if (!fs.existsSync(dbPath)) {
+  console.error('缺少 data/teacher-db.json（请先在工作台同步或导入数据）');
   process.exit(1);
 }
-const merged = SWB.mergeInto(db, JSON.parse(JSON.stringify(sampleWin.SWB_SAMPLE)));
+const db = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
-let rosterCount = 0;
+// 学情表（含完整手机号）覆盖进 db.roster：家长端凭手机号查询需要完整号
 if (rosterWin.SWB_ROSTER && rosterWin.SWB_ROSTER.students) {
-  const r = SWB.mergeRosterInto(db, JSON.parse(JSON.stringify(rosterWin.SWB_ROSTER)));
-  rosterCount = r.total;
-  SWB.applyRoster(db);
+  db.roster = db.roster || {};
+  db.roster.students = JSON.parse(JSON.stringify(rosterWin.SWB_ROSTER.students));
 }
 
 SWB.refresh(db, null);
@@ -66,9 +63,9 @@ const outFile = path.join(outDir, 'students.json');
 fs.writeFileSync(outFile, JSON.stringify(out, null, 1), 'utf8');
 
 console.log('已生成 ' + outFile);
-console.log('  学习数据合并：新增 ' + merged.added + ' / 更新 ' + merged.updated + '，讲次 ' + merged.newCourses);
-console.log('  学情档案：' + rosterCount + ' 份，匹配 ' + (db.rosterMatched || 0) + ' 人');
+console.log('  数据源：data/teacher-db.json（在读 ' + (db.students || []).length + ' 人 / 花名册 ' + (db.homeroom || []).length + ' 人）');
+console.log('  学情档案：' + ((db.roster && db.roster.students) || []).length + ' 份，匹配 ' + (db.rosterMatched || 0) + ' 人');
 console.log('  参与统计的讲次：' + out.courses.length + ' 讲（来源 ' + out.courseSource + '）');
-console.log('  导出学员：' + out.students.length + ' 人（以学情表全量为准，仅含 phoneHash，不含手机号明文）');
+console.log('  导出学员：' + out.students.length + ' 人（以花名册全量为准，仅含 phoneHash，不含手机号明文）');
 console.log('  可用手机查询：' + out._meta.phoneFull + ' 人；号码不完整无法查询：' + out._meta.phoneMissing + ' 人');
-console.log('  其中有学习报告：' + out._meta.withData + ' 人；查到但暂无学习记录：' + (out._meta.phoneFull - out._meta.withData) + ' 人');
+console.log('  其中有学习报告：' + out._meta.withData + ' 人；暂无学习记录：' + (out.students.length - out._meta.withData) + ' 人');

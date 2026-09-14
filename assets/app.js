@@ -32,9 +32,17 @@
   var db = load();
   var view = 'dashboard';
   var keyword = '';
-  var sortBy = 'score';
+  var sortKey = 'score';         // 当前排序字段（name/grade/listen/accuracy/homework/score/minutes/attend/effective）
+  var sortDir = 'desc';          // 'asc' | 'desc' | null（null 表示不按该列排）
   var filterGrade = '';
   var filterMatch = '';
+  var fRanges = {                // 指标范围筛选（百分比 0~100；综合分同口径 0~100），null 表示不限
+    listen: { min: null, max: null },
+    accuracy: { min: null, max: null },
+    homework: { min: null, max: null },
+    score: { min: null, max: null }
+  };
+  var rangePanelOpen = false;    // 指标筛选面板是否展开
   var lessonScope = '';          // '' = 全部正课；否则为某一讲的课程名
   var archiveKw = '';
   var archiveFilter = '';
@@ -539,23 +547,144 @@
     return false;
   }
 
+  /** 年级排序权重（一年级<二年级<…<初一<…），未知置末 */
+  function gradeRank(g) {
+    var order = ['未填写', '一年级', '二年级', '三年级', '四年级', '五年级', '六年级', '预初', '初一', '初二', '初三', '高一', '高二', '高三'];
+    var i = order.indexOf(g);
+    return i < 0 ? 999 : i;
+  }
+  /** 取某学员在「当前统计范围」下某指标的取值（0..1 或 null）；用于排序与范围筛选 */
+  function metricVal(s, key) {
+    var st = s.stats || {};
+    if (lessonScope) {
+      var l = s.lessons[lessonScope] || {};
+      if (key === 'listen' || key === 'effective') return l.effective ? 1 : 0;
+      if (key === 'attend') return l.attended ? 1 : 0;
+      if (key === 'accuracy') return (l.quizAnswer || 0) > 0 ? (l.accuracy || 0) / 100 : null;
+      if (key === 'homework') return U.isUnassigned(l.hwStatus) ? null : (U.isHwDone(l.hwStatus) ? 1 : 0);
+      if (key === 'minutes') return (l.durationMin || 0);
+      if (key === 'score') return st.score;
+    }
+    if (key === 'listen' || key === 'effective') return st.listen;
+    if (key === 'attend') return st.attend;
+    if (key === 'accuracy') return st.accuracy;
+    if (key === 'homework') return st.homework;
+    if (key === 'minutes') return st.minutes;
+    if (key === 'score') return st.score;
+    return 0;
+  }
+  /** 排序用取值：字符串列走年级权重/姓名，数值列走 metricVal（null 沉底） */
+  function sortVal(s, key) {
+    if (key === 'name') return String(s.name || '');
+    if (key === 'grade') return gradeRank(String(val(s.grade) || '未填写'));
+    return metricVal(s, key);
+  }
+  /** 比较器：dir=asc 升序 / desc 降序；字符串走中文排序，null 永远沉底 */
+  function cmpBy(key, dir) {
+    var mul = dir === 'asc' ? 1 : -1;
+    return function (a, b) {
+      var va = sortVal(a, key), vb = sortVal(b, key);
+      var sa = typeof va === 'string', sb = typeof vb === 'string';
+      if (sa || sb) return mul * String(va).localeCompare(String(vb), 'zh-CN');
+      if (va == null && vb == null) return 0;
+      if (va == null) return 1;       // null 沉底（asc/desc 一致）
+      if (vb == null) return -1;
+      return mul * (va - vb);
+    };
+  }
+  /** 指标范围筛选：把 0..1 转成百分比比较；某指标无数据(null)时，仅当未设上下界才通过 */
+  function metricPct(s, key) {
+    var v = metricVal(s, key);
+    return v == null ? null : v * 100;
+  }
+  function passRange(s, key) {
+    var r = fRanges[key];
+    if (!r || (r.min == null && r.max == null)) return true;
+    var pct = metricPct(s, key);
+    if (pct == null) return false;     // 该指标无学习数据 → 不满足数值范围
+    if (r.min != null && pct < r.min) return false;
+    if (r.max != null && pct > r.max) return false;
+    return true;
+  }
+
+  /** 学员表列定义：sort 字段对应 sortKey；null 表示该列不可排序 */
+  var STU_COLS = {
+    all: [
+      { label: '学员', sort: 'name' },
+      { label: '学员 ID', sort: null },
+      { label: '手机号', sort: null },
+      { label: '性别', sort: null },
+      { label: '年级', sort: 'grade' },
+      { label: '匹配', sort: null },
+      { label: '有效听课率', sort: 'listen' },
+      { label: '答题正确率', sort: 'accuracy' },
+      { label: '练习完成率', sort: 'homework' },
+      { label: '综合', sort: 'score' }
+    ],
+    lesson: [
+      { label: '学员', sort: 'name' },
+      { label: '学员 ID', sort: null },
+      { label: '手机号', sort: null },
+      { label: '年级', sort: 'grade' },
+      { label: '匹配', sort: null },
+      { label: '到课', sort: 'attend' },
+      { label: '有效', sort: 'effective' },
+      { label: '答题', sort: null },
+      { label: '正确率', sort: 'accuracy' },
+      { label: '练习', sort: 'homework' },
+      { label: '听课时长', sort: 'minutes' },
+      { label: '综合', sort: 'score' }
+    ]
+  };
+
+  function updateRangeTip() {
+    var tip = $('#rangeTip'); if (!tip) return;
+    var n = 0;
+    ['listen', 'accuracy', 'homework', 'score'].forEach(function (k) {
+      var r = fRanges[k];
+      if (r && (r.min != null || r.max != null)) n++;
+    });
+    tip.textContent = n ? ('已启用 ' + n + ' 项指标范围筛选') : '';
+    tip.classList.toggle('on', n > 0);
+  }
+  function readRangeInput(idMin, idMax) {
+    var mn = document.getElementById(idMin).value;
+    var mx = document.getElementById(idMax).value;
+    return {
+      min: mn === '' ? null : Math.max(0, Math.min(100, +mn || 0)),
+      max: mx === '' ? null : Math.max(0, Math.min(100, +mx || 0))
+    };
+  }
+  function readRangesFromUI() {
+    fRanges.listen = readRangeInput('rngListenMin', 'rngListenMax');
+    fRanges.accuracy = readRangeInput('rngAccuracyMin', 'rngAccuracyMax');
+    fRanges.homework = readRangeInput('rngHomeworkMin', 'rngHomeworkMax');
+    fRanges.score = readRangeInput('rngScoreMin', 'rngScoreMax');
+  }
+  function clearRanges() {
+    var keys = ['listen', 'accuracy', 'homework', 'score'];
+    keys.forEach(function (k) { fRanges[k] = { min: null, max: null }; });
+    ['rngListenMin', 'rngListenMax', 'rngAccuracyMin', 'rngAccuracyMax', 'rngHomeworkMin', 'rngHomeworkMax', 'rngScoreMin', 'rngScoreMax'].forEach(function (id) {
+      var el = document.getElementById(id); if (el) el.value = '';
+    });
+  }
+
   function filtered() {
     var list = db.students.filter(function (s) {
       if (filterGrade && (val(s.grade) || '未填写') !== filterGrade) return false;
       if (filterMatch === 'yes' && !s.rosterMatched) return false;
       if (filterMatch === 'no' && s.rosterMatched) return false;
+      // 指标范围筛选仅在「综合（全部正课）」口径下启用；单讲口径列含义不同，故跳过
+      if (!lessonScope) {
+        if (!passRange(s, 'listen')) return false;
+        if (!passRange(s, 'accuracy')) return false;
+        if (!passRange(s, 'homework')) return false;
+        if (!passRange(s, 'score')) return false;
+      }
       return matchKeyword(keyword.trim(), s.name, s.id, s.phone, s.nickname);
     });
-    var cmp = {
-      score: function (a, b) { return b.stats.score - a.stats.score; },
-      score_asc: function (a, b) { return a.stats.score - b.stats.score; },
-      listen: function (a, b) { return b.stats.listen - a.stats.listen; },
-      accuracy: function (a, b) { return nullVal(b.stats.accuracy) - nullVal(a.stats.accuracy); },
-      homework: function (a, b) { return nullVal(b.stats.homework) - nullVal(a.stats.homework); },
-      minutes: function (a, b) { return b.stats.minutes - a.stats.minutes; },
-      name: function (a, b) { return String(a.name).localeCompare(String(b.name), 'zh-CN'); }
-    };
-    return list.sort(cmp[sortBy] || cmp.score);
+    if (sortDir) list.sort(cmpBy(sortKey, sortDir));
+    return list;
   }
 
   function renderStudents() {
@@ -571,12 +700,23 @@
     var fm = $('#filterMatch');
     fm.hidden = !hasRoster();
     fm.value = filterMatch;
-    $('#sortBy').value = sortBy;
 
-    var head = lessonScope
-      ? ['学员', '学员 ID', '手机号', '年级', '匹配', '到课', '有效听课', '答题', '正确率', '练习', '听课时长', '综合']
-      : ['学员', '学员 ID', '手机号', '性别', '年级', '匹配', '有效听课率', '答题正确率', '练习完成率', '综合'];
-    $('#stuHead').innerHTML = head.map(function (h) { return '<th>' + esc(h) + '</th>'; }).join('');
+    // 指标范围筛选面板：仅「综合（全部正课）」口径可用；单讲口径列含义不同故隐藏
+    var showRange = !lessonScope;
+    $('#btnRangeToggle').hidden = !showRange;
+    $('#rangePanel').hidden = !(showRange && rangePanelOpen);
+    updateRangeTip();
+
+    // 表头（可点击小箭头排序）
+    var cols = lessonScope ? STU_COLS.lesson : STU_COLS.all;
+    $('#stuHead').innerHTML = cols.map(function (c) {
+      if (!c.sort) return '<th>' + esc(c.label) + '</th>';
+      var active = sortKey === c.sort && sortDir;
+      var arrow = !active ? '⇅' : (sortDir === 'asc' ? '▲' : '▼');
+      return '<th class="th-sortable' + (active ? ' th-active' : '') + '" data-sort="' + c.sort + '">' +
+        esc(c.label) + '<span class="th-sort">' + arrow + '</span></th>';
+    }).join('');
+    var head = cols.map(function (c) { return c.label; });
 
     var list = filtered();
     var body = $('#stuBody');
@@ -1980,6 +2120,7 @@
       db = SWB.refresh(json);
       overlayRosterPhones(db); // 补回学情表完整手机号，保证家长端可查询
       lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
+      sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false;
       $('#searchInput').value = ''; $('#archiveSearch').value = '';
       save(); renderAll();
       var when = json.updatedAt ? new Date(json.updatedAt).toLocaleString('zh-CN') : '未知时间';
@@ -2035,9 +2176,46 @@
     $('#clearSearch').addEventListener('click', function () {
       si.value = ''; keyword = ''; $('#clearSearch').hidden = true; renderStudents(); si.focus();
     });
-    $('#sortBy').addEventListener('change', function () { sortBy = this.value; renderStudents(); });
+    // 表头排序：点击带 data-sort 的 <th> 切换 正序 / 倒序 / 取消
+    $('#stuHead').addEventListener('click', function (e) {
+      var th = e.target.closest('th[data-sort]');
+      if (!th) return;
+      var k = th.dataset.sort;
+      if (sortKey !== k) {
+        sortKey = k;
+        sortDir = (k === 'name' || k === 'grade') ? 'asc' : 'desc';
+      } else if (sortDir === 'desc') {
+        sortDir = 'asc';
+      } else if (sortDir === 'asc') {
+        sortDir = null;
+      } else {
+        sortDir = (k === 'name' || k === 'grade') ? 'asc' : 'desc';
+      }
+      renderStudents();
+    });
     $('#filterGrade').addEventListener('change', function () { filterGrade = this.value; renderStudents(); });
     $('#filterMatch').addEventListener('change', function () { filterMatch = this.value; renderStudents(); });
+
+    // 指标范围筛选面板
+    $('#btnRangeToggle').addEventListener('click', function () {
+      rangePanelOpen = !rangePanelOpen;
+      this.classList.toggle('open', rangePanelOpen);
+      $('#rangePanel').hidden = !rangePanelOpen;
+      this.querySelector('.caret').textContent = rangePanelOpen ? '▴' : '▾';
+    });
+    ['rngListenMin', 'rngListenMax', 'rngAccuracyMin', 'rngAccuracyMax', 'rngHomeworkMin', 'rngHomeworkMax', 'rngScoreMin', 'rngScoreMax'].forEach(function (id) {
+      var el = document.getElementById(id);
+      el.addEventListener('input', function () {
+        readRangesFromUI();
+        updateRangeTip();
+        renderStudents();
+      });
+    });
+    $('#btnRangeReset').addEventListener('click', function () {
+      clearRanges();
+      updateRangeTip();
+      renderStudents();
+    });
 
     // 档案搜索
     var ai = $('#archiveSearch');
@@ -2205,6 +2383,7 @@
         (hasRoster() ? db.roster.students.length + ' 份档案' : '0 份档案') + '，此操作不可撤销。')) return;
       db = SWB.refresh(SWB.emptyDB());
       lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
+      sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false;
       $('#searchInput').value = ''; $('#archiveSearch').value = '';
       save(); renderAll();
       toast('已清空数据');

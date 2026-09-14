@@ -138,15 +138,51 @@
             <option value="yes" data-page-node-id="H86LHbY2UbXZbXpDUxhuRb">已在学情表</option>
             <option value="no" data-page-node-id="mEJWikdA2ydVh9bvQdNfuI">未在学情表</option>
           </select>
-          <select id="sortBy" data-page-node-id="bx6uqZht2Alhicvb5TA908">
-            <option value="score" data-page-node-id="zrDcVB6H4EGfSIM4I54BDj">综合得分（高→低）</option>
-            <option value="score_asc" data-page-node-id="zrDcVBr2k9scoreasc">综合得分（低→高）</option>
-            <option value="listen" data-page-node-id="ZYGq1xJPq7q1V7Gg505UEi">按有效听课率</option>
-            <option value="accuracy" data-page-node-id="Swt9rOS1GNcxYe3tlf76PE">按答题正确率</option>
-            <option value="homework" data-page-node-id="1eK6HiuCTMMZBBKyyhkKA5">按练习完成率</option>
-            <option value="minutes" data-page-node-id="8o8uXSgNZmM96EmllBYm8x">按听课时长</option>
-            <option value="name" data-page-node-id="cMEgzzrgS3V3RCbOLexwsE">按姓名</option>
-          </select>
+          <button type="button" id="btnRangeToggle" class="filter-btn">指标筛选<span class="caret">▾</span></button>
+        </div>
+      </div>
+      <div class="range-panel" id="rangePanel" hidden>
+        <div class="range-grid">
+          <div class="range-item">
+            <label>有效听课率</label>
+            <div class="range-inputs">
+              <input type="number" id="rngListenMin" min="0" max="100" placeholder="最小" inputmode="numeric" />
+              <span class="rng-sep">~</span>
+              <input type="number" id="rngListenMax" min="0" max="100" placeholder="最大" inputmode="numeric" />
+              <span class="rng-unit">%</span>
+            </div>
+          </div>
+          <div class="range-item">
+            <label>答题正确率</label>
+            <div class="range-inputs">
+              <input type="number" id="rngAccuracyMin" min="0" max="100" placeholder="最小" inputmode="numeric" />
+              <span class="rng-sep">~</span>
+              <input type="number" id="rngAccuracyMax" min="0" max="100" placeholder="最大" inputmode="numeric" />
+              <span class="rng-unit">%</span>
+            </div>
+          </div>
+          <div class="range-item">
+            <label>练习完成率</label>
+            <div class="range-inputs">
+              <input type="number" id="rngHomeworkMin" min="0" max="100" placeholder="最小" inputmode="numeric" />
+              <span class="rng-sep">~</span>
+              <input type="number" id="rngHomeworkMax" min="0" max="100" placeholder="最大" inputmode="numeric" />
+              <span class="rng-unit">%</span>
+            </div>
+          </div>
+          <div class="range-item">
+            <label>综合分</label>
+            <div class="range-inputs">
+              <input type="number" id="rngScoreMin" min="0" max="100" placeholder="最小" inputmode="numeric" />
+              <span class="rng-sep">~</span>
+              <input type="number" id="rngScoreMax" min="0" max="100" placeholder="最大" inputmode="numeric" />
+              <span class="rng-unit">分</span>
+            </div>
+          </div>
+        </div>
+        <div class="range-actions">
+          <span class="range-tip" id="rangeTip"></span>
+          <button type="button" id="btnRangeReset" class="btn btn-ghost btn-sm">重置筛选</button>
         </div>
       </div>
       <div class="table-scroll" data-page-node-id="L3h2JeWDR8XASHAoOx3kb4">

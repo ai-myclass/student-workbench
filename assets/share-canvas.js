@@ -16,9 +16,9 @@
   var SHARE_METRICS = [
     { key: 'listen', label: '有效听课率', color: '#2563EB', def: true },
     { key: 'accuracy', label: '答题正确率', color: '#14B8A6', def: true },
-    { key: 'homework', label: '练习完成率', color: '#2563EB', def: true },
-    { key: 'progress', label: '听课进度', color: '#60A5FA', def: false },
-    { key: 'score', label: '综合得分', color: '#FB923C', def: false }
+    { key: 'homework', label: '练习完成率', color: '#FB923C', def: true },
+    { key: 'progress', label: '听课进度', color: '#8B5CF6', def: false },
+    { key: 'score', label: '综合得分', color: '#EC4899', def: false }
   ];
 
   /* ---------------- 基础工具 ---------------- */
@@ -66,6 +66,18 @@
     ctx.closePath();
   }
   function avg(arr) { var t = 0; arr.forEach(function (v) { t += v; }); return t / arr.length; }
+  /** 仅顶部圆角的矩形路径（用于柱状图，底部贴基线不露缝） */
+  function rrTop(ctx, x, y, w, h, r) {
+    r = Math.max(0, Math.min(r, w / 2, h));
+    ctx.beginPath();
+    ctx.moveTo(x, y + h);
+    ctx.lineTo(x, y + r);
+    ctx.arcTo(x, y, x + r, y, r);
+    ctx.lineTo(x + w - r, y);
+    ctx.arcTo(x + w, y, x + w, y + r, r);
+    ctx.lineTo(x + w, y + h);
+    ctx.closePath();
+  }
   function wrapText(ctx, text, maxW) {
     var out = [], line = '';
     for (var i = 0; i < text.length; i++) {
@@ -75,6 +87,12 @@
     }
     if (line) out.push(line);
     return out;
+  }
+  /** 课节名取「第N讲」短名，用于阶段知识点副标题 */
+  function lessonShortName(ln) {
+    var s = String(ln || '');
+    var m = s.match(/^第\s*\d+\s*讲/);
+    return m ? m[0] : s;
   }
 
   /* ---------------- 指标计算 ---------------- */
@@ -201,7 +219,7 @@
     var showChips = opts.showChips !== false;
     var showKnowledge = opts.showKnowledge !== false;   // 是否展示「阶段知识点」
     var showComment = opts.showComment !== false;        // 是否展示「教师评语」
-    var showChart = opts.showChart !== false;            // 是否展示「学习趋势折线图」
+    var showChart = opts.showChart !== false;            // 是否展示「学习趋势柱状图」
     var metrics = opts.metrics || null;   // null = 用默认勾选
 
     var ctx = cv.getContext('2d');
@@ -211,9 +229,9 @@
       chosen[m.key] = metrics ? !!metrics[m.key] : !!m.def;
     });
 
-    // 阶段知识点：仅保留有内容的讲次
+    // 阶段知识点：仅保留有内容（已按阶段汇总，course 字段已改为 name）
     var knowledge = (opts.knowledge || []).filter(function (k) {
-      return k && k.course && k.points && k.points.length;
+      return k && k.points && k.points.length;
     });
     // 自动客观评价（系统根据学习数据生成）
     var autoComment = opts.autoComment != null ? opts.autoComment : buildTeacherComment(s, courses);
@@ -238,13 +256,25 @@
     if (customLines.length) combinedLines = combinedLines.concat(customLines);
     var hasComment = combinedLines.length > 0;
 
-    // 预计算阶段知识点块
+    // 预计算阶段知识点块（按阶段汇总）：每个要点单独成行，逗号/顿号保留在同一行
     var knowBlocks = [];
     knowledge.forEach(function (k) {
-      var pts = (k.points || []).map(function (p) { return String(p).trim(); }).filter(Boolean);
+      // 所见即所得：行首缩进原样保留，只去掉行尾空白
+      var pts = (k.points || [])
+        .map(function (p) { return String(p).replace(/[ \t\u3000]+$/, ''); })
+        .filter(function (p) { return p.trim(); });
       if (!pts.length) return;
-      var wrapped = wrapText(ctx, pts.join('、'), LW - 28);
-      knowBlocks.push({ title: String(k.course), lines: wrapped });
+      var lines = [];
+      pts.forEach(function (p) {
+        // 完全按配置展示：不加项目符号，逐行原样绘制（超长自动折行，内容不变）
+        wrapText(ctx, p, LW - 28).forEach(function (ln) { lines.push({ text: ln }); });
+      });
+      var subLines = [];
+      if (k.lessons && k.lessons.length) {
+        var lessonShort = k.lessons.map(function (ln) { return lessonShortName(ln); }).join('、');
+        subLines = wrapText(ctx, '覆盖：' + lessonShort, LW - 28);
+      }
+      knowBlocks.push({ title: String(k.name || '阶段知识点'), subLines: subLines, lines: lines });
     });
 
     /* ---------- 竖向布局（游标法，避免模块互相遮挡） ---------- */
@@ -261,7 +291,11 @@
     if (showKnowledge && knowBlocks.length) {
       y += GAP; knowY = y;
       knowH = 56 + 16;
-      knowBlocks.forEach(function (b) { knowH += 42 + b.lines.length * 34 + 14; });
+      knowBlocks.forEach(function (b) {
+        knowH += 42;
+        if (b.subLines.length) knowH += b.subLines.length * 30 + 8;
+        knowH += b.lines.length * 34 + 14;
+      });
       y += knowH;
     }
     if (showComment && hasComment) {
@@ -333,16 +367,16 @@
       });
     }
 
-    // 折线图卡片（白底卡片，标题+图例内置，折线不会遮挡上方文字）
+    // 柱状图卡片（白底卡片，标题+图例内置）
     if (showChart && chartY != null) {
       var plotT = chartY + CHART_TOP;
       var plotB = plotT + CHART_PLOT_H;
       var plotL = 110, plotR = W - 110;
-      var xPad = 70;  // X 轴两端留白，避免折线点贴边
+      var xPad = 70;  // X 轴两端留白，避免柱贴边
       ctx.fillStyle = '#fff'; rr(ctx, CARDX, chartY, CARDW, chartH, 24); ctx.fill();
       ctx.fillStyle = '#0F172A'; ctx.font = '800 36px "PingFang SC",sans-serif';
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
-      ctx.fillText('每一讲学习数据走势', TX, chartY + 56);
+      ctx.fillText('每一讲学习数据对比', TX, chartY + 56);
       var lx = TX, ly = chartY + 112;
       SHARE_METRICS.forEach(function (m) {
         if (!chosen[m.key]) return;
@@ -382,26 +416,34 @@
       ctx.beginPath(); ctx.moveTo(plotL, plotB); ctx.lineTo(plotR, plotB); ctx.stroke();
       ctx.textBaseline = 'alphabetic';
 
-      // 各指标折线
+      // 各指标柱状图（按讲次分组，每组每指标一根柱）
       var any = false;
-      SHARE_METRICS.forEach(function (m) {
-        if (!chosen[m.key]) return;
-        var pts = [];
-        courses.forEach(function (cn, i) {
+      var mets = SHARE_METRICS.filter(function (m) { return chosen[m.key]; });
+      var dx = (courses.length === 1) ? 0 : (plotW - xPad * 2) / (courses.length - 1);
+      var slot = (courses.length === 1) ? Math.min(plotW, 220) : dx;
+      var groupW = Math.min(slot * 0.74, mets.length > 1 ? 92 : 56);
+      var gap = mets.length > 1 ? 6 : 0;
+      var bw = (groupW - gap * (mets.length - 1)) / mets.length;
+      courses.forEach(function (cn, i) {
+        var cx = px(i);
+        var gx = cx - groupW / 2;
+        mets.forEach(function (m, j) {
           var v = lessonVal(m.key, lessons[cn] || {});
           if (v == null) return;
-          pts.push({ x: px(i), y: py(v) });
-        });
-        if (!pts.length) return;
-        any = true;
-        ctx.strokeStyle = m.color; ctx.lineWidth = 5; ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-        ctx.beginPath();
-        pts.forEach(function (p, i) { i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y); });
-        ctx.stroke();
-        pts.forEach(function (p) {
-          ctx.beginPath(); ctx.arc(p.x, p.y, 7, 0, Math.PI * 2);
-          ctx.fillStyle = '#fff'; ctx.fill();
-          ctx.lineWidth = 4; ctx.strokeStyle = m.color; ctx.stroke();
+          any = true;
+          var bx = gx + j * (bw + gap);
+          var by = py(v);
+          var h = plotB - by;
+          if (h < 1) h = 1;
+          var rad = Math.min(bw / 2, 8);
+          ctx.fillStyle = m.color;
+          rrTop(ctx, bx, by, bw, h, rad); ctx.fill();
+          if (bw >= 24) {
+            ctx.fillStyle = '#475569'; ctx.font = '600 20px "PingFang SC",sans-serif';
+            ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+            ctx.fillText(Math.round(v * 100) + '%', bx + bw / 2, by - 6);
+            ctx.textBaseline = 'alphabetic';
+          }
         });
       });
       if (!any) {
@@ -412,7 +454,7 @@
       }
     }
 
-    // 阶段知识点卡
+    // 阶段知识点卡（按阶段汇总）
     if (showKnowledge && knowY != null && knowBlocks.length) {
       var kY = knowY;
       ctx.fillStyle = '#fff'; rr(ctx, CARDX, kY, CARDW, knowH, 24); ctx.fill();
@@ -420,18 +462,22 @@
       ctx.fillStyle = '#0F172A'; ctx.font = '800 32px "PingFang SC",sans-serif';
       ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
       ctx.fillText('📚 阶段知识点', TX, kY + 50);
-      var totalK = knowBlocks.reduce(function (a, b) { return a + b.lines.length; }, 0);
-      ctx.fillStyle = '#94A3B8'; ctx.font = '500 22px "PingFang SC",sans-serif';
-      ctx.textAlign = 'right';
-      ctx.fillText(knowBlocks.length + ' 讲 · ' + totalK + ' 个知识点', W - PAD - 40, kY + 46);
-      ctx.textAlign = 'left';
+      // 右上角不再显示「N 阶段 · M 个知识点」统计，完全按老师配置的内容展示
       var ky = kY + 92;
       knowBlocks.forEach(function (b) {
         ctx.fillStyle = '#3B82F6'; ctx.font = '700 26px "PingFang SC",sans-serif';
         ctx.fillText(b.title, TX, ky);
         ky += 38;
+        if (b.subLines.length) {
+          ctx.fillStyle = '#94A3B8'; ctx.font = '500 22px "PingFang SC",sans-serif';
+          b.subLines.forEach(function (ln) { ctx.fillText(ln, TX + 28, ky); ky += 30; });
+          ky += 4;
+        }
         ctx.fillStyle = '#475569'; ctx.font = '400 26px "PingFang SC",sans-serif';
-        b.lines.forEach(function (ln) { ctx.fillText('· ' + ln, TX + 28, ky); ky += 34; });
+        b.lines.forEach(function (o) {
+          ctx.fillText(o.text, TX + 28, ky);
+          ky += 34;
+        });
         ky += 14;
       });
     }

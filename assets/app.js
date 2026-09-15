@@ -44,6 +44,7 @@
   };
   var rangePanelOpen = false;    // 指标筛选面板是否展开
   var selectedIds = {};          // 批量选中：学员 id -> true
+  var knowledgeStageDraft = [];  // 阶段知识点编辑草稿（stage 模型：{name,lessons[],points[]}）
   var lessonScope = '';          // '' = 全部正课；否则为某一讲的课程名
   var archiveKw = '';
   var archiveFilter = '';
@@ -391,10 +392,16 @@
       '</div>';
   }
 
-  /* ---------- 趋势折线图（单讲时高亮） ---------- */
+  /* ---------- 趋势折线图（工作台数据看板，单讲时高亮，三指标区分色） ---------- */
   function drawTrend(trend) {
     var box = $('#trendChart');
     if (!trend.length) { box.innerHTML = emptyBlock('还没有已开课的正课', '导入表格后会自动统计每一讲'); return; }
+
+    var keys = [
+      { key: 'listen', color: '#2563EB', label: '有效听课率' },
+      { key: 'accuracy', color: '#14B8A6', label: '答题正确率' },
+      { key: 'homework', color: '#FB923C', label: '练习完成率' }
+    ];
 
     var n = trend.length;
     var W = Math.max(760, 90 + n * 64), H = 290;
@@ -419,7 +426,7 @@
     });
 
     function series(key, color) {
-      var pts = [], dots = '', d = '', started = false;
+      var dots = '', d = '', started = false;
       trend.forEach(function (t, i) {
         var v = t[key];
         if (v === null || v === undefined) { started = false; return; }
@@ -428,28 +435,35 @@
         var isHi = (i === hi);
         dots += '<circle cx="' + px + '" cy="' + py + '" r="' + (isHi ? 6.5 : 4.5) + '" fill="' +
           (isHi ? color : '#fff') + '" stroke="' + color + '" stroke-width="' + (isHi ? 3 : 2.6) + '">' +
-          '<title>' + esc(t.name) + '\n' + pct(v, 1) + '</title></circle>';
+          '<title>' + esc(t.name) + ' · ' + labelOf(key) + '\n' + pct(v, 1) + '</title></circle>';
       });
-      return { path: d, dots: dots };
+      return { path: d, dots: dots, color: color };
     }
-    var s1 = series('listen', '#3B82F6'), s2 = series('accuracy', '#14B8A6'), s3 = series('homework', '#3B82F6');
+    var seriesList = keys.map(function (k) { return series(k.key, k.color); });
 
     var labels = trend.map(function (t, i) {
       if (n > 16 && i % 2 === 1 && i !== hi) return '';
-      var c1 = i === hi ? '#3B82F6' : '#475569';
+      var c1 = i === hi ? '#2563EB' : '#475569';
       return '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 22) + '" font-size="11" fill="' + c1 +
         '" font-weight="' + (i === hi ? 800 : 400) + '" text-anchor="middle">' + esc(shortName(t.name)) + '</text>' +
         '<text x="' + x(i).toFixed(1) + '" y="' + (H - padB + 38) + '" font-size="10" fill="#94A3B8" text-anchor="middle">' +
         esc(t.name.replace(/^第\d+讲\s*/, '').slice(0, 8)) + '</text>';
     }).join('');
 
-    box.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" style="max-width:none">' +
-      g +
-      '<path d="' + s1.path + '" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="' + s2.path + '" fill="none" stroke="#14B8A6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '<path d="' + s3.path + '" fill="none" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>' +
-      s1.dots + s2.dots + s3.dots +
+    var legend = keys.map(function (k) {
+      return '<span style="display:inline-flex;align-items:center;margin-right:16px;font-size:12px;color:#475569">' +
+        '<i style="width:11px;height:11px;border-radius:3px;background:' + k.color + ';display:inline-block;margin-right:6px"></i>' +
+        k.label + '</span>';
+    }).join('');
+
+    box.innerHTML = '<div style="text-align:right;padding:2px 6px 6px">' + legend + '</div>' +
+      '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" style="max-width:none">' +
+      g + seriesList.map(function (s) { return '<path d="' + s.path + '" fill="none" stroke="' + s.color + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'; }).join('') +
+      seriesList.map(function (s) { return s.dots; }).join('') +
       labels + '</svg>';
+  }
+  function labelOf(key) {
+    return key === 'listen' ? '有效听课率' : key === 'accuracy' ? '答题正确率' : key === 'homework' ? '练习完成率' : key;
   }
 
   /* ---------- 排行榜 ---------- */
@@ -1203,7 +1217,7 @@
         '<span class="sw-dot" style="background:' + m.color + '"></span>' + m.label + '</label>';
     }).join('') +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareChart" checked>' +
-        '<span class="sw-dot" style="background:#60A5FA"></span>显示学习趋势折线图</label>' +
+        '<span class="sw-dot" style="background:#60A5FA"></span>显示学习趋势柱状图</label>' +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareKnowledge" checked>' +
         '<span class="sw-dot" style="background:#3B82F6"></span>显示阶段知识点</label>' +
       '<label class="share-opt share-opt-extra"><input type="checkbox" id="shareComment" checked>' +
@@ -1256,13 +1270,14 @@
       var cb = $('#shareOpts').querySelector('[data-metric="' + m.key + '"]');
       chosen[m.key] = !!(cb && cb.checked);
     });
-    // 阶段知识点：取该学员参与讲次里已配置知识点的部分
-    var knowMap = {};
-    (db.knowledge || []).forEach(function (k) {
-      if (k && k.course && k.points && k.points.length) knowMap[k.course] = k.points;
+    // 阶段知识点：取与该学员展示讲次相交且有知识点的阶段（按阶段汇总）
+    var knowledge = (db.knowledge || []).filter(function (k) {
+      if (!k || !k.points || !k.points.length) return false;
+      var lessons = k.lessons || [];
+      return lessons.some(function (ln) { return courses.indexOf(ln) >= 0; });
+    }).map(function (k) {
+      return { name: k.name || '阶段知识点', lessons: k.lessons || [], points: k.points };
     });
-    var knowledge = courses.filter(function (cn) { return knowMap[cn]; })
-      .map(function (cn) { return { course: cn, points: knowMap[cn] }; });
     // 评语：系统自动客观评价 + 老师自定义（评语库按综合分匹配 / 学员专属覆盖）
     var autoComment = SWBShare.buildTeacherComment(s, courses);
     var customComment = SWBShare.resolveCustomComment(s, db.commentLib || [], s.customComment || '');
@@ -1291,38 +1306,95 @@
     } catch (e) { toast('导出失败：' + (e.message || e)); }
   }
 
-  /* ---------------- 阶段知识点配置 ---------------- */
-  function openKnowledge() {
-    var courses = (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses;
-    if (!courses.length) { toast('还没有可统计的讲次，无法配置知识点'); return; }
-    var map = {};
-    (db.knowledge || []).forEach(function (k) { if (k && k.course) map[k.course] = k.points || []; });
-    $('#knList').innerHTML = courses.map(function (cn) {
-      var pts = (map[cn] || []).join('、');
-      return '<div class="kn-row" data-course="' + esc(cn) + '">' +
-        '<div class="kn-name">' + esc(cn) + '</div>' +
-        '<textarea class="kn-input" placeholder="本讲知识点，如：变量与数据类型、条件判断、循环结构">' + esc(pts) + '</textarea>' +
-        '</div>';
+  /* ---------------- 阶段知识点配置（按阶段汇总，可勾选课节） ---------------- */
+  function knCourses() { return (db.statCourses && db.statCourses.length) ? db.statCourses : db.courses; }
+  function shortLesson(cn) {
+    var s = String(cn || '');
+    var m = s.match(/^第\s*\d+\s*讲/);
+    return m ? m[0] : s;
+  }
+  function renderKnStages() {
+    var courses = knCourses();
+    var stages = knowledgeStageDraft;
+    $('#knList').innerHTML = stages.map(function (st, i) {
+      var checks = courses.map(function (cn) {
+        var on = (st.lessons || []).indexOf(cn) >= 0;
+        return '<label class="lesson-chk' + (on ? ' on' : '') + '" title="' + esc(cn) + '">' +
+          '<input type="checkbox" class="lesson-box" value="' + esc(cn) + '"' + (on ? ' checked' : '') + '>' +
+          '<span>' + esc(shortLesson(cn)) + '</span></label>';
+      }).join('');
+      var pts = (st.points || []).join('\n');
+      return '<div class="kn-stage" data-i="' + i + '">' +
+        '<div class="kn-stage-head">' +
+          '<input class="kn-stage-name" placeholder="阶段名称，如：第一阶段" value="' + esc(st.name || '') + '">' +
+          '<button class="kn-stage-del" data-del="' + i + '" aria-label="删除该阶段">×</button>' +
+        '</div>' +
+        '<div class="kn-stage-lessons">' + checks + '</div>' +
+        '<div class="kn-stage-count">已选 <b>' + (st.lessons ? st.lessons.length : 0) + '</b> 讲</div>' +
+        '<textarea class="kn-input" placeholder="每行一个知识点；逗号、顿号保留在同一行，按回车才是新一行。原样展示，不会自动加项目符号；行首空格可用来做缩进。">' + esc(pts) + '</textarea>' +
+      '</div>';
     }).join('');
+  }
+  function openKnowledge() {
+    var courses = knCourses();
+    if (!courses.length) { toast('还没有可统计的讲次，无法配置知识点'); return; }
+    // 归一化为 stage 模型（兼容旧 course 模型）
+    knowledgeStageDraft = (db.knowledge || []).map(function (k) {
+      if (!k) return { name: '', lessons: [], points: [] };
+      if (k.name != null) return { name: k.name, lessons: k.lessons || [], points: k.points || [] };
+      if (k.course != null) return { name: '', lessons: [k.course], points: k.points || [] };
+      return { name: '', lessons: [], points: k.points || [] };
+    });
+    if (!knowledgeStageDraft.length) knowledgeStageDraft = [{ name: '第一阶段', lessons: courses.slice(0, 1), points: [] }];
+    renderKnStages();
     $('#knMask').hidden = false; $('#knModal').hidden = false;
     document.body.style.overflow = 'hidden';
+    renderKnPreview();
   }
   function closeKnowledge() {
     $('#knMask').hidden = true; $('#knModal').hidden = true;
     document.body.style.overflow = '';
   }
+  function readKnStagesFromDOM() {
+    return Array.prototype.slice.call($('#knList').querySelectorAll('.kn-stage')).map(function (card) {
+      var name = card.querySelector('.kn-stage-name').value.trim();
+      var lessons = Array.prototype.slice.call(card.querySelectorAll('.lesson-box:checked')).map(function (c) { return c.value; });
+      var raw = card.querySelector('.kn-input').value;
+      // 所见即所得：仅按「回车」拆行，逗号/顿号/分号保留在同一行；行首缩进原样保留，只去掉行尾空白
+      var points = raw.split(/\r?\n/)
+        .map(function (x) { return String(x).replace(/[ \t\u3000]+$/, ''); })
+        .filter(function (x) { return x.trim(); });
+      return { name: name, lessons: lessons, points: points };
+    });
+  }
+  function syncKnDraft() { knowledgeStageDraft = readKnStagesFromDOM(); }
+  function renderKnPreview() {
+    var el = $('#knPreview'); if (!el) return;
+    var stages = readKnStagesFromDOM().filter(function (st) {
+      return (st.name) || (st.lessons && st.lessons.length) || (st.points && st.points.length);
+    });
+    var cards = stages.map(function (st) {
+      var pts = (st.points || []).map(function (p) { return '<div class="knp-pt">' + esc(p) + '</div>'; }).join('');
+      var cover = (st.lessons && st.lessons.length) ? '覆盖 ' + st.lessons.length + ' 讲' : '未选课节';
+      return '<div class="knp-stage">' +
+        '<div class="knp-name">' + esc(st.name || '未命名阶段') + '</div>' +
+        '<div class="knp-cover">' + esc(cover) + '</div>' +
+        (pts ? '<div class="knp-pts">' + pts + '</div>' : '<div class="knp-empty">（未填写知识点）</div>') +
+      '</div>';
+    }).join('');
+    el.innerHTML = '<div class="knp-card">' +
+      '<div class="knp-head">📚 阶段知识点</div>' +
+      (cards || '<div class="knp-empty">还没有配置任何阶段</div>') +
+    '</div>';
+  }
   function saveKnowledge() {
-    var rows = Array.prototype.slice.call($('#knList').querySelectorAll('.kn-row'));
-    var list = [];
-    rows.forEach(function (row) {
-      var cn = row.getAttribute('data-course');
-      var raw = row.querySelector('.kn-input').value.trim();
-      var points = raw ? raw.split(/[\n、,，;；]+/).map(function (x) { return x.trim(); }).filter(function (x) { return x; }) : [];
-      if (cn) list.push({ course: cn, points: points });
+    var list = readKnStagesFromDOM().filter(function (st) {
+      return (st.name && st.name.trim()) || (st.lessons && st.lessons.length) || (st.points && st.points.length);
     });
     db.knowledge = list;
+    knowledgeStageDraft = list.slice();
     save();
-    toast('已保存 ' + list.length + ' 讲的知识点配置');
+    toast('已保存 ' + list.length + ' 个阶段的知识点配置');
     closeKnowledge();
   }
 
@@ -2515,6 +2587,37 @@
     $('#knClose').addEventListener('click', closeKnowledge);
     $('#knClose2').addEventListener('click', closeKnowledge);
     $('#knMask').addEventListener('click', closeKnowledge);
+    // 阶段知识点：新增阶段
+    $('#knAdd').addEventListener('click', function () {
+      syncKnDraft();
+      knowledgeStageDraft.push({ name: '', lessons: [], points: [] });
+      renderKnStages(); renderKnPreview();
+      var list = $('#knList'); if (list) list.scrollTop = list.scrollHeight;
+    });
+    // 阶段名 / 知识点输入 -> 实时预览
+    $('#knList').addEventListener('input', function (e) {
+      if (e.target.closest('.kn-stage-name') || e.target.classList.contains('kn-input')) renderKnPreview();
+    });
+    // 勾选课节 -> 更新计数 + 预览（不重建列表，保留滚动位置）
+    $('#knList').addEventListener('change', function (e) {
+      if (e.target.classList.contains('lesson-box')) {
+        var card = e.target.closest('.kn-stage');
+        var b = card.querySelector('.kn-stage-count b');
+        if (b) b.textContent = card.querySelectorAll('.lesson-box:checked').length;
+        var lbl = e.target.closest('.lesson-chk');
+        if (lbl) lbl.classList.toggle('on', e.target.checked);
+        renderKnPreview();
+      }
+    });
+    // 删除阶段
+    $('#knList').addEventListener('click', function (e) {
+      var del = e.target.closest('.kn-stage-del');
+      if (del) {
+        var i = parseInt(del.getAttribute('data-del'), 10);
+        syncKnDraft();
+        if (!isNaN(i) && knowledgeStageDraft[i]) { knowledgeStageDraft.splice(i, 1); renderKnStages(); renderKnPreview(); }
+      }
+    });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !$('#knModal').hidden) closeKnowledge();
     });

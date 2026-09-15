@@ -690,20 +690,40 @@ main{position:relative;z-index:1;max-width:1280px;margin:24px auto 80px;padding:
 .modal-actions{display:flex;gap:10px;margin-top:18px;}
 .modal-actions .btn{flex:1;}
 
-/* 阶段知识点列表 */
-.kn-list{display:flex;flex-direction:column;gap:12px;}
-.kn-row{
-  background:var(--surface-2);border-radius:16px;
-  padding:14px 16px;display:flex;flex-direction:column;gap:8px;
-  border:1.5px solid var(--line);transition:background .15s ease;
-}
-.kn-row:hover{background:#fff;}
-.kn-row .kn-name{font-size:17px;font-weight:700;color:var(--text);font-family:var(--font-display);}
-.kn-row textarea{
-  width:100%;min-height:54px;resize:vertical;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;
-  font-size:13.5px;font-weight:600;color:var(--text);font-family:var(--font);line-height:1.6;background:rgba(255,255,255,.7);transition:border .15s,box-shadow .15s;
-}
-.kn-row textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft);}
+/* 阶段知识点：按阶段勾选课节 + 实时预览（样式见下方 .kn-modal 区块） */
+
+/* 阶段知识点：按阶段勾选课节 + 实时预览 */
+.kn-modal{width:960px;}
+.kn-body{display:flex;gap:18px;align-items:flex-start;}
+.kn-left{flex:1 1 56%;min-width:0;}
+.kn-right{flex:1 1 44%;min-width:0;}
+.kn-stages{display:flex;flex-direction:column;gap:12px;max-height:46vh;overflow:auto;padding-right:4px;}
+.kn-stage{background:var(--surface-2);border:1.5px solid var(--line);border-radius:16px;padding:13px 15px;display:flex;flex-direction:column;gap:9px;}
+.kn-stage-head{display:flex;gap:8px;align-items:center;}
+.kn-stage-name{flex:1;min-width:0;padding:9px 12px;border:1.5px solid var(--line);border-radius:11px;font-size:15px;font-weight:700;color:var(--text);font-family:var(--font-display);background:rgba(255,255,255,.7);transition:border .15s,box-shadow .15s;}
+.kn-stage-name:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft);}
+.kn-stage-del{border:1.5px solid var(--line);background:#fff;color:var(--text-2);width:36px;height:36px;border-radius:11px;font-size:20px;line-height:1;cursor:pointer;flex:none;transition:all .15s;}
+.kn-stage-del:hover{color:#E5484D;border-color:#F3B4B4;background:#FFF1F0;}
+.kn-stage-lessons{display:flex;flex-wrap:wrap;gap:6px;}
+.lesson-chk{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border:1.5px solid var(--line);border-radius:999px;font-size:12.5px;font-weight:600;color:var(--text-2);background:#fff;cursor:pointer;user-select:none;transition:all .15s;}
+.lesson-chk.on{border-color:var(--primary);color:var(--primary);background:var(--primary-soft);}
+.lesson-chk input{display:none;}
+.kn-stage-count{font-size:12.5px;color:var(--text-2);font-weight:600;}
+.kn-stage-count b{color:var(--primary);}
+.kn-stage textarea{width:100%;min-height:54px;resize:vertical;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:600;color:var(--text);font-family:var(--font);line-height:1.6;background:rgba(255,255,255,.7);transition:border .15s,box-shadow .15s;}
+.kn-stage textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft);}
+.kn-add{margin-top:12px;width:100%;}
+.kn-preview-title{font-size:13px;font-weight:700;color:var(--text-2);margin-bottom:10px;}
+.kn-preview{position:sticky;top:0;}
+.knp-card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(31,35,41,.06);}
+.knp-head{background:linear-gradient(90deg,#3370FF,#60A5FA);color:#fff;font-size:15px;font-weight:800;padding:13px 16px;font-family:var(--font-display);}
+.knp-stage{padding:13px 16px;border-top:1px solid var(--line);}
+.knp-stage:first-of-type{border-top:none;}
+.knp-name{font-size:15px;font-weight:800;color:#1F2329;font-family:var(--font-display);}
+.knp-cover{font-size:12px;font-weight:600;color:var(--blue);margin:3px 0 7px;}
+.knp-pts{margin:0;padding-left:0;}
+.knp-pt{font-size:13px;color:#475569;line-height:1.7;white-space:pre-wrap;}
+.knp-empty{font-size:12.5px;color:var(--text-2);padding:6px 0;font-style:italic;}
 
 /* 评语库列表 */
 .cl-list{display:flex;flex-direction:column;gap:12px;}

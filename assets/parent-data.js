@@ -180,17 +180,16 @@
 
     var phoneFull = 0, phoneMissing = 0, withData = 0;
 
-    // 阶段知识点映射：course -> points[]（仅保留参与统计的讲次）
-    var knowMap = {};
-    (work.knowledge || []).forEach(function (k) {
-      if (k && k.course && k.points && k.points.length) knowMap[k.course] = k.points;
-    });
-    // 家长可见范围：是否展示「阶段学习数据」中的阶段知识点（默认展示）
+    // 阶段知识点：stage 模型（name + lessons[] + points[]），按阶段汇总
     var showStageKnowledge = scope.showStageKnowledge !== false;
     var stageKnowledge = [];
     if (showStageKnowledge) {
-      courses.forEach(function (cn) {
-        if (knowMap[cn] && knowMap[cn].length) stageKnowledge.push({ course: cn, points: knowMap[cn] });
+      (work.knowledge || []).forEach(function (stage) {
+        if (!stage || !stage.points || !stage.points.length) return;
+        var lessons = stage.lessons || [];
+        var hit = lessons.some(function (ln) { return courses.indexOf(ln) >= 0; });
+        if (lessons.length && !hit) return; // 指定了课节但均不在本班可见范围 -> 跳过
+        stageKnowledge.push({ name: stage.name || '阶段知识点', lessons: lessons, points: stage.points });
       });
     }
     var commentLib = work.commentLib || [];

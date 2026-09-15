@@ -440,7 +440,7 @@
         <div class="feature-ico" data-page-node-id="featKnIco">📚</div>
         <div class="feature-body" data-page-node-id="featKnBody">
           <h3 data-page-node-id="featKnTitle">阶段知识点</h3>
-          <p data-page-node-id="featKnDesc">按讲次填写本阶段知识点，导出图片与家长查询页会按讲次展示，让家长直观了解孩子每一讲学了什么。多个知识点可用换行或“、”分隔。</p>
+          <p data-page-node-id="featKnDesc">勾选若干讲次组成「阶段」，为该阶段统一编写知识点，导出图片与家长查询页会按阶段汇总展示，让家长直观了解孩子每个阶段学了什么。每行一个知识点；逗号、顿号保留在同一行，按回车才是新一行。展示与配置完全一致——不会自动加项目符号，也不会显示知识点数量统计。</p>
         </div>
         <button class="btn btn-primary" id="btnOpenKnowledge" data-page-node-id="openKn">配置知识点</button>
       </div>
@@ -501,7 +501,7 @@
     </div>
     <div class="share-panel">
       <h3>生成学习情况分享图</h3>
-      <p class="share-tip">勾选要展示的指标，并可开关折线图 / 阶段知识点 / 教师评语，下方实时预览，确认后导出图片。</p>
+      <p class="share-tip">勾选要展示的指标，并可开关柱状图 / 阶段知识点 / 教师评语，下方实时预览，确认后导出图片。</p>
       <div class="share-opts" id="shareOpts"></div>
       <label class="share-toggle"><input type="checkbox" id="shareChips" checked> 显示顶部综合指标卡片</label>
       <div class="share-actions">
@@ -514,16 +514,25 @@
 
 <!-- ============ 阶段知识点配置 ============ -->
 <div class="drawer-mask" id="knMask" hidden></div>
-<div class="modal-card" id="knModal" hidden>
+<div class="modal-card kn-modal" id="knModal" hidden>
   <div class="modal-head">
     <h3 data-page-node-id="knTitle">📚 阶段知识点配置</h3>
     <button class="modal-x" id="knClose" aria-label="关闭">×</button>
   </div>
-  <p class="modal-tip" data-page-node-id="knTip">为每一讲填写本阶段知识点，导出图片与家长查询页会按讲次展示。多个知识点可用换行或“、”分隔。</p>
-  <div class="kn-list" id="knList" data-page-node-id="knList"></div>
+  <p class="modal-tip" data-page-node-id="knTip">勾选若干讲次组成一个「阶段」，为该阶段统一编写知识点。分享图与家长查询页将按阶段汇总展示，让家长直观了解孩子每个阶段学了什么。每行一个知识点；逗号、顿号不会换行，按回车才是新一行。展示与配置完全一致——不会自动加项目符号，行首空格可用于缩进。</p>
+  <div class="kn-body">
+    <div class="kn-left">
+      <div class="kn-stages" id="knList" data-page-node-id="knList"></div>
+      <button class="btn btn-ghost btn-sm kn-add" id="knAdd" data-page-node-id="knAdd">+ 新增阶段</button>
+    </div>
+    <div class="kn-right">
+      <div class="kn-preview-title">实时预览（分享图 / 家长端效果）</div>
+      <div class="kn-preview" id="knPreview"></div>
+    </div>
+  </div>
   <div class="modal-actions">
+    <button class="btn btn-ghost" id="knClose2" data-page-node-id="knClose2">取消</button>
     <button class="btn btn-primary" id="knSave" data-page-node-id="knSave">保存知识点</button>
-    <button class="btn btn-ghost" id="knClose2" data-page-node-id="knClose2">关闭</button>
   </div>
 </div>
 

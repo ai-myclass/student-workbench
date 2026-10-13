@@ -241,7 +241,7 @@
     sel.value = lessonScope;
 
     var excluded = db.excludedCourses || [];
-    var hint = '已剔除 ' + excluded.length + ' 门习题课（不计入统计）';
+    var hint = '已剔除 ' + excluded.length + ' 门习题课/小灶课（不计入统计）';
     if (lessonScope) {
       var i = courses.indexOf(lessonScope) + 1;
       hint = '正在单独查看第 ' + i + ' / ' + courses.length + ' 讲 · ' + hint;
@@ -250,7 +250,7 @@
   }
 
   function drillToggleBtn() {
-    return ' <button class="btn btn-ghost btn-sm" data-show-drill="1" style="margin-left:6px">临时显示习题课数据</button>';
+    return ' <button class="btn btn-ghost btn-sm" data-show-drill="1" style="margin-left:6px">临时显示习题课/小灶课数据</button>';
   }
 
   function setScope(cn) {
@@ -387,7 +387,7 @@
         : '导入的表格里还没有已开课的讲次。') +
       '</div>' +
       (activeEx.length
-        ? '<div class="empty-state-actions"><button class="btn btn-primary" data-show-drill="1">临时把习题课纳入统计</button></div>'
+        ? '<div class="empty-state-actions"><button class="btn btn-primary" data-show-drill="1">临时把习题课/小灶课纳入统计</button></div>'
         : '') +
       '</div>';
   }
@@ -1818,6 +1818,10 @@
   function handleFiles(files) {
     var arr = Array.prototype.slice.call(files);
     if (!arr.length) return;
+    // 以本次导入批次作为最新「在读名单基准」：重置花名册，使新表中不存在的学员被判退班并移出班级
+    db.homeroom = [];
+    var beforeKeys = {};
+    db.students.forEach(function (s) { var k = (s.id || '') + '|' + (s.phone || ''); if (k !== '|') beforeKeys[k] = 1; });
     var ok = 0, errs = [], total = { added: 0, updated: 0, newCourses: 0, matched: 0, unmatched: 0 };
     var pending = arr.length;
 
@@ -1845,6 +1849,10 @@
         recompute();
         save();
         renderAll();
+        var afterKeys = {};
+        db.students.forEach(function (s) { var k = (s.id || '') + '|' + (s.phone || ''); if (k !== '|') afterKeys[k] = 1; });
+        var removed = 0;
+        Object.keys(beforeKeys).forEach(function (k) { if (!afterKeys[k]) removed++; });
       }
       var box = $('#importResult');
       box.hidden = false;
@@ -1856,8 +1864,9 @@
         box.innerHTML = '导入成功 <b>' + ok + '</b> 个文件：新增学员 <b>' + total.added + '</b> 人，更新 <b>' +
           total.updated + '</b> 人，新增讲次 <b>' + total.newCourses + '</b> 个。' + matchTxt +
           '<br>当前共 <b>' + db.students.length + '</b> 名学员、<b>' + (db.statCourses || []).length +
-          '</b> 讲正课' + ((db.excludedCourses || []).length ? '（另有 ' + db.excludedCourses.length + ' 讲已剔除）' : '') + '。' +
-          '花名册（在读基准）共 <b>' + (db.homeroom ? db.homeroom.length : 0) + '</b> 人，不在其中的学员已标记为退班并移出班级数据。';
+          '</b> 讲正课' + ((db.excludedCourses || []).length ? '（另有 ' + db.excludedCourses.length + ' 讲已剔除：习题课/小灶课等）' : '') + '。' +
+          '花名册（在读基准）共 <b>' + (db.homeroom ? db.homeroom.length : 0) + '</b> 人' +
+          (removed ? '，已自动移出 <b>' + removed + '</b> 名不在新表中的学员（可在「档案」页退班名单恢复）' : '，所有学员均在新表中。');
         toast('导入完成');
       } else if (ok) {
         box.className = 'import-result';
@@ -2492,7 +2501,7 @@
       if (e.target.closest('[data-show-drill]')) {
         SWB.settings(db).excludeDrill = false;
         recompute(); save(); renderAll();
-        toast('已把习题课纳入统计，可在「数据管理」里改回来');
+        toast('已把习题课/小灶课纳入统计，可在「数据管理」里改回来');
       }
     });
 
@@ -2515,7 +2524,7 @@
     $('#swExclude').addEventListener('click', function () {
       SWB.settings(db).excludeDrill = !SWB.settings(db).excludeDrill;
       recompute(); save(); renderAll();
-      toast(SWB.settings(db).excludeDrill ? '已剔除习题课' : '已恢复统计习题课');
+      toast(SWB.settings(db).excludeDrill ? '已剔除习题课/小灶课' : '已恢复统计习题课/小灶课');
     });
     $('#swAutoProfile').addEventListener('click', function () {
       SWB.settings(db).autoProfile = !SWB.settings(db).autoProfile;

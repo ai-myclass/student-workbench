@@ -56,8 +56,8 @@
   /** 未布置（不计入统计）的练习状态 */
   var UNASSIGNED = ['未布置', '未安排', '未开放', '未发布'];
 
-  /** 默认剔除的课程关键词（习题课不参与统计） */
-  var DEFAULT_EXCLUDE = ['习题课'];
+  /** 默认剔除的课程关键词（习题课 / 小灶课 不参与统计） */
+  var DEFAULT_EXCLUDE = ['习题课', '小灶'];
 
   /* ---------------- 值解析工具 ---------------- */
   function str(v) {
@@ -152,6 +152,12 @@
     if (!db.settings) db.settings = {};
     var s = db.settings;
     if (!s.excludeKeywords || !s.excludeKeywords.length) s.excludeKeywords = DEFAULT_EXCLUDE.slice();
+    else {
+      // 向前兼容：确保默认剔除关键词（习题课、小灶等）始终存在于已持久化的配置中
+      DEFAULT_EXCLUDE.forEach(function (k) {
+        if (k && s.excludeKeywords.indexOf(k) === -1) s.excludeKeywords.push(k);
+      });
+    }
     if (s.excludeDrill === undefined) s.excludeDrill = true;
     if (s.autoProfile === undefined) s.autoProfile = true;
     if (s.onlyRoster === undefined) s.onlyRoster = false;

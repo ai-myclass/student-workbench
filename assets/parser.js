@@ -401,7 +401,7 @@
     db.roster.sources.unshift({ name: parsed.source, rows: parsed.students.length, time: new Date().toISOString() });
     db.roster.sources = db.roster.sources.slice(0, 10);
     db.roster.updatedAt = new Date().toISOString();
-    db.roster.fields = parsed.meta.extra || [];
+    db.roster.fields = (parsed.meta && parsed.meta.extra) || [];
     return { total: parsed.students.length, source: parsed.source };
   }
 

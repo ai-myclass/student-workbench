@@ -91,6 +91,9 @@
         if (d.parentScope.showStageKnowledge === undefined) d.parentScope.showStageKnowledge = true;
       }
       var nd = SWB.refresh(d);
+      if (!nd.schedule) nd.schedule = [];
+      if (!nd.dated) nd.dated = [];
+      if (!nd.todos) nd.todos = {};
       repairStudentPhones(nd); // 自愈：用内置学情表完整号覆盖旧缓存残留的脱敏/缺失手机号
       return nd;
     } catch (e) { return SWB.refresh(SWB.emptyDB()); }
@@ -196,6 +199,7 @@
     renderArchive();
     renderAlerts();
     renderData();
+    renderTasks();
     renderScopeStat();
   }
 
@@ -1776,7 +1780,7 @@
       '当前班级在读 <b>' + db.students.length + '</b> 人' +
       (db.students.length ? '，其中 <b>' + m + '</b> 人有学习数据' : '') + '。' +
       (bl ? '<br><b style="color:#E5484D">已自动将 ' + bl + ' 名不在花名册内的学员移出班级数据（见「学员档案」可恢复）。</b>' : '') +
-      (parsed.meta.extra && parsed.meta.extra.length
+      (parsed.meta && parsed.meta.extra && parsed.meta.extra.length
         ? '<br>额外收录字段：' + esc(parsed.meta.extra.slice(0, 8).join('、')) : '');
     return r;
   }
@@ -2310,6 +2314,7 @@
       $$('.tab').forEach(function (t) { t.classList.toggle('active', t === btn); });
       view = btn.dataset.view;
       $$('.view').forEach(function (v) { v.classList.toggle('active', v.id === 'view-' + view); });
+      if (view === 'tasks') renderTasks();
     });
 
     // 讲次筛选
@@ -2657,6 +2662,50 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !$('#clModal').hidden) closeCommentLib();
     });
+
+    /* ---------------- 教学日历 / 每日教学任务 ---------------- */
+    $('#btnImportSchedule').addEventListener('click', function () { $('#scheduleInput').click(); });
+    $('#scheduleInput').addEventListener('change', function () { importScheduleFile(this.files); this.value = ''; });
+    $('#btnSampleSchedule').addEventListener('click', loadSampleSchedule);
+    $('#btnAddClass').addEventListener('click', openAddClassModal);
+    $('#taskPrev').addEventListener('click', taskPrevMonth);
+    $('#taskNext').addEventListener('click', taskNextMonth);
+    $('#taskToday').addEventListener('click', taskThisMonth);
+    $('#taskCalendar').addEventListener('click', function (e) {
+      var cell = e.target.closest('.cal-cell');
+      if (!cell || !cell.dataset.date) return;
+      openDayModal(cell.dataset.date);
+    });
+    $('#dayModalClose').addEventListener('click', closeDayModal);
+    $('#dayModalMask').addEventListener('click', closeDayModal);
+    $('#dayTodoAdd').addEventListener('click', addTodo);
+    $('#dayTodoInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') addTodo(); });
+    $('#dayModalTodos').addEventListener('click', function (e) {
+      var chk = e.target.closest('.day-todo-chk');
+      if (chk) { toggleTodo(chk.dataset.tid); return; }
+      var del = e.target.closest('.day-todo-del');
+      if (del) { delTodo(del.dataset.tid); return; }
+    });
+    $('#addClassClose').addEventListener('click', closeAddClassModal);
+    $('#addClassMask').addEventListener('click', closeAddClassModal);
+    $('#addClassSubmit').addEventListener('click', addClassSubmit);
+    $('#btnClearSchedule').addEventListener('click', clearScheduleAll);
+    $('#lpClose').addEventListener('click', closeLessonPreview);
+    $('#lpMask').addEventListener('click', closeLessonPreview);
+    $('#lpApplyTime').addEventListener('click', applyPreviewTime);
+    $('#lpConfirm').addEventListener('click', confirmLessonImport);
+    $('#lpAddRow').addEventListener('click', function () {
+      syncPreviewFromDom();
+      lpRows.push({ date: todayKey(), time: ($('#lpTime').value || '').trim(), subject: '' });
+      renderLessonPreview();
+    });
+    $('#lpList').addEventListener('click', function (e) {
+      var del = e.target.closest('.lp-del');
+      if (!del) return;
+      syncPreviewFromDom();
+      lpRows.splice(+del.dataset.i, 1);
+      renderLessonPreview();
+    });
   }
 
   function addExclude() {
@@ -2712,6 +2761,486 @@
   // 学员表/筛选器由 JS 异步重渲染，监听 DOM 变化后重算
   new MutationObserver(function(){ fitAllSelects(); })
     .observe(document.body, { childList: true, subtree: true });
+
+  /* =========================================================
+   * 每日教学任务 / 教学日历
+   * ======================================================= */
+  var PALETTE_T = ['#3B82F6', '#2CB5A0', '#F2994A', '#8B5CF6', '#EC4899', '#EFA83D', '#14B8A6', '#E5484D'];
+  var taskYear, taskMonth;     // 当前查看的年月（month 为 0-based）
+  var taskPickDate = null;     // 当前打开的日期 YYYY-MM-DD
+
+  function ensureTasksDefaults() {
+    if (!db.schedule) db.schedule = [];
+    if (!db.dated) db.dated = [];
+    if (!db.todos) db.todos = {};
+  }
+  function datedForDate(key) {
+    return (db.dated || []).filter(function (e) { return e.date === key; })
+      .sort(function (a, b) { return (a.time || '').localeCompare(b.time || ''); });
+  }
+  function dayClasses(key, wd) {
+    return datedForDate(key).concat(scheduleForWeekday(wd))
+      .sort(function (a, b) { return (a.time || '').localeCompare(b.time || ''); });
+  }
+  function dateKey(y, m, d) {
+    return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d);
+  }
+  function todayKey() {
+    var t = new Date();
+    return dateKey(t.getFullYear(), t.getMonth() + 1, t.getDate());
+  }
+  function fmtCNDate(y, m, d) { return y + '年' + m + '月' + d + '日'; }
+  function weekdayLabel(wd) { return ['一', '二', '三', '四', '五', '六', '日'][wd - 1]; }
+  function parseWeekday(s) {
+    s = String(s == null ? '' : s).trim();
+    if (!s) return null;
+    var cn = { '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '日': 7, '天': 7, '7': 7 };
+    var ch = s.replace(/[周礼拜]/g, '');
+    if (cn[ch] !== undefined) return cn[ch];
+    var m = s.match(/[1-7]/);
+    if (m) return parseInt(m[0], 10);
+    return null;
+  }
+  function scheduleForWeekday(wd) {
+    return (db.schedule || []).filter(function (e) { return e.weekday === wd; })
+      .sort(function (a, b) { return (a.time || '').localeCompare(b.time || ''); });
+  }
+
+  function renderTasks() {
+    ensureTasksDefaults();
+    var box = $('#taskCalendar');
+    if (!box) return;
+    if (taskYear === undefined) { var t0 = new Date(); taskYear = t0.getFullYear(); taskMonth = t0.getMonth(); }
+    var y = taskYear, m = taskMonth;
+    var lbl = $('#taskMonthLabel'); if (lbl) lbl.textContent = y + '年' + (m + 1) + '月';
+
+    var first = new Date(y, m, 1);
+    var startWd = (first.getDay() + 6) % 7;                 // 周一为 0
+    var start = new Date(y, m, 1 - startWd);                // 首个格子（可能属上月）
+    var tk = todayKey();
+    var html = '';
+    for (var i = 0; i < 42; i++) {
+      var dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+      var d = dt.getDate();
+      var wd = (dt.getDay() + 6) % 7 + 1;                    // 1..7（周一..周日）
+      var out = dt.getMonth() !== m;
+      var key = dateKey(dt.getFullYear(), dt.getMonth() + 1, d);
+      var isToday = key === tk;
+      var cls = 'cal-cell' + (out ? ' out' : '') + (isToday ? ' today' : '');
+      var inner = '<div class="cal-date">' + d + (isToday ? '<span class="cal-today-badge">今天</span>' : '') + '</div>';
+      var sched = dayClasses(key, wd);
+      if (sched.length) {
+        inner += '<div class="cal-sched">';
+        for (var si = 0; si < Math.min(sched.length, 3); si++) {
+          var e = sched[si];
+          inner += '<div class="cal-cls' + (e.date ? ' dated' : '') + '" title="' + esc((e.time ? e.time + ' ' : '') + (e.subject || '')) + '" style="--c:' + (e.color || '#3B82F6') + '"><span class="cal-cls-time">' + esc(e.time || '') + '</span><span class="cal-cls-sub">' + esc(e.subject || '') + '</span></div>';
+        }
+        if (sched.length > 3) inner += '<div class="cal-more">+' + (sched.length - 3) + ' 节</div>';
+        inner += '</div>';
+      }
+      var todos = db.todos[key] || [];
+      if (todos.length) {
+        inner += '<div class="cal-todos">';
+        for (var ti = 0; ti < Math.min(todos.length, 3); ti++) {
+          inner += '<div class="cal-todo' + (todos[ti].done ? ' done' : '') + '">' + (todos[ti].done ? '✓ ' : '○ ') + esc(todos[ti].text) + '</div>';
+        }
+        if (todos.length > 3) inner += '<div class="cal-more">+' + (todos.length - 3) + ' 项待办</div>';
+        inner += '</div>';
+      }
+      inner += '<div class="cal-add">＋</div>';
+      html += '<div class="' + cls + '" data-date="' + key + '">' + inner + '</div>';
+    }
+    box.innerHTML = html;
+
+    var sum = $('#taskSummary');
+    if (sum) {
+      var totalCls = (db.schedule || []).length;
+      var totalDated = (db.dated || []).length;
+      var pending = 0;
+      Object.keys(db.todos).forEach(function (k) {
+        (db.todos[k] || []).forEach(function (t) { if (!t.done) pending++; });
+      });
+      sum.innerHTML = '单次课 <b>' + totalDated + '</b> 节 · 固定排课 <b>' + totalCls +
+        '</b> 节（按星期循环） · 待办未完成 <b>' + pending + '</b> 项';
+    }
+  }
+
+  function openDayModal(key) {
+    ensureTasksDefaults();
+    taskPickDate = key;
+    var p = key.split('-');
+    var dtObj = new Date(+p[0], +p[1] - 1, +p[2]);
+    var wd = (dtObj.getDay() + 6) % 7 + 1;
+    var dh = $('#dayModalDate');
+    if (dh) dh.textContent = fmtCNDate(+p[0], +p[1], +p[2]) + ' · 周' + weekdayLabel(wd);
+    var sched = dayClasses(key, wd);
+    var sh = $('#dayModalSched');
+    if (sh) {
+      sh.innerHTML = sched.length ? sched.map(function (e) {
+        return '<div class="day-cls" style="--c:' + (e.color || '#3B82F6') + '"><span class="day-cls-time">' + esc(e.time || '') + '</span><b>' + esc(e.subject || '') + '</b>' +
+          (e.date ? '<span class="day-cls-tag">单次</span>' : '') +
+          (e.content ? '<span class="day-cls-content">' + esc(e.content) + '</span>' : '') + '</div>';
+      }).join('') : '<div class="day-empty">当天没有排课，可在下方添加待办</div>';
+    }
+    renderDayTodos();
+    $('#dayModal').hidden = false;
+    $('#dayModalMask').hidden = false;
+  }
+  function renderDayTodos() {
+    var list = (db.todos[taskPickDate] || []);
+    var box = $('#dayModalTodos');
+    if (!box) return;
+    if (!list.length) { box.innerHTML = '<div class="day-empty">还没有待办，下面添加一条吧</div>'; return; }
+    var h = '';
+    for (var i = 0; i < list.length; i++) {
+      var t = list[i];
+      h += '<div class="day-todo' + (t.done ? ' done' : '') + '" data-tid="' + t.id + '">' +
+        '<input type="checkbox" class="day-todo-chk" data-tid="' + t.id + '"' + (t.done ? ' checked' : '') + ' />' +
+        '<span class="day-todo-text">' + esc(t.text) + '</span>' +
+        '<button class="day-todo-del" data-tid="' + t.id + '" title="删除">×</button>' +
+        '</div>';
+    }
+    box.innerHTML = h;
+  }
+  function addTodo() {
+    if (!taskPickDate) return;
+    var inp = $('#dayTodoInput');
+    var text = (inp.value || '').trim();
+    if (!text) { toast('请输入待办内容'); return; }
+    db.todos[taskPickDate] = db.todos[taskPickDate] || [];
+    db.todos[taskPickDate].push({ id: 't' + Date.now() + Math.floor(Math.random() * 1000), text: text, done: false, createdAt: new Date().toISOString() });
+    inp.value = '';
+    save(); renderDayTodos(); renderTasks();
+  }
+  function toggleTodo(tid) {
+    if (!taskPickDate) return;
+    var list = db.todos[taskPickDate] || [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].id === tid) { list[i].done = !list[i].done; break; }
+    }
+    save(); renderDayTodos(); renderTasks();
+  }
+  function delTodo(tid) {
+    if (!taskPickDate) return;
+    db.todos[taskPickDate] = (db.todos[taskPickDate] || []).filter(function (x) { return x.id !== tid; });
+    if (!db.todos[taskPickDate].length) delete db.todos[taskPickDate];
+    save(); renderDayTodos(); renderTasks();
+  }
+  function closeDayModal() { $('#dayModal').hidden = true; $('#dayModalMask').hidden = true; taskPickDate = null; }
+
+  function openAddClassModal() {
+    $('#addClassModal').hidden = false; $('#addClassMask').hidden = false;
+    var t = new Date(); var wd = (t.getDay() + 6) % 7 + 1;
+    $('#acWeekday').value = String(wd);
+    $('#acTime').value = ''; $('#acSubject').value = ''; $('#acContent').value = '';
+  }
+  function closeAddClassModal() { $('#addClassModal').hidden = true; $('#addClassMask').hidden = true; }
+  function addClassSubmit() {
+    var wd = parseInt($('#acWeekday').value, 10);
+    var subject = ($('#acSubject').value || '').trim();
+    var time = ($('#acTime').value || '').trim();
+    var content = ($('#acContent').value || '').trim();
+    if (!subject) { toast('请输入课程名称'); return; }
+    ensureTasksDefaults();
+    db.schedule.push({ id: 'c' + Date.now(), weekday: wd, time: time, subject: subject, content: content, color: PALETTE_T[db.schedule.length % PALETTE_T.length] });
+    save(); renderTasks(); closeAddClassModal(); toast('已添加课程');
+  }
+
+  function taskPrevMonth() { taskMonth--; if (taskMonth < 0) { taskMonth = 11; taskYear--; } renderTasks(); }
+  function taskNextMonth() { taskMonth++; if (taskMonth > 11) { taskMonth = 0; taskYear++; } renderTasks(); }
+  function taskThisMonth() { var t = new Date(); taskYear = t.getFullYear(); taskMonth = t.getMonth(); renderTasks(); }
+
+  function parseScheduleWorkbook(data, fileName) {
+    var wb = XLSX.read(data, { type: 'array', cellDates: true });
+    var ws = wb.Sheets[wb.SheetNames[0]];
+    var rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '', raw: true, blankrows: false });
+    if (!rows.length) throw new Error('表格是空的');
+    var headerRow = 0, bestScore = -1;
+    for (var r = 0; r < Math.min(rows.length, 12); r++) {
+      var sc = 0;
+      (rows[r] || []).forEach(function (c) {
+        var s = String(c == null ? '' : c);
+        if (/周|星期|礼拜|天|日|时间|时|课程|科目|内容|主题|节|weekday|time|subject|course|day/i.test(s)) sc++;
+      });
+      if (sc > bestScore) { bestScore = sc; headerRow = r; }
+    }
+    var header = rows[headerRow] || [];
+    var colWd, colTime, colSub, colContent;
+    for (var c = 0; c < header.length; c++) {
+      var s = String(header[c] == null ? '' : header[c]);
+      if (colWd === undefined && /周|星期|礼拜|天|日|weekday|周几|星期几|星期/i.test(s)) colWd = c;
+      else if (colTime === undefined && /时间|时刻|节次|第.*节|time|点/i.test(s)) colTime = c;
+      else if (colSub === undefined && /课程|科目|学科|主题|内容|名称|subject|course|课/i.test(s)) colSub = c;
+      else if (colContent === undefined && /内容|主题|备注|说明|content|note|备注说明/i.test(s)) colContent = c;
+    }
+    if (colWd === undefined || colSub === undefined) {
+      throw new Error('未能识别「星期 / 课程」列，请确认表头包含这些字段');
+    }
+    var sched = [], ci = 0;
+    for (var i = headerRow + 1; i < rows.length; i++) {
+      var row = rows[i] || [];
+      var wd = parseWeekday(colWd !== undefined ? row[colWd] : '');
+      if (!wd) continue;
+      var sub = (colSub !== undefined ? String(row[colSub] == null ? '' : row[colSub]) : '').trim();
+      if (!sub) continue;
+      var time = (colTime !== undefined ? String(row[colTime] == null ? '' : row[colTime]) : '').trim();
+      var content = (colContent !== undefined ? String(row[colContent] == null ? '' : row[colContent]) : '').trim();
+      sched.push({ id: 'c' + (ci++), weekday: wd, time: time, subject: sub, content: content, color: PALETTE_T[(wd - 1) % PALETTE_T.length] });
+    }
+    if (!sched.length) throw new Error('没有读到任何课程排课');
+    return { schedule: sched, fileName: fileName };
+  }
+  function importScheduleFile(files) {
+    var arr = Array.prototype.slice.call(files);
+    if (!arr.length) return;
+    var f = arr[0];
+    if (isImageFile(f)) { importScheduleImage(f); return; }
+    var fr = new FileReader();
+    fr.onload = function (e) {
+      try {
+        var parsed = parseScheduleWorkbook(new Uint8Array(e.target.result), f.name);
+        ensureTasksDefaults();
+        db.schedule = parsed.schedule;
+        save(); renderTasks();
+        var box = $('#scheduleResult');
+        box.hidden = false; box.className = 'import-result';
+        box.innerHTML = '课程表导入成功：共 <b>' + parsed.schedule.length + '</b> 节固定排课（按星期循环），已生成教学日历。可在「添加课程」里继续补充。';
+        toast('课程表已导入');
+      } catch (err) {
+        var box = $('#scheduleResult');
+        box.hidden = false; box.className = 'import-result err';
+        box.innerHTML = '课程表导入失败：' + esc(err.message || err);
+      }
+    };
+    fr.onerror = function () { toast('读取失败'); };
+    fr.readAsArrayBuffer(f);
+  }
+  function loadSampleSchedule() {
+    ensureTasksDefaults();
+    if (db.schedule.length && !confirm('已存在固定排课，示例课表会覆盖现有排课，继续吗？')) return;
+    var sample = [
+      { weekday: 1, time: '09:00-10:30', subject: '数学提高', content: '第三章 函数' },
+      { weekday: 1, time: '15:00-16:30', subject: '英语读写', content: 'Unit 5' },
+      { weekday: 2, time: '10:00-11:30', subject: '编程思维', content: '循环与判断' },
+      { weekday: 3, time: '09:00-10:30', subject: '数学提高', content: '习题课' },
+      { weekday: 3, time: '14:00-15:30', subject: '科学实验', content: '力学' },
+      { weekday: 4, time: '16:00-17:30', subject: '英语读写', content: '口语' },
+      { weekday: 5, time: '09:00-10:30', subject: '编程思维', content: '项目实战' },
+      { weekday: 6, time: '10:00-12:00', subject: '小灶课', content: '难点答疑' }
+    ];
+    db.schedule = sample.map(function (e, i) {
+      return { id: 'c' + Date.now() + i, weekday: e.weekday, time: e.time, subject: e.subject, content: e.content, color: PALETTE_T[(e.weekday - 1) % PALETTE_T.length] };
+    });
+    save(); renderTasks();
+    var box = $('#scheduleResult');
+    box.hidden = false; box.className = 'import-result';
+    box.innerHTML = '已载入示例课表（' + db.schedule.length + ' 节），可直接预览效果；用「导入课程表」替换为你的真实课表。';
+    toast('已载入示例课表');
+  }
+
+  /* ---------------- 图片识别导入 / 清空课表 ---------------- */
+  var lpRows = [];            // 预览中的行 [{date,time,subject}]
+  var ocrLoading = null;      // Tesseract 加载 Promise
+
+  function assetUrl(p) { return new URL(p, location.href).href; }
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = src; s.async = true;
+      s.onload = function () { window.Tesseract ? resolve(window.Tesseract) : reject(new Error('引擎异常')); };
+      s.onerror = function () { reject(new Error('加载失败')); };
+      document.head.appendChild(s);
+    });
+  }
+  function ensureTesseract() {
+    if (window.Tesseract) return Promise.resolve(window.Tesseract);
+    if (ocrLoading) return ocrLoading;
+    // 优先本地，失败再回退 CDN
+    ocrLoading = loadScript(assetUrl('vendor/tesseract/tesseract.min.js'))
+      .catch(function () {
+        return loadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
+      })
+      .catch(function () {
+        ocrLoading = null;
+        throw new Error('OCR 引擎加载失败，请检查网络后重试');
+      });
+    return ocrLoading;
+  }
+  function isImageFile(f) {
+    if (!f) return false;
+    if (f.type && /^image\//.test(f.type)) return true;
+    return /\.(png|jpe?g|webp|bmp|gif)$/i.test(f.name || '');
+  }
+  function collapseCJKSpaces(s) {
+    var prev;
+    do { prev = s; s = s.replace(/([\u4e00-\u9fff])[ \t]+([\u4e00-\u9fff])/g, '$1$2'); } while (s !== prev);
+    return s;
+  }
+  function parseScheduleImageText(text) {
+    var lines = String(text || '').split(/\r?\n/);
+    var rows = [];
+    for (var li = 0; li < lines.length; li++) {
+      var line = lines[li].replace(/[|｜"`'’‘]/g, '').trim();
+      if (!line) continue;
+      var re = /(\d{4})[-\/.年](\d{1,2})[-\/.月](\d{1,2})/g;
+      var ds = [], m;
+      while ((m = re.exec(line))) {
+        ds.push({
+          date: m[1] + '-' + ('0' + m[2]).slice(-2) + '-' + ('0' + m[3]).slice(-2),
+          start: m.index, end: m.index + m[0].length
+        });
+      }
+      for (var i = 0; i < ds.length; i++) {
+        var seg = line.slice(ds[i].end, i + 1 < ds.length ? ds[i + 1].start : line.length);
+        seg = seg.replace(/\s*\d{1,2}\s*$/, '');
+        seg = collapseCJKSpaces(seg).replace(/\s+/g, ' ').replace(/\s*[-—]\s*/g, '-').replace(/^\s+|\s+$/g, '');
+        if (!seg) continue;
+        rows.push({ date: ds[i].date, time: '', subject: seg });
+      }
+    }
+    var seen = {}, uniq = [];
+    rows.forEach(function (r) {
+      var k = r.date + '|' + r.subject;
+      if (seen[k]) return;
+      seen[k] = 1; uniq.push(r);
+    });
+    uniq.sort(function (a, b) { return a.date.localeCompare(b.date); });
+    return uniq;
+  }
+  function importScheduleImage(file) {
+    var box = $('#scheduleResult');
+    if (box) {
+      box.hidden = false; box.className = 'import-result';
+      box.innerHTML = '正在加载识别引擎…';
+    }
+    ensureTesseract().then(function (T) {
+      return T.createWorker('chi_sim', 1, {
+        workerPath: assetUrl('vendor/tesseract/worker.min.js'),
+        corePath: assetUrl('vendor/tesseract/core'),
+        langPath: assetUrl('vendor/tessdata'),
+        logger: function (m) {
+          if (m.status === 'recognizing text') {
+            var pct = Math.round(m.progress * 100);
+            if (box) box.innerHTML = '正在识别图片中的课程…<b id="ocrPct">' + pct + '%</b>';
+          }
+        }
+      });
+    }).then(function (worker) {
+      return worker.setParameters({ tessedit_pageseg_mode: '6', preserve_interword_spaces: '1' })
+        .then(function () { return worker.recognize(file); })
+        .then(
+          function (ret) { return worker.terminate().then(function () { return ret; }); },
+          function (err) { return worker.terminate().then(function () { throw err; }); }
+        );
+    }).then(function (ret) {
+      var rows = parseScheduleImageText(ret && ret.data ? ret.data.text : '');
+      if (!rows.length) throw new Error('没有识别到「日期 + 课程名」的排课信息，请换一张更清晰的课程表图片');
+      openLessonPreview(rows);
+      if (box) {
+        box.hidden = false; box.className = 'import-result';
+        box.innerHTML = '识别完成：共 <b>' + rows.length + '</b> 条排课，请在上方弹窗中核对后导入。';
+      }
+    }).catch(function (err) {
+      if (box) { box.hidden = false; box.className = 'import-result err'; box.innerHTML = '图片识别失败：' + esc(err.message || err); }
+      toast('图片识别失败');
+    });
+  }
+  function openLessonPreview(rows) {
+    lpRows = rows.map(function (r) { return { date: r.date, time: r.time || '', subject: r.subject }; });
+    renderLessonPreview();
+    $('#lpModal').hidden = false;
+    $('#lpMask').hidden = false;
+  }
+  function closeLessonPreview() {
+    $('#lpModal').hidden = true;
+    $('#lpMask').hidden = true;
+    lpRows = [];
+  }
+  function renderLessonPreview() {
+    var box = $('#lpList');
+    if (!box) return;
+    var cnt = $('#lpCount'); if (cnt) cnt.textContent = lpRows.length;
+    if (!lpRows.length) {
+      box.innerHTML = '<div class="day-empty">没有可导入的行，点「＋ 加一行」手动补充</div>';
+      return;
+    }
+    var h = '';
+    lpRows.forEach(function (r, i) {
+      h += '<div class="lp-row" data-i="' + i + '">' +
+        '<input type="date" class="lp-date" value="' + esc(r.date) + '" />' +
+        '<input type="text" class="lp-time" value="' + esc(r.time) + '" placeholder="时间" />' +
+        '<input type="text" class="lp-sub" value="' + esc(r.subject) + '" placeholder="课程名称" />' +
+        '<button class="lp-del" data-i="' + i + '" title="删除">×</button>' +
+        '</div>';
+    });
+    box.innerHTML = h;
+  }
+  function syncPreviewFromDom() {
+    var rows = $('#lpList') ? $('#lpList').querySelectorAll('.lp-row') : [];
+    var out = [];
+    Array.prototype.forEach.call(rows, function (row) {
+      out.push({
+        date: row.querySelector('.lp-date').value.trim(),
+        time: row.querySelector('.lp-time').value.trim(),
+        subject: row.querySelector('.lp-sub').value.trim()
+      });
+    });
+    lpRows = out;
+  }
+  function applyPreviewTime() {
+    syncPreviewFromDom();
+    var t = ($('#lpTime').value || '').trim();
+    if (!t) { toast('请先填写统一时间'); return; }
+    lpRows.forEach(function (r) { r.time = t; });
+    renderLessonPreview();
+    toast('已应用到全部课程');
+  }
+  function confirmLessonImport() {
+    syncPreviewFromDom();
+    var valid = lpRows.filter(function (r) {
+      return /^\d{4}-\d{2}-\d{2}$/.test(r.date) && r.subject;
+    });
+    if (!valid.length) { toast('没有有效的排课行'); return; }
+    ensureTasksDefaults();
+    var seen = {};
+    db.dated.forEach(function (e) { seen[e.date + '|' + e.subject] = 1; });
+    var added = 0, ci = 0;
+    valid.forEach(function (r) {
+      var k = r.date + '|' + r.subject;
+      if (seen[k]) return;
+      seen[k] = 1;
+      db.dated.push({
+        id: 'd' + Date.now() + (ci++),
+        date: r.date,
+        time: r.time || '',
+        subject: r.subject,
+        color: PALETTE_T[db.dated.length % PALETTE_T.length]
+      });
+      added++;
+    });
+    save(); renderTasks(); closeLessonPreview();
+    var box = $('#scheduleResult');
+    if (box) {
+      box.hidden = false; box.className = 'import-result';
+      box.innerHTML = '已导入 <b>' + added + '</b> 节单次课，已显示在教学日历中。' + (added < valid.length ? '（重复的日期+课程已自动跳过）' : '');
+    }
+    toast('已导入 ' + added + ' 节课程');
+  }
+  function clearScheduleAll() {
+    ensureTasksDefaults();
+    var n = db.schedule.length + db.dated.length;
+    if (!n) { toast('课表已经是空的'); return; }
+    if (!confirm('确定清空全部课程吗？\n将删除 ' + db.dated.length + ' 节单次课 + ' + db.schedule.length + ' 节固定排课。\n（待办不会删除）')) return;
+    db.schedule = [];
+    db.dated = [];
+    save(); renderTasks();
+    var box = $('#scheduleResult');
+    if (box) {
+      box.hidden = false; box.className = 'import-result';
+      box.innerHTML = '已清空课表：删除了 <b>' + n + '</b> 节课程，待办保留。';
+    }
+    toast('课表已清空');
+  }
 
   /* ---------------- 启动 ---------------- */
   bind();

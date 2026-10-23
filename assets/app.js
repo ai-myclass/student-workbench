@@ -2801,7 +2801,8 @@
   /* =========================================================
    * 每日教学任务 / 教学日历
    * ======================================================= */
-  var PALETTE_T = ['#3B82F6', '#2CB5A0', '#F2994A', '#8B5CF6', '#EC4899', '#EFA83D', '#14B8A6', '#E5484D'];
+  /* 语义配色：课程统一橙、待办统一红（待办色由 styles.css 的 --cal-todo-c 承担） */
+  var CLS_COLOR = '#F2994A';   // 课程
   var taskYear, taskMonth;     // 当前查看的年月（month 为 0-based）
   var taskPickDate = null;     // 当前打开的日期 YYYY-MM-DD
 
@@ -2869,7 +2870,7 @@
         inner += '<div class="cal-sched">';
         for (var si = 0; si < Math.min(sched.length, 3); si++) {
           var e = sched[si];
-          inner += '<div class="cal-cls' + (e.date ? ' dated' : '') + '" title="' + esc((e.time ? e.time + ' ' : '') + (e.subject || '')) + '" style="--c:' + (e.color || '#3B82F6') + '"><span class="cal-cls-time">' + esc(e.time || '') + '</span><span class="cal-cls-sub">' + esc(e.subject || '') + '</span></div>';
+          inner += '<div class="cal-cls' + (e.date ? ' dated' : '') + '" title="' + esc((e.time ? e.time + ' ' : '') + (e.subject || '')) + '" style="--c:' + CLS_COLOR + '"><span class="cal-cls-time">' + esc(e.time || '') + '</span><span class="cal-cls-sub">' + esc(e.subject || '') + '</span></div>';
         }
         if (sched.length > 3) inner += '<div class="cal-more">+' + (sched.length - 3) + ' 节</div>';
         inner += '</div>';
@@ -2915,7 +2916,7 @@
       sh.innerHTML = sched.length ? sched.map(function (e) {
         var isDated = !!e.date;
         var kind = isDated ? 'dated' : 'schedule';
-        return '<div class="day-cls" style="--c:' + (e.color || '#3B82F6') + '">' +
+        return '<div class="day-cls" style="--c:' + CLS_COLOR + '">' +
           '<span class="day-cls-time">' + esc(e.time || '') + '</span>' +
           '<b>' + esc(e.subject || '') + '</b>' +
           (isDated ? '<span class="day-cls-tag">单次</span>' : '<span class="day-cls-tag">固定</span>') +
@@ -3056,7 +3057,7 @@
     var content = ($('#acContent').value || '').trim();
     if (!subject) { toast('请输入课程名称'); return; }
     ensureTasksDefaults();
-    db.schedule.push({ id: 'c' + Date.now(), weekday: wd, time: time, subject: subject, content: content, color: PALETTE_T[db.schedule.length % PALETTE_T.length] });
+    db.schedule.push({ id: 'c' + Date.now(), weekday: wd, time: time, subject: subject, content: content, color: CLS_COLOR });
     save(); renderTasks(); closeAddClassModal(); toast('已添加课程');
   }
 
@@ -3099,7 +3100,7 @@
       if (!sub) continue;
       var time = (colTime !== undefined ? String(row[colTime] == null ? '' : row[colTime]) : '').trim();
       var content = (colContent !== undefined ? String(row[colContent] == null ? '' : row[colContent]) : '').trim();
-      sched.push({ id: 'c' + (ci++), weekday: wd, time: time, subject: sub, content: content, color: PALETTE_T[(wd - 1) % PALETTE_T.length] });
+      sched.push({ id: 'c' + (ci++), weekday: wd, time: time, subject: sub, content: content, color: CLS_COLOR });
     }
     if (!sched.length) throw new Error('没有读到任何课程排课');
     return { schedule: sched, fileName: fileName };
@@ -3143,7 +3144,7 @@
       { weekday: 6, time: '10:00-12:00', subject: '小灶课', content: '难点答疑' }
     ];
     db.schedule = sample.map(function (e, i) {
-      return { id: 'c' + Date.now() + i, weekday: e.weekday, time: e.time, subject: e.subject, content: e.content, color: PALETTE_T[(e.weekday - 1) % PALETTE_T.length] };
+      return { id: 'c' + Date.now() + i, weekday: e.weekday, time: e.time, subject: e.subject, content: e.content, color: CLS_COLOR };
     });
     save(); renderTasks();
     var box = $('#scheduleResult');
@@ -3329,7 +3330,7 @@
         date: r.date,
         time: r.time || '',
         subject: r.subject,
-        color: PALETTE_T[db.dated.length % PALETTE_T.length]
+        color: CLS_COLOR
       });
       added++;
     });

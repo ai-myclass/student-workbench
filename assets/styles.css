@@ -902,7 +902,8 @@ input:focus,textarea:focus,select:focus{transition:border-color .15s,box-shadow 
 }
 
 /* ============ 教学日历 ============ */
-.cal-card{padding:20px 22px 22px;}
+/* 语义配色：课程=橙，待办=红（统一，不再按记录随机取色） */
+.cal-card{--cal-cls-c:#F2994A;--cal-todo-c:#E5484D;padding:20px 22px 22px;}
 .cal-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px;}
 .cal-nav{display:flex;align-items:center;gap:8px;}
 .cal-nav .btn{width:38px;height:38px;padding:0;font-size:20px;line-height:1;border-radius:12px;}
@@ -929,16 +930,20 @@ input:focus,textarea:focus,select:focus{transition:border-color .15s,box-shadow 
 .cal-today-badge{margin-left:5px;font-size:10px;font-weight:800;color:#fff;background:var(--primary);border-radius:999px;padding:1px 6px;vertical-align:middle;}
 .cal-sched{margin-top:6px;display:flex;flex-direction:column;gap:3px;}
 .cal-cls{
-  border-radius:8px;padding:3px 6px;border-left:3px solid var(--c,#3B82F6);
-  background:color-mix(in srgb,var(--c,#3B82F6) 12%,#fff);
+  border-radius:8px;padding:3px 6px;border-left:3px solid var(--c,var(--cal-cls-c,#F2994A));
+  background:color-mix(in srgb,var(--c,var(--cal-cls-c,#F2994A)) 12%,#fff);
   display:flex;flex-direction:column;gap:0;line-height:1.25;overflow:hidden;
 }
-.cal-cls-time{font-size:10px;font-weight:800;color:var(--c,#3B82F6);font-family:var(--font-num);}
+.cal-cls-time{font-size:10px;font-weight:800;color:var(--c,var(--cal-cls-c,#F2994A));font-family:var(--font-num);}
 .cal-cls-sub{font-size:11px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .cal-more{font-size:10.5px;font-weight:700;color:var(--text-3);margin-top:2px;}
 .cal-todos{margin-top:5px;display:flex;flex-direction:column;gap:2px;}
-.cal-todo{font-size:11px;font-weight:600;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.cal-todo.done{color:var(--text-3);text-decoration:line-through;}
+.cal-todo{
+  font-size:11px;font-weight:600;color:var(--cal-todo-c,#E5484D);
+  border-left:2px solid var(--cal-todo-c,#E5484D);padding-left:5px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.cal-todo.done{color:var(--text-3);border-left-color:var(--line-2);text-decoration:line-through;}
 .cal-add{
   position:absolute;right:6px;bottom:5px;width:20px;height:20px;border-radius:50%;
   display:grid;place-items:center;font-size:15px;font-weight:800;line-height:1;
@@ -957,11 +962,11 @@ input:focus,textarea:focus,select:focus{transition:border-color .15s,box-shadow 
 .day-sec-title:first-of-type{margin-top:4px;}
 .day-sched{display:flex;flex-direction:column;gap:8px;}
 .day-cls{
-  border-radius:12px;padding:10px 12px;border-left:4px solid var(--c,#3B82F6);
-  background:color-mix(in srgb,var(--c,#3B82F6) 10%,#fff);
+  border-radius:12px;padding:10px 12px;border-left:4px solid var(--c,var(--cal-cls-c,#F2994A));
+  background:color-mix(in srgb,var(--c,var(--cal-cls-c,#F2994A)) 10%,#fff);
   display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;
 }
-.day-cls-time{font-size:13px;font-weight:800;color:var(--c,#3B82F6);font-family:var(--font-num);}
+.day-cls-time{font-size:13px;font-weight:800;color:var(--c,var(--cal-cls-c,#F2994A));font-family:var(--font-num);}
 .day-cls b{font-size:14px;font-weight:800;color:var(--text);}
 .day-cls-content{font-size:13px;color:var(--text-2);width:100%;}
 .day-empty{font-size:13px;color:var(--text-3);padding:10px 2px;font-family:var(--font);}
@@ -971,8 +976,8 @@ input:focus,textarea:focus,select:focus{transition:border-color .15s,box-shadow 
   background:var(--surface-2);border:1.5px solid var(--line);transition:background .15s;
 }
 .day-todo:hover{background:#fff;}
-.day-todo-chk{width:18px;height:18px;flex:none;accent-color:var(--green);cursor:pointer;}
-.day-todo-text{flex:1;font-size:14px;font-weight:600;color:var(--text);word-break:break-all;}
+.day-todo-chk{width:18px;height:18px;flex:none;accent-color:var(--cal-todo-c,#E5484D);cursor:pointer;}
+.day-todo-text{flex:1;font-size:14px;font-weight:600;color:var(--cal-todo-c,#E5484D);word-break:break-all;}
 .day-todo.done .day-todo-text{color:var(--text-3);text-decoration:line-through;font-weight:600;}
 .day-todo-del{
   width:26px;height:26px;flex:none;border-radius:50%;font-size:17px;line-height:1;color:var(--text-3);
@@ -1001,11 +1006,11 @@ input:focus,textarea:focus,select:focus{transition:border-color .15s,box-shadow 
 .cal-cls{position:relative;}
 .cal-cls.dated::after{
   content:"";position:absolute;top:4px;right:4px;width:5px;height:5px;border-radius:50%;
-  background:var(--c,#3B82F6);opacity:.8;
+  background:var(--c,var(--cal-cls-c,#F2994A));opacity:.8;
 }
 .day-cls-tag{
-  font-size:10px;font-weight:800;color:var(--c,#3B82F6);
-  background:color-mix(in srgb,var(--c,#3B82F6) 16%,#fff);
+  font-size:10px;font-weight:800;color:var(--cal-cls-c,#F2994A);
+  background:color-mix(in srgb,var(--cal-cls-c,#F2994A) 16%,#fff);
   border-radius:999px;padding:1px 7px;line-height:1.5;
 }
 

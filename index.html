@@ -568,6 +568,32 @@
   </div>
 </div>
 
+<!-- 课程编辑弹层 -->
+<div class="drawer-mask" id="ecMask" hidden></div>
+<div class="edit-modal" id="ecModal" hidden>
+  <div class="edit-card">
+    <div class="edit-head">
+      <h3>编辑课程</h3>
+      <button class="drawer-close" id="ecClose" aria-label="关闭">×</button>
+    </div>
+    <div class="form-row"><label>类型</label><span class="ec-type" id="ecType">—</span></div>
+    <div class="form-row" id="ecRowDate"><label>日期</label><input type="date" id="ecDate" /></div>
+    <div class="form-row" id="ecRowWeekday" hidden><label>星期</label>
+      <select id="ecWeekday">
+        <option value="1">周一</option><option value="2">周二</option><option value="3">周三</option>
+        <option value="4">周四</option><option value="5">周五</option><option value="6">周六</option><option value="7">周日</option>
+      </select>
+    </div>
+    <div class="form-row"><label>时间</label><input id="ecTime" placeholder="如 09:00 或 09:00-10:30" /></div>
+    <div class="form-row"><label>课程</label><input id="ecSubject" placeholder="如 数学提高" /></div>
+    <div class="form-row"><label>内容</label><input id="ecContent" placeholder="可选，如 第三章复习" /></div>
+    <div class="edit-actions ec-actions">
+      <button class="btn btn-danger" id="ecDelete">删除</button>
+      <button class="btn btn-primary" id="ecSave">保存</button>
+    </div>
+  </div>
+</div>
+
 <!-- ============ 学员详情抽屉 ============ -->
 <div class="drawer-mask" id="drawerMask" hidden data-page-node-id="MNlrqackvw9C7LcjpKmUGx"></div>
 <aside class="drawer" id="drawer" hidden data-page-node-id="OD2Q11M63k5nANFgVdoDYH">

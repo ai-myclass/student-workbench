@@ -2686,6 +2686,16 @@
       var del = e.target.closest('.day-todo-del');
       if (del) { delTodo(del.dataset.tid); return; }
     });
+    $('#dayModalSched').addEventListener('click', function (e) {
+      var ed = e.target.closest('.day-cls-edit');
+      if (ed) { openEditClass(ed.dataset.kind, ed.dataset.id); return; }
+      var dl = e.target.closest('.day-cls-del');
+      if (dl) { ecTarget = { kind: dl.dataset.kind, id: dl.dataset.id }; deleteEditClass(); return; }
+    });
+    $('#ecClose').addEventListener('click', closeEditClass);
+    $('#ecMask').addEventListener('click', closeEditClass);
+    $('#ecSave').addEventListener('click', saveEditClass);
+    $('#ecDelete').addEventListener('click', deleteEditClass);
     $('#addClassClose').addEventListener('click', closeAddClassModal);
     $('#addClassMask').addEventListener('click', closeAddClassModal);
     $('#addClassSubmit').addEventListener('click', addClassSubmit);
@@ -2877,9 +2887,18 @@
     var sh = $('#dayModalSched');
     if (sh) {
       sh.innerHTML = sched.length ? sched.map(function (e) {
-        return '<div class="day-cls" style="--c:' + (e.color || '#3B82F6') + '"><span class="day-cls-time">' + esc(e.time || '') + '</span><b>' + esc(e.subject || '') + '</b>' +
-          (e.date ? '<span class="day-cls-tag">单次</span>' : '') +
-          (e.content ? '<span class="day-cls-content">' + esc(e.content) + '</span>' : '') + '</div>';
+        var isDated = !!e.date;
+        var kind = isDated ? 'dated' : 'schedule';
+        return '<div class="day-cls" style="--c:' + (e.color || '#3B82F6') + '">' +
+          '<span class="day-cls-time">' + esc(e.time || '') + '</span>' +
+          '<b>' + esc(e.subject || '') + '</b>' +
+          (isDated ? '<span class="day-cls-tag">单次</span>' : '<span class="day-cls-tag">固定</span>') +
+          (e.content ? '<span class="day-cls-content">' + esc(e.content) + '</span>' : '') +
+          '<span class="day-cls-ops">' +
+            '<button class="day-cls-edit" data-kind="' + kind + '" data-id="' + e.id + '" title="编辑">✎</button>' +
+            '<button class="day-cls-del" data-kind="' + kind + '" data-id="' + e.id + '" title="删除">×</button>' +
+          '</span>' +
+        '</div>';
       }).join('') : '<div class="day-empty">当天没有排课，可在下方添加待办</div>';
     }
     renderDayTodos();
@@ -2927,6 +2946,75 @@
     save(); renderDayTodos(); renderTasks();
   }
   function closeDayModal() { $('#dayModal').hidden = true; $('#dayModalMask').hidden = true; taskPickDate = null; }
+
+  /* ---------------- 课程编辑 / 删除 ---------------- */
+  function findClass(kind, id) {
+    var arr = kind === 'dated' ? (db.dated || []) : (db.schedule || []);
+    return arr.filter(function (e) { return e.id === id; })[0] || null;
+  }
+  function openEditClass(kind, id) {
+    var entry = findClass(kind, id);
+    if (!entry) return;
+    ecTarget = { kind: kind, id: id };
+    $('#ecType').textContent = kind === 'dated' ? '单次课' : '固定排课';
+    if (kind === 'dated') {
+      $('#ecRowDate').hidden = false; $('#ecRowWeekday').hidden = true;
+      $('#ecDate').value = entry.date || '';
+    } else {
+      $('#ecRowDate').hidden = true; $('#ecRowWeekday').hidden = false;
+      $('#ecWeekday').value = String(entry.weekday);
+    }
+    $('#ecTime').value = entry.time || '';
+    $('#ecSubject').value = entry.subject || '';
+    $('#ecContent').value = entry.content || '';
+    $('#ecModal').hidden = false; $('#ecMask').hidden = false;
+  }
+  function closeEditClass() {
+    $('#ecModal').hidden = true; $('#ecMask').hidden = true;
+    ecTarget = { kind: null, id: null };
+  }
+  function saveEditClass() {
+    var kind = ecTarget.kind, id = ecTarget.id;
+    if (!kind || !id) return;
+    var subject = ($('#ecSubject').value || '').trim();
+    if (!subject) { toast('请输入课程名称'); return; }
+    var entry = findClass(kind, id);
+    if (!entry) { closeEditClass(); return; }
+    if (kind === 'dated') {
+      var d = ($('#ecDate').value || '').trim();
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) { toast('请填写有效日期'); return; }
+      entry.date = d;
+    } else {
+      entry.weekday = parseInt($('#ecWeekday').value, 10);
+    }
+    entry.time = ($('#ecTime').value || '').trim();
+    entry.subject = subject;
+    entry.content = ($('#ecContent').value || '').trim();
+    ensureTasksDefaults();
+    save();
+    closeEditClass();
+    renderTasks();
+    if (taskPickDate) openDayModal(taskPickDate);
+    toast('已保存');
+  }
+  function deleteEditClass() {
+    var kind = ecTarget.kind, id = ecTarget.id;
+    if (!kind || !id) return;
+    var msg = kind === 'dated'
+      ? '确定删除这节课吗？'
+      : '这是「固定排课」（按星期循环），删除后该星期所有日期的此课程都会一并移除，确定吗？';
+    if (!confirm(msg)) return;
+    if (kind === 'dated') {
+      db.dated = (db.dated || []).filter(function (e) { return e.id !== id; });
+    } else {
+      db.schedule = (db.schedule || []).filter(function (e) { return e.id !== id; });
+    }
+    save();
+    closeEditClass();
+    renderTasks();
+    if (taskPickDate) openDayModal(taskPickDate);
+    toast('已删除');
+  }
 
   function openAddClassModal() {
     $('#addClassModal').hidden = false; $('#addClassMask').hidden = false;
@@ -3041,6 +3129,7 @@
   /* ---------------- 图片识别导入 / 清空课表 ---------------- */
   var lpRows = [];            // 预览中的行 [{date,time,subject}]
   var ocrLoading = null;      // Tesseract 加载 Promise
+  var ecTarget = { kind: null, id: null };   // 当前编辑/删除的目标课程 {kind:'dated'|'schedule', id}
 
   function assetUrl(p) { return new URL(p, location.href).href; }
   function loadScript(src) {

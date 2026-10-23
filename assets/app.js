@@ -2716,6 +2716,15 @@
       lpRows.splice(+del.dataset.i, 1);
       renderLessonPreview();
     });
+
+    // 点击弹层空白处（容器本身，非卡片内容）即关闭
+    bindModalBlankClose([
+      ['#addClassModal', closeAddClassModal],
+      ['#dayModal', closeDayModal],
+      ['#lpModal', closeLessonPreview],
+      ['#ecModal', closeEditClass],
+      ['#editModal', closeEditModal]
+    ]);
   }
 
   function addExclude() {
@@ -2727,6 +2736,23 @@
     input.value = '';
     recompute(); save(); renderAll();
     toast('已加入剔除关键词：' + v);
+  }
+
+  /* 点击弹层空白处关闭：仅当点击目标是弹层容器本身（而非卡片内容）时关闭 */
+  function bindModalBlankClose(pairs) {
+    pairs.forEach(function (p) {
+      var modal = $(p[0]);
+      if (!modal) return;
+      modal.addEventListener('mousedown', function (e) {
+        if (e.target !== modal) return;          // 点在卡片内部，不关
+        modal._blankDown = true;
+      });
+      modal.addEventListener('mouseup', function (e) {
+        if (e.target === modal && modal._blankDown) p[1]();  // 按下与抬起都在空白处才关
+        modal._blankDown = false;
+      });
+      modal.addEventListener('mouseleave', function () { modal._blankDown = false; });
+    });
   }
 
   function bindDropzone(sel, handler) {

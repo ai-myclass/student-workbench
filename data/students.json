@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-13T08:41:12.580Z",
+ "updatedAt": "2026-11-09T05:40:20.410Z",
  "hashAlgo": "fnv1a64",
  "courseSource": "statCourses(正课)",
  "courseCount": 6,
@@ -230,7 +230,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "21008d404510b7f9",
    "stats": {
     "score": 0.9625000000000001,
     "listen": 1,
@@ -730,7 +730,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "e1fa91534db36c09",
    "stats": {
     "score": 0.9936170212765958,
     "listen": 1,
@@ -4130,7 +4130,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "1c4ce3e4851494f4",
    "stats": {
     "score": 0.841954022988506,
     "listen": 0.8333333333333334,
@@ -4330,7 +4330,7 @@
    "grade": "三年级",
    "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "779caa6088a81483",
    "stats": {
     "score": 0.7495238095238096,
     "listen": 0.6666666666666666,
@@ -4530,7 +4530,7 @@
    "grade": "二年级",
    "gender": "男",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "11a77fbe0629f08f",
    "stats": {
     "score": 0.9511627906976745,
     "listen": 1,
@@ -4630,7 +4630,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "b5151c1c994ab6c6",
    "stats": {
     "score": 0.9092342342342343,
     "listen": 0.8333333333333334,
@@ -4730,7 +4730,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "c6cfd6361537ec3b",
    "stats": {
     "score": 0.8458333333333335,
     "listen": 0.8333333333333334,
@@ -4930,7 +4930,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "394eaeb7165bb8b9",
    "stats": {
     "score": 0.9229166666666668,
     "listen": 0.8333333333333334,
@@ -5030,7 +5030,7 @@
    "grade": "三年级",
    "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "41f6aa7b8708e6e9",
    "stats": {
     "score": 0.8416666666666667,
     "listen": 1,
@@ -5732,22 +5732,22 @@
    "school": "-",
    "phoneHash": "",
    "stats": {
-    "score": 0.9011261261261263,
-    "listen": 0.8333333333333334,
-    "accuracy": 0.8648648648648649,
+    "score": 0.9675675675675677,
+    "listen": 1,
+    "accuracy": 0.8918918918918919,
     "homework": 1,
     "progress": 92.58666666666666,
     "minutes": 334
    },
    "lessons": {
     "第1讲 第01讲·化妆舞会-造型切换": {
-     "effective": false,
+     "effective": true,
      "attend": false,
-     "accuracy": 13,
-     "hwStatus": "已通过",
+     "accuracy": 100,
+     "hwStatus": "已提交",
      "progress": 58.78,
      "minutes": 35,
-     "quizRight": 1,
+     "quizRight": 2,
      "quizAnswer": 2
     },
     "第2讲 第02讲·神庙探险-运动基础": {
@@ -5820,7 +5820,7 @@
     }
    ],
    "comment": {
-    "auto": "亮亮同学，这一阶段的学习情况老师已经帮你整理好啦。整体表现非常优秀，继续保持这份热情和专注🌟课上有效听课率83%，大部分内容都跟上了，继续保持👍直播答题正确率86%，知识点掌握得比较扎实，继续保持👏练习完成率100%，作业完成得很认真，把练习落到实处了👍",
+    "auto": "亮亮同学，这一阶段的学习情况老师已经帮你整理好啦。整体表现非常优秀，继续保持这份热情和专注🌟课上有效听课率100%，专注度很高，这个好习惯继续保持👍直播答题正确率89%，知识点掌握得比较扎实，继续保持👏练习完成率100%，作业完成得很认真，把练习落到实处了👍",
     "custom": "这一阶段的综合表现非常亮眼，学习主动性强、基础也扎实。继续保持这份专注与热情，你一定会越来越优秀！"
    }
   },
@@ -6230,7 +6230,7 @@
    "grade": "六年级",
    "gender": "-",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "dc89aad268e5ccbb",
    "stats": {
     "score": 0.7808823529411765,
     "listen": 0.6666666666666666,
@@ -7330,7 +7330,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "a3f9dff95e2bba92",
    "stats": {
     "score": 0.8559523809523811,
     "listen": 1,
@@ -7630,7 +7630,7 @@
    "grade": "四年级",
    "gender": "男",
    "school": "瓦子小学",
-   "phoneHash": "",
+   "phoneHash": "e1b41189dd6ebf59",
    "stats": {
     "score": 0.7546666666666667,
     "listen": 0.6666666666666666,
@@ -8430,7 +8430,7 @@
    "grade": "初三",
    "gender": "女",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "8e545972c0514951",
    "stats": {
     "score": 0.9727272727272728,
     "listen": 1,
@@ -10330,7 +10330,7 @@
    "grade": "四年级",
    "gender": "男",
    "school": "银象小学",
-   "phoneHash": "",
+   "phoneHash": "ce0b8ed7cbecb43d",
    "stats": {
     "score": 0.9936170212765958,
     "listen": 1,
@@ -13130,7 +13130,7 @@
    "grade": "四年级",
    "gender": "男",
    "school": "其它学校",
-   "phoneHash": "",
+   "phoneHash": "bb5b869e76f69783",
    "stats": {
     "score": 0.9869565217391305,
     "listen": 1,
@@ -13430,7 +13430,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "453f97af9531f7fc",
    "stats": {
     "score": 0.8107142857142858,
     "listen": 0.5,
@@ -14630,7 +14630,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "c66d2b0e2fb73275",
    "stats": {
     "score": 0.9733333333333334,
     "listen": 1,
@@ -14730,7 +14730,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "c6ab3ec27cbf1b70",
    "stats": {
     "score": 0.7833333333333334,
     "listen": 0.8333333333333334,
@@ -15130,7 +15130,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "f333d93d6d375e90",
    "stats": {
     "score": 0.9545454545454546,
     "listen": 1,
@@ -15430,7 +15430,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "02551fe84d62afc4",
    "stats": {
     "score": 0.9347826086956522,
     "listen": 1,
@@ -15530,7 +15530,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "370c0657627422e8",
    "stats": {
     "score": 0.7027777777777778,
     "listen": 0.5,
@@ -16926,8 +16926,8 @@
   }
  ],
  "_meta": {
-  "phoneFull": 127,
-  "phoneMissing": 42,
+  "phoneFull": 148,
+  "phoneMissing": 21,
   "withData": 169
  }
 }

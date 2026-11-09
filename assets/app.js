@@ -29,6 +29,7 @@
     { key: 'score', label: '综合得分', color: '#FB923C', def: false }
   ];
 
+  var loadRepaired = 0;            // 本次加载触发的自愈次数（>0 表示需落盘）
   var db = load();
   var view = 'dashboard';
   var keyword = '';
@@ -90,11 +91,18 @@
         if (d.parentScope.showStageSummary === undefined) d.parentScope.showStageSummary = true;
         if (d.parentScope.showStageKnowledge === undefined) d.parentScope.showStageKnowledge = true;
       }
+      // 先用内置学情表快照补全 db.roster（必须在 refresh 之前，
+      // 否则 applyRoster 的档案匹配会用到过期的本机缓存学情表，导致手机号补不上）
+      var rosterFixed = syncRosterFromBuiltin(d);
       var nd = SWB.refresh(d);
       if (!nd.schedule) nd.schedule = [];
       if (!nd.dated) nd.dated = [];
       if (!nd.todos) nd.todos = {};
-      repairStudentPhones(nd); // 自愈：用内置学情表完整号覆盖旧缓存残留的脱敏/缺失手机号
+      // 自愈：用内置学情表完整号覆盖旧缓存残留的脱敏/缺失手机号
+      var phoneFixed = repairStudentPhones(nd);
+      var accFixed = repairLessonAccuracy(nd);
+      // 标记：本次加载做了自愈 → 启动段需要落盘，否则下次刷新又回到缺号/旧口径
+      loadRepaired = rosterFixed + phoneFixed + accFixed;
       return nd;
     } catch (e) { return SWB.refresh(SWB.emptyDB()); }
   }
@@ -2238,18 +2246,63 @@
    * 仅在「内置有更完整号码」时覆盖：已有 11 位完整号的绝不改成脱敏号。
    * 用于根治旧缓存(补全前批次)残留掩码号的问题——每次加载自动自愈。
    */
+  /**
+   * 把内置学情表快照（assets/roster-data.js，飞书最新导��）合并进 db.roster。
+   *
+   * 背景：db.roster 是本机缓存的学情表副本，可能是旧版本甚至为空（用户从没用过
+   * 「导入学情表」时）。而 applyRoster() 的档案匹配依赖 db.roster.students，
+   * 于是旧缓存里缺失/脱敏的手机号就补不上——「学员档案」匹配与「复制手机号」都受影响。
+   * 这里以内置快照为准做增量合并：
+   *   ① 内置有、本地缺/不完整的手机号 → 用内置的完整号覆盖
+   *   ② 内置新增的学员 → 补进 db.roster
+   *   ③ 本地独有的学员 → 保留不动
+   */
+  function syncRosterFromBuiltin(d) {
+    if (!window.SWB_ROSTER || !window.SWB_ROSTER.students || !window.SWB_ROSTER.students.length) return 0;
+    d.roster = d.roster || { students: [], sources: [], updatedAt: null, fields: [] };
+    d.roster.students = d.roster.students || [];
+    var byKey = {};
+    d.roster.students.forEach(function (r) { if (r) byKey[String(r.id || r.key || '')] = r; });
+    var n = 0;
+    window.SWB_ROSTER.students.forEach(function (br) {
+      if (!br) return;
+      var k = String(br.id || br.key || '');
+      if (!k) return;
+      var cur = byKey[k];
+      if (!cur) {
+        // 内置新增：复制整条档案（不含 lessons，避免带入学习数据）
+        var copy = JSON.parse(JSON.stringify(br));
+        delete copy.lessons;
+        d.roster.students.push(copy);
+        byKey[k] = copy;
+        n++;
+        return;
+      }
+      // 本地已有：手机号/年级/性别等以内置的完整值为准（仅在本地缺失或不完整时覆盖）
+      if (br.phone && String(cur.phone || '').replace(/\D/g, '').length !== 11) {
+        cur.phone = br.phone; n++;
+      }
+      ['grade', 'gender', 'regStatus', 'renewStatus', 'nickname', 'remark'].forEach(function (f) {
+        if (!cur[f] && br[f]) cur[f] = br[f];
+      });
+    });
+    return n;
+  }
+
   function repairStudentPhones(d) {
-    if (!window.SWB_ROSTER || !window.SWB_ROSTER.students) return;
+    if (!window.SWB_ROSTER || !window.SWB_ROSTER.students) return 0;
     var full = {};
     window.SWB_ROSTER.students.forEach(function (r) {
       if (r && String(r.phone || '').replace(/\D/g, '').length >= 11) full[String(r.id || r.key)] = r.phone;
     });
+    var n = 0;
     (d.students || []).forEach(function (s) {
       if (!s) return;
       if (String(s.phone || '').replace(/\D/g, '').length >= 11) return; // 已有完整号，不动
       var f = full[String(s.id || '')];
-      if (f) s.phone = f;
+      if (f) { s.phone = f; n++; }
     });
+    return n;
   }
 
   /**
@@ -3387,8 +3440,11 @@
   renderAll();
   fitAllSelects();
 
-  // 存量数据自愈并落盘：单讲正确率统一为「答对/作答」（旧数据为「答对/推送」口径）
-  if (repairLessonAccuracy(db)) {
+  // 存量数据自愈并落盘：
+  //   ① 单讲正确率统一为「答对/作答」（旧数据为「答对/推送」口径）
+  //   ② 学员手机号用内置学情表回填（旧缓存残留缺失/脱敏号）
+  // 自愈只改内存，若不落盘则下次刷新又会回到缺号/旧口径，故此处统一 save()
+  if (loadRepaired) {
     recompute();
     save();
     renderAll();

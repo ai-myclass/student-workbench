@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-09T06:16:44.164Z",
+ "updatedAt": "2026-11-09T06:33:04.292Z",
  "hashAlgo": "fnv1a64",
  "courseSource": "statCourses(正课)",
  "courseCount": 6,
@@ -30,7 +30,7 @@
    "grade": "一年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "a3c778c271f671ac",
    "stats": {
     "score": 0.9106321839080461,
     "listen": 1,
@@ -137,10 +137,10 @@
   {
    "name": "昶言",
    "id": "6639597945",
-   "grade": "二年级",
+   "grade": "一年级",
    "gender": "男",
    "school": "紫金山街小学",
-   "phoneHash": "",
+   "phoneHash": "d631b8194b92c178",
    "stats": {
     "score": 0.9936170212765958,
     "listen": 1,
@@ -4098,9 +4098,9 @@
    "name": "李航宇",
    "id": "7524264736",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "男",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "b0adb36724bd92ec",
    "stats": {
     "score": 0.6363636363636365,
     "listen": 0.5,
@@ -4208,9 +4208,9 @@
    "name": "杜逸轩",
    "id": "7536956658",
    "grade": "一年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "6062b1fe75927ede",
    "stats": {
     "score": 0.6125000000000002,
     "listen": 0.5,
@@ -4320,7 +4320,7 @@
    "grade": "三年级",
    "gender": "女",
    "school": "其它学校",
-   "phoneHash": "",
+   "phoneHash": "24701ac13722e833",
    "stats": {
     "score": 0.8576190476190478,
     "listen": 0.8333333333333334,
@@ -4430,7 +4430,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "787f05e346f9d4d7",
    "stats": {
     "score": 0.793421052631579,
     "listen": 0.5,
@@ -4648,9 +4648,9 @@
    "name": "吴梓晨",
    "id": "6859212823",
    "grade": "五年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "2003df714eabc77d",
    "stats": {
     "score": 0.8661904761904763,
     "listen": 0.8333333333333334,
@@ -5308,9 +5308,9 @@
    "name": "黄之然",
    "id": "7489807832",
    "grade": "二年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "db8eb017f39917ac",
    "stats": {
     "score": 0.6983333333333334,
     "listen": 0.6666666666666666,
@@ -10477,10 +10477,10 @@
   {
    "name": "杨欣豪",
    "id": "6165146012",
-   "grade": "二年级",
-   "gender": "-",
+   "grade": "三年级",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "f601913b7625e221",
    "stats": {
     "score": 1,
     "listen": 1,
@@ -14878,9 +14878,9 @@
    "name": "李子昂",
    "id": "7537246659",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "2d10b7ba49ff4242",
    "stats": {
     "score": 0.8113636363636364,
     "listen": 0.5,
@@ -15098,9 +15098,9 @@
    "name": "宁宁",
    "id": "7540040249",
    "grade": "一年级",
-   "gender": "-",
+   "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "bacb5ea96d64b7ca",
    "stats": {
     "score": 0.6350000000000001,
     "listen": 0.5,
@@ -15210,7 +15210,7 @@
    "grade": "三年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "1fac1c2eb902e375",
    "stats": {
     "score": 0.6888888888888889,
     "listen": 0.6666666666666666,
@@ -15318,9 +15318,9 @@
    "name": "王紫滢",
    "id": "7503631056",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "67623f6d08dfe5bd",
    "stats": {
     "score": 0.5978260869565218,
     "listen": 0.5,
@@ -15428,9 +15428,9 @@
    "name": "程曦",
    "id": "7509965226",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "女",
    "school": "濮阳市油田第十七中学",
-   "phoneHash": "",
+   "phoneHash": "6792983d6b68eeaa",
    "stats": {
     "score": 0.6377450980392158,
     "listen": 0.5,
@@ -17958,9 +17958,9 @@
    "name": "唐糖",
    "id": "7272151280",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "女",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "6b4c4cd1bcdf3148",
    "stats": {
     "score": 0.9642857142857144,
     "listen": 1,
@@ -18616,8 +18616,8 @@
   }
  ],
  "_meta": {
-  "phoneFull": 148,
-  "phoneMissing": 21,
+  "phoneFull": 163,
+  "phoneMissing": 6,
   "withData": 169
  }
 }

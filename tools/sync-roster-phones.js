@@ -96,10 +96,22 @@ localStudents.forEach(s => { byId[norm(s.id)] = s; });
 
 const sheetMap = readSource(SRC_SHEET);
 const baseMap = readSource(SRC_BASE);
-// 合并两源：表格优先，Base 补缺
+// 合并两源：表格优先，Base 补缺。
+// 注意不能整条记录直接覆盖——某源里某人手机号为空时会把另一源的完整号冲掉，
+// 故手机号按「任一源有 11 位完整号」取，其余字段以表格版为准、Base 兜底。
 const merged_src = {};
-Object.keys(baseMap).forEach(id => { merged_src[id] = baseMap[id]; });
-Object.keys(sheetMap).forEach(id => { merged_src[id] = sheetMap[id]; });
+const allIds = new Set([...Object.keys(baseMap), ...Object.keys(sheetMap)]);
+allIds.forEach(function (id) {
+  const s = sheetMap[id], b = baseMap[id];
+  if (!s && !b) return;
+  const merged = Object.assign({}, b || {}, s || {});
+  const sPhone = fullPhone(s && s['手机号']);
+  const bPhone = fullPhone(b && b['手机号']);
+  if (sPhone) merged['手机号'] = sPhone;
+  else if (bPhone) merged['手机号'] = bPhone;
+  else merged['手机号'] = (s && s['手机号']) != null ? s['手机号'] : (b ? b['手机号'] : null);
+  merged_src[id] = merged;
+});
 
 let filledPhone = 0, updatedPhone = 0, added = 0, skippedNoId = 0;
 const noId = [], stillMissing = [], report = [];

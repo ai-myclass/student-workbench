@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-09T06:33:04.292Z",
+ "updatedAt": "2026-11-09T06:58:18.904Z",
  "hashAlgo": "fnv1a64",
  "courseSource": "statCourses(正课)",
  "courseCount": 6,
@@ -6300,7 +6300,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "b7e64c057f045358",
    "stats": {
     "score": 0.9675675675675677,
     "listen": 1,
@@ -8280,7 +8280,7 @@
    "grade": "三年级",
    "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "eead51170a5aa4bf",
    "stats": {
     "score": 1,
     "listen": 1,
@@ -14660,7 +14660,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "ef111fe7cf809269",
    "stats": {
     "score": 0.7049019607843138,
     "listen": 0.5,
@@ -14990,7 +14990,7 @@
    "grade": "五年级",
    "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "ac1df962d75fc798",
    "stats": {
     "score": 0.5750000000000001,
     "listen": 0.3333333333333333,
@@ -15540,7 +15540,7 @@
    "grade": "大四",
    "gender": "-",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "c367fedc62fb2cfa",
    "stats": {
     "score": 0.7836206896551724,
     "listen": 0.6666666666666666,
@@ -15760,7 +15760,7 @@
    "grade": "二年级",
    "gender": "-",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "c18b6c6f8ac21d09",
    "stats": {
     "score": 0.8,
     "listen": 0.8333333333333334,
@@ -18616,8 +18616,8 @@
   }
  ],
  "_meta": {
-  "phoneFull": 163,
-  "phoneMissing": 6,
+  "phoneFull": 169,
+  "phoneMissing": 0,
   "withData": 169
  }
 }

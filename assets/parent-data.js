@@ -223,7 +223,10 @@
           lessons[cn] = {
             effective: !!l.effective,
             attend: !!l.attend,
-            accuracy: (l.accuracy == null ? null : l.accuracy),
+            // 统一口径：答对 / 作答（与 stats.accuracy 一致）；无作答记录则为空
+            accuracy: (+l.quizAnswer || 0) > 0
+              ? Math.round((+l.quizRight || 0) / (+l.quizAnswer) * 1000) / 10
+              : null,
             hwStatus: l.hwStatus || '',
             progress: l.progress || 0,
             minutes: l.durationMin || 0,

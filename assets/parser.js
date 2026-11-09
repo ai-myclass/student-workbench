@@ -267,12 +267,17 @@
         quizPush: quiz.push,
         quizAnswer: quiz.answer,
         quizRight: quiz.right,
-        accuracy: num(g('直播答题正确率')),
+        // 单讲正确率口径：答对 / 作答（与汇总层 stats.accuracy 及表格「答对/作答」列一致）。
+        // 源表「直播答题正确率」列是「答对 / 推送题数」（分母含未作答题），不作为主口径。
+        accuracy: null,
         hwStatus: g('练习状态'),
         hwScore: num(g('练习得分'))
       };
-      if (rec.accuracy === null && rec.quizAnswer > 0) {
+      if (rec.quizAnswer > 0) {
         rec.accuracy = Math.round(rec.quizRight / rec.quizAnswer * 1000) / 10;
+      } else {
+        // 无作答数时退回源表列（推送口径），仅作参考
+        rec.accuracy = num(g('直播答题正确率'));
       }
       student.lessons[course.name] = rec;
     });

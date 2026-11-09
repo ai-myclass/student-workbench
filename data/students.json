@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-13T08:41:12.580Z",
+ "updatedAt": "2026-11-09T06:06:28.791Z",
  "hashAlgo": "fnv1a64",
  "courseSource": "statCourses(正课)",
  "courseCount": 6,
@@ -43,7 +43,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 86.43,
      "minutes": 52,
@@ -53,7 +53,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 88.27,
      "minutes": 53,
@@ -63,7 +63,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 92.4,
      "minutes": 57,
@@ -73,7 +73,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 99.08,
      "minutes": 59,
@@ -93,7 +93,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.86,
      "minutes": 60,
@@ -173,7 +173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.39,
      "minutes": 59,
@@ -228,9 +228,9 @@
    "name": "华奕芃",
    "id": "7527271030",
    "grade": "二年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "21008d404510b7f9",
    "stats": {
     "score": 0.9625000000000001,
     "listen": 1,
@@ -243,7 +243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 33.3,
      "hwStatus": "已通过",
      "progress": 97.79,
      "minutes": 59,
@@ -263,7 +263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.36,
      "minutes": 61,
@@ -273,7 +273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.33,
      "minutes": 59,
@@ -283,7 +283,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.7,
      "minutes": 59,
@@ -293,7 +293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -343,7 +343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -353,7 +353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 87.5,
      "minutes": 53,
@@ -373,7 +373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 84.93,
      "minutes": 51,
@@ -393,7 +393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": false,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "未提交",
      "progress": 49.33,
      "minutes": 30,
@@ -443,7 +443,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 61,
@@ -453,7 +453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 42.9,
      "hwStatus": "待订正",
      "progress": 99.2,
      "minutes": 60,
@@ -463,7 +463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -473,7 +473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 29,
+     "accuracy": 40,
      "hwStatus": "已通过",
      "progress": 98.53,
      "minutes": 59,
@@ -483,7 +483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -493,7 +493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -543,7 +543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 60,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 61,
@@ -563,7 +563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -573,7 +573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.42,
      "minutes": 59,
@@ -583,7 +583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -593,7 +593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -643,7 +643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 57.1,
      "hwStatus": "待订正",
      "progress": 99.1,
      "minutes": 60,
@@ -653,7 +653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "待订正",
      "progress": 77.17,
      "minutes": 46,
@@ -663,7 +663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 82.12,
      "minutes": 50,
@@ -673,7 +673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.14,
      "minutes": 59,
@@ -683,7 +683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -693,7 +693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 85,
      "minutes": 51,
@@ -728,9 +728,9 @@
    "name": "林兴澄",
    "id": "6310365346",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "e1fa91534db36c09",
    "stats": {
     "score": 0.9936170212765958,
     "listen": 1,
@@ -793,7 +793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.84,
      "minutes": 60,
@@ -843,7 +843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.18,
      "minutes": 60,
@@ -883,7 +883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -943,7 +943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.1,
      "minutes": 60,
@@ -963,7 +963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 93.34,
      "minutes": 57,
@@ -973,7 +973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.61,
      "minutes": 59,
@@ -983,7 +983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.73,
      "minutes": 59,
@@ -993,7 +993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 60,
@@ -1043,7 +1043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0.52,
      "minutes": 0,
@@ -1053,7 +1053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.45,
      "minutes": 60,
@@ -1063,7 +1063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 61,
@@ -1073,7 +1073,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.36,
      "minutes": 59,
@@ -1083,7 +1083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -1093,7 +1093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1153,7 +1153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.65,
      "minutes": 59,
@@ -1163,7 +1163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.57,
      "minutes": 61,
@@ -1183,7 +1183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.94,
      "minutes": 60,
@@ -1193,7 +1193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1243,7 +1243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 94.84,
      "minutes": 57,
@@ -1263,7 +1263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.36,
      "minutes": 61,
@@ -1293,7 +1293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1363,7 +1363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -1393,7 +1393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1453,7 +1453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 97.83,
      "minutes": 59,
@@ -1463,7 +1463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 11,
+     "accuracy": 25,
      "hwStatus": "已通过",
      "progress": 97.07,
      "minutes": 60,
@@ -1473,7 +1473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99,
      "minutes": 59,
@@ -1493,7 +1493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1543,7 +1543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 93.31,
      "minutes": 56,
@@ -1553,7 +1553,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.13,
      "minutes": 59,
@@ -1563,7 +1563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 94.58,
      "minutes": 58,
@@ -1583,7 +1583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 40,
      "hwStatus": "已通过",
      "progress": 96.65,
      "minutes": 58,
@@ -1593,7 +1593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 94.79,
      "minutes": 56,
@@ -1683,7 +1683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -1693,7 +1693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1753,7 +1753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.09,
      "minutes": 60,
@@ -1763,7 +1763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 97.74,
      "minutes": 60,
@@ -1773,7 +1773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "progress": 96.14,
      "minutes": 57,
@@ -1793,7 +1793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1843,7 +1843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.21,
      "minutes": 60,
@@ -1863,7 +1863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.68,
      "minutes": 61,
@@ -1873,7 +1873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 14,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 99,
      "minutes": 59,
@@ -1893,7 +1893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -1943,7 +1943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.43,
      "minutes": 60,
@@ -1963,7 +1963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 91.14,
      "minutes": 56,
@@ -1993,7 +1993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -2063,7 +2063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.25,
      "minutes": 61,
@@ -2083,7 +2083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -2093,7 +2093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 96.92,
      "minutes": 58,
@@ -2143,7 +2143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -2153,7 +2153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.7,
      "minutes": 60,
@@ -2163,7 +2163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -2173,7 +2173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.86,
      "minutes": 59,
@@ -2183,7 +2183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -2193,7 +2193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -2243,7 +2243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -2263,7 +2263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.3,
      "minutes": 61,
@@ -2273,7 +2273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.42,
      "minutes": 59,
@@ -2353,7 +2353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -2363,7 +2363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -2373,7 +2373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99,
      "minutes": 59,
@@ -2383,7 +2383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -2393,7 +2393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 83.83,
      "minutes": 50,
@@ -2427,7 +2427,7 @@
   {
    "name": "金承荣俊",
    "id": "7266101729",
-   "grade": "五年级",
+   "grade": "一年级",
    "gender": "男",
    "school": "-",
    "phoneHash": "371554ac2fb2c5d1",
@@ -2453,7 +2453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.4,
      "minutes": 60,
@@ -2463,7 +2463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 93.5,
      "minutes": 58,
@@ -2483,7 +2483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 87.92,
      "minutes": 52,
@@ -2493,7 +2493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -2563,7 +2563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.6,
      "minutes": 61,
@@ -2573,7 +2573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.92,
      "minutes": 59,
@@ -2593,7 +2593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -2643,7 +2643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.43,
      "minutes": 60,
@@ -2663,7 +2663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.52,
      "minutes": 61,
@@ -2693,7 +2693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 59,
@@ -2753,7 +2753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "待订正",
      "progress": 99.42,
      "minutes": 60,
@@ -2763,7 +2763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.57,
      "minutes": 61,
@@ -2773,7 +2773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 99,
      "minutes": 59,
@@ -2783,7 +2783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -2793,7 +2793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -2843,7 +2843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 75.62,
      "minutes": 46,
@@ -2853,7 +2853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 62.5,
      "hwStatus": "待订正",
      "progress": 91.26,
      "minutes": 55,
@@ -2863,7 +2863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 60,
      "hwStatus": "待订正",
      "progress": 52.13,
      "minutes": 32,
@@ -2873,7 +2873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "progress": 99.03,
      "minutes": 59,
@@ -2883,7 +2883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": false,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "progress": 13.36,
      "minutes": 8,
@@ -2893,7 +2893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": false,
      "attend": false,
-     "accuracy": 14,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 54.19,
      "minutes": 32,
@@ -2943,7 +2943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -2993,7 +2993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3153,7 +3153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -3173,7 +3173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.92,
      "minutes": 59,
@@ -3193,7 +3193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3243,7 +3243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 60,
@@ -3253,7 +3253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.04,
      "minutes": 60,
@@ -3263,7 +3263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -3273,7 +3273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 60,
      "hwStatus": "已通过",
      "progress": 99,
      "minutes": 59,
@@ -3283,7 +3283,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.14,
      "minutes": 59,
@@ -3293,7 +3293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3343,7 +3343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 28.6,
      "hwStatus": "已通过",
      "progress": 98.94,
      "minutes": 60,
@@ -3353,7 +3353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.18,
      "minutes": 60,
@@ -3363,7 +3363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.6,
      "minutes": 61,
@@ -3373,7 +3373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 14,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 99.17,
      "minutes": 59,
@@ -3383,7 +3383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 20,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -3393,7 +3393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3463,7 +3463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.57,
      "minutes": 61,
@@ -3543,7 +3543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 61,
@@ -3563,7 +3563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.57,
      "minutes": 61,
@@ -3573,7 +3573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.83,
      "minutes": 59,
@@ -3583,7 +3583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3643,7 +3643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 58.34,
      "minutes": 35,
@@ -3653,7 +3653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -3663,7 +3663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 88.32,
      "minutes": 54,
@@ -3673,7 +3673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.45,
      "minutes": 59,
@@ -3683,7 +3683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.2,
      "minutes": 59,
@@ -3693,7 +3693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3743,7 +3743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -3753,7 +3753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -3763,7 +3763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 5.72,
      "minutes": 3,
@@ -3773,7 +3773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3843,7 +3843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 22.88,
      "minutes": 13,
@@ -3853,7 +3853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -3863,7 +3863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -3873,7 +3873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 98.92,
      "minutes": 59,
@@ -3883,7 +3883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3893,7 +3893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -3963,7 +3963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 6.15,
      "minutes": 3,
@@ -3973,7 +3973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.95,
      "minutes": 59,
@@ -3993,7 +3993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.34,
      "minutes": 58,
@@ -4043,7 +4043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -4053,7 +4053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -4063,7 +4063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0.54,
      "minutes": 0,
@@ -4073,7 +4073,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 95.59,
      "minutes": 57,
@@ -4083,7 +4083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.62,
      "minutes": 58,
@@ -4093,7 +4093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -4128,9 +4128,9 @@
    "name": "阳阳",
    "id": "6797369489",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "1c4ce3e4851494f4",
    "stats": {
     "score": 0.841954022988506,
     "listen": 0.8333333333333334,
@@ -4143,7 +4143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 31.01,
      "minutes": 18,
@@ -4153,7 +4153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.59,
      "minutes": 60,
@@ -4163,7 +4163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 61,
@@ -4173,7 +4173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.81,
      "minutes": 59,
@@ -4183,7 +4183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 97.31,
      "minutes": 58,
@@ -4193,7 +4193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 29,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -4243,7 +4243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0.33,
      "minutes": 0,
@@ -4253,7 +4253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.51,
      "minutes": 60,
@@ -4263,7 +4263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 61,
@@ -4293,7 +4293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 88.96,
      "minutes": 53,
@@ -4330,7 +4330,7 @@
    "grade": "三年级",
    "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "779caa6088a81483",
    "stats": {
     "score": 0.7495238095238096,
     "listen": 0.6666666666666666,
@@ -4343,7 +4343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 44.31,
      "minutes": 27,
@@ -4363,7 +4363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 83.38,
      "minutes": 51,
@@ -4373,7 +4373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.7,
      "minutes": 58,
@@ -4383,7 +4383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": false,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 50.53,
      "minutes": 30,
@@ -4393,7 +4393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 95.59,
      "minutes": 57,
@@ -4443,7 +4443,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -4493,7 +4493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 97.95,
      "minutes": 58,
@@ -4530,7 +4530,7 @@
    "grade": "二年级",
    "gender": "男",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "11a77fbe0629f08f",
    "stats": {
     "score": 0.9511627906976745,
     "listen": 1,
@@ -4543,7 +4543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 93.45,
      "minutes": 57,
@@ -4563,7 +4563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 55.6,
      "hwStatus": "已通过",
      "progress": 99.6,
      "minutes": 61,
@@ -4583,7 +4583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.86,
      "minutes": 60,
@@ -4593,7 +4593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "待订正",
      "progress": 89.07,
      "minutes": 53,
@@ -4628,9 +4628,9 @@
    "name": "侯俊硕",
    "id": "5620348965",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "b5151c1c994ab6c6",
    "stats": {
     "score": 0.9092342342342343,
     "listen": 0.8333333333333334,
@@ -4643,7 +4643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 20.42,
      "minutes": 12,
@@ -4653,7 +4653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -4663,7 +4663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.57,
      "minutes": 61,
@@ -4673,7 +4673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.95,
      "minutes": 59,
@@ -4683,7 +4683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.39,
      "minutes": 59,
@@ -4728,9 +4728,9 @@
    "name": "张颢译",
    "id": "7499705370",
    "grade": "二年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "c6cfd6361537ec3b",
    "stats": {
     "score": 0.8458333333333335,
     "listen": 0.8333333333333334,
@@ -4743,7 +4743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "未提交",
      "progress": 54.05,
      "minutes": 33,
@@ -4753,7 +4753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 96.95,
      "minutes": 58,
@@ -4763,7 +4763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 61,
@@ -4773,7 +4773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 95.59,
      "minutes": 57,
@@ -4783,7 +4783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 87.64,
      "minutes": 52,
@@ -4793,7 +4793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 82.95,
      "minutes": 49,
@@ -4843,7 +4843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -4853,7 +4853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 94.92,
      "minutes": 57,
@@ -4863,7 +4863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 55.14,
      "minutes": 34,
@@ -4873,7 +4873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 83.05,
      "minutes": 49,
@@ -4893,7 +4893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 94.48,
      "minutes": 56,
@@ -4928,9 +4928,9 @@
    "name": "黄晨瑞",
    "id": "6404340128",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "394eaeb7165bb8b9",
    "stats": {
     "score": 0.9229166666666668,
     "listen": 0.8333333333333334,
@@ -4943,7 +4943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -4953,7 +4953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.59,
      "minutes": 60,
@@ -4963,7 +4963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 99.79,
      "minutes": 61,
@@ -4973,7 +4973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 99.36,
      "minutes": 59,
@@ -4983,7 +4983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.94,
      "minutes": 60,
@@ -5030,7 +5030,7 @@
    "grade": "三年级",
    "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "41f6aa7b8708e6e9",
    "stats": {
     "score": 0.8416666666666667,
     "listen": 1,
@@ -5043,7 +5043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 33.3,
      "hwStatus": "未提交",
      "progress": 90.55,
      "minutes": 55,
@@ -5053,7 +5053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -5063,7 +5063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -5073,7 +5073,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 42.9,
      "hwStatus": "已通过",
      "progress": 99.03,
      "minutes": 59,
@@ -5083,7 +5083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.42,
      "minutes": 59,
@@ -5093,7 +5093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 93.37,
      "minutes": 56,
@@ -5143,7 +5143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.59,
      "minutes": 60,
@@ -5163,7 +5163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.6,
      "minutes": 61,
@@ -5173,7 +5173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 95.87,
      "minutes": 57,
@@ -5183,7 +5183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.39,
      "minutes": 59,
@@ -5193,7 +5193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -5243,7 +5243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 60,
@@ -5263,7 +5263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 92.13,
      "minutes": 57,
@@ -5273,7 +5273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.17,
      "minutes": 58,
@@ -5293,7 +5293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 61,
@@ -5343,7 +5343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 98.06,
      "minutes": 59,
@@ -5353,7 +5353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -5363,7 +5363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.38,
      "minutes": 61,
@@ -5373,7 +5373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99,
      "minutes": 59,
@@ -5393,7 +5393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 97.62,
      "minutes": 58,
@@ -5443,7 +5443,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "待订正",
      "progress": 63.53,
      "minutes": 38,
@@ -5453,7 +5453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.51,
      "minutes": 60,
@@ -5463,7 +5463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 94.77,
      "minutes": 58,
@@ -5473,7 +5473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 29,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.36,
      "minutes": 59,
@@ -5483,7 +5483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 84.23,
      "minutes": 50,
@@ -5493,7 +5493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": false,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 79.01,
      "minutes": 47,
@@ -5563,7 +5563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.38,
      "minutes": 61,
@@ -5573,7 +5573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 94.64,
      "minutes": 56,
@@ -5583,7 +5583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -5643,7 +5643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.63,
      "minutes": 60,
@@ -5663,7 +5663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -5673,7 +5673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.67,
      "minutes": 59,
@@ -5693,7 +5693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -5743,7 +5743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 58.78,
      "minutes": 35,
@@ -5753,7 +5753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.59,
      "minutes": 60,
@@ -5763,7 +5763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.73,
      "minutes": 61,
@@ -5773,7 +5773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.25,
      "minutes": 59,
@@ -5793,7 +5793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -5843,7 +5843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.59,
      "minutes": 60,
@@ -5863,7 +5863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.7,
      "minutes": 61,
@@ -5893,7 +5893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -5943,7 +5943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.45,
      "minutes": 60,
@@ -5963,7 +5963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 61,
@@ -5973,7 +5973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "待订正",
      "progress": 95.56,
      "minutes": 57,
@@ -5983,7 +5983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -5993,7 +5993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.56,
      "minutes": 59,
@@ -6063,7 +6063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.6,
      "minutes": 61,
@@ -6073,7 +6073,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.64,
      "minutes": 59,
@@ -6083,7 +6083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.39,
      "minutes": 59,
@@ -6093,7 +6093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "未提交",
      "progress": 100,
      "minutes": 60,
@@ -6153,7 +6153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "progress": 88.93,
      "minutes": 53,
@@ -6163,7 +6163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -6173,7 +6173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 86.96,
      "minutes": 52,
@@ -6193,7 +6193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 86.16,
      "minutes": 51,
@@ -6228,9 +6228,9 @@
    "name": "圳圳",
    "id": "10550667349526",
    "grade": "六年级",
-   "gender": "-",
+   "gender": "男",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "dc89aad268e5ccbb",
    "stats": {
     "score": 0.7808823529411765,
     "listen": 0.6666666666666666,
@@ -6243,7 +6243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0.38,
      "minutes": 0,
@@ -6253,7 +6253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 94.78,
      "minutes": 57,
@@ -6263,7 +6263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 74.28,
      "minutes": 46,
@@ -6293,7 +6293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 96.92,
      "minutes": 58,
@@ -6343,7 +6343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.45,
      "minutes": 60,
@@ -6373,7 +6373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.95,
      "minutes": 59,
@@ -6393,7 +6393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -6443,7 +6443,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.59,
      "minutes": 60,
@@ -6453,7 +6453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -6463,7 +6463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 42.9,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 61,
@@ -6483,7 +6483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -6493,7 +6493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -6553,7 +6553,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -6563,7 +6563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.87,
      "minutes": 61,
@@ -6573,7 +6573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.64,
      "minutes": 59,
@@ -6583,7 +6583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.81,
      "minutes": 59,
@@ -6593,7 +6593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 98.86,
      "minutes": 59,
@@ -6643,7 +6643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 99.56,
      "minutes": 60,
@@ -6653,7 +6653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 94.78,
      "minutes": 57,
@@ -6663,7 +6663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 61,
@@ -6673,7 +6673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -6683,7 +6683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 100,
      "minutes": 60,
@@ -6693,7 +6693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 100,
      "minutes": 61,
@@ -6743,7 +6743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.1,
      "minutes": 60,
@@ -6763,7 +6763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -6773,7 +6773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99,
      "minutes": 59,
@@ -6783,7 +6783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": false,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 66.77,
      "minutes": 40,
@@ -6793,7 +6793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -6853,7 +6853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -6863,7 +6863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 61,
@@ -6953,7 +6953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.42,
      "minutes": 60,
@@ -6963,7 +6963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.87,
      "minutes": 61,
@@ -6973,7 +6973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 97.45,
      "minutes": 58,
@@ -6983,7 +6983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -6993,7 +6993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -7053,7 +7053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 60,
@@ -7143,7 +7143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 93.15,
      "minutes": 56,
@@ -7163,7 +7163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 62,
@@ -7183,7 +7183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 91.27,
      "minutes": 54,
@@ -7263,7 +7263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 61,
@@ -7328,9 +7328,9 @@
    "name": "壹壹",
    "id": "6621673660",
    "grade": "二年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "a3f9dff95e2bba92",
    "stats": {
     "score": 0.8559523809523811,
     "listen": 1,
@@ -7343,7 +7343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 61,
@@ -7353,7 +7353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 98.96,
      "minutes": 60,
@@ -7363,7 +7363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -7373,7 +7373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 29,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 96.73,
      "minutes": 58,
@@ -7383,7 +7383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -7393,7 +7393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 90.99,
      "minutes": 54,
@@ -7443,7 +7443,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.84,
      "minutes": 60,
@@ -7463,7 +7463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "progress": 99.52,
      "minutes": 61,
@@ -7473,7 +7473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.95,
      "minutes": 59,
@@ -7483,7 +7483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -7493,7 +7493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 88.63,
      "minutes": 53,
@@ -7563,7 +7563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.65,
      "minutes": 61,
@@ -7630,7 +7630,7 @@
    "grade": "四年级",
    "gender": "男",
    "school": "瓦子小学",
-   "phoneHash": "",
+   "phoneHash": "e1b41189dd6ebf59",
    "stats": {
     "score": 0.7546666666666667,
     "listen": 0.6666666666666666,
@@ -7643,7 +7643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -7653,7 +7653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -7663,7 +7663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 61,
@@ -7673,7 +7673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 95.17,
      "minutes": 57,
@@ -7693,7 +7693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -7743,7 +7743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 60,
@@ -7773,7 +7773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.45,
      "minutes": 59,
@@ -7783,7 +7783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 95.26,
      "minutes": 57,
@@ -7793,7 +7793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -7843,7 +7843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 61,
@@ -7853,7 +7853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "progress": 99.62,
      "minutes": 60,
@@ -7863,7 +7863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 97.61,
      "minutes": 60,
@@ -7873,7 +7873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.03,
      "minutes": 59,
@@ -7883,7 +7883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.5,
      "minutes": 59,
@@ -7893,7 +7893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -7953,7 +7953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.53,
      "minutes": 60,
@@ -7973,7 +7973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.06,
      "minutes": 59,
@@ -7993,7 +7993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -8063,7 +8063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 61,
@@ -8093,7 +8093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -8143,7 +8143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.84,
      "minutes": 60,
@@ -8153,7 +8153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.62,
      "minutes": 60,
@@ -8243,7 +8243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -8253,7 +8253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.29,
      "minutes": 60,
@@ -8263,7 +8263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -8273,7 +8273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.45,
      "minutes": 59,
@@ -8293,7 +8293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 60,
@@ -8343,7 +8343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0.19,
      "minutes": 0,
@@ -8393,7 +8393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.86,
      "minutes": 60,
@@ -8427,10 +8427,10 @@
   {
    "name": "杨浩炜杨欣然",
    "id": "555009",
-   "grade": "初三",
-   "gender": "女",
+   "grade": "二年级",
+   "gender": "男",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "8e545972c0514951",
    "stats": {
     "score": 0.9727272727272728,
     "listen": 1,
@@ -8463,7 +8463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -8483,7 +8483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 59,
@@ -8493,7 +8493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.4,
      "minutes": 60,
@@ -8543,7 +8543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 94.35,
      "minutes": 57,
@@ -8553,7 +8553,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 40,
      "hwStatus": "已通过",
      "progress": 99.29,
      "minutes": 60,
@@ -8563,7 +8563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.38,
      "minutes": 61,
@@ -8573,7 +8573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.42,
      "minutes": 59,
@@ -8593,7 +8593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 96.15,
      "minutes": 58,
@@ -8653,7 +8653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 86.59,
      "minutes": 52,
@@ -8663,7 +8663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 95.28,
      "minutes": 59,
@@ -8683,7 +8683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 59,
@@ -8693,7 +8693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.73,
      "minutes": 60,
@@ -8793,7 +8793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -8863,7 +8863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 96.99,
      "minutes": 60,
@@ -8893,7 +8893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -8983,7 +8983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 60,
@@ -8993,7 +8993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 60,
@@ -9053,7 +9053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 87.12,
      "minutes": 52,
@@ -9063,7 +9063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -9083,7 +9083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.58,
      "minutes": 59,
@@ -9143,7 +9143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 86,
      "minutes": 52,
@@ -9153,7 +9153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.18,
      "minutes": 60,
@@ -9163,7 +9163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -9173,7 +9173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.45,
      "minutes": 59,
@@ -9183,7 +9183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -9193,7 +9193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -9243,7 +9243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 33.3,
      "hwStatus": "已通过",
      "progress": 98.77,
      "minutes": 60,
@@ -9253,7 +9253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "progress": 97.01,
      "minutes": 58,
@@ -9263,7 +9263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -9273,7 +9273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.5,
      "minutes": 59,
@@ -9283,7 +9283,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.23,
      "minutes": 58,
@@ -9293,7 +9293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 98.82,
      "minutes": 60,
@@ -9343,7 +9343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.02,
      "minutes": 60,
@@ -9373,7 +9373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 92.65,
      "minutes": 55,
@@ -9393,7 +9393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 60,
@@ -9453,7 +9453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.84,
      "minutes": 60,
@@ -9463,7 +9463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -9473,7 +9473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.17,
      "minutes": 59,
@@ -9483,7 +9483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 97.84,
      "minutes": 58,
@@ -9663,7 +9663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.38,
      "minutes": 61,
@@ -9683,7 +9683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -9693,7 +9693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -9743,7 +9743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.15,
      "minutes": 60,
@@ -9753,7 +9753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.31,
      "minutes": 60,
@@ -9763,7 +9763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 62,
@@ -9773,7 +9773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.58,
      "minutes": 59,
@@ -9783,7 +9783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -9793,7 +9793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -9853,7 +9853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.86,
      "minutes": 60,
@@ -9863,7 +9863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.36,
      "minutes": 61,
@@ -9963,7 +9963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 96.78,
      "minutes": 60,
@@ -9993,7 +9993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.73,
      "minutes": 60,
@@ -10053,7 +10053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.31,
      "minutes": 60,
@@ -10083,7 +10083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 91.88,
      "minutes": 55,
@@ -10143,7 +10143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 94.51,
      "minutes": 57,
@@ -10153,7 +10153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.26,
      "minutes": 60,
@@ -10163,7 +10163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.44,
      "minutes": 61,
@@ -10183,7 +10183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 94.68,
      "minutes": 56,
@@ -10193,7 +10193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 97.87,
      "minutes": 59,
@@ -10243,7 +10243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 81.85,
      "minutes": 49,
@@ -10263,7 +10263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 95.62,
      "minutes": 59,
@@ -10273,7 +10273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 97.03,
      "minutes": 58,
@@ -10283,7 +10283,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.36,
      "minutes": 59,
@@ -10293,7 +10293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.59,
      "minutes": 60,
@@ -10330,7 +10330,7 @@
    "grade": "四年级",
    "gender": "男",
    "school": "银象小学",
-   "phoneHash": "",
+   "phoneHash": "ce0b8ed7cbecb43d",
    "stats": {
     "score": 0.9936170212765958,
     "listen": 1,
@@ -10393,7 +10393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.48,
      "minutes": 60,
@@ -10453,7 +10453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.6,
      "minutes": 59,
@@ -10463,7 +10463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -10473,7 +10473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.34,
      "minutes": 59,
@@ -10483,7 +10483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.72,
      "minutes": 59,
@@ -10563,7 +10563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "progress": 87.25,
      "minutes": 54,
@@ -10593,7 +10593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -10643,7 +10643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 95.58,
      "minutes": 58,
@@ -10653,7 +10653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.14,
      "minutes": 58,
@@ -10663,7 +10663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.52,
      "minutes": 61,
@@ -10673,7 +10673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 81.77,
      "minutes": 49,
@@ -10683,7 +10683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.53,
      "minutes": 59,
@@ -10693,7 +10693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.15,
      "minutes": 60,
@@ -10743,7 +10743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.18,
      "minutes": 60,
@@ -10763,7 +10763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.41,
      "minutes": 61,
@@ -10773,7 +10773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.5,
      "minutes": 59,
@@ -10843,7 +10843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.01,
      "minutes": 59,
@@ -10853,7 +10853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.29,
      "minutes": 60,
@@ -10863,7 +10863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 89.48,
      "minutes": 55,
@@ -10873,7 +10873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 94.73,
      "minutes": 56,
@@ -10883,7 +10883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 92.68,
      "minutes": 55,
@@ -10893,7 +10893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.03,
      "minutes": 59,
@@ -10953,7 +10953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 83.41,
      "minutes": 50,
@@ -10963,7 +10963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.18,
      "minutes": 60,
@@ -11043,7 +11043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.96,
      "minutes": 60,
@@ -11053,7 +11053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.29,
      "minutes": 60,
@@ -11063,7 +11063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -11083,7 +11083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.72,
      "minutes": 59,
@@ -11093,7 +11093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.73,
      "minutes": 60,
@@ -11143,7 +11143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.63,
      "minutes": 60,
@@ -11243,7 +11243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 96.37,
      "minutes": 58,
@@ -11253,7 +11253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.29,
      "minutes": 60,
@@ -11263,7 +11263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -11273,7 +11273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "progress": 99.45,
      "minutes": 59,
@@ -11293,7 +11293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.17,
      "minutes": 59,
@@ -11343,7 +11343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.18,
      "minutes": 60,
@@ -11353,7 +11353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.31,
      "minutes": 60,
@@ -11363,7 +11363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -11373,7 +11373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.56,
      "minutes": 58,
@@ -11393,7 +11393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 84.89,
      "minutes": 51,
@@ -11463,7 +11463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.38,
      "minutes": 61,
@@ -11493,7 +11493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -11643,7 +11643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.15,
      "minutes": 60,
@@ -11653,7 +11653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 99.31,
      "minutes": 60,
@@ -11663,7 +11663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -11673,7 +11673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 97.7,
      "minutes": 58,
@@ -11683,7 +11683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -11693,7 +11693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -11743,7 +11743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 99.02,
      "minutes": 60,
@@ -11753,7 +11753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 99.26,
      "minutes": 60,
@@ -11763,7 +11763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -11773,7 +11773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.58,
      "minutes": 59,
@@ -11783,7 +11783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.94,
      "minutes": 60,
@@ -11793,7 +11793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.48,
      "minutes": 60,
@@ -11853,7 +11853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.26,
      "minutes": 60,
@@ -11863,7 +11863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -11943,7 +11943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.13,
      "minutes": 60,
@@ -11963,7 +11963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 61,
@@ -11973,7 +11973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.47,
      "minutes": 59,
@@ -11983,7 +11983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -11993,7 +11993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -12043,7 +12043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.14,
      "minutes": 59,
@@ -12053,7 +12053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 85.03,
      "minutes": 51,
@@ -12063,7 +12063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.36,
      "minutes": 61,
@@ -12073,7 +12073,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 95.7,
      "minutes": 57,
@@ -12093,7 +12093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -12243,7 +12243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.1,
      "minutes": 60,
@@ -12263,7 +12263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.41,
      "minutes": 61,
@@ -12293,7 +12293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -12353,7 +12353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 87.83,
      "minutes": 53,
@@ -12373,7 +12373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "progress": 99.33,
      "minutes": 59,
@@ -12383,7 +12383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 96.76,
      "minutes": 58,
@@ -12463,7 +12463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -12573,7 +12573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.42,
      "minutes": 59,
@@ -12643,7 +12643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.55,
      "minutes": 60,
@@ -12663,7 +12663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.46,
      "minutes": 61,
@@ -12673,7 +12673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.89,
      "minutes": 59,
@@ -12753,7 +12753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "progress": 99.26,
      "minutes": 60,
@@ -12773,7 +12773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 81.16,
      "minutes": 48,
@@ -12783,7 +12783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": false,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 69.62,
      "minutes": 41,
@@ -12793,7 +12793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.61,
      "minutes": 60,
@@ -12893,7 +12893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -12943,7 +12943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.29,
      "minutes": 60,
@@ -12953,7 +12953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -12963,7 +12963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.25,
      "minutes": 61,
@@ -12993,7 +12993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 93.09,
      "minutes": 56,
@@ -13043,7 +13043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.7,
      "minutes": 60,
@@ -13083,7 +13083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 86.36,
      "minutes": 51,
@@ -13093,7 +13093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -13130,7 +13130,7 @@
    "grade": "四年级",
    "gender": "男",
    "school": "其它学校",
-   "phoneHash": "",
+   "phoneHash": "bb5b869e76f69783",
    "stats": {
     "score": 0.9869565217391305,
     "listen": 1,
@@ -13183,7 +13183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -13193,7 +13193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -13253,7 +13253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 97.01,
      "minutes": 58,
@@ -13263,7 +13263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 94.71,
      "minutes": 58,
@@ -13283,7 +13283,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.86,
      "minutes": 60,
@@ -13293,7 +13293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -13343,7 +13343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13353,7 +13353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 54.48,
      "minutes": 33,
@@ -13363,7 +13363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 64.97,
      "minutes": 40,
@@ -13373,7 +13373,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.34,
      "minutes": 59,
@@ -13383,7 +13383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.72,
      "minutes": 59,
@@ -13393,7 +13393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.13,
      "minutes": 60,
@@ -13428,9 +13428,9 @@
    "name": "姚逸彤",
    "id": "5657422280",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "女",
    "school": "",
-   "phoneHash": "",
+   "phoneHash": "453f97af9531f7fc",
    "stats": {
     "score": 0.8107142857142858,
     "listen": 0.5,
@@ -13443,7 +13443,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -13453,7 +13453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -13463,7 +13463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0.19,
      "minutes": 0,
@@ -13473,7 +13473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.47,
      "minutes": 59,
@@ -13493,7 +13493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.73,
      "minutes": 60,
@@ -13543,7 +13543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0.76,
      "minutes": 0,
@@ -13553,7 +13553,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "待订正",
      "progress": 0,
      "minutes": 0,
@@ -13563,7 +13563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "待订正",
      "progress": 0,
      "minutes": 0,
@@ -13593,7 +13593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 60,
@@ -13643,7 +13643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 22.8,
      "minutes": 13,
@@ -13653,7 +13653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13663,7 +13663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13673,7 +13673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": false,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 60,
      "hwStatus": "待订正",
      "progress": 70.5,
      "minutes": 42,
@@ -13683,7 +13683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 85.84,
      "minutes": 51,
@@ -13693,7 +13693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 89.64,
      "minutes": 54,
@@ -13743,7 +13743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13753,7 +13753,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13763,7 +13763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13773,7 +13773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.58,
      "minutes": 59,
@@ -13783,7 +13783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.86,
      "minutes": 59,
@@ -13843,7 +13843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13853,7 +13853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13863,7 +13863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.38,
      "minutes": 61,
@@ -13873,7 +13873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 99.61,
      "minutes": 59,
@@ -13883,7 +13883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "progress": 99.72,
      "minutes": 59,
@@ -13893,7 +13893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.84,
      "minutes": 60,
@@ -13943,7 +13943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -13953,7 +13953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "未提交",
      "progress": 4.42,
      "minutes": 2,
@@ -13963,7 +13963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.17,
      "minutes": 61,
@@ -13973,7 +13973,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": false,
      "attend": false,
-     "accuracy": 29,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 76.3,
      "minutes": 45,
@@ -13983,7 +13983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "未提交",
      "progress": 98.84,
      "minutes": 59,
@@ -13993,7 +13993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.92,
      "minutes": 60,
@@ -14043,7 +14043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -14053,7 +14053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -14063,7 +14063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 44,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 87.84,
      "minutes": 54,
@@ -14083,7 +14083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.64,
      "minutes": 59,
@@ -14093,7 +14093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 99.67,
      "minutes": 60,
@@ -14143,7 +14143,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -14153,7 +14153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "progress": 16.4,
      "minutes": 9,
@@ -14163,7 +14163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 92.16,
      "minutes": 57,
@@ -14183,7 +14183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 60,
@@ -14193,7 +14193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -14243,7 +14243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -14253,7 +14253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 96.65,
      "minutes": 58,
@@ -14263,7 +14263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -14273,7 +14273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.33,
      "minutes": 59,
@@ -14283,7 +14283,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 59,
@@ -14293,7 +14293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 93.33,
      "minutes": 56,
@@ -14343,7 +14343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -14353,7 +14353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 99.23,
      "minutes": 60,
@@ -14363,7 +14363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.41,
      "minutes": 61,
@@ -14383,7 +14383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 59,
@@ -14393,7 +14393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 99.92,
      "minutes": 60,
@@ -14443,7 +14443,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 18.81,
      "minutes": 11,
@@ -14453,7 +14453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": false,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "progress": 12.88,
      "minutes": 7,
@@ -14463,7 +14463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 60,
      "hwStatus": "未提交",
      "progress": 50.95,
      "minutes": 31,
@@ -14473,7 +14473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": false,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 76.53,
      "minutes": 45,
@@ -14493,7 +14493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": false,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "未提交",
      "progress": 75.62,
      "minutes": 46,
@@ -14543,7 +14543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 0,
      "minutes": 0,
@@ -14583,7 +14583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -14593,7 +14593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -14628,9 +14628,9 @@
    "name": "米花",
    "id": "16036835457540",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "c66d2b0e2fb73275",
    "stats": {
     "score": 0.9733333333333334,
     "listen": 1,
@@ -14643,7 +14643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 61,
@@ -14653,7 +14653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.23,
      "minutes": 60,
@@ -14663,7 +14663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.41,
      "minutes": 61,
@@ -14683,7 +14683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.86,
      "minutes": 60,
@@ -14693,7 +14693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 98.31,
      "minutes": 59,
@@ -14728,9 +14728,9 @@
    "name": "李家维",
    "id": "7485215402",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "c6ab3ec27cbf1b70",
    "stats": {
     "score": 0.7833333333333334,
     "listen": 0.8333333333333334,
@@ -14743,7 +14743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -14763,7 +14763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 62,
@@ -14773,7 +14773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 96.92,
      "minutes": 58,
@@ -14783,7 +14783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.5,
      "minutes": 59,
@@ -14793,7 +14793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "未提交",
      "progress": 88.47,
      "minutes": 53,
@@ -14843,7 +14843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.29,
      "minutes": 60,
@@ -14853,7 +14853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.2,
      "minutes": 60,
@@ -14863,7 +14863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.57,
      "minutes": 61,
@@ -14883,7 +14883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.72,
      "minutes": 59,
@@ -14943,7 +14943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.02,
      "minutes": 60,
@@ -14953,7 +14953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "待订正",
      "progress": 99.42,
      "minutes": 60,
@@ -14963,7 +14963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 83.6,
      "minutes": 51,
@@ -14983,7 +14983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -14993,7 +14993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.04,
      "minutes": 60,
@@ -15043,7 +15043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 94.98,
      "minutes": 57,
@@ -15063,7 +15063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 42.9,
      "hwStatus": "已通过",
      "progress": 99.57,
      "minutes": 61,
@@ -15073,7 +15073,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.17,
      "minutes": 59,
@@ -15093,7 +15093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 98.33,
      "minutes": 59,
@@ -15128,9 +15128,9 @@
    "name": "甜甜",
    "id": "7404786649",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "f333d93d6d375e90",
    "stats": {
     "score": 0.9545454545454546,
     "listen": 1,
@@ -15153,7 +15153,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.95,
      "minutes": 60,
@@ -15163,7 +15163,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 60,
      "hwStatus": "待订正",
      "progress": 99.84,
      "minutes": 61,
@@ -15173,7 +15173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.61,
      "minutes": 59,
@@ -15183,7 +15183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -15193,7 +15193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 90.82,
      "minutes": 55,
@@ -15253,7 +15253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.2,
      "minutes": 60,
@@ -15263,7 +15263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.52,
      "minutes": 61,
@@ -15293,7 +15293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -15343,7 +15343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.97,
      "minutes": 61,
@@ -15393,7 +15393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 98.85,
      "minutes": 60,
@@ -15428,9 +15428,9 @@
    "name": "章宇宸",
    "id": "7444761096",
    "grade": "二年级",
-   "gender": "-",
+   "gender": "男",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "02551fe84d62afc4",
    "stats": {
     "score": 0.9347826086956522,
     "listen": 1,
@@ -15453,7 +15453,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.09,
      "minutes": 60,
@@ -15463,7 +15463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "progress": 99.22,
      "minutes": 61,
@@ -15473,7 +15473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.39,
      "minutes": 59,
@@ -15483,7 +15483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 59,
@@ -15493,7 +15493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 60,
@@ -15528,9 +15528,9 @@
    "name": "王紫彤",
    "id": "5974507725",
    "grade": "三年级",
-   "gender": "-",
+   "gender": "女",
    "school": "-",
-   "phoneHash": "",
+   "phoneHash": "370c0657627422e8",
    "stats": {
     "score": 0.7027777777777778,
     "listen": 0.5,
@@ -15543,7 +15543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 91.48,
      "minutes": 55,
@@ -15553,7 +15553,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "progress": 99.37,
      "minutes": 60,
@@ -15563,7 +15563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 33,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 72.21,
      "minutes": 44,
@@ -15573,7 +15573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "progress": 99.58,
      "minutes": 59,
@@ -15583,7 +15583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": false,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 74.14,
      "minutes": 44,
@@ -15593,7 +15593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 49.82,
      "minutes": 30,
@@ -15643,7 +15643,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 97.95,
      "minutes": 59,
@@ -15653,7 +15653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.18,
      "minutes": 60,
@@ -15663,7 +15663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 96.64,
      "minutes": 60,
@@ -15673,7 +15673,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.45,
      "minutes": 59,
@@ -15683,7 +15683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.75,
      "minutes": 59,
@@ -15693,7 +15693,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.48,
      "minutes": 60,
@@ -15743,7 +15743,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.99,
      "minutes": 60,
@@ -15793,7 +15793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.37,
      "minutes": 60,
@@ -15843,7 +15843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.02,
      "minutes": 60,
@@ -15853,7 +15853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "progress": 98.52,
      "minutes": 59,
@@ -15863,7 +15863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.54,
      "minutes": 61,
@@ -15873,7 +15873,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.36,
      "minutes": 59,
@@ -15883,7 +15883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -15893,7 +15893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -15943,7 +15943,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 25,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "progress": 88.45,
      "minutes": 54,
@@ -15953,7 +15953,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 60,
      "hwStatus": "已通过",
      "progress": 90.77,
      "minutes": 55,
@@ -15963,7 +15963,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 22,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "progress": 100,
      "minutes": 62,
@@ -15983,7 +15983,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 81.1,
      "minutes": 48,
@@ -15993,7 +15993,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": false,
      "attend": false,
-     "accuracy": 29,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "progress": 59.88,
      "minutes": 36,
@@ -16043,7 +16043,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 98.99,
      "minutes": 60,
@@ -16053,7 +16053,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 93.32,
      "minutes": 56,
@@ -16063,7 +16063,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.52,
      "minutes": 61,
@@ -16073,7 +16073,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 83.68,
      "minutes": 50,
@@ -16083,7 +16083,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.83,
      "minutes": 60,
@@ -16093,7 +16093,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "progress": 99.56,
      "minutes": 60,
@@ -16173,7 +16173,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 97.28,
      "minutes": 58,
@@ -16183,7 +16183,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -16193,7 +16193,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -16243,7 +16243,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.48,
      "minutes": 60,
@@ -16253,7 +16253,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "待订正",
      "progress": 97.23,
      "minutes": 58,
@@ -16263,7 +16263,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 22,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "progress": 43.38,
      "minutes": 26,
@@ -16273,7 +16273,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.42,
      "minutes": 59,
@@ -16283,7 +16283,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": false,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "未提交",
      "progress": 0,
      "minutes": 0,
@@ -16293,7 +16293,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.84,
      "minutes": 60,
@@ -16343,7 +16343,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 88.92,
      "minutes": 54,
@@ -16353,7 +16353,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 89.48,
      "minutes": 54,
@@ -16363,7 +16363,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 62,
@@ -16383,7 +16383,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 92.02,
      "minutes": 55,
@@ -16393,7 +16393,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 98.66,
      "minutes": 60,
@@ -16463,7 +16463,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.49,
      "minutes": 61,
@@ -16473,7 +16473,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.42,
      "minutes": 59,
@@ -16483,7 +16483,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 100,
      "minutes": 60,
@@ -16493,7 +16493,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "progress": 99.78,
      "minutes": 60,
@@ -16543,7 +16543,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "待订正",
      "progress": 99.07,
      "minutes": 60,
@@ -16553,7 +16553,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 99.26,
      "minutes": 60,
@@ -16563,7 +16563,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "progress": 99.41,
      "minutes": 61,
@@ -16573,7 +16573,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "progress": 99.08,
      "minutes": 59,
@@ -16583,7 +16583,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "待订正",
      "progress": 98.48,
      "minutes": 59,
@@ -16593,7 +16593,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -16653,7 +16653,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 98.93,
      "minutes": 60,
@@ -16663,7 +16663,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "progress": 92.24,
      "minutes": 57,
@@ -16683,7 +16683,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.7,
      "minutes": 59,
@@ -16763,7 +16763,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": true,
      "attend": false,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "progress": 99.03,
      "minutes": 61,
@@ -16773,7 +16773,7 @@
     "第4讲 第04讲·部落炫舞-循环结构": {
      "effective": true,
      "attend": false,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 98.36,
      "minutes": 59,
@@ -16783,7 +16783,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.81,
      "minutes": 60,
@@ -16793,7 +16793,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.73,
      "minutes": 60,
@@ -16843,7 +16843,7 @@
     "第1讲 第01讲·化妆舞会-造型切换": {
      "effective": true,
      "attend": false,
-     "accuracy": 0,
+     "accuracy": null,
      "hwStatus": "已通过",
      "progress": 99.18,
      "minutes": 60,
@@ -16853,7 +16853,7 @@
     "第2讲 第02讲·神庙探险-运动基础": {
      "effective": true,
      "attend": false,
-     "accuracy": 38,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 99.34,
      "minutes": 60,
@@ -16863,7 +16863,7 @@
     "第3讲 第03讲·小小音乐家-音乐模块": {
      "effective": false,
      "attend": false,
-     "accuracy": 22,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "progress": 74.23,
      "minutes": 46,
@@ -16883,7 +16883,7 @@
     "第5讲 第05讲·密室寻宝-角色互动": {
      "effective": true,
      "attend": false,
-     "accuracy": 13,
+     "accuracy": 25,
      "hwStatus": "已通过",
      "progress": 99.72,
      "minutes": 59,
@@ -16893,7 +16893,7 @@
     "第6讲 第06讲·海底探险-条件判断": {
      "effective": true,
      "attend": false,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "progress": 99.89,
      "minutes": 60,
@@ -16926,8 +16926,8 @@
   }
  ],
  "_meta": {
-  "phoneFull": 127,
-  "phoneMissing": 42,
+  "phoneFull": 148,
+  "phoneMissing": 21,
   "withData": 169
  }
 }

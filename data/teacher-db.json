@@ -1,6 +1,6 @@
 {
  "version": 2,
- "updatedAt": "2026-10-13T08:41:12.597Z",
+ "updatedAt": "2026-11-09T06:15:25.639Z",
  "courses": [
   "习题课 开班家长会",
   "第1讲 第01讲·化妆舞会-造型切换",
@@ -78,7 +78,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -95,7 +95,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -112,7 +112,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -146,7 +146,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -595,7 +595,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -612,7 +612,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -629,7 +629,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -663,7 +663,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -680,7 +680,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -1197,7 +1197,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -1629,7 +1629,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -1663,7 +1663,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 42.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -1680,7 +1680,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -1714,7 +1714,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -2163,7 +2163,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -2180,7 +2180,7 @@
      "quizPush": 9,
      "quizAnswer": 5,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 60,
      "hwStatus": "待订正",
      "hwScore": 1
     },
@@ -2197,7 +2197,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -2214,7 +2214,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -2231,7 +2231,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -2680,7 +2680,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -2697,7 +2697,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -2748,7 +2748,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -3180,7 +3180,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -3265,7 +3265,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -3714,7 +3714,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -3731,7 +3731,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -3748,7 +3748,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -3765,7 +3765,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -3782,7 +3782,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4214,7 +4214,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4231,7 +4231,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -4248,7 +4248,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4265,7 +4265,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4282,7 +4282,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4731,7 +4731,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4748,7 +4748,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4765,7 +4765,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4782,7 +4782,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4799,7 +4799,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -4816,7 +4816,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5248,7 +5248,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5333,7 +5333,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5765,7 +5765,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5782,7 +5782,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5799,7 +5799,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5816,7 +5816,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5833,7 +5833,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -5850,7 +5850,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6282,7 +6282,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -6299,7 +6299,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 60,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6316,7 +6316,7 @@
      "quizPush": 9,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 22,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -6350,7 +6350,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6367,7 +6367,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 2,
-     "accuracy": 29,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6799,7 +6799,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6816,7 +6816,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6833,7 +6833,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6850,7 +6850,7 @@
      "quizPush": 7,
      "quizAnswer": 3,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6867,7 +6867,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -6884,7 +6884,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -7367,7 +7367,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -7384,7 +7384,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -7401,7 +7401,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -7833,7 +7833,7 @@
      "quizPush": 8,
      "quizAnswer": 3,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -7850,7 +7850,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -7867,7 +7867,7 @@
      "quizPush": 9,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 22,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "hwScore": 2
     },
@@ -7884,7 +7884,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -7918,7 +7918,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8350,7 +8350,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8367,7 +8367,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8384,7 +8384,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8418,7 +8418,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8435,7 +8435,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8901,7 +8901,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8918,7 +8918,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8935,7 +8935,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -8952,7 +8952,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -9384,7 +9384,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -9401,7 +9401,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -9418,7 +9418,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -9435,7 +9435,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -9452,7 +9452,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -9469,7 +9469,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -9918,7 +9918,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -9935,7 +9935,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -9969,7 +9969,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -10452,7 +10452,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -10469,7 +10469,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -10486,7 +10486,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -10503,7 +10503,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -10952,7 +10952,7 @@
      "quizPush": 8,
      "quizAnswer": 3,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -10969,7 +10969,7 @@
      "quizPush": 9,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 22,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -11003,7 +11003,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 25,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -11020,7 +11020,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -11453,7 +11453,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -11470,7 +11470,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -11487,7 +11487,7 @@
      "quizPush": 9,
      "quizAnswer": 5,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 60,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -11504,7 +11504,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -11538,7 +11538,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -12039,7 +12039,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -12056,7 +12056,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -12489,7 +12489,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -12523,7 +12523,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -12540,7 +12540,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -12557,7 +12557,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -12574,7 +12574,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13007,7 +13007,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13041,7 +13041,7 @@
      "quizPush": 9,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13058,7 +13058,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13092,7 +13092,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13525,7 +13525,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13542,7 +13542,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13559,7 +13559,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13576,7 +13576,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -13610,7 +13610,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -14043,7 +14043,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -14060,7 +14060,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -14077,7 +14077,7 @@
      "quizPush": 9,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -14094,7 +14094,7 @@
      "quizPush": 7,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 29,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -14111,7 +14111,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -14128,7 +14128,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -14595,7 +14595,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -14612,7 +14612,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -14629,7 +14629,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15079,7 +15079,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15113,7 +15113,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15130,7 +15130,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15164,7 +15164,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15597,7 +15597,7 @@
      "quizPush": 8,
      "quizAnswer": 2,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15614,7 +15614,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15631,7 +15631,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15648,7 +15648,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -15682,7 +15682,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -16115,7 +16115,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -16149,7 +16149,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -16200,7 +16200,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -16633,7 +16633,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -16667,7 +16667,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -16684,7 +16684,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -16701,7 +16701,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -16718,7 +16718,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -17185,7 +17185,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -17202,7 +17202,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -17219,7 +17219,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -17236,7 +17236,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -17686,7 +17686,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -17703,7 +17703,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -17720,7 +17720,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -17754,7 +17754,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -18204,7 +18204,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -18221,7 +18221,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -18272,7 +18272,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -18705,7 +18705,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -18756,7 +18756,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -18790,7 +18790,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19223,7 +19223,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19240,7 +19240,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19257,7 +19257,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 42.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19291,7 +19291,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19308,7 +19308,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19758,7 +19758,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19775,7 +19775,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19792,7 +19792,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19809,7 +19809,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -19826,7 +19826,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -20327,7 +20327,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -20777,7 +20777,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -20811,7 +20811,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -20828,7 +20828,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -20845,7 +20845,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -20862,7 +20862,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -21312,7 +21312,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -21329,7 +21329,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -21830,7 +21830,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -21847,7 +21847,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -21864,7 +21864,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -21881,7 +21881,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -21898,7 +21898,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22331,7 +22331,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -22348,7 +22348,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22365,7 +22365,7 @@
      "quizPush": 9,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22382,7 +22382,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22399,7 +22399,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22416,7 +22416,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22866,7 +22866,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22883,7 +22883,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22900,7 +22900,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22917,7 +22917,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -22934,7 +22934,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -23384,7 +23384,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -23885,7 +23885,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -23919,7 +23919,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -23953,7 +23953,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -24437,7 +24437,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -24921,7 +24921,7 @@
      "quizPush": 8,
      "quizAnswer": 2,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -24938,7 +24938,7 @@
      "quizPush": 8,
      "quizAnswer": 3,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -24955,7 +24955,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -24972,7 +24972,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 2,
-     "accuracy": 29,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -24989,7 +24989,7 @@
      "quizPush": 8,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -25006,7 +25006,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -25439,7 +25439,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -25473,7 +25473,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -25490,7 +25490,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -25507,7 +25507,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -25524,7 +25524,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -25991,7 +25991,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -26492,7 +26492,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -26526,7 +26526,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -26560,7 +26560,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -26993,7 +26993,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27010,7 +27010,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 42.9,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -27027,7 +27027,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27044,7 +27044,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 2,
-     "accuracy": 29,
+     "accuracy": 40,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27061,7 +27061,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27078,7 +27078,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27511,7 +27511,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 60,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27545,7 +27545,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27562,7 +27562,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27579,7 +27579,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -27596,7 +27596,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -28029,7 +28029,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 57.1,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -28046,7 +28046,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -28063,7 +28063,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -28080,7 +28080,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -28097,7 +28097,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -28114,7 +28114,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -28632,7 +28632,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -29065,7 +29065,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -29133,7 +29133,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -29583,7 +29583,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -29617,7 +29617,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -29634,7 +29634,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -29651,7 +29651,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -29668,7 +29668,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30101,7 +30101,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30152,7 +30152,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30169,7 +30169,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30186,7 +30186,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30619,7 +30619,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30636,7 +30636,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -30653,7 +30653,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30670,7 +30670,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30687,7 +30687,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -30704,7 +30704,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -31154,7 +31154,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -31188,7 +31188,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -31222,7 +31222,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -31689,7 +31689,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -31740,7 +31740,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -32173,7 +32173,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -32190,7 +32190,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -32708,7 +32708,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -32725,7 +32725,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -32742,7 +32742,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -32776,7 +32776,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -33294,7 +33294,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -33761,7 +33761,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -33795,7 +33795,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -33812,7 +33812,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34245,7 +34245,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34262,7 +34262,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 40,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34279,7 +34279,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34296,7 +34296,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34330,7 +34330,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34780,7 +34780,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34797,7 +34797,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34831,7 +34831,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -34848,7 +34848,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -35366,7 +35366,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -35833,7 +35833,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -35884,7 +35884,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -36385,7 +36385,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -36402,7 +36402,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -36852,7 +36852,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -36869,7 +36869,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -36903,7 +36903,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37353,7 +37353,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37370,7 +37370,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37387,7 +37387,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37404,7 +37404,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37421,7 +37421,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37438,7 +37438,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37871,7 +37871,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 33.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37888,7 +37888,7 @@
      "quizPush": 8,
      "quizAnswer": 2,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -37905,7 +37905,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37922,7 +37922,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37939,7 +37939,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -37956,7 +37956,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -38389,7 +38389,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -38440,7 +38440,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -38474,7 +38474,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -38924,7 +38924,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -38941,7 +38941,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -38958,7 +38958,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -38975,7 +38975,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -39977,7 +39977,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40011,7 +40011,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40028,7 +40028,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40461,7 +40461,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40478,7 +40478,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40495,7 +40495,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40512,7 +40512,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40529,7 +40529,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40546,7 +40546,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -40996,7 +40996,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -41013,7 +41013,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -41531,7 +41531,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -41582,7 +41582,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -42032,7 +42032,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -42083,7 +42083,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -42533,7 +42533,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -42550,7 +42550,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -42567,7 +42567,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -42601,7 +42601,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -42618,7 +42618,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -43051,7 +43051,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -43085,7 +43085,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -43102,7 +43102,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -43119,7 +43119,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -43136,7 +43136,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -43654,7 +43654,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -44104,7 +44104,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -44121,7 +44121,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -44138,7 +44138,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -44155,7 +44155,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -44639,7 +44639,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -44690,7 +44690,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45123,7 +45123,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45140,7 +45140,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45157,7 +45157,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45174,7 +45174,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45191,7 +45191,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45208,7 +45208,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45641,7 +45641,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45675,7 +45675,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -45692,7 +45692,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46159,7 +46159,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46176,7 +46176,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46193,7 +46193,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46210,7 +46210,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46227,7 +46227,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46244,7 +46244,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46694,7 +46694,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -46711,7 +46711,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47195,7 +47195,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47212,7 +47212,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47229,7 +47229,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47263,7 +47263,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47280,7 +47280,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47730,7 +47730,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47747,7 +47747,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47764,7 +47764,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47781,7 +47781,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -47798,7 +47798,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -48231,7 +48231,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -48749,7 +48749,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -48766,7 +48766,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -48783,7 +48783,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -48800,7 +48800,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -48834,7 +48834,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -49267,7 +49267,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -49284,7 +49284,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -49301,7 +49301,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -49318,7 +49318,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -49352,7 +49352,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -49819,7 +49819,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -49870,7 +49870,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -50821,7 +50821,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -50838,7 +50838,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -50855,7 +50855,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -50872,7 +50872,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -50889,7 +50889,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -50906,7 +50906,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51339,7 +51339,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51356,7 +51356,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51373,7 +51373,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51390,7 +51390,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51407,7 +51407,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51424,7 +51424,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51874,7 +51874,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -51891,7 +51891,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52375,7 +52375,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52409,7 +52409,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52426,7 +52426,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52460,7 +52460,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52893,7 +52893,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52927,7 +52927,7 @@
      "quizPush": 9,
      "quizAnswer": 3,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52944,7 +52944,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -52978,7 +52978,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -53929,7 +53929,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -53963,7 +53963,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -54014,7 +54014,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -54464,7 +54464,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -54498,7 +54498,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -54515,7 +54515,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -54999,7 +54999,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -55534,7 +55534,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -56001,7 +56001,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -56035,7 +56035,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -56052,7 +56052,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -56536,7 +56536,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -56570,7 +56570,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -56587,7 +56587,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -56604,7 +56604,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -57122,7 +57122,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -57555,7 +57555,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -57572,7 +57572,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -57589,7 +57589,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -57640,7 +57640,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -58073,7 +58073,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -58141,7 +58141,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -58158,7 +58158,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -58659,7 +58659,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -58676,7 +58676,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59126,7 +59126,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59143,7 +59143,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59177,7 +59177,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59194,7 +59194,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59644,7 +59644,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59661,7 +59661,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59695,7 +59695,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -59712,7 +59712,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -60145,7 +60145,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -60179,7 +60179,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -60230,7 +60230,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -60697,7 +60697,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -60748,7 +60748,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61198,7 +61198,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61215,7 +61215,7 @@
      "quizPush": 9,
      "quizAnswer": 4,
      "quizRight": 1,
-     "accuracy": 11,
+     "accuracy": 25,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61232,7 +61232,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61266,7 +61266,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61699,7 +61699,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61716,7 +61716,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61733,7 +61733,7 @@
      "quizPush": 9,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61767,7 +61767,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 40,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -61784,7 +61784,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -62285,7 +62285,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -62302,7 +62302,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -62752,7 +62752,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -62769,7 +62769,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -62786,7 +62786,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 57.1,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -62820,7 +62820,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -63253,7 +63253,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -63287,7 +63287,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -63304,7 +63304,7 @@
      "quizPush": 7,
      "quizAnswer": 2,
      "quizRight": 1,
-     "accuracy": 14,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -63338,7 +63338,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -63771,7 +63771,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -63805,7 +63805,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -63856,7 +63856,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64323,7 +64323,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64357,7 +64357,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64374,7 +64374,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64807,7 +64807,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64824,7 +64824,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64841,7 +64841,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64858,7 +64858,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64875,7 +64875,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -64892,7 +64892,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65325,7 +65325,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65359,7 +65359,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65376,7 +65376,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65860,7 +65860,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65877,7 +65877,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65894,7 +65894,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65911,7 +65911,7 @@
      "quizPush": 8,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -65928,7 +65928,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -66378,7 +66378,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -66395,7 +66395,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -66429,7 +66429,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -66446,7 +66446,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -66913,7 +66913,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -66930,7 +66930,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -66964,7 +66964,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -67397,7 +67397,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -67431,7 +67431,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -67482,7 +67482,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -67932,7 +67932,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -67949,7 +67949,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -67966,7 +67966,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -67983,7 +67983,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -68000,7 +68000,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -68433,7 +68433,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -68450,7 +68450,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 62.5,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -68467,7 +68467,7 @@
      "quizPush": 9,
      "quizAnswer": 5,
      "quizRight": 3,
-     "accuracy": 33,
+     "accuracy": 60,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -68484,7 +68484,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "待订正",
      "hwScore": 1
     },
@@ -68501,7 +68501,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "hwScore": 1
     },
@@ -68518,7 +68518,7 @@
      "quizPush": 7,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 14,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -68951,7 +68951,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -69036,7 +69036,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70004,7 +70004,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70038,7 +70038,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70072,7 +70072,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70505,7 +70505,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70522,7 +70522,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70539,7 +70539,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70556,7 +70556,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 60,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70573,7 +70573,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -70590,7 +70590,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -71023,7 +71023,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 28.6,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -71040,7 +71040,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -71057,7 +71057,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -71074,7 +71074,7 @@
      "quizPush": 7,
      "quizAnswer": 2,
      "quizRight": 1,
-     "accuracy": 14,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -71091,7 +71091,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 20,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -71108,7 +71108,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 50,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -71575,7 +71575,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72059,7 +72059,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72093,7 +72093,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72110,7 +72110,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72127,7 +72127,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72577,7 +72577,7 @@
      "quizPush": 8,
      "quizAnswer": 3,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 33.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72611,7 +72611,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72628,7 +72628,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72645,7 +72645,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -72662,7 +72662,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -73129,7 +73129,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -73146,7 +73146,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -73163,7 +73163,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -73180,7 +73180,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -73630,7 +73630,7 @@
      "quizPush": 8,
      "quizAnswer": 2,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 50,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -73647,7 +73647,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -73664,7 +73664,7 @@
      "quizPush": 7,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 29,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -73681,7 +73681,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -73698,7 +73698,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -74165,7 +74165,7 @@
      "quizPush": 9,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -74199,7 +74199,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -74216,7 +74216,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -74666,7 +74666,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -74683,7 +74683,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -74717,7 +74717,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -74734,7 +74734,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -75184,7 +75184,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -75201,7 +75201,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -75235,7 +75235,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -75252,7 +75252,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -75685,7 +75685,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -75702,7 +75702,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -75719,7 +75719,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -75753,7 +75753,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -75770,7 +75770,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -76237,7 +76237,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 6,
-     "accuracy": 67,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -76254,7 +76254,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -76271,7 +76271,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -76288,7 +76288,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -76755,7 +76755,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -76772,7 +76772,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -76806,7 +76806,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77256,7 +77256,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77273,7 +77273,7 @@
      "quizPush": 9,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77290,7 +77290,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77307,7 +77307,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77324,7 +77324,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77757,7 +77757,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -77774,7 +77774,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77791,7 +77791,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77808,7 +77808,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77825,7 +77825,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -77842,7 +77842,7 @@
      "quizPush": 7,
      "quizAnswer": 2,
      "quizRight": 2,
-     "accuracy": 29,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -78292,7 +78292,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -78309,7 +78309,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 8,
-     "accuracy": 89,
+     "accuracy": 88.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -78360,7 +78360,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -78793,7 +78793,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -78827,7 +78827,7 @@
      "quizPush": 9,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -78844,7 +78844,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -78861,7 +78861,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -78878,7 +78878,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -79311,7 +79311,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -79345,7 +79345,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 55.6,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -79379,7 +79379,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -79396,7 +79396,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "待订正",
      "hwScore": 4
     },
@@ -79846,7 +79846,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -79863,7 +79863,7 @@
      "quizPush": 9,
      "quizAnswer": 9,
      "quizRight": 7,
-     "accuracy": 78,
+     "accuracy": 77.8,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -79880,7 +79880,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -79897,7 +79897,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -80347,7 +80347,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -80364,7 +80364,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -80381,7 +80381,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -80398,7 +80398,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -80415,7 +80415,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -80432,7 +80432,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -80882,7 +80882,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -80899,7 +80899,7 @@
      "quizPush": 9,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -80916,7 +80916,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -80950,7 +80950,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -81400,7 +81400,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -81451,7 +81451,7 @@
      "quizPush": 8,
      "quizAnswer": 8,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 87.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -81952,7 +81952,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -81986,7 +81986,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -82419,7 +82419,7 @@
      "quizPush": 8,
      "quizAnswer": 3,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 33.3,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -82436,7 +82436,7 @@
      "quizPush": 8,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 38,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -82453,7 +82453,7 @@
      "quizPush": 9,
      "quizAnswer": 8,
      "quizRight": 5,
-     "accuracy": 56,
+     "accuracy": 62.5,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -82470,7 +82470,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 42.9,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -82487,7 +82487,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 5,
-     "accuracy": 63,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -82504,7 +82504,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -82988,7 +82988,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -83540,7 +83540,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -83973,7 +83973,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -84024,7 +84024,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 60,
      "hwStatus": "待订正",
      "hwScore": 3
     },
@@ -84041,7 +84041,7 @@
      "quizPush": 8,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 50,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -84058,7 +84058,7 @@
      "quizPush": 7,
      "quizAnswer": 5,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 80,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -84542,7 +84542,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -84559,7 +84559,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -85060,7 +85060,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -85578,7 +85578,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 3,
-     "accuracy": 43,
+     "accuracy": 75,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -85595,7 +85595,7 @@
      "quizPush": 8,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 75,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -85612,7 +85612,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -86096,7 +86096,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 85.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -86130,7 +86130,7 @@
      "quizPush": 7,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 57,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -86614,7 +86614,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -86631,7 +86631,7 @@
      "quizPush": 8,
      "quizAnswer": 7,
      "quizRight": 7,
-     "accuracy": 88,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -86648,7 +86648,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 83.3,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -87081,7 +87081,7 @@
      "quizPush": 8,
      "quizAnswer": 1,
      "quizRight": 1,
-     "accuracy": 13,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -87098,7 +87098,7 @@
      "quizPush": 8,
      "quizAnswer": 3,
      "quizRight": 2,
-     "accuracy": 25,
+     "accuracy": 66.7,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -87115,7 +87115,7 @@
      "quizPush": 9,
      "quizAnswer": 4,
      "quizRight": 4,
-     "accuracy": 44,
+     "accuracy": 100,
      "hwStatus": "已通过",
      "hwScore": 5
     },
@@ -87132,7 +87132,7 @@
      "quizPush": 7,
      "quizAnswer": 6,
      "quizRight": 6,
-     "accuracy": 86,
+     "accuracy": 100,
      "hwStatus": "未提交",
      "hwScore": 0
     },
@@ -87183,7 +87183,7 @@
      "quizPush": 7,
      "quizAnswer": 7,
      "quizRight": 5,
-     "accuracy": 71,
+     "accuracy": 71.4,
      "hwStatus": "已通过",
      "hwScore": 5
     },

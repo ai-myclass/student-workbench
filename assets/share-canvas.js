@@ -96,10 +96,18 @@
   }
 
   /* ---------------- 指标计算 ---------------- */
+  /** 单讲正确率（0~1）：答对 / 作答；无作答记录返回 null。口径与汇总层 stats.accuracy 一致 */
+  function lessonAccuracy(l) {
+    if (!l) return null;
+    var ans = +l.quizAnswer || 0;
+    if (ans <= 0) return null;
+    return (+l.quizRight || 0) / ans;
+  }
   /** 单个讲次的综合得分（有效听课 0.35 / 答题 0.30 / 练习 0.35） */
   function lessonScore(l) {
     var parts = [{ w: 0.35, v: l.effective ? 1 : 0 }];
-    if (l.accuracy != null) parts.push({ w: 0.30, v: l.accuracy / 100 });
+    var acc = lessonAccuracy(l);
+    if (acc !== null) parts.push({ w: 0.30, v: acc });
     if (!isUnassigned(l.hwStatus)) parts.push({ w: 0.35, v: isHwDone(l.hwStatus) ? 1 : 0 });
     var ws = 0, vs = 0;
     parts.forEach(function (p) { ws += p.w; vs += p.w * p.v; });
@@ -110,8 +118,7 @@
     if (key === 'listen') return l.effective ? 1 : 0;
     if (key === 'accuracy') {
       // 无答题记录（0 题）不绘制折线点，避免把「没参与」误画成有得分，与指标卡口径一致
-      if (l.quizAnswer != null && +l.quizAnswer === 0) return null;
-      return l.accuracy != null ? l.accuracy / 100 : null;
+      return lessonAccuracy(l);
     }
     if (key === 'homework') return isUnassigned(l.hwStatus) ? null : (isHwDone(l.hwStatus) ? 1 : 0);
     if (key === 'progress') return (l.progress || 0) / 100;

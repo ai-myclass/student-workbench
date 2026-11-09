@@ -1638,7 +1638,7 @@
       var tag = !inActive ? ' <span class="tag tag-no">未开课</span>'
         : (inStat ? '' : ' <span class="tag tag-no">不统计</span>');
       var accTxt = (l.quizAnswer > 0)
-        ? '<span class="tag ' + ((l.accuracy || 0) >= 80 ? 'tag-yes' : 'tag-warn') + '">' + pct((l.accuracy || 0) / 100, 0) + '</span>'
+        ? '<span class="tag ' + ((l.quizRight / l.quizAnswer * 100) >= 80 ? 'tag-yes' : 'tag-warn') + '">' + pct(l.quizRight / l.quizAnswer, 0) + '</span>'
         : '<span class="tag tag-no">无</span>';
       return '<tr style="opacity:' + (inStat ? 1 : .45) + (isCurrent ? ';outline:2.5px solid #3B82F6;border-radius:12px' : '') + '">' +
         '<td><span class="lesson-name" title="' + esc(cn) + '">' + esc(shortName(cn)) + tag + '</span></td>' +
@@ -2252,6 +2252,29 @@
     });
   }
 
+  /**
+   * 自愈：单讲正确率口径统一为「答对 / 作答」。
+   * 旧数据里 accuracy 存的是源表的「答对 / 推送题数」（分母含未作答题），
+   * 导致同一行里「答对/作答 = 1/1」却显示「正确率 13%」这种自相矛盾。
+   * 此处按 quizRight / quizAnswer 重算，与汇总层 stats.accuracy 口径一致。
+   */
+  function repairLessonAccuracy(d) {
+    var n = 0;
+    (d.students || []).forEach(function (s) {
+      var L = s && s.lessons;
+      if (!L) return;
+      Object.keys(L).forEach(function (cn) {
+        var l = L[cn];
+        if (!l) return;
+        var ans = +l.quizAnswer || 0, right = +l.quizRight || 0;
+        if (ans <= 0) return;                       // 无作答记录，accuracy 保持源表值
+        var expect = Math.round(right / ans * 1000) / 10;
+        if (l.accuracy !== expect) { l.accuracy = expect; n++; }
+      });
+    });
+    return n;
+  }
+
   /** 从云端拉取数据到本机（跨设备更新）。公开文件免令牌即可读取 */
   function loadFromCloud(silent) {
     var token = getToken();
@@ -2272,6 +2295,7 @@
       db = SWB.refresh(json);
       overlayRosterPhones(db); // 补回学情表完整手机号，保证家长端可查询
       repairStudentPhones(db); // 同步自愈主表手机号（防止旧缓存掩码号残留）
+      repairLessonAccuracy(db); // 自愈：单讲正确率统一为「答对/作答」
       lessonScope = ''; keyword = ''; filterGrade = ''; filterMatch = ''; archiveKw = ''; archiveFilter = '';
       sortKey = 'score'; sortDir = 'desc'; clearRanges(); rangePanelOpen = false; selectedIds = {};
       $('#searchInput').value = ''; $('#archiveSearch').value = '';
@@ -3362,6 +3386,13 @@
   bind();
   renderAll();
   fitAllSelects();
+
+  // 存量数据自愈并落盘：单讲正确率统一为「答对/作答」（旧数据为「答对/推送」口径）
+  if (repairLessonAccuracy(db)) {
+    recompute();
+    save();
+    renderAll();
+  }
 
   // 若通过「更新链接」打开，先自动绑定令牌并从云端拉取最新数据（其他设备免手填令牌）
   var fromSyncLink = applySyncFromUrl();
